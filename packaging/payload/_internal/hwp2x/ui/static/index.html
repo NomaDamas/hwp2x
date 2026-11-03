@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HWP 일괄 변환</title>
+<style>
+:root { color-scheme: light; --ink:#242424; --muted:#616161; --bg:#eef2f6; --card:#fff; --line:#d1d1d1; --brand:#0f6cbd; --brand-hover:#115ea3; --tint:#ebf3fc; --danger:#8b2c2c; --ok:#0f6b3c; font-family:"Segoe UI Variable Text","Segoe UI",sans-serif; }
+* { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--ink); }
+.app { min-height:100vh; display:grid; grid-template-columns:240px 1fr; } nav { padding:28px 20px; } nav strong { display:block; font-size:20px; } nav p { color:var(--muted); font-size:14px; line-height:20px; }
+main { margin:16px 16px 16px 0; padding:28px; background:var(--card); border:1px solid #e0e0e0; border-radius:8px; } h1 { margin:0; font-size:28px; line-height:36px; font-weight:600; } .context { margin:4px 0 24px; color:var(--muted); }
+label { display:grid; gap:6px; font-size:14px; font-weight:600; } input { height:36px; border:1px solid var(--line); border-radius:4px; padding:0 10px; font:inherit; } .row { display:grid; grid-template-columns:1fr 120px auto auto; gap:12px; align-items:end; }
+button { min-height:36px; min-width:96px; border-radius:4px; border:1px solid #b3b3b3; background:#fff; font:inherit; cursor:pointer; } button.primary { background:var(--brand); border-color:var(--brand); color:#fff; } button:hover { background:#f5f5f5; } button.primary:hover { background:var(--brand-hover); } button:focus-visible,input:focus-visible { outline:2px solid #000; outline-offset:2px; }
+.check { display:flex; align-items:center; gap:8px; min-height:36px; font-weight:400; } .stats { display:grid; grid-template-columns:repeat(7,1fr); gap:12px; margin:20px 0; } .stats div { background:var(--tint); border-radius:8px; padding:14px; } .stats span,.files small { display:block; color:var(--muted); font-size:12px; font-weight:400; } .stats strong { font-size:20px; }
+progress { width:100%; height:8px; accent-color:var(--brand); } .files { display:grid; margin-top:8px; } .file { display:grid; grid-template-columns:1fr 90px minmax(180px,280px); gap:12px; align-items:center; min-height:52px; border-top:1px solid #f0f0f0; } .status.ok { color:var(--ok); } .status.bad { color:var(--danger); } #message { min-height:24px; }
+@media (max-width:900px) { .app,.row,.stats,.file { grid-template-columns:1fr; } main { margin:0; } button { width:100%; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav aria-label="주요 메뉴"><strong>HWP 일괄 변환</strong><p>컴퓨터에 설치된 한글 프로그램으로 HWP 파일을 같은 위치에 HWPX로 저장합니다.</p></nav>
+  <main>
+    <h1>내 컴퓨터의 HWP 파일</h1>
+    <p class="context">검색 후 변환을 시작하면 진행 수, 진행률, 시간, 용량 변화를 확인할 수 있습니다.</p>
+    <form id="controls">
+      <div class="row">
+        <label>검색할 폴더<input id="root" type="text" required></label>
+        <label>동시 작업<input id="workers" type="number" min="1" max="8" value="2"></label>
+        <button id="scan" type="button">파일 찾기</button>
+        <button id="start" class="primary" type="button">변환 시작</button>
+      </div>
+      <label class="check"><input id="compare" type="checkbox"> rhwp로 원본과 변환본을 비교</label>
+    </form>
+    <section class="stats" aria-label="진행 현황">
+      <div><span>전체</span><strong id="total">0</strong></div><div><span>진행</span><strong id="completed">0</strong></div><div><span>실패</span><strong id="failed">0</strong></div><div><span>진행률</span><strong id="percent">0%</strong></div><div><span>경과</span><strong id="elapsed">0초</strong></div><div><span>남은 시간</span><strong id="remaining">-</strong></div><div><span>용량 변화</span><strong id="delta">0 B</strong></div>
+    </section>
+    <progress id="bar" max="100" value="0" aria-label="변환 진행률"></progress>
+    <p id="message" role="status"></p>
+    <button id="delete" type="button" hidden>무손실로 변환된 HWP 파일 삭제</button>
+    <section id="files" class="files" aria-live="polite"></section>
+  </main>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const bytes = (value) => { const sign = value < 0 ? "-" : value > 0 ? "+" : ""; let amount = Math.abs(value), index = 0; const units = ["B","KB","MB","GB"]; while (amount >= 1024 && index < units.length - 1) { amount /= 1024; index += 1; } return `${sign}${amount.toFixed(index ? 1 : 0)} ${units[index]}`; };
+const duration = (value) => value == null ? "-" : `${Math.ceil(value)}초`;
+async function api(path, body) { const response = await fetch(path, body ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)} : undefined); const payload = await response.json(); if (!response.ok && !payload.started) throw new Error(payload.error || "요청을 처리하지 못했습니다"); return payload; }
+function render(state) {
+  $("root").value ||= state.root || "";
+  for (const key of ["total","completed","failed"]) $(key).textContent = state[key] ?? 0;
+  $("percent").textContent = `${state.percent ?? 0}%`; $("elapsed").textContent = duration(state.elapsed_seconds || 0); $("remaining").textContent = duration(state.estimated_remaining_seconds); $("delta").textContent = state.completed ? bytes(state.size_delta || 0) : "0 B"; $("bar").value = state.percent || 0; $("message").textContent = state.message || ""; $("delete").hidden = !(state.files || []).some((file) => file.lossless === true);
+  $("files").replaceChildren(...(state.files || []).map((file) => { const row = document.createElement("div"); row.className = "file"; const name = document.createElement("div"); name.innerHTML = "<strong></strong><small></small>"; name.firstChild.textContent = file.name; name.lastChild.textContent = file.path; const status = document.createElement("strong"); status.className = `status ${file.status === "실패" ? "bad" : file.status === "완료" || file.status === "무손실" ? "ok" : ""}`; status.textContent = file.status; const detail = document.createElement("small"); detail.textContent = file.message || bytes(file.size_bytes || 0); row.append(name, status, detail); return row; }));
+}
+async function refresh() { try { render(await api("/api/status")); } catch (error) { $("message").textContent = error.message; } }
+$("scan").onclick = async () => { $("message").textContent = "파일을 찾고 있습니다"; render(await api("/api/scan", {root:$("root").value})); };
+$("start").onclick = async () => render(await api("/api/start", {workers:Number($("workers").value), compare:$("compare").checked}));
+$("delete").onclick = async () => { if (confirm("비교 결과 무손실로 확인된 원본 HWP 파일을 삭제할까요?")) render(await api("/api/delete-lossless", {})); };
+refresh(); setInterval(refresh, 1000);
+</script>
+</body>
+</html>

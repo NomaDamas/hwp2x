@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body { margin:0; background:#efefec; color:#18191b; font-family:"Malgun Gothic","Segoe UI",sans-serif; }
+button,input,select { font-family:inherit; } button { cursor:pointer; } * { box-sizing:border-box; }
+.app { height:100vh; display:grid; grid-template-columns:220px 1fr; }
+nav { padding:24px 16px; display:flex; flex-direction:column; gap:8px; }
+nav button { text-align:left; background:transparent; border:0; height:36px; }
+nav button.on { background:#fff; border:1px solid #e7e7e4; }
+main { margin:16px; background:#fff; border:1px solid #e7e7e4; border-radius:10px; padding:24px; overflow:auto; }
+.row,.stats,.files { display:flex; gap:8px; } .stats { display:grid; grid-template-columns:repeat(6,1fr); margin:16px 0; }
+.card { background:#f6f7fe; border-radius:8px; padding:12px; } .card span,small { display:block; color:#71757c; font-size:12px; }
+input,select { height:36px; border:1px solid #dcdcd8; border-radius:6px; padding:0 10px; }
+button { height:36px; border-radius:6px; border:1px solid #dcdcd8; background:#fff; padding:0 12px; font-weight:600; }
+button.primary { background:#4353d6; color:#fff; border-color:#3a49c4; } button:disabled { opacity:.45; }
+.file { display:grid; grid-template-columns:1fr 90px 140px; gap:8px; min-height:48px; align-items:center; border-top:1px solid #f2f2ef; }
+.issue { border-top:1px solid #f2f2ef; padding:8px 0; } h1 { margin:0; font-size:24px; }
+.dialog { position:fixed; inset:0; background:rgba(20,22,26,.32); display:flex; align-items:center; justify-content:center; }
+.panel { width:min(620px,92vw); background:#fff; border-radius:8px; padding:20px; }
+</style>
+</helmet>
+<div class="app">
+  <nav>
+    <strong>hwp2x</strong><small>{{ hancomName }}</small>
+    <button class="{{ overviewOn }}" onClick="{{ showOverview }}">개요</button>
+    <button class="{{ filesOn }}" onClick="{{ showFiles }}">파일</button>
+    <button class="{{ settingsOn }}" onClick="{{ showSettings }}">설정</button>
+    <button class="{{ setupOn }}" onClick="{{ showSetup }}">설치</button>
+  </nav>
+  <main>
+    <sc-if value="{{ overview }}" hint-placeholder-val="{{ true }}">
+      <h1>개요</h1><p>{{ message }}</p>
+      <div class="row"><input id="root" value="{{ root }}" aria-label="검색할 폴더"><button onClick="{{ scan }}">파일 찾기</button><button class="primary" onClick="{{ start }}">변환 시작</button><button onClick="{{ pause }}">{{ pauseLabel }}</button><button onClick="{{ detect }}">다시 감지</button></div>
+      <section class="stats" aria-label="진행 현황"><div class="card"><span>전체</span><strong>{{ total }}</strong></div><div class="card"><span>진행</span><strong>{{ completed }}</strong></div><div class="card"><span>진행률</span><strong>{{ percent }}</strong></div><div class="card"><span>경과</span><strong>{{ elapsed }}</strong></div><div class="card"><span>남은 시간</span><strong>{{ remaining }}</strong></div><div class="card"><span>용량 변화</span><strong>{{ sizeDelta }}</strong></div></section>
+      <section class="issues"><h2>확인이 필요한 파일</h2><sc-for list="{{ issues }}" as="issue"><div class="issue"><strong>{{ issue.name }}</strong><small>{{ issue.statusText }} · {{ issue.message }}</small></div></sc-for></section>
+    </sc-if>
+    <sc-if value="{{ filesPage }}" hint-placeholder-val="{{ false }}">
+      <h1>파일</h1>
+      <button class="primary" onClick="{{ openDelete }}" disabled="{{ deleteDisabled }}">무손실 원본 백업 후 삭제</button>
+      <section class="files"><sc-for list="{{ files }}" as="file"><div class="file"><div><strong>{{ file.name }}</strong><small>{{ file.dir }}</small></div><div>{{ file.sizeText }}</div><div class="status" style="color:{{ file.color }}">{{ file.statusText }}</div></div></sc-for></section>
+    </sc-if>
+    <sc-if value="{{ settings }}" hint-placeholder-val="{{ false }}">
+      <h1>설정</h1>
+      <label>동시 작업 수 <input id="workers" value="{{ workers }}" aria-label="동시 작업 수"></label>
+      <label>백업 위치 <input id="backup" value="{{ backupDir }}" aria-label="백업 위치"></label>
+      <label><input type="checkbox" checked="{{ autoBackup }}" onChange="{{ toggleBackup }}"> 무손실 원본 자동 백업 후 삭제</label>
+      <button class="primary" onClick="{{ saveSettings }}">설정 저장</button>
+    </sc-if>
+    <sc-if value="{{ setup }}" hint-placeholder-val="{{ false }}">
+      <h1>설치 확인</h1><p>{{ hancomName }}</p>
+      <button onClick="{{ detect }}">한글 다시 감지</button>
+      <a href="./hwp2x-1-Setup.dc.html">설치 화면 시안</a>
+    </sc-if>
+    <p>{{ liveError }}</p>
+  </main>
+</div>
+<sc-if value="{{ dialog }}" hint-placeholder-val="{{ false }}">
+  <div class="dialog" role="dialog" aria-modal="true"><div class="panel">
+    <h2>무손실 원본 백업 후 삭제</h2><p>검증에서 차이가 없던 파일만 백업 폴더로 옮깁니다. 대상 {{ ok }}개, 차이 {{ diff }}개와 실패 {{ fail }}개는 남깁니다.</p>
+    <label><input type="checkbox" checked="{{ consent }}" onChange="{{ toggleConsent }}"> 검증 리포트를 확인했으며 원본 처리에 동의합니다</label>
+    <button class="primary" disabled="{{ noConsent }}" onClick="{{ confirmDelete }}">백업 후 삭제</button><button onClick="{{ closeDelete }}">취소</button>
+  </div></div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const Live = {
+  async api(path, body) {
+    const response = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : undefined);
+    const payload = await response.json();
+    if (!response.ok && response.status !== 202) throw new Error(payload.error || "요청을 처리하지 못했습니다");
+    return payload;
+  }
+};
+class Component extends DCLogic {
+  live = null; liveError = ""; page = "overview"; dialog = false; consent = false;
+  componentDidMount() { this.refresh(); this.timer = setInterval(() => this.refresh(), 1000); }
+  componentWillUnmount() { clearInterval(this.timer); }
+  async refresh() { try { this.live = await Live.api("/api/state"); this.liveError = ""; } catch (error) { this.liveError = error.message; } this.forceUpdate(); }
+  kb(value) { const units = ["B","KB","MB","GB"]; let amount = Math.abs(value || 0), index = 0; while (amount >= 1024 && index < units.length - 1) { amount /= 1024; index += 1; } return `${amount.toFixed(index ? 1 : 0)} ${units[index]}`; }
+  hms(value) { const seconds = Math.max(0, Math.round(value || 0)); return [Math.floor(seconds / 3600), Math.floor(seconds % 3600 / 60), seconds % 60].map((part) => String(part).padStart(2, "0")).join(":"); }
+  renderVals() {
+    const data = this.live || { phase:"idle", files:[], issues:[], counts:{}, total:0, completed:0, percent:0, elapsed:0, remaining:null, sizeDelta:0, hancomName:"확인 중", workers:1, message:"준비 중", root:"", backupDir:"", autoBackup:false };
+    const counts = data.counts || {};
+    const text = { wait:"대기", conv:"변환 중", ok:"무손실", diff:"일부 차이", fail:"실패", deleted:"백업 후 삭제됨", skipped:"건너뜀" };
+    const colors = { ok:"#1f9d6b", diff:"#d89b1c", fail:"#d8473b", conv:"#4353d6", wait:"#a2a6ad", deleted:"#6f9a83", skipped:"#a2a6ad" };
+    const files = (data.files || []).map((file) => ({ ...file, sizeText:this.kb(file.size), statusText:text[file.status] || file.status, color:colors[file.status] || "#5b5f66" }));
+    return {
+      overview:this.page === "overview", filesPage:this.page === "files", settings:this.page === "settings", setup:this.page === "setup", dialog:this.dialog,
+      overviewOn:this.page === "overview" ? "on" : "", filesOn:this.page === "files" ? "on" : "", settingsOn:this.page === "settings" ? "on" : "", setupOn:this.page === "setup" ? "on" : "",
+      showOverview:() => { this.page = "overview"; this.forceUpdate(); }, showFiles:() => { this.page = "files"; this.forceUpdate(); }, showSettings:() => { this.page = "settings"; this.forceUpdate(); }, showSetup:() => { this.page = "setup"; this.forceUpdate(); },
+      message:data.message, root:data.root || "", hancomName:data.hancomName, total:data.total || 0, completed:data.completed || 0, percent:`${data.percent || 0}%`, elapsed:this.hms(data.elapsed), remaining:data.remaining == null ? "-" : this.hms(data.remaining), sizeDelta:`${data.sizeDelta > 0 ? "+" : ""}${this.kb(data.sizeDelta)}`,
+      files, issues:(data.issues || []).map((file) => ({ ...file, statusText:text[file.status] || file.status })), workers:data.workers, backupDir:data.backupDir || "", autoBackup:!!data.autoBackup, consent:this.consent, noConsent:!this.consent,
+      ok:counts.ok || 0, diff:counts.diff || 0, fail:counts.fail || 0, deleteDisabled:!(counts.ok > 0), pauseLabel:data.phase === "paused" ? "계속" : "일시정지", liveError:this.liveError,
+      scan: async () => { this.live = await Live.api("/api/scan", { root:document.querySelector("#root").value }); this.forceUpdate(); },
+      start: async () => { this.live = await Live.api("/api/start", { workers:data.workers, compare:true, autoBackup:data.autoBackup }); this.forceUpdate(); },
+      pause: async () => { this.live = data.phase === "paused" ? await Live.api("/api/start", { workers:data.workers, compare:true }) : await Live.api("/api/pause", {}); this.forceUpdate(); },
+      detect: async () => { this.live = await Live.api("/api/detect", {}); this.forceUpdate(); },
+      toggleBackup: () => { data.autoBackup = !data.autoBackup; this.live = data; this.forceUpdate(); }, toggleConsent: () => { this.consent = !this.consent; this.forceUpdate(); },
+      saveSettings: async () => { this.live = await Live.api("/api/settings", { workers:Number(document.querySelector("#workers").value), backupDir:document.querySelector("#backup").value, autoBackup:data.autoBackup }); this.forceUpdate(); },
+      openDelete: () => { this.dialog = true; this.forceUpdate(); }, closeDelete: () => { this.dialog = false; this.forceUpdate(); },
+      confirmDelete: async () => { this.live = await Live.api("/api/backup-delete", { consent:true, backupDir:data.backupDir }); this.dialog = false; this.forceUpdate(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

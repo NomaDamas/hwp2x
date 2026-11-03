@@ -8,10 +8,11 @@ version = "0.1.0"
 description = "로컬 HWP 파일을 한컴으로 HWPX로 일괄 변환하는 Windows 앱"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = ["pywebview>=5"]
 
 [project.optional-dependencies]
-windows = ["pywin32>=306"]
+windows = ["pywin32>=306", "pyinstaller>=6"]
+linux = ["pyinstaller>=6"]
 compare = ["rhwp-python==0.8.1"]
 test = ["pytest>=8"]
 
