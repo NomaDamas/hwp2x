@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import os
 import threading
+import webbrowser
 from typing import Any, Callable
 
 from hwp2x.ui.server import AppServer
@@ -24,6 +26,14 @@ class DesktopApp:
 
 
 def _webview_window(url: str, on_close: Callable[[], None]) -> None:
+    if os.name == "nt" and not _dotnet_runtime_installed():
+        webbrowser.open(url)
+        try:
+            input("hwp2x 창을 닫으려면 Enter를 누르세요.\n")
+        finally:
+            on_close()
+        return
+
     try:
         import webview
     except ImportError as exc:
@@ -31,3 +41,12 @@ def _webview_window(url: str, on_close: Callable[[], None]) -> None:
     window = webview.create_window("hwp2x", url, width=1280, height=860)
     window.events.closed += on_close
     webview.start()
+
+
+def _dotnet_runtime_installed() -> bool:
+    windir = os.environ.get("WINDIR", r"C:\Windows")
+    framework = os.path.join(windir, "Microsoft.NET", "Framework64")
+    try:
+        return any(name.startswith("v4") for name in os.listdir(framework))
+    except OSError:
+        return False

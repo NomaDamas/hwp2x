@@ -50,6 +50,24 @@ def _server_url(server: AppServer) -> str:
     return f"http://{host}:{port}"
 
 
+def test_desktop_app_server_port_responds_before_window_closes(tmp_path: Path) -> None:
+    observed: dict[str, object] = {}
+
+    def window_factory(url: str, on_close: object) -> None:
+        with urllib.request.urlopen(url.replace("/app.html", "/api/state"), timeout=10) as response:
+            observed["status"] = response.status
+            observed["state"] = json.loads(response.read().decode("utf-8"))
+        assert callable(on_close)
+        on_close()
+
+    server = AppServer("127.0.0.1", 0, tmp_path, 1)
+    app = __import__("hwp2x.ui.desktop", fromlist=["DesktopApp"]).DesktopApp(server, window_factory)
+    app.run()
+    assert observed["status"] == 200
+    assert observed["state"]["phase"] == "idle"
+    assert app.thread is not None
+    app.thread.join(timeout=10)
+    assert not app.thread.is_alive()
 def test_mocked_windows_flow_scans_converts_verifies_and_backs_up(tmp_path: Path) -> None:
     source = tmp_path / "문서.hwp"
     source.write_bytes(b"fixture hwp")

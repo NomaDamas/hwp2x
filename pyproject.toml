@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 dependencies = ["pywebview>=5"]
 
 [project.optional-dependencies]
-windows = ["pywin32>=306", "pyinstaller>=6"]
+windows = ["pywin32>=306", "pyinstaller>=6", "cffi>=1.17"]
 linux = ["pyinstaller>=6"]
 compare = ["rhwp-python==0.8.1"]
 test = ["pytest>=8"]

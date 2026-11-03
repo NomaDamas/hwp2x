@@ -19,6 +19,6 @@ exe = EXE(
     [],
     exclude_binaries=True,
     name="hwp2x",
-    console=False,
+    console=True,
 )
 coll = COLLECT(exe, a.binaries, a.datas, name="hwp2x")
