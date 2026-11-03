@@ -2,6 +2,6 @@
 Type=Application
 Name=hwp2x
 Comment=로컬 HWP 파일을 HWPX로 일괄 변환합니다
-Exec=hwp2x
+Exec=/opt/hwp2x/hwp2x
 Terminal=false
 Categories=Office;Utility;
