@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hwp2x"
+version = "0.1.0"
+description = "로컬 HWP 파일을 한컴으로 HWPX로 일괄 변환하는 Windows 앱"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+windows = ["pywin32>=306"]
+compare = ["rhwp-python==0.8.1"]
+test = ["pytest>=8"]
+
+[project.scripts]
+hwp2x = "hwp2x.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "windows_integration: requires Windows and an installed Hancom office",
+]
+
+[tool.setuptools.packages.find]
+include = ["hwp2x*"]
