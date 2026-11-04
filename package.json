@@ -1,6 +1,6 @@
 {
   "name": "hwp2x",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "author": "hwp2x <chloveyou@gmail.com>",
   "description": "로컬 HWP 파일을 HWPX로 일괄 변환하는 Electron 앱",
@@ -10,23 +10,62 @@
     "start": "npm run build && electron .",
     "typecheck": "tsc -p electron/tsconfig.json --noEmit",
     "test": "npm run build && node --test electron/dist/engine.test.js",
-    "dist": "npm test && electron-builder --win nsis --linux deb --publish never"
+    "dist": "npm test && electron-builder --win nsis portable --linux deb --publish never"
   },
   "build": {
     "appId": "dev.hwp2x.app",
     "productName": "hwp2x",
-    "files": ["electron/dist/**", "electron/design/**", "package.json"],
-    "linux": { "target": ["deb"], "category": "Office" },
-    "win": { "target": ["nsis"] },
-    "nsis": { "oneClick": false, "perMachine": true, "allowToChangeInstallationDirectory": true }
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/dist/**",
+      "!electron/dist/*.test.js",
+      "electron/design/**",
+      "package.json",
+      "!node_modules/onnxruntime-node/**",
+      "!node_modules/onnxruntime-common/**",
+      "!node_modules/@huggingface/**",
+      "!node_modules/@hyzyla/**",
+      "!node_modules/pdfjs-dist/**",
+      "!node_modules/sharp/**",
+      "!node_modules/@img/**",
+      "!node_modules/@napi-rs/**"
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Office"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "hwp2x-${version}-portable-${arch}.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "electron": "^41.0.0",
     "electron-builder": "^26.18.0",
+    "playwright": "1.58.2",
     "typescript": "^5.9.0"
   },
   "allowScripts": {
     "electron@41.10.7": true
+  },
+  "dependencies": {
+    "kordoc": "4.24.42",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }
