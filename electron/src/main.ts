@@ -8,9 +8,14 @@ const engine = new Engine();
 const page = path.join(__dirname, "..", "design", "app.html");
 let window: BrowserWindow;
 
+function allowed(url: string | undefined): boolean {
+  if (!url) return false;
+  const parsed = new URL(url);
+  return parsed.protocol === "file:" && parsed.hash === "" && decodeURIComponent(parsed.pathname) === page;
+}
 function register(channel: string, handler: (...args: unknown[]) => unknown): void {
   ipcMain.handle(`hwp2x:${channel}`, (event, ...args) => {
-    if (event.sender !== window.webContents || event.senderFrame?.url !== pathToFileURL(page).href) {
+    if (event.sender !== window.webContents || event.senderFrame !== event.sender.mainFrame || !allowed(event.senderFrame.url)) {
       throw new Error("허용되지 않은 화면 요청입니다");
     }
     return handler(...args);
