@@ -1,0 +1,32 @@
+{
+  "name": "hwp2x",
+  "version": "0.1.0",
+  "private": true,
+  "author": "hwp2x <chloveyou@gmail.com>",
+  "description": "로컬 HWP 파일을 HWPX로 일괄 변환하는 Electron 앱",
+  "main": "electron/dist/main.js",
+  "scripts": {
+    "build": "tsc -p electron/tsconfig.json",
+    "start": "npm run build && electron .",
+    "typecheck": "tsc -p electron/tsconfig.json --noEmit",
+    "test": "npm run build && node --test electron/dist/engine.test.js",
+    "dist": "npm test && electron-builder --win nsis --linux deb --publish never"
+  },
+  "build": {
+    "appId": "dev.hwp2x.app",
+    "productName": "hwp2x",
+    "files": ["electron/dist/**", "electron/design/**", "package.json"],
+    "linux": { "target": ["deb"], "category": "Office" },
+    "win": { "target": ["nsis"] },
+    "nsis": { "oneClick": false, "perMachine": true, "allowToChangeInstallationDirectory": true }
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "electron": "^41.0.0",
+    "electron-builder": "^26.18.0",
+    "typescript": "^5.9.0"
+  },
+  "allowScripts": {
+    "electron@41.10.7": true
+  }
+}

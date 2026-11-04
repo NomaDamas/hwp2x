@@ -8,3 +8,7 @@ build/
 # 빌드가 다시 만드는 실행 파일 묶음
 packaging/payload/
 packaging/payload-win/
+
+dist/
+dist-electron/
+node_modules/
