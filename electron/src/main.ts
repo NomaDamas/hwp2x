@@ -19,7 +19,7 @@ function createWindow(): void {
       nodeIntegration: false,
     },
   });
-  window.loadFile(path.join(__dirname, "..", "..", "electron", "design", "hwp2x-2-App.dc.html"));
+  window.loadFile(path.join(__dirname, "..", "..", "electron", "design", "app.html"));
 }
 
 app.whenReady().then(() => {
@@ -32,7 +32,8 @@ app.whenReady().then(() => {
     await engine.scan(root);
     return engine.snapshot();
   });
-  ipcMain.handle("hwp2x:start", async () => {
+  ipcMain.handle("hwp2x:start", async (_event, options?: { makeMarkdown?: boolean }) => {
+    engine.state.makeMarkdown = options?.makeMarkdown !== false;
     void engine.convert();
     return engine.snapshot();
   });

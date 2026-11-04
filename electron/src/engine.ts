@@ -1,5 +1,9 @@
-import { readdir, stat, copyFile, unlink, mkdir } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { readdir, readFile, stat, copyFile, unlink, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { promisify } from "node:util";
+
+const run = promisify(execFile);
 
 export type FileStatus = "wait" | "conv" | "ok" | "diff" | "fail" | "deleted" | "skipped";
 
@@ -20,6 +24,7 @@ export interface EngineState {
   files: HwpItem[];
   workers: number;
   autoBackup: boolean;
+  makeMarkdown: boolean;
   backupDir: string;
   message: string;
   startedAt: number;
@@ -34,6 +39,7 @@ export class Engine {
     files: [],
     workers: 2,
     autoBackup: true,
+    makeMarkdown: true,
     backupDir: "",
     message: "준비됨",
     startedAt: 0,
@@ -115,10 +121,21 @@ export class Engine {
       const same = file.size === info.size;
       file.status = same ? "ok" : "diff";
       file.message = same ? "차이 없음" : "내용 차이가 있습니다";
+      if (this.state.makeMarkdown) await this.writeMarkdown(file);
       if (same && this.state.autoBackup) await this.backup(file);
     } catch (error) {
       file.status = "fail";
       file.message = error instanceof Error ? error.message : "변환 실패";
+    }
+  }
+
+  private async writeMarkdown(file: HwpItem): Promise<void> {
+    const markdown = file.source.replace(/\.hwp$/i, ".md");
+    try {
+      await run("npx", ["--yes", "kordoc", file.source, "-o", markdown], { timeout: 120_000 });
+    } catch {
+      const text = await readFile(file.source, "utf8").catch(() => "");
+      await writeFile(markdown, `# ${file.name}\n\n${text}\n`, "utf8");
     }
   }
 

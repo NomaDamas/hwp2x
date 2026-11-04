@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hwp2x</title>
+<style>
+:root { color:#18191b; background:#efefec; font-family:"Pretendard Variable","Pretendard","Malgun Gothic","Segoe UI",sans-serif; font-feature-settings:"tnum"; }
+* { box-sizing:border-box; } body { margin:0; height:100vh; background:#efefec; }
+button,input { font:inherit; } button { cursor:pointer; }
+.app { height:100vh; display:grid; grid-template-columns:228px minmax(0,1fr); }
+.side { display:flex; flex-direction:column; padding:18px 10px; gap:4px; }
+.brand { display:flex; gap:8px; align-items:center; padding:0 12px 16px; font-weight:700; }
+.mark { width:7px; height:16px; border-radius:2px; background:#18191b; box-shadow:9px 0 #4353d6; }
+.nav { position:relative; height:38px; border:0; border-radius:6px; background:transparent; text-align:left; padding:0 12px 0 16px; display:flex; justify-content:space-between; align-items:center; }
+.nav.on { background:rgba(0,0,0,.06); font-weight:600; } .nav.on:before { content:""; position:absolute; left:4px; top:11px; width:3px; height:16px; border-radius:2px; background:#4353d6; }
+.nav b { color:#71757c; font-size:12px; font-weight:500; }
+.grow { flex:1; } .engine { border-top:1px solid #e0e0dc; padding:12px; font-size:12px; color:#71757c; }
+.main { background:#fafaf8; border-left:1px solid #e2e2de; border-top:1px solid #e2e2de; border-top-left-radius:8px; padding:28px 32px; overflow:auto; }
+h1 { margin:0; font-size:30px; letter-spacing:-.025em; } .sub { color:#71757c; margin:8px 0 16px; }
+.row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+input { height:36px; border:1px solid #dcdcd8; border-radius:6px; padding:0 10px; background:#fff; min-width:240px; flex:1; }
+.btn { height:36px; border:1px solid #dcdcd8; border-radius:6px; background:#fff; padding:0 14px; font-weight:600; }
+.btn.primary { background:#4353d6; color:#fff; border-color:#3a49c4; } .btn:disabled { opacity:.45; }
+.bar { height:12px; border-radius:3px; background:#ececea; overflow:hidden; margin:16px 0; } .bar i { display:block; height:100%; background:#4353d6; }
+.stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.card { background:#fff; border:1px solid #e7e7e4; border-radius:10px; padding:14px 16px; } .card span { color:#71757c; font-size:12px; } .card strong { display:block; margin-top:4px; font-size:26px; color:#4353d6; }
+.list { margin-top:16px; background:#fff; border:1px solid #e7e7e4; border-radius:10px; overflow:hidden; }
+.item { display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:12px; align-items:center; padding:11px 16px; border-bottom:1px solid #f2f2ef; }
+.item small { display:block; color:#71757c; } .pill { font-size:11px; font-weight:600; padding:3px 8px; border-radius:999px; background:#eceefc; color:#2f3bb0; }
+.check { display:flex; gap:8px; align-items:center; margin:14px 0; font-weight:600; }
+@media (max-width:760px) { .app { grid-template-columns:1fr; } .side { flex-direction:row; overflow:auto; } .grow,.engine { display:none; } .stats { grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><i class="mark"></i> hwp2x</div>
+    <button class="nav on" id="tab-work">작업 <b id="count">0</b></button>
+    <div class="grow"></div>
+    <div class="engine" id="engine">변환 준비</div>
+  </aside>
+  <main class="main">
+    <h1>HWP를 HWPX로 변환</h1>
+    <p class="sub" id="message">폴더를 고르고 변환을 시작하세요.</p>
+    <div class="row">
+      <input id="root" readonly placeholder="검색할 폴더">
+      <button class="btn" id="pick">폴더 선택</button>
+      <button class="btn" id="scan">파일 찾기</button>
+      <button class="btn primary" id="start">변환 시작</button>
+      <button class="btn" id="pause">일시정지</button>
+      <button class="btn" id="backup" disabled>무손실 원본 백업 후 삭제</button>
+    </div>
+    <label class="check"><input type="checkbox" id="markdown" checked> AI가 읽기 편한 md 파일도 생성</label>
+    <div class="bar"><i id="fill" style="width:0%"></i></div>
+    <section class="stats">
+      <div class="card"><span>전체</span><strong id="total">0</strong></div>
+      <div class="card"><span>완료</span><strong id="done">0</strong></div>
+      <div class="card"><span>진행률</span><strong id="percent">0%</strong></div>
+      <div class="card"><span>무손실</span><strong id="ok">0</strong></div>
+    </section>
+    <section class="list" id="files"></section>
+  </main>
+</div>
+<script>
+const api = window.hwp2x;
+const $ = (id) => document.getElementById(id);
+const text = { wait:"대기", conv:"변환 중", ok:"무손실", diff:"차이", fail:"실패", deleted:"백업 후 삭제", skipped:"건너뜀" };
+let root = "";
+function kb(value) { const units=["B","KB","MB","GB"]; let amount=Math.abs(value||0), index=0; while (amount>=1024 && index<units.length-1) { amount/=1024; index+=1; } return `${amount.toFixed(index?1:0)} ${units[index]}`; }
+function render(state) {
+  $("message").textContent = state.message || "";
+  $("count").textContent = state.total || 0;
+  $("total").textContent = state.total || 0;
+  $("done").textContent = state.completed || 0;
+  $("percent").textContent = `${state.percent || 0}%`;
+  $("fill").style.width = `${state.percent || 0}%`;
+  $("ok").textContent = (state.counts && (state.counts.ok + state.counts.deleted)) || 0;
+  $("engine").textContent = state.hancomName || "";
+  $("backup").disabled = !(state.counts && state.counts.ok > 0);
+  $("files").innerHTML = (state.files || []).map((file) => `<div class="item"><div><strong>${file.name}</strong><small>${file.dir}</small></div><small>${kb(file.size)}</small><span class="pill">${text[file.status] || file.status}</span></div>`).join("") || `<div class="item">검색된 파일이 없습니다.</div>`;
+}
+async function refresh() { if (api) render(await api.state()); }
+$("pick").onclick = async () => { root = await api.pickFolder(); $("root").value = root; };
+$("scan").onclick = async () => { if (root) render(await api.scan(root)); };
+$("start").onclick = async () => { render(await api.start({ makeMarkdown:$("markdown").checked })); };
+$("pause").onclick = async () => render(await api.pause());
+$("backup").onclick = async () => { if (confirm("검증에서 차이가 없던 원본만 백업 폴더로 옮깁니다.")) render(await api.backup()); };
+setInterval(refresh, 700); refresh();
+</script>
+</body>
+</html>
