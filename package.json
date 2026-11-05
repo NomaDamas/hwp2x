@@ -9,7 +9,7 @@
     "build": "tsc -p electron/tsconfig.json",
     "start": "npm run build && electron .",
     "typecheck": "tsc -p electron/tsconfig.json --noEmit",
-    "test": "npm run build && node --test electron/dist/engine.test.js",
+    "test": "npm run build && node --test electron/dist/engine.test.js electron/dist/origin.test.js",
     "dist": "npm test && electron-builder --win nsis portable --linux deb --publish never"
   },
   "build": {

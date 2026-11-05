@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain, dialog, shell } from "electron";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { isAppPage } from "./origin";
 import { mkdir, writeFile } from "node:fs/promises";
 import { Engine } from "./engine";
 
@@ -8,14 +8,9 @@ const engine = new Engine();
 const page = path.join(__dirname, "..", "design", "app.html");
 let window: BrowserWindow;
 
-function allowed(url: string | undefined): boolean {
-  if (!url) return false;
-  const parsed = new URL(url);
-  return parsed.protocol === "file:" && parsed.hash === "" && decodeURIComponent(parsed.pathname) === page;
-}
 function register(channel: string, handler: (...args: unknown[]) => unknown): void {
   ipcMain.handle(`hwp2x:${channel}`, (event, ...args) => {
-    if (event.sender !== window.webContents || event.senderFrame !== event.sender.mainFrame || !allowed(event.senderFrame.url)) {
+    if (event.sender !== window.webContents || event.senderFrame !== event.sender.mainFrame || !isAppPage(event.senderFrame.url, page)) {
       throw new Error("허용되지 않은 화면 요청입니다");
     }
     return handler(...args);
@@ -40,7 +35,7 @@ app.whenReady().then(async () => {
     webPreferences: { preload: path.join(__dirname, "preload.js"), contextIsolation: true, nodeIntegration: false, sandbox: true },
   });
   window.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
-  window.webContents.on("will-navigate", (event, url) => { if (url !== pathToFileURL(page).href) event.preventDefault(); });
+  window.webContents.on("will-navigate", (event, url) => { if (!isAppPage(url, page)) event.preventDefault(); });
   register("state", () => engine.snapshot());
   register("pick-folder", async () => {
     const result = await dialog.showOpenDialog(window, { properties: ["openDirectory"] });
