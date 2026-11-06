@@ -9,12 +9,13 @@
     "build": "tsc -p electron/tsconfig.json",
     "start": "npm run build && electron .",
     "typecheck": "tsc -p electron/tsconfig.json --noEmit",
-    "test": "npm run build && node --test electron/dist/engine.test.js electron/dist/origin.test.js",
+    "test": "npm run build && node --test electron/dist/engine.test.js electron/dist/origin.test.js electron/dist/hancom.test.js electron/dist/logger.test.js electron/dist/report.test.js electron/folder-start.test.cjs",
     "dist": "npm test && electron-builder --win nsis portable --linux deb --publish never"
   },
   "build": {
     "appId": "dev.hwp2x.app",
     "productName": "hwp2x",
+    "electronLanguages": ["ko", "en-US"],
     "directories": {
       "output": "dist-electron"
     },
@@ -22,6 +23,8 @@
       "electron/dist/**",
       "!electron/dist/*.test.js",
       "electron/design/**",
+      "!electron/design/hwp2x-2-App.dc.html",
+      "electron/icons/icon.png",
       "package.json",
       "!node_modules/onnxruntime-node/**",
       "!node_modules/onnxruntime-common/**",
@@ -30,22 +33,34 @@
       "!node_modules/pdfjs-dist/**",
       "!node_modules/sharp/**",
       "!node_modules/@img/**",
+      "!node_modules/react-dom/**",
+      "!node_modules/@modelcontextprotocol/**",
+      "!node_modules/zod/**",
+      "!node_modules/hono/**",
+      "!node_modules/ajv/**",
+      "!node_modules/typescript/**",
+      "!node_modules/playwright/**",
+      "!node_modules/playwright-core/**",
       "!node_modules/@napi-rs/**"
     ],
     "linux": {
       "target": [
         "deb"
       ],
-      "category": "Office"
+      "category": "Office",
+      "icon": "electron/icons/png"
     },
     "win": {
       "target": [
         "nsis",
         "portable"
-      ]
+      ],
+      "icon": "electron/icons/icon.ico"
     },
     "portable": {
-      "artifactName": "hwp2x-${version}-portable-${arch}.exe"
+      "artifactName": "hwp2x-${version}-portable-${arch}.exe",
+      "useZip": true,
+      "splashImage": "electron/icons/portable-splash.bmp"
     },
     "nsis": {
       "oneClick": false,

@@ -25,10 +25,11 @@ button,input{font-family:inherit}
   <div style="flex:1;min-height:0;display:grid;grid-template-columns:{{ shellCols }};grid-template-rows:{{ shellRows }}">
 
     <div style="display:flex;flex-direction:{{ sideDir }};flex-wrap:{{ sideWrap }};padding:8px 10px 14px;gap:2px">
+      <div style="height:48px;padding:0 8px 0 10px;display:flex;align-items:center;margin-bottom:6px;flex-shrink:0"><img src="./assets/logo/hwp2x-logo.svg" alt="hwp2x" width="100" height="32" style="display:block"></img></div>
       <sc-for list="{{ nav }}" as="n" hint-placeholder-count="3">
         <div onClick="{{ n.go }}" style="position:relative;height:38px;padding:0 12px 0 16px;display:flex;align-items:center;justify-content:space-between;border-radius:6px;font-size:14px;font-weight:{{ n.fw }};cursor:pointer;background:{{ n.bg }}" style-hover="background:rgba(0,0,0,.045)">
           <span style="position:absolute;left:4px;top:11px;width:3px;height:16px;border-radius:2px;background:{{ n.pill }}"></span>
-          <span>{{ n.label }}</span>
+          <span style="display:flex;align-items:center;gap:10px"><span aria-hidden="true" style="width:18px;height:18px;flex-shrink:0;background:{{ n.iconColor }};-webkit-mask:url({{ n.icon }}) center/18px 18px no-repeat;mask:url({{ n.icon }}) center/18px 18px no-repeat"></span>{{ n.label }}</span>
           <span style="font-size:12px;color:#71757c;font-weight:500">{{ n.count }}</span>
         </div>
       </sc-for>
@@ -81,17 +82,9 @@ button,input{font-family:inherit}
       <sc-if value="{{ showIdle }}" hint-placeholder-val="{{ true }}">
         <div style="flex:1;padding:{{ idlePad }};display:flex;flex-direction:column;justify-content:center;gap:18px;max-width:760px">
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">
-                <div style="position:relative;width:52px;height:64px;border-radius:6px;background:#fff;border:1px solid #dcdcd8;clip-path:polygon(0 0,70% 0,100% 22%,100% 100%,0 100%);display:flex;align-items:flex-end;padding:8px">
-                  <span style="position:absolute;top:0;right:0;width:16px;height:14px;background:#ececea;border-bottom-left-radius:4px"></span>
-                  <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:#5b5f66">.hwp</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:6px">
-                  <span style="width:5px;height:5px;border-radius:50%;background:#c9cbe9"></span><span style="width:5px;height:5px;border-radius:50%;background:#a8aee6"></span><span style="width:5px;height:5px;border-radius:50%;background:#7a84e0"></span>
-                </div>
-                <div style="position:relative;width:52px;height:64px;border-radius:6px;background:#4353d6;clip-path:polygon(0 0,70% 0,100% 22%,100% 100%,0 100%);display:flex;align-items:flex-end;padding:8px;box-shadow:0 8px 20px rgba(67,83,214,.25)">
-                  <span style="position:absolute;top:0;right:0;width:16px;height:14px;background:#7f8ae6;border-bottom-left-radius:4px"></span>
-                  <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:#fff">.hwpx</span>
-                </div>
+                <img src="./assets/file-types/file-hwp.svg" alt="HWP 문서" width="52" height="64" style="display:block"></img>
+                <span aria-hidden="true" style="width:20px;height:20px;background:#7a84e0;-webkit-mask:url(./assets/icons/convert.svg) center/20px 20px no-repeat;mask:url(./assets/icons/convert.svg) center/20px 20px no-repeat"></span>
+                <img src="./assets/file-types/file-hwpx.svg" alt="HWPX 문서" width="52" height="64" style="display:block;filter:drop-shadow(0 8px 14px rgba(67,83,214,.22))"></img>
               </div>
               <div style="font-size:{{ headSize }};font-weight:700;letter-spacing:-.03em;line-height:1.24;text-wrap:balance">{{ t.readyHead }}</div>
           <div style="font-size:15px;line-height:1.65;color:#5b5f66;max-width:520px">{{ t.readyBody }}</div>
@@ -203,7 +196,7 @@ button,input{font-family:inherit}
                 <sc-for list="{{ issues }}" as="is" hint-placeholder-count="5">
                   <div onClick="{{ is.go }}" style="padding:10px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;border-bottom:1px solid #f2f2ef;cursor:pointer" style-hover="background:#fafaf8">
                     <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ is.name }}</span><span style="font-size:12px;color:#71757c">{{ is.reason }}</span></div>
-                    <span style="font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;background:{{ is.bg }};color:{{ is.fg }};white-space:nowrap">{{ is.status }}</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px 2px 3px;border-radius:999px;background:{{ is.bg }};color:{{ is.fg }};white-space:nowrap"><span aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;background:url({{ is.icon }}) center/14px 14px no-repeat"></span>{{ is.status }}</span>
                   </div>
                 </sc-for>
                 <sc-if value="{{ noIssues }}" hint-placeholder-val="{{ false }}">
@@ -244,10 +237,11 @@ button,input{font-family:inherit}
                   <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
                     <span style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ row.name }}</span>
                     <span style="font-size:11px;color:#8a8e95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'JetBrains Mono',monospace">{{ row.dir }}</span>
+                    <sc-if value="{{ row.hasReason }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:{{ row.fg }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ row.reason }}</span></sc-if>
                   </div>
                   <div style="text-align:right;font-size:13px">{{ row.size }}</div>
                   <div style="text-align:right;font-size:13px;color:#71757c">{{ row.xsize }}</div>
-                  <div><span style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap;background:{{ row.bg }};color:{{ row.fg }}"><span style="width:5px;height:5px;border-radius:50%;background:{{ row.dot }}"></span>{{ row.status }}</span></div>
+                  <div><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 9px 2px 3px;border-radius:999px;white-space:nowrap;background:{{ row.bg }};color:{{ row.fg }}"><span aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;background:url({{ row.icon }}) center/14px 14px no-repeat"></span>{{ row.status }}</span></div>
                 </div>
               </sc-for>
               <div style="padding:14px 16px;font-size:12px;color:#71757c">{{ rowsMore }}</div>
@@ -258,7 +252,7 @@ button,input{font-family:inherit}
           <div style="width:{{ detailW }};flex-shrink:0;border-left:1px solid #e7e7e4;background:#fff;display:flex;flex-direction:column">
             <div style="padding:20px 20px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;border-bottom:1px solid #efefec">
               <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
-                <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:{{ detail.bg }};color:{{ detail.fg }}"><span style="width:5px;height:5px;border-radius:50%;background:{{ detail.dot }}"></span>{{ detail.status }}</span>
+                <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 9px 2px 3px;border-radius:999px;background:{{ detail.bg }};color:{{ detail.fg }}"><span aria-hidden="true" style="width:14px;height:14px;flex-shrink:0;background:url({{ detail.icon }}) center/14px 14px no-repeat"></span>{{ detail.status }}</span>
                 <div style="font-size:16px;font-weight:700;line-height:1.35;word-break:break-all">{{ detail.name }}</div>
                 <div style="font-size:11px;color:#71757c;font-family:'JetBrains Mono',monospace;word-break:break-all;line-height:1.5">{{ detail.dir }}</div>
               </div>

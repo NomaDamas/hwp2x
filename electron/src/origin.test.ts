@@ -1,26 +1,31 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { isAppPage } from "./origin";
+import { isAppFrame, isSameDocument } from "./origin";
 
-const win = "C:\\Users\\홍길동\\AppData\\Local\\Temp\\2abc\\resources\\app.asar\\electron\\design\\app.html";
-const winUrl = "file:///C:/Users/%ED%99%8D%EA%B8%B8%EB%8F%99/AppData/Local/Temp/2abc/resources/app.asar/electron/design/app.html";
-const linux = "/opt/hwp2x/resources/app.asar/electron/design/app.html";
+const main = { url: "file:///C:/Users/CHEOL~1/AppData/Local/Temp/2abc/resources/app.asar/electron/design/app.html", routingId: 1, processId: 7 };
 
-test("Windows 패키지 화면 주소를 허용한다", () => {
-  assert.equal(isAppPage(winUrl, win, "win32"), true);
-  assert.equal(isAppPage(winUrl.replace("file:///C:", "file:///c:"), win, "win32"), true);
+test("우리 창의 최상위 화면은 주소 모양과 관계없이 허용한다", () => {
+  for (const url of [
+    main.url,
+    main.url + "#",
+    main.url + "#settings",
+    main.url + "?x=1",
+    "file:///c:/Users/%ED%99%8D%EA%B8%B8%EB%8F%99/app.asar/electron/design/app.html",
+    "file://localhost/C:/app/app.html",
+    "file:////server/share/app.html",
+  ]) assert.equal(isAppFrame({ ...main, url }, main), true, url);
 });
 
-test("메뉴 링크가 붙인 해시가 있어도 허용한다", () => {
-  assert.equal(isAppPage(winUrl + "#", win, "win32"), true);
-  assert.equal(isAppPage("file://" + linux + "#settings", linux, "linux"), true);
+test("다른 화면·하위 프레임·원격 주소는 거부한다", () => {
+  assert.equal(isAppFrame({ ...main, routingId: 2 }, main), false);
+  assert.equal(isAppFrame({ ...main, processId: 8 }, main), false);
+  assert.equal(isAppFrame({ ...main, url: "https://example.com/app.html" }, main), false);
+  assert.equal(isAppFrame({ ...main, url: "not a url" }, main), false);
+  assert.equal(isAppFrame(null, main), false);
 });
 
-test("다른 파일·다른 프로토콜·원격 호스트는 거부한다", () => {
-  assert.equal(isAppPage("file:///opt/hwp2x/resources/app.asar/electron/design/other.html", linux, "linux"), false);
-  assert.equal(isAppPage("https://example.com/electron/design/app.html", linux, "linux"), false);
-  assert.equal(isAppPage("file://evil/share/app.html", "\\\\evil\\share\\app.html", "win32"), false);
-  assert.equal(isAppPage("file:///opt/hwp2x/x/../resources/app.asar/electron/design/app.html", linux, "linux"), true);
-  assert.equal(isAppPage(undefined, linux, "linux"), false);
-  assert.equal(isAppPage("not a url", linux, "linux"), false);
+test("같은 문서 안의 해시 이동만 허용한다", () => {
+  assert.equal(isSameDocument(main.url + "#settings", main.url + "#"), true);
+  assert.equal(isSameDocument(main.url.replace("app.html", "other.html"), main.url), false);
+  assert.equal(isSameDocument("https://example.com/", main.url), false);
 });
