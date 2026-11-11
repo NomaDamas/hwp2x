@@ -34,6 +34,21 @@
         "한컴 감지 후보 환경변수와 네이티브 선택 대역"
       ]
     },
-    "limitation": "실제 sample 1종. 모의 COM·합성 입력을 실제 Windows 증거로 취급하지 않음"
+    "limitation": "실제 sample 1종. 모의 COM·합성 입력을 실제 Windows 증거로 취급하지 않음",
+    "isolatedObservation": {
+      "paths": {
+        "temp": "/tmp/hwp2x-inventory-oYWC04",
+        "docs": "/tmp/hwp2x-inventory-oYWC04/중간 상태 문서",
+        "complete": "/tmp/hwp2x-inventory-oYWC04/완료 문서",
+        "empty": "/tmp/hwp2x-inventory-oYWC04/빈 시작 폴더",
+        "profile": "/tmp/hwp2x-inventory-oYWC04/profile",
+        "config": "/tmp/hwp2x-inventory-oYWC04/config",
+        "autoRoot": "/tmp/hwp2x-inventory-oYWC04/자동 문서"
+      },
+      "inputCount": 30,
+      "outputCount": 6,
+      "sourceHash": "62b3fef1f5635d8478acbaedf8c553e9c39950e98cdaacb72c89c88628e1f205",
+      "sourceUnchanged": true
+    }
   }
 }

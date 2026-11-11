@@ -39,7 +39,410 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행); 대상: 특정 폴더 변환 (nav-overview).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.927Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.983Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.099Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지",
+        "phase": "paused",
+        "at": "2026-11-11T16:41:57.440Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.819Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.733Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.224Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.254Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:02.498Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.640Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.668Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "nav-auto",
@@ -81,7 +484,362 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행); 대상: 전체 자동 변환 (nav-auto).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.927Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.983Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.099Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지",
+        "phase": "paused",
+        "at": "2026-11-11T16:41:57.440Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.819Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.733Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.224Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.254Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "nav-files",
@@ -123,7 +881,410 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행); 대상: 파일 (nav-files).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.927Z",
+        "controls": [
+          {
+            "text": "파일\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.983Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.099Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지",
+        "phase": "paused",
+        "at": "2026-11-11T16:41:57.440Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.819Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.733Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.224Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.254Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:02.498Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.640Z",
+        "controls": [
+          {
+            "text": "파일\n2",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.668Z",
+        "controls": [
+          {
+            "text": "파일\n2",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "파일\n1",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "nav-settings",
@@ -165,7 +1326,410 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행); 대상: 설정 (nav-settings).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.927Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.983Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.099Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지",
+        "phase": "paused",
+        "at": "2026-11-11T16:41:57.440Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.819Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.733Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.224Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.254Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:02.498Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.640Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.668Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "side-progress",
@@ -207,7 +1771,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 조건 불충족 시 카드 숨김 경로 확인(미실행); 대상: 진행 상태 (side-progress).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "overview-choose-folder",
@@ -267,7 +1833,74 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 폴더 선택 (overview-choose-folder).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.927Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.983Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "overview-start",
@@ -331,7 +1964,26 @@
           }
         ]
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:56.983Z",
+        "controls": [
+          {
+            "text": "24개 파일 변환",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-start"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "overview-md",
@@ -387,7 +2039,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: AI가 읽기 편한 md 파일도 생성 (overview-md).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "overview-settings",
@@ -443,7 +2097,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: href=#이며 preventDefault 명시 없음 경로 확인(미실행); 대상: 설정 변경 (overview-settings).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "run-pause",
@@ -503,7 +2159,74 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 일시정지 (run-pause).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.099Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지",
+        "phase": "paused",
+        "at": "2026-11-11T16:41:57.440Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.819Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.733Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "run-resume",
@@ -573,7 +2296,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 이어하기 (run-resume).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "run-stop",
@@ -633,7 +2358,74 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 중지 (run-stop).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.099Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지",
+        "phase": "paused",
+        "at": "2026-11-11T16:41:57.440Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기",
+        "phase": "converting",
+        "at": "2026-11-11T16:41:57.819Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.733Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "run-choose-again",
@@ -693,7 +2485,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 다른 폴더 선택 (run-choose-again).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "다른 폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-choose-again"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "다른 폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-choose-again"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "run-run-again",
@@ -749,7 +2576,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 이 폴더 다시 변환 (run-run-again).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "이 폴더 다시 변환",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-run-again"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "이 폴더 다시 변환",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-run-again"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "stat-all",
@@ -798,7 +2660,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0개도 빈 결과 목록으로 이동 경로 확인(미실행); 대상: 처리한 파일 (stat-all).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "stat-ok",
@@ -847,7 +2711,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0개도 빈 결과 목록으로 이동 경로 확인(미실행); 대상: 변환됨 (stat-ok).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "stat-fail",
@@ -896,7 +2762,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0개도 빈 결과 목록으로 이동 경로 확인(미실행); 대상: 실패 (stat-fail).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "stat-elapsed",
@@ -930,7 +2798,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: m.go와 m.key 없음; 버튼 역할 없음 경로 확인(미실행); 대상: 경과 시간 (stat-elapsed).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "issues-all",
@@ -979,7 +2849,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: skipped만 있는 경우에도 diff로 이동하므로 건너뜀은 표시되지 않을 수 있음 경로 확인(미실행); 대상: 모두 보기 (issues-all).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "attention-row-diff",
@@ -1028,7 +2900,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 빈 목록에는 행 없음; 삭제된 선택은 상세 없음 경로 확인(미실행); 대상: 일부 차이 파일 행 (attention-row-diff).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "attention-row-fail",
@@ -1077,7 +2951,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 빈 목록에는 행 없음; 삭제된 선택은 상세 없음 경로 확인(미실행); 대상: 실패 파일 행 (attention-row-fail).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "attention-row-skipped",
@@ -1126,7 +3002,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 빈 목록에는 행 없음; 삭제된 선택은 상세 없음 경로 확인(미실행); 대상: 이미 변환됨(건너뜀) 파일 행 (attention-row-skipped).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "backup-folder",
@@ -1160,7 +3038,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 시 저장 안 함; 기존 경로는 wx 쓰기 오류; OS 열기 오류는 notice 경로 확인(미실행); 대상: 백업 폴더 열기 (backup-folder).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "백업 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-folder"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "백업 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-folder"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "report",
@@ -1194,7 +3107,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 시 저장 안 함; 기존 경로는 wx 쓰기 오류; OS 열기 오류는 notice 경로 확인(미실행); 대상: 변환 결과 저장 (report).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "중지",
+        "phase": "stopped",
+        "at": "2026-11-11T16:41:58.062Z",
+        "controls": [
+          {
+            "text": "변환 결과 저장",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "report"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:41:58.337Z",
+        "controls": [
+          {
+            "text": "변환 결과 저장",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "report"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "filter-all",
@@ -1243,7 +3191,170 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행); 대상: 전체 (filter-all).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "filter-wait",
@@ -1292,7 +3403,170 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행); 대상: 대기 (filter-wait).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "filter-ok",
@@ -1341,7 +3615,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행); 대상: 변환됨 (filter-ok).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "filter-diff",
@@ -1390,7 +3666,170 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행); 대상: 일부 차이 (filter-diff).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "filter-fail",
@@ -1443,7 +3882,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행); 대상: 실패 (filter-fail).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "filter-skipped",
@@ -1492,7 +3933,170 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행); 대상: 이미 변환됨(건너뜀) (filter-skipped).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "file-search",
@@ -1541,7 +4145,170 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 빈 문자열/공백은 검색어 없는 조회; 조회 오류는 상태 안내 경로 확인(미실행); 대상: 파일 이름 검색 (file-search).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "file-row-wait",
@@ -1590,7 +4357,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 대기 파일 행 (file-row-wait).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-row-conv",
@@ -1639,7 +4408,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 변환 중 파일 행 (file-row-conv).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-row-ok",
@@ -1688,7 +4459,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 변환됨 파일 행 (file-row-ok).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-row-diff",
@@ -1737,7 +4510,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 일부 차이 파일 행 (file-row-diff).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-row-fail",
@@ -1790,7 +4565,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 실패 파일 행 (file-row-fail).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-row-skipped",
@@ -1843,7 +4620,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 이미 변환됨(건너뜀) 파일 행 (file-row-skipped).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-row-deleted",
@@ -1892,7 +4671,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행); 대상: 백업됨 파일 행 (file-row-deleted).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-prev",
@@ -1941,7 +4722,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행); 대상: 이전 페이지 (file-prev).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "file-next",
@@ -1990,7 +4773,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행); 대상: 다음 페이지 (file-next).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "issue-prev",
@@ -2039,7 +4824,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행); 대상: 이전 페이지 (issue-prev).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "issue-next",
@@ -2088,7 +4875,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행); 대상: 다음 페이지 (issue-next).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "detail-close",
@@ -2137,7 +4926,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 상세 닫기 (detail-close).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "상세 닫기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-close"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "detail-retry",
@@ -2190,7 +4998,26 @@
           }
         ]
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "다시 시도",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-retry"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "detail-result",
@@ -2224,7 +5051,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: HWPX 열기 (detail-result).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "HWPX 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-result"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "detail-source",
@@ -2258,7 +5104,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 원본 열기 (detail-source).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "원본 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-source"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "detail-folder",
@@ -2292,7 +5157,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 폴더 열기 (detail-folder).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-folder"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "workers-1",
@@ -2334,7 +5218,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 동시 작업 수 1 (workers-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "workers-2",
@@ -2376,7 +5262,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 동시 작업 수 2 (workers-2).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "workers-3",
@@ -2418,7 +5306,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 동시 작업 수 3 (workers-3).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "workers-4",
@@ -2460,7 +5350,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 동시 작업 수 4 (workers-4).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "workers-6",
@@ -2502,7 +5394,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 동시 작업 수 6 (workers-6).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-md",
@@ -2555,7 +5449,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: AI가 읽기 편한 md 파일도 생성 (settings-md).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-backup-location",
@@ -2597,7 +5493,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 백업 위치 / 위치 변경 (settings-backup-location).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-root",
@@ -2642,7 +5540,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 검색할 폴더 / 폴더 선택 (settings-root).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-hancom-candidate",
@@ -2709,7 +5609,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 각 한컴 설치본 / 이 버전 사용 (settings-hancom-candidate).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-kordoc",
@@ -2772,7 +5674,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: kordoc 4.24.42 / 대체 엔진 사용 (settings-kordoc).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-redetect",
@@ -2857,7 +5761,9 @@
           }
         ]
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-pick-hancom",
@@ -2924,7 +5830,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 한컴 직접 선택 / Hwp.exe 선택 (settings-pick-hancom).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-log",
@@ -2986,7 +5894,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 상세 로그 / 로그 보기 (settings-log).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-report-bug",
@@ -3046,7 +5956,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 버그 리포트 / 작성 초안 열기 (settings-report-bug).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-logs-folder",
@@ -3095,7 +6007,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 로그 폴더 / 로그 폴더 열기 (settings-logs-folder).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-original-tag",
@@ -3129,7 +6043,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 버튼이나 변경 핸들러 없음 경로 확인(미실행); 대상: 원본 자동 삭제 미지원 / 원본 유지 (settings-original-tag).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "auto-start",
@@ -3185,7 +6101,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 자동 변환 시작 (auto-start).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.224Z",
+        "controls": [
+          {
+            "text": "자동 변환 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-start"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:42:01.254Z",
+        "controls": [
+          {
+            "text": "자동 변환 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-start"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "auto-stop",
@@ -3241,7 +6192,58 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 자동 변환 중지 (auto-stop).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:02.498Z",
+        "controls": [
+          {
+            "text": "자동 변환 중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-stop"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.640Z",
+        "controls": [
+          {
+            "text": "자동 변환 중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-stop"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.668Z",
+        "controls": [
+          {
+            "text": "자동 변환 중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-stop"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "auto-background",
@@ -3290,7 +6292,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 창을 닫아도 트레이에서 계속 (auto-background).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "auto-resume",
@@ -3339,7 +6343,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행); 대상: 로그인하면 자동 변환 다시 시작 (auto-resume).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "auto-issue-retry-failure",
@@ -3395,7 +6401,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환 꺼짐/정리/복구 필요 시 잠금; 권한·암호·잠김·손상·timeout·파일 없음별 안내; 재작업중/대기 행에는 버튼 없음 경로 확인(미실행); 대상: 실패 행 / 다시 작업 (auto-issue-retry-failure).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "auto-issue-retry-needs-user",
@@ -3451,7 +6459,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환 꺼짐/정리/복구 필요 시 잠금; 권한·암호·잠김·손상·timeout·파일 없음별 안내; 재작업중/대기 행에는 버튼 없음 경로 확인(미실행); 대상: 처리하지 못함 행 / 다시 작업 (auto-issue-retry-needs-user).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "cleanup-ack-1",
@@ -3514,7 +6524,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성 경로 확인(미실행); 대상: 서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다. (cleanup-ack-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "cleanup-ack-2",
@@ -3577,7 +6622,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성 경로 확인(미실행); 대상: 확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님). (cleanup-ack-2).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "cleanup-ack-3",
@@ -3640,7 +6720,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성 경로 확인(미실행); 대상: 원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다. (cleanup-ack-3).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "cleanup-start",
@@ -3672,14 +6787,14 @@
         "checkIds": [
           "gui-5"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:91-105 클릭 뒤 완료 수/percent, 원본 위치 부재, 백업 hash assertion; 환경 의존 fixture. 실행 결과는 아직 없음. 확인할 범위: 백업 후 삭제 시작 조작 후 cleanupStart(true) 요청 후 동의 초기화 여부 확인(미실행); 대상: 백업 후 삭제 시작 (cleanup-start). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-5",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       },
@@ -3699,18 +6814,53 @@
         "checkIds": [
           "gui-6"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:68 동의 전 disabled, 76 자동 변환 중 disabled assertion; 개별 동의 누락 조합은 미검증. 실행 결과는 아직 없음. 확인할 범위: 진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님 경로 확인(미실행); 대상: 백업 후 삭제 시작 (cleanup-start). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-6",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.995Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "cleanup-cancel",
@@ -3748,14 +6898,14 @@
         "checkIds": [
           "gui-5"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:93-96 일부 처리 후 취소하고 복구 클릭, rolledBack 대기와 원본 SHA-256 복원 assertion. 실행 결과는 아직 없음. 확인할 범위: 취소하고 복구 조작 후 cleanup.cancel 요청 여부 확인(미실행); 대상: 취소하고 복구 (cleanup-cancel). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-5",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       },
@@ -3777,7 +6927,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님 경로 확인(미실행); 대상: 취소하고 복구 (cleanup-cancel).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "cleanup-rollback",
@@ -3815,14 +6967,14 @@
         "checkIds": [
           "gui-5"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:119-142 원래 위치로 복구 클릭 후 원본 hash/출력 유지/canRollback=false assertion. 실행 결과는 아직 없음. 확인할 범위: 원래 위치로 복구 조작 후 cleanup.rollback 요청 여부 확인(미실행); 대상: 원래 위치로 복구 (cleanup-rollback). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-5",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       },
@@ -3830,14 +6982,14 @@
         "checkIds": [
           "gui-5"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:125-138 충돌/손상을 해소한 뒤 재클릭하여 원본 hash 복원 assertion; 동일 입력 반복과 구별. 실행 결과는 아직 없음. 확인할 범위: 상태 또는 선택을 바꾼 뒤 !cleanBusy && canRollback; 메인은 engine.running/autoStarting/autoOn 거부 조건과 표시를 다시 확인(미실행); 대상: 원래 위치로 복구 (cleanup-rollback). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-5",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       },
@@ -3851,18 +7003,20 @@
         "checkIds": [
           "gui-5"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:110-138 충돌/백업 및 격리 손상 후 복구 클릭, 오류와 보존 assertion; 손상 조건별 분기. 실행 결과는 아직 없음. 확인할 범위: 진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님 경로 확인(미실행); 대상: 원래 위치로 복구 (cleanup-rollback). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-5",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "backup-open",
@@ -3922,7 +7076,170 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 대상 0개 또는 잠금이면 열리지 않음 경로 확인(미실행); 대상: 원본 백업 (backup-open).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:41:58.959Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.187Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.403Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.637Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:41:59.873Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.103Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.337Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.599Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "backup-consent",
@@ -3989,7 +7306,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 동의 없거나 canBackup 소실 시 확정 불가 경로 확인(미실행); 대상: 원본을 백업 폴더에 복사하는 데 동의합니다. (backup-consent).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "원본을 백업 폴더에 복사하는 데 동의합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "backup-consent"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "원본을 백업 폴더에 복사하는 데 동의합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": true,
+            "pressed": null,
+            "controlId": "backup-consent"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "backup-confirm",
@@ -4068,7 +7420,42 @@
           }
         ]
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "원본 백업",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-confirm"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "원본 백업",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-confirm"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "backup-cancel",
@@ -4124,7 +7511,42 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 다시 열면 동의 초기화 경로 확인(미실행); 대상: 취소 (backup-cancel).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.676Z",
+        "controls": [
+          {
+            "text": "취소",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-cancel"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:42:00.720Z",
+        "controls": [
+          {
+            "text": "취소",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-cancel"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "backup-modes",
@@ -4158,7 +7580,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: md.go 템플릿만 있고 실제 옵션 없음 경로 확인(미실행); 대상: 백업 모드 선택 템플릿(실제 옵션 없음) (backup-modes).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "log-refresh",
@@ -4207,7 +7631,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경 경로 확인(미실행); 대상: 새로 고침 (log-refresh).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "새로 고침",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-refresh"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "log-copy",
@@ -4269,7 +7712,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경 경로 확인(미실행); 대상: 전체 복사 (log-copy).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "전체 복사",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-copy"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "log-close",
@@ -4322,7 +7784,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경 경로 확인(미실행); 대상: 닫기 (log-close).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "닫기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-close"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "log-text",
@@ -4384,7 +7865,26 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 입력으로 로그를 수정할 수 없음 경로 확인(미실행); 대상: 로그 내용 (log-text).",
         "execution": []
       }
-    }
+    },
+    "observations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:42:03.966Z",
+        "controls": [
+          {
+            "text": "로그 내용",
+            "role": "textarea",
+            "type": "textarea",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-text"
+          }
+        ]
+      }
+    ],
+    "observationLimit": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음"
   },
   {
     "controlId": "escape-log",
@@ -4433,7 +7933,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 다른 키는 무시; 상세 파일 패널은 닫지 않음 경로 확인(미실행); 대상: Escape / 상세 로그 닫기 (escape-log).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "escape-dialog",
@@ -4489,7 +7991,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 다른 키는 무시; 상세 파일 패널은 닫지 않음 경로 확인(미실행); 대상: Escape / 원본 백업 닫기 (escape-dialog).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "missing-redetect",
@@ -4523,7 +8027,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: redetect 핸들러 미정의; 다운로드 버튼 onClick 자체 없음 경로 확인(미실행); 대상: 다시 감지 레이블 미정의 (missing-redetect).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "missing-download",
@@ -4557,7 +8063,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: redetect 핸들러 미정의; 다운로드 버튼 onClick 자체 없음 경로 확인(미실행); 대상: 다운로드 레이블 미정의 (missing-download).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "unbound-new-run",
@@ -4591,7 +8099,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 실제 버튼은 chooseFolderAgain/runAgain 사용 경로 확인(미실행); 대상: 새 작업(화면 바인딩 없음) (unbound-new-run).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "tray-open",
@@ -4654,7 +8164,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기 경로 확인(미실행); 대상: hwp2x 열기 (tray-open).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "tray-stop",
@@ -4717,7 +8229,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기 경로 확인(미실행); 대상: 전체 자동 변환 중지 (tray-stop).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "tray-exit",
@@ -4780,7 +8294,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기 경로 확인(미실행); 대상: 완전히 종료 (tray-exit).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "tray-click",
@@ -4843,7 +8359,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 종료된 창 처리 결과는 미실행 경로 확인(미실행); 대상: hwp2x · 전체 자동 변환 (tray-click).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "window-close",
@@ -4906,7 +8424,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: exiting이면 기본 닫기 허용; 종료 반복은 기존 shutdown Promise 반환 경로 확인(미실행); 대상: 창 닫기 (window-close).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "app-quit",
@@ -4969,7 +8489,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: cleanup 취소/작업 대기, automatic.stop, engine.stop; 세션 종료 최대 5초와 로그 최대 2초 후 exit(0) 경로 확인(미실행); 대상: 앱 종료 요청 (app-quit).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-folder-accept",
@@ -5011,7 +8533,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소는 빈 문자열; 호출처는 검색/설정 생략 경로 확인(미실행); 대상: 폴더 선택 / 선택·저장 (native-folder-accept).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-folder-cancel",
@@ -5053,7 +8577,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소는 빈 문자열; 호출처는 검색/설정 생략 경로 확인(미실행); 대상: 폴더 선택 / 취소 (native-folder-cancel).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-hancom-accept",
@@ -5116,7 +8642,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지 경로 확인(미실행); 대상: 한컴 한글 실행 파일 선택 / 선택·저장 (native-hancom-accept).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-hancom-cancel",
@@ -5179,7 +8707,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지 경로 확인(미실행); 대상: 한컴 한글 실행 파일 선택 / 취소 (native-hancom-cancel).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-report-accept",
@@ -5213,7 +8743,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true 경로 확인(미실행); 대상: 변환 결과 JSON 저장 / 선택·저장 (native-report-accept).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-report-cancel",
@@ -5247,7 +8779,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true 경로 확인(미실행); 대상: 변환 결과 JSON 저장 / 취소 (native-report-cancel).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-shutdown-timeout-0",
@@ -5310,7 +8844,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 기다리기 (native-shutdown-timeout-0).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-shutdown-timeout-1",
@@ -5377,7 +8913,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 강제 종료 (native-shutdown-timeout-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-shutdown-save-fail-0",
@@ -5440,7 +8978,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 기다리기 (native-shutdown-save-fail-0).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-shutdown-save-fail-1",
@@ -5503,7 +9043,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 강제 종료 (native-shutdown-save-fail-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-renderer-gone-0",
@@ -5566,7 +9108,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 다시 불러오기 (native-renderer-gone-0).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-renderer-gone-1",
@@ -5629,7 +9173,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 종료 (native-renderer-gone-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-renderer-unresponsive-0",
@@ -5692,7 +9238,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 기다리기 (native-renderer-unresponsive-0).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-renderer-unresponsive-1",
@@ -5755,7 +9303,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행); 대상: 종료 (native-renderer-unresponsive-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-bug-report-0",
@@ -5815,7 +9365,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음; 버그 리포트에서 Escape가 초안 열기로 이어질 수 있음 경로 확인(미실행); 대상: 브라우저에서 초안 열기 (native-bug-report-0).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-bug-report-1",
@@ -5871,7 +9423,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음; 버그 리포트에서 Escape가 초안 열기로 이어질 수 있음 경로 확인(미실행); 대상: 취소 (native-bug-report-1).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-fatal-ok",
@@ -5934,7 +9488,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 엔진 초기화 전이면 pause 실패를 무시하고 안내; 메시지박스 실패는 무시 경로 확인(미실행); 대상: 예기치 않은 오류 / 확인 (native-fatal-ok).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "native-init-error",
@@ -5997,7 +9553,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 재시도 버튼은 정의되어 있지 않음 경로 확인(미실행); 대상: hwp2x 초기화 실패 / 닫기 (native-init-error).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "renderer-error-alert",
@@ -6060,7 +9618,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 자동 변환/정리/복구 상호잠금은 guard·settings·register에 각각 적용되며 일치한다고 가정하지 않음 경로 확인(미실행); 대상: 작업을 완료하지 못했습니다 (renderer-error-alert).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "ipc-interlock",
@@ -6123,18 +9683,20 @@
         "checkIds": [
           "gui-6"
         ],
-        "status": "failed-run",
+        "status": "observed-limited",
         "limitation": "소스에 해당 조건의 assertion이 있음: cleanup-flow-check.cjs:77 자동 변환 중 cleanupStart(true) IPC 거부 assertion; 전체 상호잠금 조합 보증 아님. 실행 결과는 아직 없음. 확인할 범위: auto 차단: scan/start/pick-folder/pick-hancom/configure/retry/backup/pause/stop/detect-hancom; cleanup busy 차단: scan/start/pick-folder/pick-hancom/configure/retry/backup/auto-start/auto-configure; 복구 필요 차단: scan/start/auto-start/retry 경로 확인(미실행); 대상: 전체 자동 변환·원본 정리·복구 필요 잠금 (ipc-interlock). 연결된 전체 검사 실패로 합격 판정 보류.",
         "execution": [
           {
             "checkId": "gui-6",
-            "status": "failed",
+            "status": "passed",
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-            "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+            "scope": "수정된 Linux 패키지 동일 시나리오 재검증 통과, checks.json history 보존"
           }
         ]
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-hancom-selected",
@@ -6197,7 +9759,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 설치본의 실제 이름·개수는 런타임 값으로 정적 소스에 없음; 임의 설치본을 만들지 않음 경로 확인(미실행); 대상: 각 한컴 설치본 / 사용 중 (settings-hancom-selected).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "settings-hancom-unavailable",
@@ -6260,7 +9824,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 설치본의 실제 이름·개수는 런타임 값으로 정적 소스에 없음; 임의 설치본을 만들지 않음 경로 확인(미실행); 대상: 각 한컴 설치본 / 사용 불가 (settings-hancom-unavailable).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "auto-issue-row-retrying",
@@ -6316,7 +9882,9 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 항목이 제거되면 마지막 페이지 보정; 빈 목록은 안내 경로 확인(미실행); 대상: 다시 작업 중 (auto-issue-row-retrying).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   },
   {
     "controlId": "auto-issue-row-queued",
@@ -6372,6 +9940,8 @@
         "limitation": "등록 검사에서 이 컨트롤의 해당 행동을 직접 판정하는 assertion을 확인하지 못함. 확인할 범위: 항목이 제거되면 마지막 페이지 보정; 빈 목록은 안내 경로 확인(미실행); 대상: 다시 작업 대기 (auto-issue-row-queued).",
         "execution": []
       }
-    }
+    },
+    "observations": [],
+    "observationLimit": "이 항목은 직접 상태 관측 없음. 소스 근거/기존검사와 후속단계 미검증 유지"
   }
 ]

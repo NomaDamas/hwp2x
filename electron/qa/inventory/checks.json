@@ -468,9 +468,9 @@
       "doesNotProve": "내부 fsync/journal/rename 순서별 장애 미검증",
       "kind": "gui",
       "execution": {
-        "status": "failed",
+        "status": "passed",
         "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+        "scope": "수정된 Linux 패키지에서 동일10시나리오 통과; 이전 실패 history 보존"
       }
     },
     {
@@ -481,9 +481,9 @@
       "doesNotProve": "모든 IPC 우회 미검증",
       "kind": "gui",
       "execution": {
-        "status": "failed",
+        "status": "passed",
         "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+        "scope": "수정된 Linux 패키지에서 동일10시나리오 통과; 이전 실패 history 보존"
       }
     },
     {
@@ -938,7 +938,8 @@
       "id": "observed-cleanup-conflict",
       "description": "실제 Linux 패키지 두 번째 충돌 복구에서 phase error 뒤 canRollback=true 판정 실패. 원인 미확정, 기능 실패와 검사 경합 구분 필요. 테스트 수정이나 기대 완화 없음.",
       "planStep": 6,
-      "requires": "동일 패키지·복사본으로 충돌 복구 상태 전이 조사"
+      "requires": "동일 패키지·복사본으로 충돌 복구 상태 전이 조사",
+      "resolution": "오류 journal 저장 중 terminal phase 노출로 canRollback false였음. active 동안 진행 상태 유지하도록 수정. 동일 패키지 검사10회 통과. 공개 Windows 반영은 별도 확인 필요."
     }
   ],
   "runs": [
@@ -975,8 +976,16 @@
     {
       "path": "electron/cleanup-flow-check.cjs",
       "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
-      "exitCode": 1,
-      "output": "통과: 1-complete\n통과: 1-conflict\n통과: 1-corrupt\n통과: 1-double-corrupt\n통과: 1-cancel\n통과: 2-complete\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at /home/cheol/projects/hwp2x/electron/cleanup-flow-check.cjs:123:57 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n검사 증거: /tmp/hwp2x-cleanup-real-8JuiAH\n"
+      "exitCode": 0,
+      "output": "1-complete/conflict/corrupt/double-corrupt/cancel 및 2-complete/conflict/corrupt/double-corrupt/cancel 모두 통과. 증거 /tmp/hwp2x-cleanup-real-PGJyxI",
+      "history": [
+        {
+          "exitCode": 1,
+          "output": "통과: 1-complete\n통과: 1-conflict\n통과: 1-corrupt\n통과: 1-double-corrupt\n통과: 1-cancel\n통과: 2-complete\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at /home/cheol/projects/hwp2x/electron/cleanup-flow-check.cjs:123:57 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n검사 증거: /tmp/hwp2x-cleanup-real-8JuiAH\n",
+          "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs"
+        }
+      ],
+      "packageScope": "cleanup 상태 공개 수정 후 Linux 재패키징; 공개 Windows 기존본과 cleanup 코드만 다름"
     },
     {
       "path": "electron/log-view-check.cjs",
@@ -1029,14 +1038,17 @@
   ],
   "release": {
     "url": "https://github.com/NomaDamas/hwp2x/releases/download/v0.3.0/hwp2x-0.3.0-portable-x64.exe",
-    "sha256": "e4ec9698a9a5b8f9a66d9bfe9c98178be3d1aa9fa5e9c3e4a6fa84f2634b5fe1",
+    "sha256": "8c1b4a234a8835f7cfc19c96a19fd704ff107d1a1f054a5f7e39a163ba73d734",
     "matches": {
       "electron/design/live.js": true,
       "electron/design/app.html": true,
       "electron/design/support.js": true,
       "electron/dist/main.js": true,
-      "electron/dist/preload.js": true
+      "electron/dist/preload.js": true,
+      "electron/dist/cleanup.js": true
     },
-    "limitation": "Windows 실행이 아닌 공개 포터블 추출 코드 대조"
+    "limitation": "Windows 실행이 아닌 공개 포터블 추출 코드 대조",
+    "previous": "e4ec9698a9a5b8f9a66d9bfe9c98178be3d1aa9fa5e9c3e4a6fa84f2634b5fe1",
+    "buildVersion": "0.3.0.1115"
   }
 }
