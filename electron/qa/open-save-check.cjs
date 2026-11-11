@@ -147,6 +147,10 @@ async function inspect({ app, page, evidence, capture }) {
   evidence.observations.push({ label: '열기 저장 최종', value: ctx });
   // A successful OS dispatch must never be promoted to proof of rendered document content.
   evidence.failures.push('실제 뷰어 문서 본문 표시는 자동 입증되지 않았습니다. desktop 스크린샷 검토 필요; OS 전달 성공과 구분합니다.');
+  const child = app.process();
+  await app.evaluate(({ BrowserWindow }) => { BrowserWindow.getAllWindows()[0].close(); });
+  await until(() => child.exitCode !== null || child.signalCode !== null, '열기 검사 앱 종료', 15000);
+  assert.equal(child.exitCode, 0);
 }
 
 if (!process.argv.includes('--packaged')) {
