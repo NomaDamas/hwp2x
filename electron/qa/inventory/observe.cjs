@@ -54,6 +54,13 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
         if (normalized === '원본 백업' && screen.startsWith('백업 동의')) candidates.splice(0, candidates.length, 'backup-confirm');
         if (normalized === '취소' && screen.startsWith('백업 동의')) candidates.splice(0, candidates.length, 'backup-cancel');
         if (c.type === 'checkbox' && screen.startsWith('백업 동의')) candidates.splice(0, candidates.length, 'backup-consent');
+        if (screen.startsWith('설정') && c.role === 'radio' && ['1','2','3','4','6'].includes(normalized)) candidates.splice(0, candidates.length, `workers-${normalized}`);
+        const settingsLabels = { '위치 변경':'settings-backup-location', '폴더 선택':'settings-root', '다시 감지':'settings-redetect', 'Hwp.exe 선택':'settings-pick-hancom', '로그 보기':'settings-log', '작성 초안 열기':'settings-report-bug', '로그 폴더 열기':'settings-logs-folder' };
+        if (screen.startsWith('설정') && settingsLabels[normalized]) candidates.splice(0, candidates.length, settingsLabels[normalized]);
+        if (c.role === 'switch' && normalized.includes('AI가 읽기 편한 md 파일도 생성')) candidates.splice(0, candidates.length, 'settings-md');
+        if (normalized === '이어하기') candidates.splice(0, candidates.length, 'run-resume');
+        if (normalized === '일시정지') candidates.splice(0, candidates.length, 'run-pause');
+        if (normalized === '중지') candidates.splice(0, candidates.length, 'run-stop');
         c.controlId = candidates.length === 1 ? candidates[0] : null;
         if (candidates.length !== 1) c.mapping = { candidates, reason: candidates.length ? '동일 라벨 복수 항목: 추측하지 않음' : '정확한 라벨 대응 없음' };
       }
@@ -92,7 +99,8 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
           await page.waitForTimeout(100);
         }
         if (await button(label).isVisible() && await button(label).isEnabled()) {
-          await button(label).click(); await until(s => s.phase === phase, label); await capture(label);
+          await capture(`${label}:누르기 전`);
+          await button(label).click(); await until(s => s.phase === phase, label); await capture(`${label}:누른 뒤`);
         } else evidence.unobserved.push({ screen: label, reason: `컨트롤 미노출 또는 비활성; 실제 phase=${(await state()).phase}` });
       }
     });

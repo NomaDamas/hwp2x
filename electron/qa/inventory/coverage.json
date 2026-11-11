@@ -447,7 +447,617 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.702Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.783Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.884Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.966Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누른 뒤",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.223Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누르기 전",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.661Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누른 뒤",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.713Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.759Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.659Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.474Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.503Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:25.743Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:26.877Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.006Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "특정 폴더 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-overview"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "nav-auto",
@@ -849,7 +1459,585 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.702Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.783Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.884Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.966Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누른 뒤",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.223Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누르기 전",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.661Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누른 뒤",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.713Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.759Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.659Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.474Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.503Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.006Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "전체 자동 변환",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-auto"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "nav-files",
@@ -1299,7 +2487,617 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.702Z",
+        "controls": [
+          {
+            "text": "파일\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.783Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.884Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.966Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누른 뒤",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.223Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누르기 전",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.661Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누른 뒤",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.713Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.759Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "파일\n24",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.659Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.474Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.503Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:25.743Z",
+        "controls": [
+          {
+            "text": "파일\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:26.877Z",
+        "controls": [
+          {
+            "text": "파일\n2",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.006Z",
+        "controls": [
+          {
+            "text": "파일\n1",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "파일\n1",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-files"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "nav-settings",
@@ -1749,7 +3547,617 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.702Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.783Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.884Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.966Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누른 뒤",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.223Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누르기 전",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.661Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누른 뒤",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.713Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.759Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.659Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.474Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.503Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:25.743Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:26.877Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.006Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "설정",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "nav-settings"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "side-progress",
@@ -1930,7 +4338,89 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "초기 특정 폴더 변환",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.702Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.783Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-choose-folder"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "overview-start",
@@ -2018,7 +4508,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "폴더 선택:중간 상태 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:18.783Z",
+        "controls": [
+          {
+            "text": "24개 파일 변환",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "overview-start"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "overview-md",
@@ -2233,7 +4741,16 @@
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/run-flow-check.cjs",
             "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
           }
-        ]
+        ],
+        "directExecution": {
+          "status": "passed",
+          "states": [
+            "일시정지:누르기 전",
+            "일시정지:누른 뒤"
+          ],
+          "assertion": "실제 버튼 활성 확인→클릭→엔진 phase 확인",
+          "scope": "한 번의 전환; 두 번 반복 또는 모든 오류 상태 증거는 아님"
+        }
       },
       "changed": {
         "checkIds": [],
@@ -2325,7 +4842,105 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.884Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.966Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누른 뒤",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.223Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누른 뒤",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.713Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.759Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.659Z",
+        "controls": [
+          {
+            "text": "일시정지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-pause"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "run-resume",
@@ -2366,7 +4981,16 @@
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/run-flow-check.cjs",
             "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
           }
-        ]
+        ],
+        "directExecution": {
+          "status": "passed",
+          "states": [
+            "이어하기:누르기 전",
+            "이어하기:누른 뒤"
+          ],
+          "assertion": "실제 버튼 활성 확인→클릭→엔진 phase 확인",
+          "scope": "한 번의 전환; 두 번 반복 또는 모든 오류 상태 증거는 아님"
+        }
       },
       "changed": {
         "checkIds": [
@@ -2402,7 +5026,25 @@
       "kind": "scenario-unobserved",
       "reason": "해당 조건부 상태의 직접 관측 없음. 연결된 기존 assertion 범위만 유효하며 후속 시나리오 실행 필요.",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "이어하기:누르기 전",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.661Z",
+        "controls": [
+          {
+            "text": "이어하기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-resume"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "run-stop",
@@ -2442,7 +5084,16 @@
             "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/run-flow-check.cjs",
             "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
           }
-        ]
+        ],
+        "directExecution": {
+          "status": "passed",
+          "states": [
+            "중지:누르기 전",
+            "중지:누른 뒤"
+          ],
+          "assertion": "실제 버튼 활성 확인→클릭→엔진 phase 확인",
+          "scope": "한 번의 전환; 두 번 반복 또는 모든 오류 상태 증거는 아님"
+        }
       },
       "changed": {
         "checkIds": [],
@@ -2534,7 +5185,121 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "변환 시작",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.884Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:18.966Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "일시정지:누른 뒤",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.223Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누르기 전",
+        "phase": "paused",
+        "at": "2026-11-11T16:55:19.661Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "이어하기:누른 뒤",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.713Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "중지:누르기 전",
+        "phase": "converting",
+        "at": "2026-11-11T16:55:19.759Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      },
+      {
+        "screen": "완료",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.659Z",
+        "controls": [
+          {
+            "text": "중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-stop"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "run-choose-again",
@@ -2634,7 +5399,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "다른 폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-choose-again"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "다른 폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-choose-again"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "run-run-again",
@@ -2730,7 +5529,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "이 폴더 다시 변환",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-run-again"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "이 폴더 다시 변환",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "run-run-again"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "stat-all",
@@ -3237,7 +6070,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "백업 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-folder"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "백업 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-folder"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "report",
@@ -3311,7 +6178,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "중지:누른 뒤",
+        "phase": "stopped",
+        "at": "2026-11-11T16:55:19.990Z",
+        "controls": [
+          {
+            "text": "변환 결과 저장",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "report"
+          }
+        ]
+      },
+      {
+        "screen": "폴더 선택:완료 문서",
+        "phase": "idle",
+        "at": "2026-11-11T16:55:20.254Z",
+        "controls": [
+          {
+            "text": "변환 결과 저장",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "report"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "filter-all",
@@ -3528,7 +6429,169 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "전체\n3",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-all"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "filter-wait",
@@ -3745,7 +6808,169 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "대기\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-wait"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "filter-ok",
@@ -4018,7 +7243,169 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "일부 차이\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-diff"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "filter-fail",
@@ -4295,7 +7682,169 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "true",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "이미 변환됨(건너뜀)\n0",
+            "role": "button",
+            "type": null,
+            "disabled": false,
+            "checked": null,
+            "pressed": "false",
+            "controlId": "filter-skipped"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "file-search",
@@ -4512,7 +8061,169 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "파일 이름 검색",
+            "role": "input",
+            "type": "text",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "file-search"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "file-row-wait",
@@ -5209,7 +8920,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 8
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "상세 닫기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-close"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "detail-retry",
@@ -5286,7 +9015,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "다시 시도",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-retry"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "detail-result",
@@ -5344,7 +9091,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "HWPX 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-result"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "detail-source",
@@ -5402,7 +9167,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "원본 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-source"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "detail-folder",
@@ -5460,7 +9243,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "detail-folder"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "workers-1",
@@ -5617,7 +9418,153 @@
       ],
       "result": "실제 GUI 조작 후 엔진 설정값 또는 시작 버튼 활성 조건 확인",
       "sourceUnchanged": true
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "1",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-1"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "workers-2",
@@ -5774,7 +9721,153 @@
       ],
       "result": "실제 GUI 조작 후 엔진 설정값 또는 시작 버튼 활성 조건 확인",
       "sourceUnchanged": true
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "2",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "workers-2"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "workers-3",
@@ -5866,7 +9959,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "3",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-3"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "workers-4",
@@ -5958,7 +10197,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "4",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-4"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "workers-6",
@@ -6050,7 +10435,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 3
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "6",
+            "role": "radio",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "workers-6"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-md",
@@ -6215,7 +10746,201 @@
       ],
       "result": "실제 GUI 조작 후 엔진 설정값 또는 시작 버튼 활성 조건 확인",
       "sourceUnchanged": true
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n끔",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n끔",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "false",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "AI가 읽기 편한 md 파일도 생성\nHWPX와 함께 Markdown 문서를 저장합니다.\n켬",
+            "role": "switch",
+            "type": null,
+            "disabled": false,
+            "checked": "true",
+            "pressed": null,
+            "controlId": "settings-md"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-backup-location",
@@ -6307,7 +11032,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "위치 변경",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-backup-location"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-root",
@@ -6394,7 +11265,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 10
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "폴더 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-root"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-hancom-candidate",
@@ -6673,7 +11690,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 4
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "다시 감지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-redetect"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-pick-hancom",
@@ -6790,7 +11953,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 4
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "Hwp.exe 선택",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-pick-hancom"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-log",
@@ -6902,7 +12211,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "로그 보기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-log"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-report-bug",
@@ -7012,7 +12467,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "작성 초안 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-report-bug"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-logs-folder",
@@ -7111,7 +12712,153 @@
       "kind": "observed-display",
       "reason": "실제 표시/활성 상태 관측. 클릭 결과 및 모든 시나리오 합격은 아님.",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "로그 폴더 열기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "settings-logs-folder"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "settings-original-tag",
@@ -7248,7 +12995,57 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 5
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "자동 변환 시작 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.474Z",
+        "controls": [
+          {
+            "text": "자동 변환 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-start"
+          }
+        ]
+      },
+      {
+        "screen": "자동 start",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.503Z",
+        "controls": [
+          {
+            "text": "자동 변환 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-start"
+          }
+        ]
+      },
+      {
+        "screen": "자동 stop",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.006Z",
+        "controls": [
+          {
+            "text": "자동 변환 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-start"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "auto-stop",
@@ -7360,7 +13157,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 5
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "자동 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:25.743Z",
+        "controls": [
+          {
+            "text": "자동 변환 중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-stop"
+          }
+        ]
+      },
+      {
+        "screen": "자동 신규 파일 감지 후 watch",
+        "phase": "done",
+        "at": "2026-11-11T16:55:26.877Z",
+        "controls": [
+          {
+            "text": "자동 변환 중지",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "auto-stop"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "auto-background",
@@ -7750,7 +13581,201 @@
       ],
       "result": "실제 GUI 조작 후 엔진 설정값 또는 시작 버튼 활성 조건 확인",
       "sourceUnchanged": true
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": true,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-1"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "cleanup-ack-2",
@@ -7902,7 +13927,201 @@
       ],
       "result": "실제 GUI 조작 후 엔진 설정값 또는 시작 버튼 활성 조건 확인",
       "sourceUnchanged": true
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": true,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-2"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "cleanup-ack-3",
@@ -8054,7 +14273,201 @@
       ],
       "result": "실제 GUI 조작 후 엔진 설정값 또는 시작 버튼 활성 조건 확인",
       "sourceUnchanged": true
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": true,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "cleanup-ack-3"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "cleanup-start",
@@ -8164,7 +14577,201 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 6
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "설정 cleanup 동의 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.964Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.205Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.239Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 1",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.288Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 동시 작업 2",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.338Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.389Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.437Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD false",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.470Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "설정 MD true",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.503Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 완료 실행 전",
+        "phase": "done",
+        "at": "2026-11-11T16:55:23.877Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "정리 동의 해제",
+        "phase": "done",
+        "at": "2026-11-11T16:55:24.241Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      },
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "백업 후 삭제 시작",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "cleanup-start"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "cleanup-cancel",
@@ -8558,7 +15165,169 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 6
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "파일 전체",
+        "phase": "done",
+        "at": "2026-11-11T16:55:20.893Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:전체\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.124Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:대기\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.357Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:변환됨\n3",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.591Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:일부 차이\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:21.822Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:실패\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.058Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 필터:이미 변환됨(건너뜀)\n0",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.289Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "파일 상세",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.549Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "원본 백업 · 3개",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-open"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "backup-consent",
@@ -8665,7 +15434,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 6
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "원본을 백업 폴더에 복사하는 데 동의합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": false,
+            "pressed": null,
+            "controlId": "backup-consent"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "원본을 백업 폴더에 복사하는 데 동의합니다.",
+            "role": "input",
+            "type": "checkbox",
+            "disabled": false,
+            "checked": true,
+            "pressed": null,
+            "controlId": "backup-consent"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "backup-confirm",
@@ -8784,7 +15587,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 6
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "원본 백업",
+            "role": "button",
+            "type": "submit",
+            "disabled": true,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-confirm"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "원본 백업",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-confirm"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "backup-cancel",
@@ -8880,7 +15717,41 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 6
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "백업 동의 전 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.626Z",
+        "controls": [
+          {
+            "text": "취소",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-cancel"
+          }
+        ]
+      },
+      {
+        "screen": "백업 동의 후 모달",
+        "phase": "done",
+        "at": "2026-11-11T16:55:22.673Z",
+        "controls": [
+          {
+            "text": "취소",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "backup-cancel"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "backup-modes",
@@ -8994,7 +15865,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "새로 고침",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-refresh"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "log-copy",
@@ -9080,7 +15969,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "전체 복사",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-copy"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "log-close",
@@ -9157,7 +16064,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "닫기",
+            "role": "button",
+            "type": "submit",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-close"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "log-text",
@@ -9243,7 +16168,25 @@
       "kind": "observed-display",
       "reason": "실제 관측된 표시/활성 상태이며 모든 동작 시나리오 합격을 뜻하지 않음",
       "planStep": 7
-    }
+    },
+    "latestObservations": [
+      {
+        "screen": "로그 대화상자",
+        "phase": "done",
+        "at": "2026-11-11T16:55:27.277Z",
+        "controls": [
+          {
+            "text": "로그 내용",
+            "role": "textarea",
+            "type": "textarea",
+            "disabled": false,
+            "checked": null,
+            "pressed": null,
+            "controlId": "log-text"
+          }
+        ]
+      }
+    ]
   },
   {
     "controlId": "escape-log",
