@@ -337,9 +337,19 @@ export class Engine {
     }
     for (let start = 0; start < documents.length; start += 64) {
       const batch = documents.slice(start, start + 64);
-      const sizes = await Promise.all(batch.map(name => stat(path.join(dir, name)).then(info => info.size)));
+      const sizes = await Promise.all(batch.map(async name => {
+        try { const info = await lstat(path.join(dir, name)); return info.isFile() ? info.size : null; }
+        catch (error) {
+          if (["ENOENT", "EACCES", "EPERM", "ELOOP"].includes((error as NodeJS.ErrnoException).code ?? "")) {
+            skippedDirs.push(path.join(dir, name));
+            return null;
+          }
+          throw error;
+        }
+      }));
       batch.forEach((name, index) => {
-        found.push({ id: found.length, name, dir, source: path.join(dir, name), size: sizes[index], targetSize: 0, status: "wait", message: "", checks: [] });
+        if (sizes[index] === null) return;
+        found.push({ id: found.length, name, dir, source: path.join(dir, name), size: sizes[index]!, targetSize: 0, status: "wait", message: "", checks: [] });
       });
     }
   }
