@@ -51,7 +51,7 @@ async function inspect({ app, page, evidence, capture }) {
   assert.equal(evidence.observations.at(-1).focusReturned, true);
   await capture('설정');
   await realStates({ app, page, evidence, capture, click });
-  evidence.limitations = ['상태는 실제 패키지 엔진 변환(정상 2개·손상 오류주입 1개)으로만 만듦; 상태 대역 없음', '자동 재작업·원본 백업 실행·복구 상태는 이 검사에서 만들지 않음(백업 확인창 열고 취소만) — automatic/cleanup 검사 증거로 별도 확인', '네이티브 폴더 선택 반환만 격리 경로로 대체', '119개 전체 조작 항목은 이 검사로 검증되지 않음'];
+  evidence.limitations = ['상태는 실제 패키지 엔진 변환(정상 2개·손상 오류주입 1개)으로만 만듦; 상태 대역 없음', '이 증거는 검색·상세·백업 확인창 취소 범위. 같은 명령이 이어서 automatic-check와 cleanup-check를 실행하고 각각의 증거 경로와 실패를 전달함', '네이티브 폴더 선택 반환만 격리 경로로 대체', '119개 전체 조작 항목과 상태별 실행의 일대일 대응은 미완료; 화면읽기 실제 낭독도 미검증'];
 }
 async function realStates({ app, page, evidence, capture, click }) {
   const root = path.join(evidence.directory, '상태 검사');
