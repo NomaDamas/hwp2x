@@ -1,0 +1,646 @@
+{
+  "checks": [
+    {
+      "id": "engine-valid-original",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(valid.ok, true);",
+      "proves": "미실행·소스 판정 조건: HWPML 변환 결과의 validateHwpx 적합 여부",
+      "doesNotProve": "원본 바이트 보존은 별도 assertion이며 서식·레이아웃 무손실이나 실제 뷰어 호환성은 아님",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-original-bytes",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal((await readFile(source, \"utf8\")), HWPML);",
+      "proves": "미실행·소스 판정 조건: 실제 HWPML fixture 원본 문자열 유지",
+      "doesNotProve": "모든 HWP 문서·파일 메타데이터·NTFS 대체 스트림 보존은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-content-diff",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(result.contentMatch, false);",
+      "proves": "미실행·소스 판정 조건: 변경된 글자가 있는 출력의 내용 불일치 판정",
+      "doesNotProve": "표·수식·그림 배치와 렌더링 동일성은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-existing-output",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(await readFile(target, \"utf8\"), \"existing\");",
+      "proves": "미실행·소스 판정 조건: 기존 출력 내용 비덮어쓰기",
+      "doesNotProve": "동시 외부 쓰기와 모든 파일시스템 경쟁은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-md",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "await assert.rejects(() => stat(second.md));",
+      "proves": "미실행·소스 판정 조건: MD 옵션을 끈 fixture에서 MD 미생성",
+      "doesNotProve": "기존 MD 보존 전체 경우나 실제 뷰어는 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-workers",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(snapshot.counts.diff, 3);",
+      "proves": "미실행·소스 판정 조건: workers=2의 세 HWPML 차이 상태 집계",
+      "doesNotProve": "전체 조합 부하·처리량·Windows 병렬 COM은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-backup",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(await readFile(path.join(backup, \"test.hwpml\"), \"utf8\"), HWPML);",
+      "proves": "미실행·소스 판정 조건: 백업 사본의 fixture 내용 동일",
+      "doesNotProve": "삭제 순서·물리 디스크 영속성·정전은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-backup-conflict",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(await readFile(path.join(backup, \"test.hwpml\"), \"utf8\"), \"다른 내용\");",
+      "proves": "미실행·소스 판정 조건: 기존 다른 내용의 백업을 보존",
+      "doesNotProve": "다중 프로세스 경쟁과 ACL 보존은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-scan-depth",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.deepEqual(engine.state.files.map(file => path.relative(root, file.source)).sort(), files.map(file => path.normalize(file)).sort());",
+      "proves": "미실행·소스 판정 조건: 준비한 중첩 파일 목록 정확 일치와 node_modules 제외",
+      "doesNotProve": "무한 깊이·모든 드라이브·Windows junction은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-scan-permission",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.deepEqual(engine.state.skippedDirs, [path.join(root, \"잠김\")]);",
+      "proves": "미실행·소스 판정 조건: 권한 제한 하위 폴더 건너뜀 기록",
+      "doesNotProve": "root 실행이면 skip되며 Windows ACL 실측은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "engine-resume-md",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal((await stat(hwpx)).mtimeMs, made.mtimeMs, \"HWPX는 다시 쓰지 않음\");",
+      "proves": "미실행·소스 판정 조건: 재구성한 중단 상태에서 MD 복구 후 HWPX 수정 시간 유지",
+      "doesNotProve": "실제 강제 종료 시점·재부팅·전원 차단은 아님",
+      "kind": "simulation"
+    },
+    {
+      "id": "engine-enospc",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(state.counts.wait, 2, \"멈춘 파일과 남은 파일은 대기\");",
+      "proves": "미실행·소스 판정 조건: link에 ENOSPC를 주입하면 두 파일 대기 유지",
+      "doesNotProve": "실제 디스크 포화·체크포인트 동시 저장 실패는 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "engine-security-interaction",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.deepEqual(calls, [source, second]);",
+      "proves": "미실행·소스 판정 조건: 한컴 함수 대역 사용자 확인 오류 후 다음 파일 호출",
+      "doesNotProve": "실제 한컴 보안창·매크로·포커스·권한 설정은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "engine-recovery-blocked",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.deepEqual(state.files.map(file => file.status), [\"wait\", \"wait\"]);",
+      "proves": "미실행·소스 판정 조건: 한컴 안전 회수 실패 대역에서 두 파일 대기",
+      "doesNotProve": "실제 프로세스 회수와 사용자 문서 안전은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "engine-hancom-no-comparison",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(file.verification, undefined, \"내용 비교를 하지 않음\");",
+      "proves": "미실행·소스 판정 조건: 다른 텍스트 HWPX를 반환하는 한컴 대역에도 내용 비교 생략",
+      "doesNotProve": "ok 상태가 내용 무손실이라는 증거가 아니며 오히려 비교 공백을 드러냄",
+      "kind": "simulation"
+    },
+    {
+      "id": "engine-paging",
+      "path": "electron/src/engine.test.ts",
+      "assertionAnchor": "assert.equal(compact.files[0].message.length, 512);",
+      "proves": "미실행·소스 판정 조건: 목록 메시지 길이 제한",
+      "doesNotProve": "실제 화면 메모리 상한이나 모든 상세 필드 제한은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "automatic-batch",
+      "path": "electron/src/automatic.test.ts",
+      "assertionAnchor": "assert.deepEqual(f.engine.calls.map(call => call.length), [32, 1, 1]);",
+      "proves": "미실행·소스 판정 조건: FakeEngine에 다중 루트를 32개 이하 배치로 전달",
+      "doesNotProve": "실제 HWP 변환·Windows 감시·로그인 자동 시작은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "automatic-retry-race",
+      "path": "electron/src/automatic.test.ts",
+      "assertionAnchor": "assert.equal(active, 1);",
+      "proves": "미실행·소스 판정 조건: gate로 지연한 FakeEngine 재시도의 동시 실행 수 1",
+      "doesNotProve": "실제 COM 경합은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "automatic-symlink",
+      "path": "electron/src/automatic.test.ts",
+      "assertionAnchor": "await assert.rejects(f.automatic.retryIssue(source), /드라이브 밖/);",
+      "proves": "미실행·소스 판정 조건: 외부 symlink로 바뀐 실패 파일 재시도 거부",
+      "doesNotProve": "Windows junction 및 교체 경쟁은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "automatic-cap",
+      "path": "electron/src/automatic.test.ts",
+      "assertionAnchor": "assert.equal(f.automatic.snapshot().pendingIssues, 4096);",
+      "proves": "미실행·소스 판정 조건: 4096개 복원 기록 상한 도달 상태",
+      "doesNotProve": "장시간 메모리 사용이나 실제 변환 부하는 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "cleanup-backup-original",
+      "path": "electron/src/cleanup.test.ts",
+      "assertionAnchor": "assert.ok(directory); assert.deepEqual(await readFile(path.join(f.backupDir, directory, \"0.hwp\")), f.sourceData);",
+      "proves": "미실행·소스 판정 조건: 일반 바이트 fixture 백업 내용 일치",
+      "doesNotProve": "실제 문서 변환 품질과 백업→fsync→journal→rename 순서별 장애는 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "cleanup-conflict",
+      "path": "electron/src/cleanup.test.ts",
+      "assertionAnchor": "assert.deepEqual(await readFile(f.source), Buffer.from(\"foreign\"));",
+      "proves": "미실행·소스 판정 조건: 복원 위치에 생긴 타 파일 보존",
+      "doesNotProve": "모든 경합·Windows 공유 잠금은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "cleanup-crash-state",
+      "path": "electron/src/cleanup.test.ts",
+      "assertionAnchor": "assert.equal((await lstat(f.source)).ino, (await lstat(f.entry.quarantine)).ino);",
+      "proves": "미실행·소스 판정 조건: 수동 구성한 rename/hardlink 중단 상태의 복원 inode 동일성",
+      "doesNotProve": "실제 순서별 kill·fsync 내구성·전원 차단·재부팅은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "cleanup-open-descriptor",
+      "path": "electron/src/cleanup.test.ts",
+      "assertionAnchor": "assert.equal(await readFile(quarantine, \"utf8\"), \"edited-data\");",
+      "proves": "미실행·소스 판정 조건: 열린 descriptor가 바꾼 격리 파일 데이터를 복구 실패 후 보존",
+      "doesNotProve": "Windows NTFS 공유 모드와 실제 편집기 공존은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "cleanup-journal-tamper",
+      "path": "electron/src/cleanup.test.ts",
+      "assertionAnchor": "assert.equal(await readFile(f.journal, \"utf8\"), serialized);",
+      "proves": "미실행·소스 판정 조건: 변조 journal 오류 시 원래 journal 문자열 유지",
+      "doesNotProve": "임의 모든 공격 경로·모든 메타데이터 보존은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "hancom-bitness-command",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.match(invocation.file, /SysWOW64[\\\\/]WindowsPowerShell/);",
+      "proves": "미실행·소스 판정 조건: 32비트 후보의 PowerShell 호출 경로 선택",
+      "doesNotProve": "실제 32비트 Windows·COM 활성화는 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "hancom-legacy",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "for (const version of [\"8.0.0.0\", \"9.1.1.5000\", \"12.0.0.1\", \"13.0.0.0\"]) assert.equal(fromVersion(version).available, true, version);",
+      "proves": "미실행·소스 판정 조건: 명시한 지원 버전 문자열 후보 허용",
+      "doesNotProve": "Windows 7/8 지원 여부와 무관하며 실제 한컴 버전 변환은 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "hancom-user-coexist",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.deepEqual(identified.data.ours, [200], \"새로 뜬 한글(200)만 변환용으로 고름\");",
+      "proves": "미실행·소스 판정 조건: 프로세스·COM 대역에서 새 PID만 소유 대상으로 식별",
+      "doesNotProve": "실제 사용자 한글 문서·포커스·PID 경쟁·user32 watchdog은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "hancom-user-no-quit",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.equal(result.quit, \"\", \"사용자 한글은 닫지 않음\");",
+      "proves": "미실행·소스 판정 조건: 기존 한글 PID에 연결된 대역에서 Quit 미호출",
+      "doesNotProve": "실제 한컴 공존 안전성은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "hancom-copy-preservation",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.deepEqual(await readFile(source), original, \"원본 바이트 그대로\");",
+      "proves": "미실행·소스 판정 조건: 변조 시도 COM 대역에도 원본 바이트 유지",
+      "doesNotProve": "root에서는 복사본 읽기전용 검사가 조건부 생략되며 실제 Windows ACL은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "hancom-approval-order",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.deepEqual(result.calls, [\"visible 0 False\", \"visible 1 False\", \"register FilePathCheckDLL FilePathCheckerModule\", \"msgbox\", \"visible 0 False\", \"visible 1 False\", \"open\", \"save\"], \"문서마다 열기 전에 다시 숨김\");",
+      "proves": "미실행·소스 판정 조건: 대역의 숨김·모듈 등록·메시지 모드·열기·저장 호출 순서",
+      "doesNotProve": "실제 보안 대화상자 억제와 승인 DLL 기능 실행은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "hancom-dll-pe",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.ok(dll.includes(Buffer.from(\"IsAccessiblePath\\0\", \"latin1\")), `${arch} 모듈이 IsAccessiblePath를 내보냄`);",
+      "proves": "미실행·소스 판정 조건: DLL 바이트에 export 이름 문자열 포함",
+      "doesNotProve": "검사명과 달리 항상 승인하는 함수 동작은 실행하여 검사하지 않음",
+      "kind": "unit"
+    },
+    {
+      "id": "hancom-watchdog",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.match(guard, /TerminateProcess\\(handle, 1\\)/);",
+      "proves": "미실행·소스 판정 조건: watchdog 소스에 핸들 기반 종료 호출 패턴 존재",
+      "doesNotProve": "C# 컴파일 호출도 있으나 실제 Windows 핸들·PID 재사용·종료 동작은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "hancom-session",
+      "path": "electron/src/hancom.test.ts",
+      "assertionAnchor": "assert.deepEqual([state.creates, state.calls.filter(call => call === \"open\").length, state.quits], [1, 2, 0]);",
+      "proves": "미실행·소스 판정 조건: 대역 세션 하나에서 두 번 열고 종료 전 Quit하지 않음",
+      "doesNotProve": "실제 한컴 장시간 세션 누수와 재부팅은 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "gui-1",
+      "path": "electron/approval-flow-check.cjs",
+      "assertionAnchor": "assert.deepEqual(await fs.readFile(input), broken, '실패 원본 보존');",
+      "proves": "미실행·소스 판정 조건: 손상 입력 원본 유지",
+      "doesNotProve": "Linux 손상 입력이며 실제 한컴 승인창 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-2",
+      "path": "electron/auto-flow-check.cjs",
+      "assertionAnchor": "assert.equal(await visible(), false, '--automatic 시작 창 hidden');",
+      "proves": "미실행·소스 판정 조건: --automatic 재실행 숨김",
+      "doesNotProve": "실제 로그인·재부팅 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-3",
+      "path": "electron/auto-flow-check.cjs",
+      "assertionAnchor": "assert.equal((await exec('xdotool', ['getwindowfocus'])).stdout.trim(), focusId.trim(), 'OS 키보드 포커스 유지');",
+      "proves": "미실행·소스 판정 조건: Linux 실제 입력 포커스 유지",
+      "doesNotProve": "Windows 한컴 포커스 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-4",
+      "path": "electron/auto-flow-check.cjs",
+      "assertionAnchor": "assert.match(desktopText, /^Exec=.+ --automatic$/m);",
+      "proves": "미실행·소스 판정 조건: 격리 autostart 파일 Exec 기록",
+      "doesNotProve": "OS 로그인 실행 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-5",
+      "path": "electron/cleanup-flow-check.cjs",
+      "assertionAnchor": "const restoredSources = async () => { for (const file of converted.files) assert.equal(await digest(file.source), originalHash, '원본 SHA-256 복원'); };",
+      "proves": "미실행·소스 판정 조건: 완료·취소·충돌·손상 뒤 복구 원본 해시",
+      "doesNotProve": "내부 fsync/journal/rename 순서별 장애 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-6",
+      "path": "electron/cleanup-flow-check.cjs",
+      "assertionAnchor": "assert.equal(await start.isDisabled(), true, '동의 전 실행 차단');",
+      "proves": "미실행·소스 판정 조건: 동의 전 버튼 차단",
+      "doesNotProve": "모든 IPC 우회 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-7",
+      "path": "electron/folder-change-check.cjs",
+      "assertionAnchor": "assert.equal(final.files.some(file => file.source.startsWith(initial + path.sep)), false);",
+      "proves": "미실행·소스 판정 조건: 새 폴더 변환에서 이전 폴더 제외",
+      "doesNotProve": "native 선택기는 대체; 한컴 분기는 환경변수 조건부",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-8",
+      "path": "electron/hancom-pick-check.cjs",
+      "assertionAnchor": "assert.equal(state.hancomCandidates[0].path, manualExe, '직접 선택이 목록 맨 앞');",
+      "proves": "미실행·소스 판정 조건: 재실행 후 직접 선택 우선",
+      "doesNotProve": "가짜 설치 후보·대화상자; 실제 COM·재부팅 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-9",
+      "path": "electron/hancom-redetect-check.cjs",
+      "assertionAnchor": "assert.equal((await state()).hancomPath, '', '쓸 수 없는 경로를 남기지 않음');",
+      "proves": "미실행·소스 판정 조건: 제거된 후보 선택 해제",
+      "doesNotProve": "감지 목록 대역; 실제 설치 제거 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-10",
+      "path": "electron/ipc-check.cjs",
+      "assertionAnchor": "assert.ok(Array.isArray(state.files), label);",
+      "proves": "미실행·소스 판정 조건: 메뉴·해시 이동 후 상태 응답",
+      "doesNotProve": "악성 renderer IPC 전체 보안 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-11",
+      "path": "electron/ipc-check.cjs",
+      "assertionAnchor": "assert.ok((await fs.readFile(copied)).equals(original), '백업 폴더에 원본과 같은 HWP');",
+      "proves": "미실행·소스 판정 조건: 백업 사본 바이트 동일",
+      "doesNotProve": "선택기는 대체; cleanup 삭제 순서 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-12",
+      "path": "electron/legacy-hancom-check.cjs",
+      "assertionAnchor": "assert.equal(first.hancomCandidates.find(c => c.path === exe)?.available, false, '자동 감지된 2004는 사용 불가');",
+      "proves": "미실행·소스 판정 조건: 6.5 후보 사용 불가",
+      "doesNotProve": "가짜 한컴; Windows 7/8 지원 판정 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-13",
+      "path": "electron/load-check.cjs",
+      "assertionAnchor": "assert.ok(result.pauseAckMs <= 1000, `일시정지 누른 뒤 안내까지 ${result.pauseAckMs}ms`);",
+      "proves": "미실행·소스 판정 조건: 일시정지 안내 1초 한계",
+      "doesNotProve": "합성 HWPML; 실제 대형 HWP·COM·저사양 Windows 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-14",
+      "path": "electron/load-check.cjs",
+      "assertionAnchor": "assert.ok(result.convertFreezeMs.max <= LIMIT_MS, `변환 중 화면 멈춤 ${result.convertFreezeMs.max}ms`);",
+      "proves": "미실행·소스 판정 조건: 변환 프레임 간격 제한",
+      "doesNotProve": "기본 300ms는 환경변수로 변경 가능; 메모리는 측정만 하고 상한 assert 없음",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-15",
+      "path": "electron/log-view-check.cjs",
+      "assertionAnchor": "assert.equal(first.trim(), (await box.inputValue()).trim(), '복사한 내용 = 화면에 보이는 로그');",
+      "proves": "미실행·소스 판정 조건: 실제 클립보드와 로그 창 동일",
+      "doesNotProve": "외부 로그 뷰어 실행 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-16",
+      "path": "electron/native-dialog-check.cjs",
+      "assertionAnchor": "assert.match(url,/^https:\\/\\/github.com\\/NomaDamas\\/hwp2x\\/issues\\/new\\?/);assert.ok(decodeURIComponent(url).includes('NATIVE_TEST_ERROR'));",
+      "proves": "미실행·소스 판정 조건: native 확인 후 이슈 URL 전달",
+      "doesNotProve": "shell.openExternal 대체; 실제 브라우저 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-17",
+      "path": "electron/native-dialog-check.cjs",
+      "assertionAnchor": "assert.equal(child.exitCode,0,'강제 종료 버튼으로 종료');",
+      "proves": "미실행·소스 판정 조건: 지연 종료 대화상자 뒤 프로세스 종료",
+      "doesNotProve": "테스트 훅 지연; 실제 한컴 hang 회수 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-18",
+      "path": "electron/resume-check.cjs",
+      "assertionAnchor": "assert.ok((await fs.readFile(complete.target)).equals(before)); assert.equal((await fs.stat(complete.target)).mtimeMs,beforeStat.mtimeMs);",
+      "proves": "미실행·소스 판정 조건: SIGKILL 후 재실행 완료 출력 내용·mtime 유지",
+      "doesNotProve": "OS 재부팅·정전·로그인 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-19",
+      "path": "electron/run-flow-check.cjs",
+      "assertionAnchor": "assert.equal(s.files.filter(f => f.status === 'wait').length, 60 - madeAtStop);",
+      "proves": "미실행·소스 판정 조건: 중지 뒤 대기 수와 실제 출력 수 대응",
+      "doesNotProve": "native 선택기는 대체; 실제 한컴 중지 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-20",
+      "path": "electron/smoke.cjs",
+      "assertionAnchor": "assert.match(await fs.readFile(path.join(root,'시험.md'),'utf8'), /실제 변환 시험/);",
+      "proves": "미실행·소스 판정 조건: HWPML의 MD 텍스트 생성",
+      "doesNotProve": "optional HWP 복사만으로 그 문서 내용 검증 주장 불가",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-21",
+      "path": "electron/stability.test.cjs",
+      "assertionAnchor": "assert.match(logs, /검사용 저장 실패/);",
+      "proves": "미실행·소스 판정 조건: 주입 저장 실패 로그",
+      "doesNotProve": "실제 장치 고장·정전 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-22",
+      "path": "electron/ui-review-check.cjs",
+      "assertionAnchor": "assert.equal(await failFilter.getAttribute('aria-pressed'), 'true', '상태 필터 선택 상태 노출');",
+      "proves": "미실행·소스 판정 조건: Enter로 선택한 필터 aria 상태",
+      "doesNotProve": "전체 키보드·스크린리더 검증 아님",
+      "kind": "gui"
+    },
+    {
+      "id": "gui-23",
+      "path": "electron/ui-review-check.cjs",
+      "assertionAnchor": "assert.ok(await page.evaluate(() => !!document.activeElement?.closest('[role=dialog]')), '대화상자 안으로 초점 이동');",
+      "proves": "미실행·소스 판정 조건: 모달 내부 초기 포커스",
+      "doesNotProve": "모든 Tab 순환·스크린리더 미검증",
+      "kind": "gui"
+    },
+    {
+      "id": "folder-state",
+      "path": "electron/folder-start.test.cjs",
+      "assertionAnchor": "assert.deepEqual(calls.map(call => call[0]), ['scan', 'start']);",
+      "proves": "미실행·소스 판정 조건: scan 다음 start 호출",
+      "doesNotProve": "VM/React/API 대역; 실제 GUI 아님",
+      "kind": "simulation"
+    },
+    {
+      "id": "layout",
+      "path": "electron/hancom-layout-check.cjs",
+      "assertionAnchor": "assert.deepEqual(rels, [...installs].sort(), '6개 설치를 모두 찾고 관계없는 Hwp.exe는 제외');",
+      "proves": "미실행·소스 판정 조건: 여섯 설치 폴더 결과 일치",
+      "doesNotProve": "가짜 파일·드라이브·레지스트리; 실제 COM 아님",
+      "kind": "simulation"
+    },
+    {
+      "id": "wine",
+      "path": "electron/win32-run-check.cjs",
+      "assertionAnchor": "assert.equal(info.arch, 'ia32', '32비트 프로세스로 실행');",
+      "proves": "미실행·소스 판정 조건: Wine 프로세스 ia32 보고",
+      "doesNotProve": "실제 Windows 32비트 호환성·설치·COM 아님",
+      "kind": "simulation"
+    },
+    {
+      "id": "winpath",
+      "path": "electron/windows-path-check.cjs",
+      "assertionAnchor": "assert.equal(state.files.length, 2);",
+      "proves": "미실행·소스 판정 조건: Windows 경로 fixture 두 파일 검색",
+      "doesNotProve": "path.win32·메모리 FS·Electron 대역; NTFS·COM·변환 미검증",
+      "kind": "simulation"
+    },
+    {
+      "id": "log-order",
+      "path": "electron/src/logger.test.ts",
+      "assertionAnchor": "assert.deepEqual(rows.slice(3).map(row => row.i), Array.from({ length: 20 }, (_, i) => i));",
+      "proves": "미실행·소스 판정 조건: 로그 순서 보존",
+      "doesNotProve": "강제 종료 직전 영속성 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "log-utf8",
+      "path": "electron/src/logger.test.ts",
+      "assertionAnchor": "assert.equal(await recentLog(10), \"끝부분\");",
+      "proves": "미실행·소스 판정 조건: 한글 UTF-8 끝부분 경계",
+      "doesNotProve": "모든 인코딩 보증 아님",
+      "kind": "unit"
+    },
+    {
+      "id": "log-permission",
+      "path": "electron/src/logger.test.ts",
+      "assertionAnchor": "assert.deepEqual(rows.map(row => row.event), [\"실행 환경\", \"기록 유지\"]);",
+      "proves": "미실행·소스 판정 조건: 목록 권한 없이 로그 기록",
+      "doesNotProve": "Windows/root에서 skip",
+      "kind": "unit"
+    },
+    {
+      "id": "origin-frame",
+      "path": "electron/src/origin.test.ts",
+      "assertionAnchor": "assert.equal(isAppFrame({ ...main, routingId: 2 }, main), false);",
+      "proves": "미실행·소스 판정 조건: 다른 routingId 거부",
+      "doesNotProve": "실제 악성 Electron 프레임 미검증",
+      "kind": "unit"
+    },
+    {
+      "id": "origin-nav",
+      "path": "electron/src/origin.test.ts",
+      "assertionAnchor": "assert.equal(isSameDocument(main.url.replace(\"app.html\", \"other.html\"), main.url), false);",
+      "proves": "미실행·소스 판정 조건: 다른 문서 이동 거부",
+      "doesNotProve": "실제 외부 열기 아님",
+      "kind": "unit"
+    },
+    {
+      "id": "report-home",
+      "path": "electron/src/report.test.ts",
+      "assertionAnchor": "assert.ok(!content.includes(\"홍길동\"));",
+      "proves": "미실행·소스 판정 조건: 홈 사용자 이름 가림",
+      "doesNotProve": "모든 개인정보·문서 본문 제거 아님",
+      "kind": "unit"
+    },
+    {
+      "id": "report-length",
+      "path": "electron/src/report.test.ts",
+      "assertionAnchor": "assert.ok(result.length <= 2000);",
+      "proves": "미실행·소스 판정 조건: 긴 한글·이모지 URL 길이 제한",
+      "doesNotProve": "실제 브라우저·GitHub 전송 미검증",
+      "kind": "unit"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "not-executed",
+      "description": "모든 checks는 현재 소스의 판정 조건 목록이며 이번 작업에서 단위·GUI·시뮬레이션 어느 검사도 실행하지 않았다",
+      "planStep": 1,
+      "requires": "후속 단계에서 환경·명령·출력·증거 파일을 갖춘 실제 실행"
+    },
+    {
+      "id": "lossless-rendering",
+      "description": "원본 바이트 보존과 출력 문서 내용·서식 무손실은 별개다. 한컴 대역 테스트는 다른 텍스트 출력도 verification 없이 ok로 처리하는 조건을 명시한다",
+      "planStep": 3,
+      "requires": "실제 HWP 코퍼스의 텍스트·표·그림·수식·페이지 렌더링 대조와 원본 해시·메타데이터 전후 비교"
+    },
+    {
+      "id": "windows7-8-unsupported",
+      "description": "Windows 7/8 미지원 안내·실행 차단·패키지 최소 OS를 판정하는 assertion은 읽은 검사 범위에서 확인하지 못했다. 한글 2004 미지원과 혼동하면 안 된다",
+      "planStep": 13,
+      "requires": "최소 OS 정책 및 패키지 설정 정적 대조와 격리 Windows 7/8의 사용자 안내 확인"
+    },
+    {
+      "id": "native-32bit",
+      "description": "Wine ia32 assertion과 PowerShell/DLL 비트수 assertion은 실제 32비트 Windows 지원 증거가 아니다",
+      "planStep": 14,
+      "requires": "지원 대상 Windows x86/x64 실측 및 32/64비트 한컴·COM·승인 DLL 조합 검증; Windows 11 x86 OS 존재를 전제하지 않음"
+    },
+    {
+      "id": "hancom-coexistence",
+      "description": "기존 사용자 한글 보존·소유 PID 식별·사용자 문서 증가 시 Quit 포기는 COM/프로세스 대역 근거다",
+      "planStep": 14,
+      "requires": "실제 사용자 한글 문서를 열고 편집한 상태에서 여러 버전 변환·종료·실패·포커스·저장 여부 실측"
+    },
+    {
+      "id": "external-open-viewer",
+      "description": "native-dialog 및 stability의 shell.openExternal은 URL 저장 대역이다. 실제 HWP/HWPX/MD 기본 뷰어·폴더·브라우저를 열고 문서 로드를 확인하는 assertion은 확인하지 못했다",
+      "planStep": 10,
+      "requires": "대상 OS의 기본 앱 연결, 실제 뷰어 창·파일 경로·내용 확인 및 취소·없는 파일·연결 실패 검증"
+    },
+    {
+      "id": "reboot-login",
+      "description": "SIGKILL 후 재실행과 --automatic 실행, autostart 파일 내용 검사는 OS 재부팅·로그인 재개가 아니다",
+      "planStep": 9,
+      "requires": "격리 사용자로 실제 재부팅/로그아웃/로그인 후 자동 실행·숨김·신규 파일 처리 및 설정 해제 확인"
+    },
+    {
+      "id": "cleanup-order",
+      "description": "cleanup 최종 해시와 수동 구성 crash journal은 백업 생성→검증/동기화→journal 의도 저장→rename/복원 순서별 실제 중단을 증명하지 않는다",
+      "planStep": 6,
+      "requires": "실제 구현 순서에 맞춘 각 영속화 경계 고장 주입과 프로세스 kill·전원 차단 후 원본/백업/격리본/결과/journal 보존 확인"
+    },
+    {
+      "id": "cleanup-windows-filesystem",
+      "description": "POSIX inode·symlink·열린 descriptor 근거로 NTFS 공유 잠금·junction·ACL·대체 스트림 보존을 보증할 수 없다",
+      "planStep": 14,
+      "requires": "Windows NTFS에서 열린 편집기·권한 제한·junction·긴 한글 경로·교차 볼륨 및 복원 메타데이터 실측"
+    },
+    {
+      "id": "hancom-security-watchdog",
+      "description": "모달/hang/승인모듈/종료회수는 pwsh 프로토콜·COM 대역이며 watchdog은 컴파일 및 소스 패턴 검사다. 실제 보안창이나 Windows 핸들 종료는 미검증",
+      "planStep": 4,
+      "requires": "실제 한컴 암호·매크로·보안경고·정지 시 사용자 보안설정 불변과 소유 프로세스만 안전 회수 확인"
+    },
+    {
+      "id": "dll-function",
+      "description": "DLL 테스트는 PE machine 및 IsAccessiblePath 문자열을 검사한다. 검사명에 있는 항상 승인 동작은 assertion으로 실행 검증되지 않는다",
+      "planStep": 4,
+      "requires": "실제 DLL export 호출 및 한컴 RegisterModule/문서 열기 결과 확인"
+    },
+    {
+      "id": "source-skips",
+      "description": "실제 HWP 샘플 부재 시 engine 검사가 skip되고 root/Windows에서는 일부 권한 검사가 skip된다. 환경변수 조건부 GUI 분기도 있다",
+      "planStep": 12,
+      "requires": "샘플·권한·환경변수별 실행 조건과 skip 수·분기 증거 기록"
+    },
+    {
+      "id": "load-memory",
+      "description": "부하 검사 메모리 수치는 기록하지만 메모리 상한 assertion은 없고 합성 HWPML 위주다",
+      "planStep": 11,
+      "requires": "실제 대형 HWP 코퍼스·장시간 자동 감시·저사양 지원 OS에서 RSS/heap 증가 한계 및 응답성 검증"
+    },
+    {
+      "id": "a11y-complete",
+      "description": "aria 상태·초기 모달 포커스·Escape·일부 폭 검사로 전체 접근성을 보증하지 않는다",
+      "planStep": 8,
+      "requires": "전체 키보드 순환·포커스 복귀·스크린리더·고대비·확대 배율 실측"
+    },
+    {
+      "id": "save-dialog",
+      "description": "읽은 검사에서 실제 저장 대화상자 취소·덮어쓰기·경로 실패와 OS 저장 연동을 종단 확인하는 근거는 찾지 못했다",
+      "planStep": 10,
+      "requires": "저장 기능 존재/노출 범위 확인 후 실제 native 대화상자와 파일 결과 대조"
+    },
+    {
+      "id": "package-release",
+      "description": "선택적 HWP2X_EXECUTABLE 실행 경로와 Wine 테스트만으로 배포 패키지 설치·제거·업데이트·서명·최소 OS 지원은 입증되지 않는다",
+      "planStep": 15,
+      "requires": "배포 산출물별 해시·서명·설치/제거·업데이트 및 지원 OS 환경 증거"
+    }
+  ]
+}

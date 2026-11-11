@@ -1,0 +1,3313 @@
+{
+  "controls": [
+    {
+      "id": "nav-overview",
+      "surface": "사이드바 메뉴",
+      "label": "특정 폴더 변환",
+      "purpose": "페이지 이동",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "항상; 특정 폴더 변환은 autoOn이면 오류만 표시",
+      "success": "소스상 기대: page=overview, sel=null, offset=0으로 갱신",
+      "cancelOrError": "자동 변환 중 overview 이동은 autoLocked 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "['overview','특정 폴더 변환'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "n.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "특정 폴더 변환 조작 후 page=overview, sel=null, offset=0으로 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 항상; 특정 폴더 변환은 autoOn이면 오류만 표시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "nav-auto",
+      "surface": "사이드바 메뉴",
+      "label": "전체 자동 변환",
+      "purpose": "페이지 이동",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "항상; 특정 폴더 변환은 autoOn이면 오류만 표시",
+      "success": "소스상 기대: page=auto, sel=null, offset=0으로 갱신",
+      "cancelOrError": "자동 변환 중 overview 이동은 autoLocked 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "['auto','전체 자동 변환'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "n.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "전체 자동 변환 조작 후 page=auto, sel=null, offset=0으로 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 항상; 특정 폴더 변환은 autoOn이면 오류만 표시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "nav-files",
+      "surface": "사이드바 메뉴",
+      "label": "파일",
+      "purpose": "페이지 이동",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "항상; 특정 폴더 변환은 autoOn이면 오류만 표시",
+      "success": "소스상 기대: page=files, sel=null, offset=0으로 갱신",
+      "cancelOrError": "자동 변환 중 overview 이동은 autoLocked 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "['files','파일'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "n.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "파일 조작 후 page=files, sel=null, offset=0으로 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 항상; 특정 폴더 변환은 autoOn이면 오류만 표시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "nav-settings",
+      "surface": "사이드바 메뉴",
+      "label": "설정",
+      "purpose": "페이지 이동",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "항상; 특정 폴더 변환은 autoOn이면 오류만 표시",
+      "success": "소스상 기대: page=settings, sel=null, offset=0으로 갱신",
+      "cancelOrError": "자동 변환 중 overview 이동은 autoLocked 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "['settings','설정'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "n.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "설정 조작 후 page=settings, sel=null, offset=0으로 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 항상; 특정 폴더 변환은 autoOn이면 오류만 표시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환 중 overview 이동은 autoLocked 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "side-progress",
+      "surface": "사이드바",
+      "label": "진행 상태",
+      "purpose": "진행 화면 복귀",
+      "input": "클릭",
+      "enabledWhen": "active && !autoOn && 다른 페이지 && !narrow",
+      "success": "소스상 기대: overview로 이동하고 offset=0",
+      "cancelOrError": "조건 불충족 시 카드 숨김",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "goOverview:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ goOverview }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "진행 상태 조작 후 overview로 이동하고 offset=0 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 active && !autoOn && 다른 페이지 && !narrow 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "조건 불충족 시 카드 숨김 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "overview-choose-folder",
+      "surface": "특정 폴더 변환 준비",
+      "label": "폴더 선택",
+      "purpose": "변환 준비 또는 실행",
+      "input": "클릭; 폴더는 네이티브 선택, md는 체크",
+      "enabledWhen": "busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때",
+      "success": "소스상 기대: 선택한 폴더 검색 후 newRun=true",
+      "cancelOrError": "폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "chooseFolder:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:pick-folder"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"pick-folder\""
+        }
+      ],
+      "scenarios": {
+        "normal": "폴더 선택 조작 후 선택한 폴더 검색 후 newRun=true 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "overview-start",
+      "surface": "특정 폴더 변환 준비",
+      "label": "파일 변환 / 검색 후 변환 / 폴더 선택 후 변환",
+      "purpose": "변환 준비 또는 실행",
+      "input": "클릭; 폴더는 네이티브 선택, md는 체크",
+      "enabledWhen": "busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때",
+      "success": "소스상 기대: 기존 idle 목록 변환 또는 검색 후 파일이 있으면 변환",
+      "cancelOrError": "폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "start:guard"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:start"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"start\""
+        }
+      ],
+      "scenarios": {
+        "normal": "파일 변환 / 검색 후 변환 / 폴더 선택 후 변환 조작 후 기존 idle 목록 변환 또는 검색 후 파일이 있으면 변환 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "overview-md",
+      "surface": "특정 폴더 변환 준비",
+      "label": "AI가 읽기 편한 md 파일도 생성",
+      "purpose": "변환 준비 또는 실행",
+      "input": "클릭; 폴더는 네이티브 선택, md는 체크",
+      "enabledWhen": "busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때",
+      "success": "소스상 기대: makeMarkdown 반전 저장",
+      "cancelOrError": "폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "toggleMd:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "AI가 읽기 편한 md 파일도 생성 조작 후 makeMarkdown 반전 저장 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "폴더 취소는 검색 생략; 빈 검색 결과는 변환하지 않음; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "overview-settings",
+      "surface": "특정 폴더 변환 준비",
+      "label": "설정 변경",
+      "purpose": "설정 이동",
+      "input": "링크 클릭",
+      "enabledWhen": "준비 화면",
+      "success": "소스상 기대: settings 페이지 표시",
+      "cancelOrError": "href=#이며 preventDefault 명시 없음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "goSettings:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ goSettings }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "설정 변경 조작 후 settings 페이지 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 준비 화면 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "href=#이며 preventDefault 명시 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "run-pause",
+      "surface": "특정 폴더 변환 진행/완료",
+      "label": "일시정지",
+      "purpose": "작업 상태 전환",
+      "input": "클릭",
+      "enabledWhen": "converting && !st.busy && !stopping",
+      "success": "소스상 기대: pause 요청, 진행 파일 이후 대기",
+      "cancelOrError": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "togglePause:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:pause"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"pause\""
+        }
+      ],
+      "scenarios": {
+        "normal": "일시정지 조작 후 pause 요청, 진행 파일 이후 대기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 converting && !st.busy && !stopping 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "run-resume",
+      "surface": "특정 폴더 변환 진행/완료",
+      "label": "이어하기",
+      "purpose": "작업 상태 전환",
+      "input": "클릭",
+      "enabledWhen": "paused && !st.busy",
+      "success": "소스상 기대: start 요청으로 이어하기",
+      "cancelOrError": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "phase==='paused'?'start':'pause'"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:start"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"start\""
+        }
+      ],
+      "scenarios": {
+        "normal": "이어하기 조작 후 start 요청으로 이어하기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 paused && !st.busy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "run-stop",
+      "surface": "특정 폴더 변환 진행/완료",
+      "label": "중지",
+      "purpose": "작업 상태 전환",
+      "input": "클릭",
+      "enabledWhen": "converting 또는 paused, !st.busy && !stopping",
+      "success": "소스상 기대: stopRun 요청",
+      "cancelOrError": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "stopRun:action('stop')"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:stop"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"stop\""
+        }
+      ],
+      "scenarios": {
+        "normal": "중지 조작 후 stopRun 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 converting 또는 paused, !st.busy && !stopping 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "run-choose-again",
+      "surface": "특정 폴더 변환 진행/완료",
+      "label": "다른 폴더 선택",
+      "purpose": "작업 상태 전환",
+      "input": "클릭",
+      "enabledWhen": "done 또는 stopped이고 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때",
+      "success": "소스상 기대: 새 폴더 검색 후 준비 화면",
+      "cancelOrError": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "chooseFolderAgain:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:pick-folder"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"pick-folder\""
+        }
+      ],
+      "scenarios": {
+        "normal": "다른 폴더 선택 조작 후 새 폴더 검색 후 준비 화면 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 done 또는 stopped이고 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "run-run-again",
+      "surface": "특정 폴더 변환 진행/완료",
+      "label": "이 폴더 다시 변환",
+      "purpose": "작업 상태 전환",
+      "input": "클릭",
+      "enabledWhen": "done 또는 stopped이고 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때",
+      "success": "소스상 기대: 현재 root 재검색 후 결과가 있으면 변환",
+      "cancelOrError": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "runAgain:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:start"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"start\""
+        }
+      ],
+      "scenarios": {
+        "normal": "이 폴더 다시 변환 조작 후 현재 root 재검색 후 결과가 있으면 변환 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 done 또는 stopped이고 busy·검색·변환·자동 변환·원본 정리/복구 중·복구 필요 오류가 아닐 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 root 없음은 작업 생략; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "stat-all",
+      "surface": "특정 폴더 변환 통계",
+      "label": "처리한 파일",
+      "purpose": "해당 결과 목록 조회",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "진행/완료 화면",
+      "success": "소스상 기대: files 페이지 all 필터, offset=0, sel=null",
+      "cancelOrError": "0개도 빈 결과 목록으로 이동",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "go:goFiles('all')"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "m.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "처리한 파일 조작 후 files 페이지 all 필터, offset=0, sel=null 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 진행/완료 화면 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0개도 빈 결과 목록으로 이동 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "stat-ok",
+      "surface": "특정 폴더 변환 통계",
+      "label": "변환됨",
+      "purpose": "해당 결과 목록 조회",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "진행/완료 화면",
+      "success": "소스상 기대: files 페이지 ok 필터, offset=0, sel=null",
+      "cancelOrError": "0개도 빈 결과 목록으로 이동",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "go:goFiles('ok')"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "m.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "변환됨 조작 후 files 페이지 ok 필터, offset=0, sel=null 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 진행/완료 화면 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0개도 빈 결과 목록으로 이동 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "stat-fail",
+      "surface": "특정 폴더 변환 통계",
+      "label": "실패",
+      "purpose": "해당 결과 목록 조회",
+      "input": "클릭 또는 Enter/Space",
+      "enabledWhen": "진행/완료 화면",
+      "success": "소스상 기대: files 페이지 fail 필터, offset=0, sel=null",
+      "cancelOrError": "0개도 빈 결과 목록으로 이동",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "go:goFiles('fail')"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "m.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "실패 조작 후 files 페이지 fail 필터, offset=0, sel=null 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 진행/완료 화면 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0개도 빈 결과 목록으로 이동 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "stat-elapsed",
+      "surface": "특정 폴더 변환 통계",
+      "label": "경과 시간",
+      "purpose": "정보 표시(클릭 동작 없음). 읽기 전용 시간 표시",
+      "input": "조작 없음",
+      "enabledWhen": "진행/완료 화면",
+      "success": "소스상 기대: 경과 시간 표시",
+      "cancelOrError": "m.go와 m.key 없음; 버튼 역할 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'경과 시간'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "m.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "경과 시간 조작 후 경과 시간 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 진행/완료 화면 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "m.go와 m.key 없음; 버튼 역할 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "issues-all",
+      "surface": "확인이 필요한 파일",
+      "label": "모두 보기",
+      "purpose": "문제 결과 필터 이동",
+      "input": "링크 클릭",
+      "enabledWhen": "진행/완료 화면",
+      "success": "소스상 기대: 실패가 있으면 fail, 없으면 diff로 이동",
+      "cancelOrError": "skipped만 있는 경우에도 diff로 이동하므로 건너뜀은 표시되지 않을 수 있음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "goIssues:goFiles(cnt.fail?'fail':'diff')"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ goIssues }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "모두 보기 조작 후 실패가 있으면 fail, 없으면 diff로 이동 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 진행/완료 화면 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "skipped만 있는 경우에도 diff로 이동하므로 건너뜀은 표시되지 않을 수 있음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "attention-row-diff",
+      "surface": "확인이 필요한 파일 행",
+      "label": "일부 차이 파일 행",
+      "purpose": "상태별 파일 상세 선택",
+      "input": "해당 상태의 각 file.id 행 클릭 또는 Enter/Space",
+      "enabledWhen": "overview의 attention 결과 중 최대 20행",
+      "success": "소스상 기대: files 페이지, 해당 file.status 필터와 file.id 선택",
+      "cancelOrError": "빈 목록에는 행 없음; 삭제된 선택은 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "files.slice(0,20).map"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "is.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "일부 차이 파일 행 조작 후 files 페이지, 해당 file.status 필터와 file.id 선택 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 overview의 attention 결과 중 최대 20행 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "빈 목록에는 행 없음; 삭제된 선택은 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "attention-row-fail",
+      "surface": "확인이 필요한 파일 행",
+      "label": "실패 파일 행",
+      "purpose": "상태별 파일 상세 선택",
+      "input": "해당 상태의 각 file.id 행 클릭 또는 Enter/Space",
+      "enabledWhen": "overview의 attention 결과 중 최대 20행",
+      "success": "소스상 기대: files 페이지, 해당 file.status 필터와 file.id 선택",
+      "cancelOrError": "빈 목록에는 행 없음; 삭제된 선택은 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "files.slice(0,20).map"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "is.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "실패 파일 행 조작 후 files 페이지, 해당 file.status 필터와 file.id 선택 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 overview의 attention 결과 중 최대 20행 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "빈 목록에는 행 없음; 삭제된 선택은 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "attention-row-skipped",
+      "surface": "확인이 필요한 파일 행",
+      "label": "이미 변환됨(건너뜀) 파일 행",
+      "purpose": "상태별 파일 상세 선택",
+      "input": "해당 상태의 각 file.id 행 클릭 또는 Enter/Space",
+      "enabledWhen": "overview의 attention 결과 중 최대 20행",
+      "success": "소스상 기대: files 페이지, 해당 file.status 필터와 file.id 선택",
+      "cancelOrError": "빈 목록에는 행 없음; 삭제된 선택은 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "files.slice(0,20).map"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "is.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "이미 변환됨(건너뜀) 파일 행 조작 후 files 페이지, 해당 file.status 필터와 file.id 선택 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 overview의 attention 결과 중 최대 20행 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "빈 목록에는 행 없음; 삭제된 선택은 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "backup-folder",
+      "surface": "완료 저장공간",
+      "label": "백업 폴더 열기",
+      "purpose": "결과 접근",
+      "input": "클릭",
+      "enabledWhen": "done/stopped 화면, backupDir 있고 !st.busy",
+      "success": "소스상 기대: 백업 폴더 생성 후 OS 열기",
+      "cancelOrError": "취소 시 저장 안 함; 기존 경로는 wx 쓰기 오류; OS 열기 오류는 notice",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "openBackup:action('openBackup')"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:open-backup"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"open-backup\""
+        }
+      ],
+      "scenarios": {
+        "normal": "백업 폴더 열기 조작 후 백업 폴더 생성 후 OS 열기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 done/stopped 화면, backupDir 있고 !st.busy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 시 저장 안 함; 기존 경로는 wx 쓰기 오류; OS 열기 오류는 notice 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "report",
+      "surface": "완료 저장공간",
+      "label": "변환 결과 저장",
+      "purpose": "결과 접근",
+      "input": "클릭",
+      "enabledWhen": "done && !st.busy",
+      "success": "소스상 기대: 네이티브 저장창으로 JSON 저장",
+      "cancelOrError": "취소 시 저장 안 함; 기존 경로는 wx 쓰기 오류; OS 열기 오류는 notice",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "saveReport:action('saveReport')"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:save-report"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"save-report\""
+        }
+      ],
+      "scenarios": {
+        "normal": "변환 결과 저장 조작 후 네이티브 저장창으로 JSON 저장 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 done && !st.busy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 시 저장 안 함; 기존 경로는 wx 쓰기 오류; OS 열기 오류는 notice 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "filter-all",
+      "surface": "파일 필터",
+      "label": "전체",
+      "purpose": "상태 필터 선택",
+      "input": "all; 클릭 또는 Enter/Space",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: filter=all, offset=0, sel=null; 검색어 유지",
+      "cancelOrError": "0건이면 해당하는 파일이 없습니다 표시",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "filters:['all','wait','ok','diff','fail','skipped']"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "fl.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "전체 조작 후 filter=all, offset=0, sel=null; 검색어 유지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "filter-wait",
+      "surface": "파일 필터",
+      "label": "대기",
+      "purpose": "상태 필터 선택",
+      "input": "wait; 클릭 또는 Enter/Space",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: filter=wait, offset=0, sel=null; 검색어 유지",
+      "cancelOrError": "0건이면 해당하는 파일이 없습니다 표시",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "filters:['all','wait','ok','diff','fail','skipped']"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "fl.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "대기 조작 후 filter=wait, offset=0, sel=null; 검색어 유지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "filter-ok",
+      "surface": "파일 필터",
+      "label": "변환됨",
+      "purpose": "상태 필터 선택",
+      "input": "ok; 클릭 또는 Enter/Space",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: filter=ok, offset=0, sel=null; 검색어 유지",
+      "cancelOrError": "0건이면 해당하는 파일이 없습니다 표시",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "filters:['all','wait','ok','diff','fail','skipped']"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "fl.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "변환됨 조작 후 filter=ok, offset=0, sel=null; 검색어 유지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "filter-diff",
+      "surface": "파일 필터",
+      "label": "일부 차이",
+      "purpose": "상태 필터 선택",
+      "input": "diff; 클릭 또는 Enter/Space",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: filter=diff, offset=0, sel=null; 검색어 유지",
+      "cancelOrError": "0건이면 해당하는 파일이 없습니다 표시",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "filters:['all','wait','ok','diff','fail','skipped']"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "fl.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "일부 차이 조작 후 filter=diff, offset=0, sel=null; 검색어 유지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "filter-fail",
+      "surface": "파일 필터",
+      "label": "실패",
+      "purpose": "상태 필터 선택",
+      "input": "fail; 클릭 또는 Enter/Space",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: filter=fail, offset=0, sel=null; 검색어 유지",
+      "cancelOrError": "0건이면 해당하는 파일이 없습니다 표시",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "filters:['all','wait','ok','diff','fail','skipped']"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "fl.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "실패 조작 후 filter=fail, offset=0, sel=null; 검색어 유지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "filter-skipped",
+      "surface": "파일 필터",
+      "label": "이미 변환됨(건너뜀)",
+      "purpose": "상태 필터 선택",
+      "input": "skipped; 클릭 또는 Enter/Space",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: filter=skipped, offset=0, sel=null; 검색어 유지",
+      "cancelOrError": "0건이면 해당하는 파일이 없습니다 표시",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "filters:['all','wait','ok','diff','fail','skipped']"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "fl.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "이미 변환됨(건너뜀) 조작 후 filter=skipped, offset=0, sel=null; 검색어 유지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "0건이면 해당하는 파일이 없습니다 표시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-search",
+      "surface": "파일",
+      "label": "파일 이름 검색",
+      "purpose": "이름 검색",
+      "input": "텍스트 입력; 서버 질의는 trim",
+      "enabledWhen": "files 페이지",
+      "success": "소스상 기대: query 변경, offset=0, sel=null 후 갱신",
+      "cancelOrError": "빈 문자열/공백은 검색어 없는 조회; 조회 오류는 상태 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "onQuery:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onChange=\"{{ onQuery }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "파일 이름 검색 조작 후 query 변경, offset=0, sel=null 후 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 files 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "빈 문자열/공백은 검색어 없는 조회; 조회 오류는 상태 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-wait",
+      "surface": "파일 목록 행",
+      "label": "대기 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 wait file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "대기 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-conv",
+      "surface": "파일 목록 행",
+      "label": "변환 중 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 conv file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "변환 중 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-ok",
+      "surface": "파일 목록 행",
+      "label": "변환됨 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 ok file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "변환됨 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-diff",
+      "surface": "파일 목록 행",
+      "label": "일부 차이 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 diff file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "일부 차이 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-fail",
+      "surface": "파일 목록 행",
+      "label": "실패 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 fail file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "실패 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-skipped",
+      "surface": "파일 목록 행",
+      "label": "이미 변환됨(건너뜀) 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 skipped file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "이미 변환됨(건너뜀) 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-row-deleted",
+      "surface": "파일 목록 행",
+      "label": "백업됨 파일 행",
+      "purpose": "파일별 상세 선택",
+      "input": "각 deleted file.id; 클릭 또는 Enter/Space",
+      "enabledWhen": "해당 상태 행이 현재 페이지에 있을 때",
+      "success": "소스상 기대: sel=file.id로 상세 표시",
+      "cancelOrError": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "const mapped = file =>"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "row.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "백업됨 파일 행 조작 후 sel=file.id로 상세 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 상태 행이 현재 페이지에 있을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "페이지당 최대 100행; 빈 목록은 선택 불가; selected 소실 시 상세 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-prev",
+      "surface": "파일",
+      "label": "이전 페이지",
+      "purpose": "100개 단위 페이지 이동",
+      "input": "클릭",
+      "enabledWhen": "filteredTotal>100 또는 offset>0; offset>0",
+      "success": "소스상 기대: 이전은 max(0,offset-100), 다음은 offset+100으로 조회",
+      "cancelOrError": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "prevPage:"
+        }
+      ],
+      "scenarios": {
+        "normal": "이전 페이지 조작 후 이전은 max(0,offset-100), 다음은 offset+100으로 조회 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 filteredTotal>100 또는 offset>0; offset>0 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "file-next",
+      "surface": "파일",
+      "label": "다음 페이지",
+      "purpose": "100개 단위 페이지 이동",
+      "input": "클릭",
+      "enabledWhen": "filteredTotal>100 또는 offset>0; offset+현재 행 수<총 개수",
+      "success": "소스상 기대: 이전은 max(0,offset-100), 다음은 offset+100으로 조회",
+      "cancelOrError": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "nextPage:"
+        }
+      ],
+      "scenarios": {
+        "normal": "다음 페이지 조작 후 이전은 max(0,offset-100), 다음은 offset+100으로 조회 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 filteredTotal>100 또는 offset>0; offset+현재 행 수<총 개수 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "issue-prev",
+      "surface": "전체 자동 변환 미처리",
+      "label": "이전 페이지",
+      "purpose": "100개 단위 페이지 이동",
+      "input": "클릭",
+      "enabledWhen": "issueTotal>100 또는 issueOffset>0; offset>0",
+      "success": "소스상 기대: 이전은 max(0,offset-100), 다음은 offset+100으로 조회",
+      "cancelOrError": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "issuePrev:"
+        }
+      ],
+      "scenarios": {
+        "normal": "이전 페이지 조작 후 이전은 max(0,offset-100), 다음은 offset+100으로 조회 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 issueTotal>100 또는 issueOffset>0; offset>0 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "issue-next",
+      "surface": "전체 자동 변환 미처리",
+      "label": "다음 페이지",
+      "purpose": "100개 단위 페이지 이동",
+      "input": "클릭",
+      "enabledWhen": "issueTotal>100 또는 issueOffset>0; offset+현재 행 수<총 개수",
+      "success": "소스상 기대: 이전은 max(0,offset-100), 다음은 offset+100으로 조회",
+      "cancelOrError": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "issueNext:"
+        }
+      ],
+      "scenarios": {
+        "normal": "다음 페이지 조작 후 이전은 max(0,offset-100), 다음은 offset+100으로 조회 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 issueTotal>100 또는 issueOffset>0; offset+현재 행 수<총 개수 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "첫/마지막 페이지 비활성; 자동 미처리 재작업으로 마지막 페이지가 비면 마지막 유효 페이지로 보정 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "detail-close",
+      "surface": "파일 상세",
+      "label": "상세 닫기",
+      "purpose": "상세 조작",
+      "input": "클릭; 선택 file.id",
+      "enabledWhen": "상세 표시 중",
+      "success": "소스상 기대: sel=null 후 갱신",
+      "cancelOrError": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "closeDetail:"
+        }
+      ],
+      "scenarios": {
+        "normal": "상세 닫기 조작 후 sel=null 후 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 상세 표시 중 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "detail-retry",
+      "surface": "파일 상세",
+      "label": "다시 시도",
+      "purpose": "상세 조작",
+      "input": "클릭; 선택 file.id",
+      "enabledWhen": "선택 상태 fail/diff, !busy && !locked && !autoOn; cleanup guard 통과",
+      "success": "소스상 기대: 선택 id retry 요청",
+      "cancelOrError": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "retry:guard(action('retry',st.sel))"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:retry"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"retry\""
+        }
+      ],
+      "scenarios": {
+        "normal": "다시 시도 조작 후 선택 id retry 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 선택 상태 fail/diff, !busy && !locked && !autoOn; cleanup guard 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "detail-result",
+      "surface": "파일 상세",
+      "label": "HWPX 열기",
+      "purpose": "상세 조작",
+      "input": "클릭; 선택 file.id",
+      "enabledWhen": "선택 파일 target 있음",
+      "success": "소스상 기대: 결과 경로 OS 열기",
+      "cancelOrError": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "openResult:action('openResult',st.sel)"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:open-result"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"open-result\""
+        }
+      ],
+      "scenarios": {
+        "normal": "HWPX 열기 조작 후 결과 경로 OS 열기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 선택 파일 target 있음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "detail-source",
+      "surface": "파일 상세",
+      "label": "원본 열기",
+      "purpose": "상세 조작",
+      "input": "클릭; 선택 file.id",
+      "enabledWhen": "상세 표시 중",
+      "success": "소스상 기대: 원본 경로 OS 열기",
+      "cancelOrError": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "openFile:action('openFile',st.sel)"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:open-file"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"open-file\""
+        }
+      ],
+      "scenarios": {
+        "normal": "원본 열기 조작 후 원본 경로 OS 열기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 상세 표시 중 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "detail-folder",
+      "surface": "파일 상세",
+      "label": "폴더 열기",
+      "purpose": "상세 조작",
+      "input": "클릭; 선택 file.id",
+      "enabledWhen": "상세 표시 중",
+      "success": "소스상 기대: 원본 폴더 OS 열기",
+      "cancelOrError": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "openFolder:action('openFolder',st.sel)"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:open-folder"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"open-folder\""
+        }
+      ],
+      "scenarios": {
+        "normal": "폴더 열기 조작 후 원본 폴더 OS 열기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 상세 표시 중 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "잘못된 id/사라진 파일/결과 없음은 오류; OS 지연 실패는 notice; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "workers-1",
+      "surface": "설정 / 성능",
+      "label": "동시 작업 수 1",
+      "purpose": "동시 작업 수 저장",
+      "input": "1; 클릭 또는 Enter/Space",
+      "enabledWhen": "정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음",
+      "success": "소스상 기대: configure({workers:1}) 후 checkpoint",
+      "cancelOrError": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "opts:[1,2,3,4,6]"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "o.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "동시 작업 수 1 조작 후 configure({workers:1}) 후 checkpoint 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "workers-2",
+      "surface": "설정 / 성능",
+      "label": "동시 작업 수 2",
+      "purpose": "동시 작업 수 저장",
+      "input": "2; 클릭 또는 Enter/Space",
+      "enabledWhen": "정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음",
+      "success": "소스상 기대: configure({workers:2}) 후 checkpoint",
+      "cancelOrError": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "opts:[1,2,3,4,6]"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "o.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "동시 작업 수 2 조작 후 configure({workers:2}) 후 checkpoint 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "workers-3",
+      "surface": "설정 / 성능",
+      "label": "동시 작업 수 3",
+      "purpose": "동시 작업 수 저장",
+      "input": "3; 클릭 또는 Enter/Space",
+      "enabledWhen": "정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음",
+      "success": "소스상 기대: configure({workers:3}) 후 checkpoint",
+      "cancelOrError": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "opts:[1,2,3,4,6]"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "o.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "동시 작업 수 3 조작 후 configure({workers:3}) 후 checkpoint 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "workers-4",
+      "surface": "설정 / 성능",
+      "label": "동시 작업 수 4",
+      "purpose": "동시 작업 수 저장",
+      "input": "4; 클릭 또는 Enter/Space",
+      "enabledWhen": "정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음",
+      "success": "소스상 기대: configure({workers:4}) 후 checkpoint",
+      "cancelOrError": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "opts:[1,2,3,4,6]"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "o.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "동시 작업 수 4 조작 후 configure({workers:4}) 후 checkpoint 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "workers-6",
+      "surface": "설정 / 성능",
+      "label": "동시 작업 수 6",
+      "purpose": "동시 작업 수 저장",
+      "input": "6; 클릭 또는 Enter/Space",
+      "enabledWhen": "정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음",
+      "success": "소스상 기대: configure({workers:6}) 후 checkpoint",
+      "cancelOrError": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "opts:[1,2,3,4,6]"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "o.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "동시 작업 수 6 조작 후 configure({workers:6}) 후 checkpoint 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 정리/자동 변환 중에는 settings 함수가 거부; HTML disabled 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "실행 상태에 따른 engine.configure 오류는 act 안내; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-md",
+      "surface": "설정",
+      "label": "AI가 읽기 편한 md 파일도 생성",
+      "purpose": "Markdown 설정",
+      "input": "행 클릭 또는 Enter/Space",
+      "enabledWhen": "정리/자동 변환 중 settings 거부",
+      "success": "소스상 기대: makeMarkdown 반전 저장",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "toggle('AI가 읽기 편한 md 파일도 생성'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.rowGo"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "AI가 읽기 편한 md 파일도 생성 조작 후 makeMarkdown 반전 저장 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 정리/자동 변환 중 settings 거부 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-backup-location",
+      "surface": "설정",
+      "label": "백업 위치 / 위치 변경",
+      "purpose": "백업 위치 선택",
+      "input": "폴더 선택",
+      "enabledWhen": "guard 통과",
+      "success": "소스상 기대: 선택 경로 backupDir 설정",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'백업 위치'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:pick-folder"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"pick-folder\""
+        }
+      ],
+      "scenarios": {
+        "normal": "백업 위치 / 위치 변경 조작 후 선택 경로 backupDir 설정 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 guard 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-root",
+      "surface": "설정",
+      "label": "검색할 폴더 / 폴더 선택",
+      "purpose": "검색 위치 변경",
+      "input": "폴더 선택",
+      "enabledWhen": "!cleanBusy && !autoOn && !locked",
+      "success": "소스상 기대: 검색 후 overview 준비 화면; 선택창 취소에도 overview로 이동",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'검색할 폴더'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:pick-folder"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"pick-folder\""
+        }
+      ],
+      "scenarios": {
+        "normal": "검색할 폴더 / 폴더 선택 조작 후 검색 후 overview 준비 화면; 선택창 취소에도 overview로 이동 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !cleanBusy && !autoOn && !locked 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-hancom-candidate",
+      "surface": "설정",
+      "label": "각 한컴 설치본 / 이 버전 사용",
+      "purpose": "해당 설치본 선택",
+      "input": "각 candidate.path별 별도 행; 실제 설치 이름/경로는 런타임 데이터",
+      "enabledWhen": "candidate.available!==false && 현재 경로와 다름; settings 잠금 및 assertSelectionAllowed 적용",
+      "success": "소스상 기대: 선택한 candidate.path 저장; 다른 수동 경로 우선권 해제",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "(s.hancomCandidates||[]).map(candidate"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "각 한컴 설치본 / 이 버전 사용 조작 후 선택한 candidate.path 저장; 다른 수동 경로 우선권 해제 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 candidate.available!==false && 현재 경로와 다름; settings 잠금 및 assertSelectionAllowed 적용 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-kordoc",
+      "surface": "설정",
+      "label": "kordoc 4.24.42 / 대체 엔진 사용",
+      "purpose": "내장 엔진 선택",
+      "input": "빈 hancomPath",
+      "enabledWhen": "현재 hancomPath 있음; settings 잠금 적용",
+      "success": "소스상 기대: hancomPath 비움; 수동 한컴 경로 우선권 해제",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'kordoc 4.24.42'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "kordoc 4.24.42 / 대체 엔진 사용 조작 후 hancomPath 비움; 수동 한컴 경로 우선권 해제 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 현재 hancomPath 있음; settings 잠금 적용 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-redetect",
+      "surface": "설정",
+      "label": "한컴 다시 감지 / 다시 감지",
+      "purpose": "설치본 재탐색",
+      "input": "클릭",
+      "enabledWhen": "guard 및 assertSelectionAllowed 통과",
+      "success": "소스상 기대: 설치본과 hancomDetectNote 갱신",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'한컴 다시 감지'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:detect-hancom"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"detect-hancom\""
+        }
+      ],
+      "scenarios": {
+        "normal": "한컴 다시 감지 / 다시 감지 조작 후 설치본과 hancomDetectNote 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 guard 및 assertSelectionAllowed 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-pick-hancom",
+      "surface": "설정",
+      "label": "한컴 직접 선택 / Hwp.exe 선택",
+      "purpose": "한컴 경로 직접 선택",
+      "input": "exe 선택",
+      "enabledWhen": "guard 및 assertSelectionAllowed 통과",
+      "success": "소스상 기대: 선택 후보 저장; 사용할 수 있으면 엔진 변경",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'한컴 직접 선택'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:pick-hancom"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"pick-hancom\""
+        }
+      ],
+      "scenarios": {
+        "normal": "한컴 직접 선택 / Hwp.exe 선택 조작 후 선택 후보 저장; 사용할 수 있으면 엔진 변경 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 guard 및 assertSelectionAllowed 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-log",
+      "surface": "설정",
+      "label": "상세 로그 / 로그 보기",
+      "purpose": "로그 대화상자 표시",
+      "input": "클릭",
+      "enabledWhen": "act busyLock 통과",
+      "success": "소스상 기대: readLog 결과를 log 상태로 표시하고 첫 버튼 포커스",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'상세 로그'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:read-log"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"read-log\""
+        }
+      ],
+      "scenarios": {
+        "normal": "상세 로그 / 로그 보기 조작 후 readLog 결과를 log 상태로 표시하고 첫 버튼 포커스 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 act busyLock 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-report-bug",
+      "surface": "설정",
+      "label": "버그 리포트 / 작성 초안 열기",
+      "purpose": "개인정보 동의 후 보고 초안",
+      "input": "클릭",
+      "enabledWhen": "act busyLock 통과",
+      "success": "소스상 기대: 네이티브 동의창 표시",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'버그 리포트'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:report-bug"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"report-bug\""
+        }
+      ],
+      "scenarios": {
+        "normal": "버그 리포트 / 작성 초안 열기 조작 후 네이티브 동의창 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 act busyLock 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-logs-folder",
+      "surface": "설정",
+      "label": "로그 폴더 / 로그 폴더 열기",
+      "purpose": "로그 폴더 접근",
+      "input": "클릭",
+      "enabledWhen": "act busyLock 통과",
+      "success": "소스상 기대: 로그 폴더 OS 열기",
+      "cancelOrError": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'로그 폴더'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.go"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:open-logs"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"open-logs\""
+        }
+      ],
+      "scenarios": {
+        "normal": "로그 폴더 / 로그 폴더 열기 조작 후 로그 폴더 OS 열기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 act busyLock 통과 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "선택 취소는 저장하지 않음; 사용할 수 없는 한컴은 사유 표시; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-original-tag",
+      "surface": "설정",
+      "label": "원본 자동 삭제 미지원 / 원본 유지",
+      "purpose": "정보 표시(클릭 동작 없음). 삭제 미지원 안내",
+      "input": "조작 없음",
+      "enabledWhen": "설정 페이지",
+      "success": "소스상 기대: 안내 태그만 표시",
+      "cancelOrError": "버튼이나 변경 핸들러 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "label:'원본 자동 삭제 미지원'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.isTag"
+        }
+      ],
+      "scenarios": {
+        "normal": "원본 자동 삭제 미지원 / 원본 유지 조작 후 안내 태그만 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 설정 페이지 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "버튼이나 변경 핸들러 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-start",
+      "surface": "전체 자동 변환",
+      "label": "자동 변환 시작",
+      "purpose": "자동 변환 제어",
+      "input": "클릭 또는 체크 boolean",
+      "enabledWhen": "autoOff && !autoDisabled; 감지 완료; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn)",
+      "success": "소스상 기대: automatic.start 요청",
+      "cancelOrError": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "autoStart:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:auto-start"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"auto-start\""
+        }
+      ],
+      "scenarios": {
+        "normal": "자동 변환 시작 조작 후 automatic.start 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 autoOff && !autoDisabled; 감지 완료; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn) 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-stop",
+      "surface": "전체 자동 변환",
+      "label": "자동 변환 중지",
+      "purpose": "자동 변환 제어",
+      "input": "클릭 또는 체크 boolean",
+      "enabledWhen": "autoOn && !autoDisabled; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn)",
+      "success": "소스상 기대: automatic.stop 요청",
+      "cancelOrError": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "autoStop:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:auto-stop"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"auto-stop\""
+        }
+      ],
+      "scenarios": {
+        "normal": "자동 변환 중지 조작 후 automatic.stop 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 autoOn && !autoDisabled; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn) 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-background",
+      "surface": "전체 자동 변환",
+      "label": "창을 닫아도 트레이에서 계속",
+      "purpose": "자동 변환 제어",
+      "input": "클릭 또는 체크 boolean",
+      "enabledWhen": "!autoDisabled; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn)",
+      "success": "소스상 기대: background 체크값 저장",
+      "cancelOrError": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "toggleBackground:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:auto-configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"auto-configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "창을 닫아도 트레이에서 계속 조작 후 background 체크값 저장 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !autoDisabled; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn) 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-resume",
+      "surface": "전체 자동 변환",
+      "label": "로그인하면 자동 변환 다시 시작",
+      "purpose": "자동 변환 제어",
+      "input": "클릭 또는 체크 boolean",
+      "enabledWhen": "!autoDisabled; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn)",
+      "success": "소스상 기대: resumeAtLogin 및 OS 자동실행 설정",
+      "cancelOrError": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "toggleResume:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:auto-configure"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"auto-configure\""
+        }
+      ],
+      "scenarios": {
+        "normal": "로그인하면 자동 변환 다시 시작 조작 후 resumeAtLogin 및 OS 자동실행 설정 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !autoDisabled; autoDisabled=st.busy || !auto || cleanBusy || (cleanStuck&&!autoOn) 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "설정 저장 실패 시 로그인 자동실행 이전값 복구 시도; act 오류는 작업을 완료하지 못했습니다 안내; bridge 없으면 앱 창 실행 안내; 잠금 상태는 해당 잠금 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-issue-retry-failure",
+      "surface": "전체 자동 변환 / 미처리 파일",
+      "label": "실패 행 / 다시 작업",
+      "purpose": "파일별 자동 재작업",
+      "input": "각 item.source별 버튼; 실패 행",
+      "enabledWhen": "failed && autoOn && !cleanBusy && !cleanStuck && !st.busy",
+      "success": "소스상 기대: autoRetryIssue(item.source) 요청; 후속 폴링으로 상태 표시",
+      "cancelOrError": "자동 변환 꺼짐/정리/복구 필요 시 잠금; 권한·암호·잠김·손상·timeout·파일 없음별 안내; 재작업중/대기 행에는 버튼 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "retry:()=> failed"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ir.retry"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:auto-retry-issue"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"auto-retry-issue\""
+        }
+      ],
+      "scenarios": {
+        "normal": "실패 행 / 다시 작업 조작 후 autoRetryIssue(item.source) 요청; 후속 폴링으로 상태 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 failed && autoOn && !cleanBusy && !cleanStuck && !st.busy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환 꺼짐/정리/복구 필요 시 잠금; 권한·암호·잠김·손상·timeout·파일 없음별 안내; 재작업중/대기 행에는 버튼 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-issue-retry-needs-user",
+      "surface": "전체 자동 변환 / 미처리 파일",
+      "label": "처리하지 못함 행 / 다시 작업",
+      "purpose": "파일별 자동 재작업",
+      "input": "각 item.source별 버튼; 처리하지 못함 행",
+      "enabledWhen": "failed && autoOn && !cleanBusy && !cleanStuck && !st.busy",
+      "success": "소스상 기대: autoRetryIssue(item.source) 요청; 후속 폴링으로 상태 표시",
+      "cancelOrError": "자동 변환 꺼짐/정리/복구 필요 시 잠금; 권한·암호·잠김·손상·timeout·파일 없음별 안내; 재작업중/대기 행에는 버튼 없음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "retry:()=> failed"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ir.retry"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:auto-retry-issue"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"auto-retry-issue\""
+        }
+      ],
+      "scenarios": {
+        "normal": "처리하지 못함 행 / 다시 작업 조작 후 autoRetryIssue(item.source) 요청; 후속 폴링으로 상태 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 failed && autoOn && !cleanBusy && !cleanStuck && !st.busy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환 꺼짐/정리/복구 필요 시 잠금; 권한·암호·잠김·손상·timeout·파일 없음별 안내; 재작업중/대기 행에는 버튼 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "cleanup-ack-1",
+      "surface": "설정 / 원본 백업 후 삭제",
+      "label": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다.",
+      "purpose": "각 위험 동의",
+      "input": "체크 boolean, cleanAck[0]",
+      "enabledWhen": "!cleanBusy",
+      "success": "소스상 기대: 해당 동의만 갱신; 모두 참이어야 시작 가능",
+      "cancelOrError": "정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다."
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ack.change"
+        }
+      ],
+      "scenarios": {
+        "normal": "서식까지 같다는 보증(무손실 인증)이 아님을 이해합니다. 한컴으로 변환한 파일은 내용 비교도 생략되었습니다. 조작 후 해당 동의만 갱신; 모두 참이어야 시작 가능 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !cleanBusy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "cleanup-ack-2",
+      "surface": "설정 / 원본 백업 후 삭제",
+      "label": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님).",
+      "purpose": "각 위험 동의",
+      "input": "체크 boolean, cleanAck[1]",
+      "enabledWhen": "!cleanBusy",
+      "success": "소스상 기대: 해당 동의만 갱신; 모두 참이어야 시작 가능",
+      "cancelOrError": "정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님)."
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ack.change"
+        }
+      ],
+      "scenarios": {
+        "normal": "확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과 백업 폴더 복사본으로 계속 보존됨을 이해합니다(영구 삭제 아님, 디스크 공간 확보 아님). 조작 후 해당 동의만 갱신; 모두 참이어야 시작 가능 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !cleanBusy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "cleanup-ack-3",
+      "surface": "설정 / 원본 백업 후 삭제",
+      "label": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다.",
+      "purpose": "각 위험 동의",
+      "input": "체크 boolean, cleanAck[2]",
+      "enabledWhen": "!cleanBusy",
+      "success": "소스상 기대: 해당 동의만 갱신; 모두 참이어야 시작 가능",
+      "cancelOrError": "정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다."
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ack.change"
+        }
+      ],
+      "scenarios": {
+        "normal": "원래 이름의 파일은 원래 위치에서 사라진다는 것을 이해합니다. 조작 후 해당 동의만 갱신; 모두 참이어야 시작 가능 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !cleanBusy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "정리/복구 중 체크 비활성; 하나 해제하면 시작 비활성 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "cleanup-start",
+      "surface": "설정 / 원본 백업 후 삭제",
+      "label": "백업 후 삭제 시작",
+      "purpose": "원본 정리와 복구 제어",
+      "input": "클릭",
+      "enabledWhen": "cleanup 로드, !cleanBusy, !canRollback, !autoOn, !locked, backupDir 있음, 동의 3개, !st.busy",
+      "success": "소스상 기대: cleanupStart(true) 요청 후 동의 초기화",
+      "cancelOrError": "진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "cleanStart:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:cleanup-start"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"cleanup-start\""
+        }
+      ],
+      "scenarios": {
+        "normal": "백업 후 삭제 시작 조작 후 cleanupStart(true) 요청 후 동의 초기화 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 cleanup 로드, !cleanBusy, !canRollback, !autoOn, !locked, backupDir 있음, 동의 3개, !st.busy 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "cleanup-cancel",
+      "surface": "설정 / 원본 백업 후 삭제",
+      "label": "취소하고 복구",
+      "purpose": "원본 정리와 복구 제어",
+      "input": "클릭",
+      "enabledWhen": "cleanup.phase==='running'",
+      "success": "소스상 기대: cleanup.cancel 요청",
+      "cancelOrError": "진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "cleanCancel:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:cleanup-cancel"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"cleanup-cancel\""
+        }
+      ],
+      "scenarios": {
+        "normal": "취소하고 복구 조작 후 cleanup.cancel 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 cleanup.phase==='running' 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "cleanup-rollback",
+      "surface": "설정 / 원본 백업 후 삭제",
+      "label": "원래 위치로 복구",
+      "purpose": "원본 정리와 복구 제어",
+      "input": "클릭",
+      "enabledWhen": "!cleanBusy && canRollback; 메인은 engine.running/autoStarting/autoOn 거부",
+      "success": "소스상 기대: cleanup.rollback 요청",
+      "cancelOrError": "진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "cleanRollback:"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:cleanup-rollback"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"cleanup-rollback\""
+        }
+      ],
+      "scenarios": {
+        "normal": "원래 위치로 복구 조작 후 cleanup.rollback 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !cleanBusy && canRollback; 메인은 engine.running/autoStarting/autoOn 거부 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "진행 작업/복구 필요 상태는 잠금; 비동기 작업 실패는 notice; 원본 정리 범위는 현재 목록의 안전 변환 HWP이고 영구 삭제가 아님 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "backup-open",
+      "surface": "파일",
+      "label": "원본 백업",
+      "purpose": "백업 동의 대화상자 열기",
+      "input": "클릭",
+      "enabledWhen": "done && eligibleCount>0 && !busy && !autoOn && !cleanBusy && backupDir",
+      "success": "소스상 기대: dialog=true, consent=false 후 포커스",
+      "cancelOrError": "대상 0개 또는 잠금이면 열리지 않음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "openDelete:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ openDelete }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "원본 백업 조작 후 dialog=true, consent=false 후 포커스 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 done && eligibleCount>0 && !busy && !autoOn && !cleanBusy && backupDir 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "대상 0개 또는 잠금이면 열리지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "backup-consent",
+      "surface": "원본 백업 대화상자",
+      "label": "원본을 백업 폴더에 복사하는 데 동의합니다.",
+      "purpose": "복사 동의",
+      "input": "체크 boolean",
+      "enabledWhen": "dialog 열림",
+      "success": "소스상 기대: consent 갱신",
+      "cancelOrError": "동의 없거나 canBackup 소실 시 확정 불가",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "toggleConsent:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "toggleConsent"
+        }
+      ],
+      "scenarios": {
+        "normal": "원본을 백업 폴더에 복사하는 데 동의합니다. 조작 후 consent 갱신 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 dialog 열림 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "동의 없거나 canBackup 소실 시 확정 불가 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "backup-confirm",
+      "surface": "원본 백업 대화상자",
+      "label": "원본 백업",
+      "purpose": "원본 복사 요청",
+      "input": "클릭; consent=true",
+      "enabledWhen": "consent && canBackup",
+      "success": "소스상 기대: dialog 닫고 consent 초기화 후 backup(true)",
+      "cancelOrError": "원래 위치 삭제 안 함; 동의 없음 거부; 비동기 오류는 act 안내",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "confirmDelete:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "confirmDelete"
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:backup"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"backup\""
+        }
+      ],
+      "scenarios": {
+        "normal": "원본 백업 조작 후 dialog 닫고 consent 초기화 후 backup(true) 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 consent && canBackup 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "원래 위치 삭제 안 함; 동의 없음 거부; 비동기 오류는 act 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "backup-cancel",
+      "surface": "원본 백업 대화상자",
+      "label": "취소",
+      "purpose": "대화상자 닫기",
+      "input": "클릭",
+      "enabledWhen": "dialog 열림",
+      "success": "소스상 기대: dialog=false; 백업 요청 없음",
+      "cancelOrError": "다시 열면 동의 초기화",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "closeDelete:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "closeDelete"
+        }
+      ],
+      "scenarios": {
+        "normal": "취소 조작 후 dialog=false; 백업 요청 없음 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 dialog 열림 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "다시 열면 동의 초기화 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "backup-modes",
+      "surface": "원본 백업 대화상자",
+      "label": "백업 모드 선택 템플릿(실제 옵션 없음)",
+      "purpose": "빈 모드 템플릿 기록",
+      "input": "실제 입력 없음",
+      "enabledWhen": "modes가 빈 배열이므로 도달 불가",
+      "success": "소스상 기대: 선택 행이 렌더링되지 않음",
+      "cancelOrError": "md.go 템플릿만 있고 실제 옵션 없음",
+      "reachability": "dead",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "modes:[]"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "md.go"
+        }
+      ],
+      "scenarios": {
+        "normal": "백업 모드 선택 템플릿(실제 옵션 없음) 조작 후 선택 행이 렌더링되지 않음 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 modes가 빈 배열이므로 도달 불가 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "md.go 템플릿만 있고 실제 옵션 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "log-refresh",
+      "surface": "상세 로그 대화상자",
+      "label": "새로 고침",
+      "purpose": "로그 조작",
+      "input": "클릭",
+      "enabledWhen": "log 열림; API 작업은 busyLock 적용",
+      "success": "소스상 기대: 최신 로그로 교체하고 복사 표시 초기화",
+      "cancelOrError": "읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "refreshLog:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ refreshLog }}\""
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:read-log"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"read-log\""
+        }
+      ],
+      "scenarios": {
+        "normal": "새로 고침 조작 후 최신 로그로 교체하고 복사 표시 초기화 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 log 열림; API 작업은 busyLock 적용 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "log-copy",
+      "surface": "상세 로그 대화상자",
+      "label": "전체 복사",
+      "purpose": "로그 조작",
+      "input": "클릭",
+      "enabledWhen": "log 열림; API 작업은 busyLock 적용",
+      "success": "소스상 기대: 최신 200000바이트 로그를 클립보드로 복사하고 같은 텍스트 표시",
+      "cancelOrError": "읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "copyLog:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ copyLog }}\""
+        },
+        {
+          "path": "electron/src/preload.ts",
+          "anchor": "hwp2x:copy-log"
+        },
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "register(\"copy-log\""
+        }
+      ],
+      "scenarios": {
+        "normal": "전체 복사 조작 후 최신 200000바이트 로그를 클립보드로 복사하고 같은 텍스트 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 log 열림; API 작업은 busyLock 적용 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "log-close",
+      "surface": "상세 로그 대화상자",
+      "label": "닫기",
+      "purpose": "로그 조작",
+      "input": "클릭",
+      "enabledWhen": "log 열림; API 작업은 busyLock 적용",
+      "success": "소스상 기대: log=null",
+      "cancelOrError": "읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "closeLog:"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ closeLog }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "닫기 조작 후 log=null 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 log 열림; API 작업은 busyLock 적용 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "읽기/복사 실패는 act 오류; 닫기는 로컬 상태 변경 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "log-text",
+      "surface": "상세 로그 대화상자",
+      "label": "로그 내용",
+      "purpose": "읽기와 텍스트 선택",
+      "input": "읽기 전용 textarea 선택/스크롤",
+      "enabledWhen": "log 열림",
+      "success": "소스상 기대: 현재 로그 표시; 없으면 로그가 아직 없습니다 표시",
+      "cancelOrError": "입력으로 로그를 수정할 수 없음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/app.html",
+          "anchor": "readonly=\"readonly\""
+        }
+      ],
+      "scenarios": {
+        "normal": "로그 내용 조작 후 현재 로그 표시; 없으면 로그가 아직 없습니다 표시 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 log 열림 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "입력으로 로그를 수정할 수 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "escape-log",
+      "surface": "전역 키보드",
+      "label": "Escape / 상세 로그 닫기",
+      "purpose": "열린 대화상자 닫기",
+      "input": "Escape",
+      "enabledWhen": "log 우선, 없으면 dialog",
+      "success": "소스상 기대: 해당 대화상자 상태 해제",
+      "cancelOrError": "다른 키는 무시; 상세 파일 패널은 닫지 않음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "onKey = event =>"
+        }
+      ],
+      "scenarios": {
+        "normal": "Escape / 상세 로그 닫기 조작 후 해당 대화상자 상태 해제 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 log 우선, 없으면 dialog 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "다른 키는 무시; 상세 파일 패널은 닫지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "escape-dialog",
+      "surface": "전역 키보드",
+      "label": "Escape / 원본 백업 닫기",
+      "purpose": "열린 대화상자 닫기",
+      "input": "Escape",
+      "enabledWhen": "log 우선, 없으면 dialog",
+      "success": "소스상 기대: 해당 대화상자 상태 해제",
+      "cancelOrError": "다른 키는 무시; 상세 파일 패널은 닫지 않음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "onKey = event =>"
+        }
+      ],
+      "scenarios": {
+        "normal": "Escape / 원본 백업 닫기 조작 후 해당 대화상자 상태 해제 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 log 우선, 없으면 dialog 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "다른 키는 무시; 상세 파일 패널은 닫지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "missing-redetect",
+      "surface": "숨은 showMissing 화면",
+      "label": "다시 감지 레이블 미정의",
+      "purpose": "미연결 컨트롤 기록",
+      "input": "실제 정상 입력 경로 없음",
+      "enabledWhen": "showMissing가 live.js 반환값에 없고 레이블도 미정의",
+      "success": "소스상 기대: 정상 렌더러에서는 도달 불가",
+      "cancelOrError": "redetect 핸들러 미정의; 다운로드 버튼 onClick 자체 없음",
+      "reachability": "dead",
+      "sources": [
+        {
+          "path": "electron/design/app.html",
+          "anchor": "onClick=\"{{ redetect }}\""
+        }
+      ],
+      "scenarios": {
+        "normal": "다시 감지 레이블 미정의 조작 후 정상 렌더러에서는 도달 불가 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 showMissing가 live.js 반환값에 없고 레이블도 미정의 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "redetect 핸들러 미정의; 다운로드 버튼 onClick 자체 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "missing-download",
+      "surface": "숨은 showMissing 화면",
+      "label": "다운로드 레이블 미정의",
+      "purpose": "미연결 컨트롤 기록",
+      "input": "실제 정상 입력 경로 없음",
+      "enabledWhen": "showMissing가 live.js 반환값에 없고 레이블도 미정의",
+      "success": "소스상 기대: 정상 렌더러에서는 도달 불가",
+      "cancelOrError": "redetect 핸들러 미정의; 다운로드 버튼 onClick 자체 없음",
+      "reachability": "dead",
+      "sources": [
+        {
+          "path": "electron/design/app.html",
+          "anchor": "{{ t.download }}"
+        }
+      ],
+      "scenarios": {
+        "normal": "다운로드 레이블 미정의 조작 후 정상 렌더러에서는 도달 불가 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 showMissing가 live.js 반환값에 없고 레이블도 미정의 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "redetect 핸들러 미정의; 다운로드 버튼 onClick 자체 없음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "unbound-new-run",
+      "surface": "렌더러 미연결 동작",
+      "label": "새 작업(화면 바인딩 없음)",
+      "purpose": "미사용 핸들러 기록",
+      "input": "사용자 입력 경로 없음",
+      "enabledWhen": "app.html에 newRun 바인딩 없음",
+      "success": "소스상 기대: 호출되면 newRun=true, page=overview",
+      "cancelOrError": "실제 버튼은 chooseFolderAgain/runAgain 사용",
+      "reachability": "dead",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "newRun:()=>"
+        }
+      ],
+      "scenarios": {
+        "normal": "새 작업(화면 바인딩 없음) 조작 후 호출되면 newRun=true, page=overview 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 app.html에 newRun 바인딩 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "실제 버튼은 chooseFolderAgain/runAgain 사용 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "tray-open",
+      "surface": "트레이 메뉴",
+      "label": "hwp2x 열기",
+      "purpose": "트레이 제어",
+      "input": "메뉴 클릭",
+      "enabledWhen": "트레이 생성 이후; 메뉴 disabled 조건 없음",
+      "success": "소스상 기대: 창 표시, 최소화 복원, 포커스",
+      "cancelOrError": "중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "{ label: \"hwp2x 열기\""
+        }
+      ],
+      "scenarios": {
+        "normal": "hwp2x 열기 조작 후 창 표시, 최소화 복원, 포커스 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 트레이 생성 이후; 메뉴 disabled 조건 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "tray-stop",
+      "surface": "트레이 메뉴",
+      "label": "전체 자동 변환 중지",
+      "purpose": "트레이 제어",
+      "input": "메뉴 클릭",
+      "enabledWhen": "트레이 생성 이후; 메뉴 disabled 조건 없음",
+      "success": "소스상 기대: automatic.stop 요청",
+      "cancelOrError": "중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "{ label: \"전체 자동 변환 중지\""
+        }
+      ],
+      "scenarios": {
+        "normal": "전체 자동 변환 중지 조작 후 automatic.stop 요청 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 트레이 생성 이후; 메뉴 disabled 조건 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "tray-exit",
+      "surface": "트레이 메뉴",
+      "label": "완전히 종료",
+      "purpose": "트레이 제어",
+      "input": "메뉴 클릭",
+      "enabledWhen": "트레이 생성 이후; 메뉴 disabled 조건 없음",
+      "success": "소스상 기대: beginShutdown 호출",
+      "cancelOrError": "중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "{ label: \"완전히 종료\""
+        }
+      ],
+      "scenarios": {
+        "normal": "완전히 종료 조작 후 beginShutdown 호출 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 트레이 생성 이후; 메뉴 disabled 조건 없음 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "중지 실패는 notice; 종료는 지연/저장 실패 대화상자 분기 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "tray-click",
+      "surface": "트레이 아이콘",
+      "label": "hwp2x · 전체 자동 변환",
+      "purpose": "숨은 창 복귀",
+      "input": "아이콘 클릭",
+      "enabledWhen": "트레이 생성 이후",
+      "success": "소스상 기대: 창 표시 및 복원/포커스",
+      "cancelOrError": "종료된 창 처리 결과는 미실행",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "tray.on(\"click\", showWindow)"
+        }
+      ],
+      "scenarios": {
+        "normal": "hwp2x · 전체 자동 변환 조작 후 창 표시 및 복원/포커스 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 트레이 생성 이후 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "종료된 창 처리 결과는 미실행 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "window-close",
+      "surface": "네이티브 창",
+      "label": "창 닫기",
+      "purpose": "닫기와 백그라운드 실행",
+      "input": "창 닫기",
+      "enabledWhen": "창 존재",
+      "success": "소스상 기대: auto enabled && background && tray이면 숨김; 그 외 beginShutdown",
+      "cancelOrError": "exiting이면 기본 닫기 허용; 종료 반복은 기존 shutdown Promise 반환",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "window.on(\"close\", event =>"
+        }
+      ],
+      "scenarios": {
+        "normal": "창 닫기 조작 후 auto enabled && background && tray이면 숨김; 그 외 beginShutdown 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 창 존재 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "exiting이면 기본 닫기 허용; 종료 반복은 기존 shutdown Promise 반환 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "app-quit",
+      "surface": "앱 종료 이벤트",
+      "label": "앱 종료 요청",
+      "purpose": "OS/앱 종료 요청 중 작업 저장",
+      "input": "네이티브 종료 요청",
+      "enabledWhen": "!exiting",
+      "success": "소스상 기대: 기본 종료 방지 후 beginShutdown",
+      "cancelOrError": "cleanup 취소/작업 대기, automatic.stop, engine.stop; 세션 종료 최대 5초와 로그 최대 2초 후 exit(0)",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "app.on(\"before-quit\", event =>"
+        }
+      ],
+      "scenarios": {
+        "normal": "앱 종료 요청 조작 후 기본 종료 방지 후 beginShutdown 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 !exiting 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "cleanup 취소/작업 대기, automatic.stop, engine.stop; 세션 종료 최대 5초와 로그 최대 2초 후 exit(0) 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-folder-accept",
+      "surface": "네이티브 파일 대화상자",
+      "label": "폴더 선택 / 선택·저장",
+      "purpose": "선택 결과 처리",
+      "input": "폴더 경로",
+      "enabledWhen": "해당 호출의 대화상자가 열렸을 때",
+      "success": "소스상 기대: 선택 filePaths[0] 반환",
+      "cancelOrError": "취소는 빈 문자열; 호출처는 검색/설정 생략",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "properties: [\"openDirectory\"]"
+        }
+      ],
+      "scenarios": {
+        "normal": "폴더 선택 / 선택·저장 조작 후 선택 filePaths[0] 반환 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 호출의 대화상자가 열렸을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소는 빈 문자열; 호출처는 검색/설정 생략 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-folder-cancel",
+      "surface": "네이티브 파일 대화상자",
+      "label": "폴더 선택 / 취소",
+      "purpose": "선택 결과 처리",
+      "input": "취소 버튼 또는 OS 취소",
+      "enabledWhen": "해당 호출의 대화상자가 열렸을 때",
+      "success": "소스상 기대: 취소는 빈 문자열; 호출처는 검색/설정 생략",
+      "cancelOrError": "취소는 빈 문자열; 호출처는 검색/설정 생략",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "properties: [\"openDirectory\"]"
+        }
+      ],
+      "scenarios": {
+        "normal": "폴더 선택 / 취소 조작 후 취소는 빈 문자열; 호출처는 검색/설정 생략 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 호출의 대화상자가 열렸을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소는 빈 문자열; 호출처는 검색/설정 생략 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-hancom-accept",
+      "surface": "네이티브 파일 대화상자",
+      "label": "한컴 한글 실행 파일 선택 / 선택·저장",
+      "purpose": "선택 결과 처리",
+      "input": "exe 파일 경로",
+      "enabledWhen": "해당 호출의 대화상자가 열렸을 때",
+      "success": "소스상 기대: 파일 stat/inspect 후 후보와 수동 선택 저장",
+      "cancelOrError": "취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "filters: [{ name: \"한컴 한글\", extensions: [\"exe\"] }]"
+        }
+      ],
+      "scenarios": {
+        "normal": "한컴 한글 실행 파일 선택 / 선택·저장 조작 후 파일 stat/inspect 후 후보와 수동 선택 저장 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 호출의 대화상자가 열렸을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-hancom-cancel",
+      "surface": "네이티브 파일 대화상자",
+      "label": "한컴 한글 실행 파일 선택 / 취소",
+      "purpose": "선택 결과 처리",
+      "input": "취소 버튼 또는 OS 취소",
+      "enabledWhen": "해당 호출의 대화상자가 열렸을 때",
+      "success": "소스상 기대: 취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지",
+      "cancelOrError": "취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "filters: [{ name: \"한컴 한글\", extensions: [\"exe\"] }]"
+        }
+      ],
+      "scenarios": {
+        "normal": "한컴 한글 실행 파일 선택 / 취소 조작 후 취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 호출의 대화상자가 열렸을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소 또는 빈 경로는 기존 snapshot; 비파일/stat 실패는 오류; 사용 불가는 후보만 기록하고 메시지 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-report-accept",
+      "surface": "네이티브 파일 대화상자",
+      "label": "변환 결과 JSON 저장 / 선택·저장",
+      "purpose": "선택 결과 처리",
+      "input": "저장 경로",
+      "enabledWhen": "해당 호출의 대화상자가 열렸을 때",
+      "success": "소스상 기대: snapshot을 UTF-8, flag wx로 저장",
+      "cancelOrError": "취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "defaultPath: \"hwp2x-report.json\""
+        }
+      ],
+      "scenarios": {
+        "normal": "변환 결과 JSON 저장 / 선택·저장 조작 후 snapshot을 UTF-8, flag wx로 저장 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 호출의 대화상자가 열렸을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-report-cancel",
+      "surface": "네이티브 파일 대화상자",
+      "label": "변환 결과 JSON 저장 / 취소",
+      "purpose": "선택 결과 처리",
+      "input": "취소 버튼 또는 OS 취소",
+      "enabledWhen": "해당 호출의 대화상자가 열렸을 때",
+      "success": "소스상 기대: 취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true",
+      "cancelOrError": "취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "defaultPath: \"hwp2x-report.json\""
+        }
+      ],
+      "scenarios": {
+        "normal": "변환 결과 JSON 저장 / 취소 조작 후 취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 해당 호출의 대화상자가 열렸을 때 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "취소는 false; 기존 파일/권한 오류는 실패; canceled=false이나 filePath 없는 경우 쓰기 없이 true 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-shutdown-timeout-0",
+      "surface": "네이티브 경고 / 종료가 지연되고 있습니다",
+      "label": "기다리기",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 0",
+      "enabledWhen": "종료가 지연되고 있습니다 대화상자 발생 시",
+      "success": "소스상 기대: 계속 waiting을 기다린 뒤 저장 완료 시 종료",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"종료가 지연되고 있습니다\""
+        }
+      ],
+      "scenarios": {
+        "normal": "기다리기 조작 후 계속 waiting을 기다린 뒤 저장 완료 시 종료 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 종료가 지연되고 있습니다 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-shutdown-timeout-1",
+      "surface": "네이티브 경고 / 종료가 지연되고 있습니다",
+      "label": "강제 종료",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 1",
+      "enabledWhen": "종료가 지연되고 있습니다 대화상자 발생 시",
+      "success": "소스상 기대: finishExit 실행; 저장 미완료 위험",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"종료가 지연되고 있습니다\""
+        }
+      ],
+      "scenarios": {
+        "normal": "강제 종료 조작 후 finishExit 실행; 저장 미완료 위험 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 종료가 지연되고 있습니다 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-shutdown-save-fail-0",
+      "surface": "네이티브 경고 / 작업 기록 저장 실패",
+      "label": "기다리기",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 0",
+      "enabledWhen": "작업 기록 저장 실패 대화상자 발생 시",
+      "success": "소스상 기대: shutdown 해제, 제목 복원, 종료 취소 오류 안내",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"작업 기록 저장 실패\""
+        }
+      ],
+      "scenarios": {
+        "normal": "기다리기 조작 후 shutdown 해제, 제목 복원, 종료 취소 오류 안내 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 작업 기록 저장 실패 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-shutdown-save-fail-1",
+      "surface": "네이티브 경고 / 작업 기록 저장 실패",
+      "label": "강제 종료",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 1",
+      "enabledWhen": "작업 기록 저장 실패 대화상자 발생 시",
+      "success": "소스상 기대: finishExit 실행; 저장 실패 상태로 종료",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"작업 기록 저장 실패\""
+        }
+      ],
+      "scenarios": {
+        "normal": "강제 종료 조작 후 finishExit 실행; 저장 실패 상태로 종료 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 작업 기록 저장 실패 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-renderer-gone-0",
+      "surface": "네이티브 경고 / 화면 프로세스가 종료되었습니다",
+      "label": "다시 불러오기",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 0",
+      "enabledWhen": "화면 프로세스가 종료되었습니다 대화상자 발생 시",
+      "success": "소스상 기대: 창이 남아 있으면 webContents.reload",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"화면 프로세스가 종료되었습니다\""
+        }
+      ],
+      "scenarios": {
+        "normal": "다시 불러오기 조작 후 창이 남아 있으면 webContents.reload 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 화면 프로세스가 종료되었습니다 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-renderer-gone-1",
+      "surface": "네이티브 경고 / 화면 프로세스가 종료되었습니다",
+      "label": "종료",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 1",
+      "enabledWhen": "화면 프로세스가 종료되었습니다 대화상자 발생 시",
+      "success": "소스상 기대: beginShutdown 실행",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"화면 프로세스가 종료되었습니다\""
+        }
+      ],
+      "scenarios": {
+        "normal": "종료 조작 후 beginShutdown 실행 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 화면 프로세스가 종료되었습니다 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-renderer-unresponsive-0",
+      "surface": "네이티브 경고 / 화면이 응답하지 않습니다",
+      "label": "기다리기",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 0",
+      "enabledWhen": "화면이 응답하지 않습니다 대화상자 발생 시",
+      "success": "소스상 기대: 추가 처리 없이 기다림",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"화면이 응답하지 않습니다\""
+        }
+      ],
+      "scenarios": {
+        "normal": "기다리기 조작 후 추가 처리 없이 기다림 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 화면이 응답하지 않습니다 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-renderer-unresponsive-1",
+      "surface": "네이티브 경고 / 화면이 응답하지 않습니다",
+      "label": "종료",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 1",
+      "enabledWhen": "화면이 응답하지 않습니다 대화상자 발생 시",
+      "success": "소스상 기대: beginShutdown 실행",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"화면이 응답하지 않습니다\""
+        }
+      ],
+      "scenarios": {
+        "normal": "종료 조작 후 beginShutdown 실행 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 화면이 응답하지 않습니다 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-bug-report-0",
+      "surface": "네이티브 경고 / 버그 리포트",
+      "label": "브라우저에서 초안 열기",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 0",
+      "enabledWhen": "버그 리포트 대화상자 발생 시",
+      "success": "소스상 기대: 개인정보 포함 초안을 외부 브라우저에서 열기; 자동 게시 안 함",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음; 버그 리포트에서 Escape가 초안 열기로 이어질 수 있음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"버그 리포트\""
+        }
+      ],
+      "scenarios": {
+        "normal": "브라우저에서 초안 열기 조작 후 개인정보 포함 초안을 외부 브라우저에서 열기; 자동 게시 안 함 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 버그 리포트 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음; 버그 리포트에서 Escape가 초안 열기로 이어질 수 있음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-bug-report-1",
+      "surface": "네이티브 경고 / 버그 리포트",
+      "label": "취소",
+      "purpose": "해당 경고 선택",
+      "input": "버튼 응답 1",
+      "enabledWhen": "버그 리포트 대화상자 발생 시",
+      "success": "소스상 기대: false 반환, 브라우저 열지 않음",
+      "cancelOrError": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음; 버그 리포트에서 Escape가 초안 열기로 이어질 수 있음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "\"버그 리포트\""
+        }
+      ],
+      "scenarios": {
+        "normal": "취소 조작 후 false 반환, 브라우저 열지 않음 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 버그 리포트 대화상자 발생 시 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "askChoice의 defaultId=0, cancelId=0: Escape/창 닫기는 첫 선택과 같음; 버그 리포트에서 Escape가 초안 열기로 이어질 수 있음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-fatal-ok",
+      "surface": "네이티브 오류",
+      "label": "예기치 않은 오류 / 확인",
+      "purpose": "치명 오류 확인",
+      "input": "확인 클릭",
+      "enabledWhen": "uncaughtException 또는 unhandledRejection",
+      "success": "소스상 기대: 오류창 닫기; engine.pause 시도와 notice는 이미 수행",
+      "cancelOrError": "엔진 초기화 전이면 pause 실패를 무시하고 안내; 메시지박스 실패는 무시",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "buttons: [\"확인\"]"
+        }
+      ],
+      "scenarios": {
+        "normal": "예기치 않은 오류 / 확인 조작 후 오류창 닫기; engine.pause 시도와 notice는 이미 수행 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 uncaughtException 또는 unhandledRejection 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "엔진 초기화 전이면 pause 실패를 무시하고 안내; 메시지박스 실패는 무시 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "native-init-error",
+      "surface": "네이티브 초기화 오류",
+      "label": "hwp2x 초기화 실패 / 닫기",
+      "purpose": "초기화 오류 확인",
+      "input": "OS 제공 오류창 닫기",
+      "enabledWhen": "whenReady 초기화 거부",
+      "success": "소스상 기대: 오류 안내 창 닫기",
+      "cancelOrError": "재시도 버튼은 정의되어 있지 않음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "dialog.showErrorBox(\"hwp2x 초기화 실패\", message)"
+        }
+      ],
+      "scenarios": {
+        "normal": "hwp2x 초기화 실패 / 닫기 조작 후 오류 안내 창 닫기 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 whenReady 초기화 거부 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "재시도 버튼은 정의되어 있지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "renderer-error-alert",
+      "surface": "전역 오류 안내",
+      "label": "작업을 완료하지 못했습니다",
+      "purpose": "작업 실패와 중복 조작 규칙 기록",
+      "input": "각 act 경유 컨트롤 입력",
+      "enabledWhen": "busyLock이면 추가 실행 없이 반환",
+      "success": "소스상 기대: 오류는 reportError와 화면 error로 전달; finally에서 busy 해제",
+      "cancelOrError": "자동 변환/정리/복구 상호잠금은 guard·settings·register에 각각 적용되며 일치한다고 가정하지 않음",
+      "reachability": "wired",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "async act(action)"
+        }
+      ],
+      "scenarios": {
+        "normal": "작업을 완료하지 못했습니다 조작 후 오류는 reportError와 화면 error로 전달; finally에서 busy 해제 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 busyLock이면 추가 실행 없이 반환 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "자동 변환/정리/복구 상호잠금은 guard·settings·register에 각각 적용되며 일치한다고 가정하지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "ipc-interlock",
+      "surface": "전역 IPC 상호잠금",
+      "label": "전체 자동 변환·원본 정리·복구 필요 잠금",
+      "purpose": "UI 우회 요청도 서버에서 제한",
+      "input": "수동 변환·설정·재시도·백업 등 해당 채널",
+      "enabledWhen": "autoStarting/auto enabled, cleanup.busy, cleanup error+canRollback 분기별 차단 목록 적용",
+      "success": "소스상 기대: 허용 채널만 handler 실행",
+      "cancelOrError": "auto 차단: scan/start/pick-folder/pick-hancom/configure/retry/backup/pause/stop/detect-hancom; cleanup busy 차단: scan/start/pick-folder/pick-hancom/configure/retry/backup/auto-start/auto-configure; 복구 필요 차단: scan/start/auto-start/retry",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/src/main.ts",
+          "anchor": "if ((autoStarting || automatic?.snapshot().enabled)"
+        }
+      ],
+      "scenarios": {
+        "normal": "전체 자동 변환·원본 정리·복구 필요 잠금 조작 후 허용 채널만 handler 실행 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 autoStarting/auto enabled, cleanup.busy, cleanup error+canRollback 분기별 차단 목록 적용 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "auto 차단: scan/start/pick-folder/pick-hancom/configure/retry/backup/pause/stop/detect-hancom; cleanup busy 차단: scan/start/pick-folder/pick-hancom/configure/retry/backup/auto-start/auto-configure; 복구 필요 차단: scan/start/auto-start/retry 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-hancom-selected",
+      "surface": "설정 / 변환 엔진",
+      "label": "각 한컴 설치본 / 사용 중",
+      "purpose": "설치본별 선택 불가 상태 기록",
+      "input": "각 candidate.path별 런타임 행; 조작 없음",
+      "enabledWhen": "candidate.path===s.hancomPath",
+      "success": "소스상 기대: 이 버전 사용 버튼 대신 사용 중 태그",
+      "cancelOrError": "설치본의 실제 이름·개수는 런타임 값으로 정적 소스에 없음; 임의 설치본을 만들지 않음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "tag:s.hancomPath===candidate.path?'사용 중':'사용 불가'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.isTag"
+        }
+      ],
+      "scenarios": {
+        "normal": "각 한컴 설치본 / 사용 중 조작 후 이 버전 사용 버튼 대신 사용 중 태그 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 candidate.path===s.hancomPath 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "설치본의 실제 이름·개수는 런타임 값으로 정적 소스에 없음; 임의 설치본을 만들지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "settings-hancom-unavailable",
+      "surface": "설정 / 변환 엔진",
+      "label": "각 한컴 설치본 / 사용 불가",
+      "purpose": "설치본별 선택 불가 상태 기록",
+      "input": "각 candidate.path별 런타임 행; 조작 없음",
+      "enabledWhen": "candidate.available===false",
+      "success": "소스상 기대: 사용 불가 태그와 unavailableReason; 선택 버튼 없음",
+      "cancelOrError": "설치본의 실제 이름·개수는 런타임 값으로 정적 소스에 없음; 임의 설치본을 만들지 않음",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "candidate.available===false"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "r.isTag"
+        }
+      ],
+      "scenarios": {
+        "normal": "각 한컴 설치본 / 사용 불가 조작 후 사용 불가 태그와 unavailableReason; 선택 버튼 없음 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 candidate.available===false 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "설치본의 실제 이름·개수는 런타임 값으로 정적 소스에 없음; 임의 설치본을 만들지 않음 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-issue-row-retrying",
+      "surface": "전체 자동 변환 / 미처리 파일",
+      "label": "다시 작업 중",
+      "purpose": "상태별 행과 버튼 부재 기록",
+      "input": "각 item.source별 행; 직접 입력 없음",
+      "enabledWhen": "failed가 아닌 retrying 상태",
+      "success": "소스상 기대: 상태·경과·시도 횟수 표시; ir.isFailed가 아니어서 다시 작업 버튼 없음",
+      "cancelOrError": "항목이 제거되면 마지막 페이지 보정; 빈 목록은 안내",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "item.status === 'retrying' ? '다시 작업 중' : '다시 작업 대기'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ir.isFailed"
+        }
+      ],
+      "scenarios": {
+        "normal": "다시 작업 중 조작 후 상태·경과·시도 횟수 표시; ir.isFailed가 아니어서 다시 작업 버튼 없음 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 failed가 아닌 retrying 상태 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "항목이 제거되면 마지막 페이지 보정; 빈 목록은 안내 경로 확인(미실행)"
+      }
+    },
+    {
+      "id": "auto-issue-row-queued",
+      "surface": "전체 자동 변환 / 미처리 파일",
+      "label": "다시 작업 대기",
+      "purpose": "상태별 행과 버튼 부재 기록",
+      "input": "각 item.source별 행; 직접 입력 없음",
+      "enabledWhen": "failed가 아닌 queued 상태",
+      "success": "소스상 기대: 상태·경과·시도 횟수 표시; ir.isFailed가 아니어서 다시 작업 버튼 없음",
+      "cancelOrError": "항목이 제거되면 마지막 페이지 보정; 빈 목록은 안내",
+      "reachability": "conditional",
+      "sources": [
+        {
+          "path": "electron/design/live.js",
+          "anchor": "item.status === 'retrying' ? '다시 작업 중' : '다시 작업 대기'"
+        },
+        {
+          "path": "electron/design/app.html",
+          "anchor": "ir.isFailed"
+        }
+      ],
+      "scenarios": {
+        "normal": "다시 작업 대기 조작 후 상태·경과·시도 횟수 표시; ir.isFailed가 아니어서 다시 작업 버튼 없음 여부 확인(미실행)",
+        "changed": "상태 또는 선택을 바꾼 뒤 failed가 아닌 queued 상태 조건과 표시를 다시 확인(미실행)",
+        "repeated": "같은 조작 반복 및 빠른 연속 입력에서 중복 요청·상태 역전 여부 확인; act 경유 요청은 busyLock으로 중복 억제(미실행)",
+        "emptyOrInvalid": "항목이 제거되면 마지막 페이지 보정; 빈 목록은 안내 경로 확인(미실행)"
+      }
+    }
+  ]
+}

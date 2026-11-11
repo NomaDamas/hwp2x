@@ -1,0 +1,1225 @@
+[
+  {
+    "controlId": "nav-overview",
+    "checkIds": [
+      "gui-10"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "nav-auto",
+    "checkIds": [
+      "gui-10"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "nav-files",
+    "checkIds": [
+      "gui-10"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "nav-settings",
+    "checkIds": [
+      "gui-10"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "side-progress",
+    "checkIds": [
+      "gui-10"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "overview-choose-folder",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "overview-start",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "overview-md",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "overview-settings",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "run-pause",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "run-resume",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "run-stop",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "run-choose-again",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "run-run-again",
+    "checkIds": [
+      "gui-7",
+      "gui-19",
+      "folder-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "stat-all",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "stat-ok",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "stat-fail",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "stat-elapsed",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. 미연결 컨트롤이므로 실행 성공으로 판정하면 안 됨.",
+    "planStep": 8
+  },
+  {
+    "controlId": "issues-all",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "attention-row-diff",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "attention-row-fail",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "attention-row-skipped",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "backup-folder",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "report",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "filter-all",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "filter-wait",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "filter-ok",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "filter-diff",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "filter-fail",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "filter-skipped",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-search",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-wait",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-conv",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-ok",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-diff",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-fail",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-skipped",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-row-deleted",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-prev",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "file-next",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "issue-prev",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "issue-next",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "detail-close",
+    "checkIds": [
+      "gui-22",
+      "engine-paging"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 8
+  },
+  {
+    "controlId": "detail-retry",
+    "checkIds": [
+      "engine-security-interaction"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "detail-result",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "detail-source",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "detail-folder",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "workers-1",
+    "checkIds": [
+      "engine-workers"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "workers-2",
+    "checkIds": [
+      "engine-workers"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "workers-3",
+    "checkIds": [
+      "engine-workers"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "workers-4",
+    "checkIds": [
+      "engine-workers"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "workers-6",
+    "checkIds": [
+      "engine-workers"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "settings-md",
+    "checkIds": [
+      "engine-md",
+      "gui-20"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 3
+  },
+  {
+    "controlId": "settings-backup-location",
+    "checkIds": [
+      "gui-7"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "settings-root",
+    "checkIds": [
+      "gui-7"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "settings-hancom-candidate",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "settings-kordoc",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "settings-redetect",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "settings-pick-hancom",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "settings-log",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "settings-report-bug",
+    "checkIds": [
+      "gui-16",
+      "report-home",
+      "report-length"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "settings-logs-folder",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "settings-original-tag",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. 미연결 컨트롤이므로 실행 성공으로 판정하면 안 됨.",
+    "planStep": 8
+  },
+  {
+    "controlId": "auto-start",
+    "checkIds": [
+      "automatic-retry-race",
+      "automatic-cap",
+      "gui-1"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 5
+  },
+  {
+    "controlId": "auto-stop",
+    "checkIds": [
+      "automatic-retry-race",
+      "automatic-cap",
+      "gui-1"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 5
+  },
+  {
+    "controlId": "auto-background",
+    "checkIds": [
+      "gui-2",
+      "gui-4"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 9
+  },
+  {
+    "controlId": "auto-resume",
+    "checkIds": [
+      "gui-2",
+      "gui-4"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 9
+  },
+  {
+    "controlId": "auto-issue-retry-failure",
+    "checkIds": [
+      "automatic-retry-race",
+      "automatic-cap",
+      "gui-1"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 5
+  },
+  {
+    "controlId": "auto-issue-retry-needs-user",
+    "checkIds": [
+      "automatic-retry-race",
+      "automatic-cap",
+      "gui-1"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 5
+  },
+  {
+    "controlId": "cleanup-ack-1",
+    "checkIds": [
+      "gui-5",
+      "gui-6",
+      "cleanup-conflict",
+      "cleanup-crash-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "cleanup-ack-2",
+    "checkIds": [
+      "gui-5",
+      "gui-6",
+      "cleanup-conflict",
+      "cleanup-crash-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "cleanup-ack-3",
+    "checkIds": [
+      "gui-5",
+      "gui-6",
+      "cleanup-conflict",
+      "cleanup-crash-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "cleanup-start",
+    "checkIds": [
+      "gui-5",
+      "gui-6",
+      "cleanup-conflict",
+      "cleanup-crash-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "cleanup-cancel",
+    "checkIds": [
+      "gui-5",
+      "gui-6",
+      "cleanup-conflict",
+      "cleanup-crash-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "cleanup-rollback",
+    "checkIds": [
+      "gui-5",
+      "gui-6",
+      "cleanup-conflict",
+      "cleanup-crash-state"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "backup-open",
+    "checkIds": [
+      "engine-backup",
+      "engine-backup-conflict",
+      "gui-23"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "backup-consent",
+    "checkIds": [
+      "engine-backup",
+      "engine-backup-conflict",
+      "gui-23"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "backup-confirm",
+    "checkIds": [
+      "engine-backup",
+      "engine-backup-conflict",
+      "gui-23"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "backup-cancel",
+    "checkIds": [
+      "engine-backup",
+      "engine-backup-conflict",
+      "gui-23"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "backup-modes",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. 미연결 컨트롤이므로 실행 성공으로 판정하면 안 됨.",
+    "planStep": 6
+  },
+  {
+    "controlId": "log-refresh",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "log-copy",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "log-close",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "log-text",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "escape-log",
+    "checkIds": [
+      "gui-15",
+      "log-utf8"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "escape-dialog",
+    "checkIds": [
+      "engine-backup",
+      "engine-backup-conflict",
+      "gui-23"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 6
+  },
+  {
+    "controlId": "missing-redetect",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. 미연결 컨트롤이므로 실행 성공으로 판정하면 안 됨.",
+    "planStep": 8
+  },
+  {
+    "controlId": "missing-download",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. 미연결 컨트롤이므로 실행 성공으로 판정하면 안 됨.",
+    "planStep": 8
+  },
+  {
+    "controlId": "unbound-new-run",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. 미연결 컨트롤이므로 실행 성공으로 판정하면 안 됨.",
+    "planStep": 8
+  },
+  {
+    "controlId": "tray-open",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "tray-stop",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "tray-exit",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "tray-click",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "window-close",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "app-quit",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-folder-accept",
+    "checkIds": [
+      "gui-7"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-folder-cancel",
+    "checkIds": [
+      "gui-7"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-hancom-accept",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "native-hancom-cancel",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "native-report-accept",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-report-cancel",
+    "checkIds": [],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-shutdown-timeout-0",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-shutdown-timeout-1",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-shutdown-save-fail-0",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-shutdown-save-fail-1",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-renderer-gone-0",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-renderer-gone-1",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-renderer-unresponsive-0",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-renderer-unresponsive-1",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-bug-report-0",
+    "checkIds": [
+      "gui-16",
+      "report-home",
+      "report-length"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "native-bug-report-1",
+    "checkIds": [
+      "gui-16",
+      "report-home",
+      "report-length"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 7
+  },
+  {
+    "controlId": "native-fatal-ok",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "native-init-error",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "renderer-error-alert",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "ipc-interlock",
+    "checkIds": [
+      "gui-17",
+      "gui-21",
+      "origin-frame",
+      "origin-nav"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 10
+  },
+  {
+    "controlId": "settings-hancom-selected",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "settings-hancom-unavailable",
+    "checkIds": [
+      "gui-8",
+      "gui-9",
+      "gui-12",
+      "layout"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 4
+  },
+  {
+    "controlId": "auto-issue-row-retrying",
+    "checkIds": [
+      "automatic-retry-race",
+      "automatic-cap",
+      "gui-1"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 5
+  },
+  {
+    "controlId": "auto-issue-row-queued",
+    "checkIds": [
+      "automatic-retry-race",
+      "automatic-cap",
+      "gui-1"
+    ],
+    "mappingMeaning": "관련 검사만 연결; 개별 버튼 전체 시나리오를 입증하지 않음",
+    "unverified": "정상·선택 변경·연속 두 번·빈/잘못된 입력을 이 컨트롤 자체로 모두 실행한 증거 없음. Windows 및 지원 OS 실측은 별도 필요.",
+    "planStep": 5
+  }
+]
