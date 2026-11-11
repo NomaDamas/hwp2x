@@ -140,5 +140,49 @@ async function main() {
     options.env.HWP2X_TEST_HOOKS = '1';
     options.env.HWP2X_AUTO_ROOTS = JSON.stringify([empty]);
   });
+  await runEvidence('automatic-record-limit', async ({ page, evidence, capture }) => {
+    const issues = () => page.evaluate(() => window.hwp2x.autoIssues());
+    assert.equal((await issues()).total, 4096);
+    for (const name of ['전체 자동 변환', '자동 변환 시작']) {
+      await page.getByRole('button', { name, exact: true }).click();
+      evidence.actions.push({ type: 'click', name });
+    }
+    await until(async () => (await page.evaluate(() => window.hwp2x.autoState())).phase === 'error', '기록 상한 안전 중단');
+    assert.equal((await issues()).total, 4096);
+    await assert.rejects(fs.stat(evidence.inputs[0].path.replace(/\.hwp$/, '.hwpx')), { code: 'ENOENT' });
+    const persisted = JSON.parse(await fs.readFile(path.join(evidence.profile, 'automatic.json.issues.json'), 'utf8'));
+    assert.equal(persisted.items.length, 4096);
+    assert.equal(new Set(persisted.items.map(item => item.source)).size, 4096);
+    evidence.observations.push({ type: 'record-limit', total: 4096, outputAbsent: true });
+    await capture('기록 상한 안전 중단');
+  }, async (evidence, options) => {
+    await fs.mkdir(evidence.profile, { recursive: true });
+    const items = Array.from({ length: 4096 }, (_, index) => ({ source: path.join(evidence.isolatedPaths.docs, `기록${index}.hwp`), name: `기록${index}.hwp`, reason: '처리하지 못함', message: '처리하지 못함', status: 'failed', attempts: 1, updatedAt: Date.now(), fingerprint: '1:2' }));
+    await fs.writeFile(path.join(evidence.profile, 'automatic.json.issues.json'), JSON.stringify({ version: 1, items }));
+    evidence.syntheticScope = '기록 상한 오류주입용 저장 기록만 합성; 신규 변환 대상은 실제 HWP 복사본';
+    options.env.HWP2X_TEST_HOOKS = '1'; options.env.HWP2X_AUTO_ROOTS = JSON.stringify([evidence.isolatedPaths.docs]);
+  });
+  await runEvidence('manual-before-automatic', async ({ app, page, evidence, capture }) => {
+    await app.evaluate(({ dialog }, root) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [root] }); }, evidence.isolatedPaths.docs);
+    await page.getByRole('button', { name: '폴더 선택', exact: true }).first().click();
+    await until(async () => (await page.evaluate(() => window.hwp2x.state())).total === 80, '수동 검색');
+    await page.getByRole('button', { name: '80개 파일 변환', exact: true }).click();
+    evidence.actions.push({ type: 'click', name: '80개 파일 변환' });
+    await until(async () => (await page.evaluate(() => window.hwp2x.state())).phase === 'converting', '수동 실행');
+    await page.getByRole('button', { name: '일시정지', exact: true }).click();
+    await until(async () => (await page.evaluate(() => window.hwp2x.state())).phase === 'paused', '수동 작업 유지');
+    await page.getByRole('button', { name: '전체 자동 변환', exact: true }).click();
+    evidence.actions.push({ type: 'click', name: '전체 자동 변환' });
+    const start = page.getByRole('button', { name: '자동 변환 시작', exact: true });
+    await start.click();
+    evidence.actions.push({ type: 'click', name: '자동 변환 시작 거부' });
+    await page.getByText(/특정 폴더 변환 작업을 먼저 종료|작업을 먼저 종료/).first().waitFor();
+    assert.equal((await page.evaluate(() => window.hwp2x.autoState())).enabled, false);
+    assert.equal((await page.evaluate(() => window.hwp2x.state())).phase, 'paused');
+    evidence.observations.push({ type: 'manual-first', automaticRejected: true, manual: await page.evaluate(() => window.hwp2x.state()) });
+    await capture('수동 작업 중 자동 실행 거부');
+  }, async evidence => {
+    for (let index = 1; index < 80; index++) await fs.copyFile(evidence.source.path, path.join(evidence.isolatedPaths.docs, `공고문${index}.hwp`));
+  });
 }
 if (!ensureDisplay(__filename)) main().catch(error => { console.error(error); process.exitCode = 1; });
