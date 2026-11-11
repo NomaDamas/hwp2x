@@ -3,6 +3,16 @@ const assert = require('node:assert/strict');
 const { runEvidence, ensureDisplay } = require('./common/evidence.cjs');
 async function inspect({ app, page, evidence, capture }) {
   const click = async name => { await page.getByRole('button', { name, exact: true }).click(); evidence.actions.push({ type: 'click', name }); };
+  let reached = false;
+  for (let index = 0; index < 40; index++) {
+    await page.keyboard.press('Tab');
+    reached = await page.evaluate(() => document.activeElement?.textContent?.trim() === '설정');
+    if (reached) break;
+  }
+  assert.equal(reached, true, 'Tab만으로 설정 메뉴 도달');
+  await page.keyboard.press('Enter');
+  await page.getByRole('button', { name: '상세 로그 로그 보기', exact: true }).waitFor();
+  evidence.observations.push({ label: '키보드 Tab 탐색과 Enter 메뉴 실행', reached });
   await click('설정');
   const opener = page.getByRole('button', { name: '상세 로그 로그 보기', exact: true });
   for (let pass = 0; pass < 2; pass++) {
