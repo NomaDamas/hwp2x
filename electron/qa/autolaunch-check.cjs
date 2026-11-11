@@ -208,6 +208,9 @@ async function main() {
       await toggle(page, evidence, true);
       const text = await fs.readFile(evidence.desktop, 'utf8');
       isolatedUsers.push({ desktop: evidence.desktop, text });
+      await execFile('sudo', ['-n', '-u', 'nobody', 'test', '!', '-r', evidence.desktop]);
+      await execFile('sudo', ['-n', '-u', 'nobody', 'test', '!', '-w', evidence.desktop]);
+      evidence.observations.push({ type: 'other-uid-access', uid: 'nobody', canRead: false, canWrite: false, otherUserGuiExecuted: false });
       for (const previous of isolatedUsers) assert.equal(await fs.readFile(previous.desktop, 'utf8'), previous.text);
       evidence.observations.push({ type: 'separate-config-roots', roots: isolatedUsers.map(item => item.desktop), osUidChanged: false });
       await capture('독립 설정 루트 자동 실행 등록');
