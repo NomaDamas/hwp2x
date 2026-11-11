@@ -170,6 +170,7 @@ async function inspect({ app, page, evidence, capture }) {
   for (const input of evidence.inputs) assert.equal(hash(await fs.readFile(input.path)), input.sha256);
   assert.equal(hash(await fs.readFile(file.target)), hash(bytes));
   evidence.observations.push({ label: '열기 저장 최종', value: ctx });
+  ctx.viewerLimitation = '검사 환경 LibreOffice 24.2.7.2의 설치 필터에서 HWPX를 찾지 못함. OS 전달 성공은 해당 뷰어의 HWPX 지원 또는 본문 표시를 보증하지 않음';
   // A successful OS dispatch must never be promoted to proof of rendered document content.
   evidence.failures.push('실제 뷰어 문서 본문 표시는 자동 입증되지 않았습니다. desktop 스크린샷 검토 필요; OS 전달 성공과 구분합니다.');
   const child = app.process();
