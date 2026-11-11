@@ -53,13 +53,23 @@ async function resources(app, page) {
 async function inspect(context, config) {
   const { app, page, evidence, capture } = context;
   const recordFailure = message => evidence.failures.push(message);
+  await page.evaluate(() => {
+    window.__loadSoakClicks = [];
+    document.addEventListener('click', event => {
+      window.__loadSoakClicks.push({ at: Date.now(), trusted: event.isTrusted, label: event.target.closest('button')?.textContent?.trim() || '' });
+    }, true);
+  });
   const click = async name => { await page.getByRole('button', { name, exact: true }).click(); evidence.actions.push({ type: 'click', name: String(name) }); };
   const timed = async (name, action, ready) => {
+    const eventStart = Date.now();
+    const beforeClicks = await page.evaluate(() => window.__loadSoakClicks.length);
     const start = performance.now(); await action();
     const actionEnded = performance.now(); await ready();
     const ended = performance.now();
     const ms = ended - start;
     evidence.observations.push({ type: 'interaction', name, ms, actionMs: actionEnded - start, resultWaitMs: ended - actionEnded });
+    const clicks = await page.evaluate(before => window.__loadSoakClicks.slice(before), beforeClicks);
+    evidence.observations.push({ type: 'click-delivery', name, events: clicks, deliveryMs: clicks.length ? clicks[0].at - eventStart : null });
     if (ms > limits.interactionMs) recordFailure(`${name}: ${ms.toFixed(2)}ms > 1000ms`);
   };
   await page.evaluate(() => {
