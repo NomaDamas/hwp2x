@@ -142,6 +142,18 @@ async function inspect({ app, page, evidence, capture }) {
     assert.equal(saved.total, 1);
     evidence.outputs.push({ path: target, sha256: hash(await fs.readFile(target)) });
   });
+  await scenario('사라진 원본 열기 거부', async () => {
+    await click(/^파일(?:\s+\d+)?$/);
+    await page.getByRole('button').filter({ hasText: file.name }).first().click();
+    const held = `${file.source}.held`;
+    const before = await app.evaluate(() => globalThis.__openSave.opens.length);
+    await fs.rename(file.source, held);
+    try {
+      await click('원본 열기');
+      await page.getByText(/파일이나 폴더가 없습니다/).first().waitFor();
+      assert.equal(await app.evaluate(() => globalThis.__openSave.opens.length), before);
+    } finally { await fs.rename(held, file.source); }
+  });
   for (const input of evidence.inputs) assert.equal(hash(await fs.readFile(input.path)), input.sha256);
   assert.equal(hash(await fs.readFile(file.target)), hash(bytes));
   evidence.observations.push({ label: '열기 저장 최종', value: ctx });
