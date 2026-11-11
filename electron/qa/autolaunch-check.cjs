@@ -136,6 +136,17 @@ async function main() {
       else { assert.equal(await exists(evidence.desktop), false); await preserveOther(evidence); }
       evidence.observations.push({ type: 'real-registration-failure', failure, state: await auto(page), body: await page.locator('body').innerText() });
       await capture('실제 등록 실패와 옵션 false');
+      if (failure === 'moved-portable') {
+        await fs.rename(path.join(evidence.directory, '이동 후 실행파일'), path.join(evidence.directory, '이동 전 실행파일'));
+        await toggle(page, evidence, true);
+        const entry = await fs.readFile(evidence.desktop, 'utf8');
+        assert.ok(entry.includes('이동 전 실행파일'));
+        assert.equal((await auto(page)).resumeAtLogin, true);
+        await toggle(page, evidence, false);
+        assert.equal(await exists(evidence.desktop), false);
+        evidence.observations.push({ type: 'restored-portable-reregister', registered: true, removed: true });
+        await capture('실행 경로 복구 후 재등록과 해제');
+      }
     }, async (evidence, options) => {
       await prepare(evidence, options);
       if (failure === 'blocked-directory') {
