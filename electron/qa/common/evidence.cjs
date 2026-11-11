@@ -55,7 +55,7 @@ async function captureScreenshot(page, evidence, label) {
   evidence.screenshots.push({ label, path: file, sha256: hash(await fs.readFile(file)), at: new Date().toISOString() });
 }
 
-async function runEvidence(name, inspect) {
+async function runEvidence(name, inspect, prepareProfile) {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'hwp2x-common-'));
   const evidence = {
     schemaVersion: 1, name, directory, startedAt: new Date().toISOString(),
@@ -68,6 +68,7 @@ async function runEvidence(name, inspect) {
   const fail = error => evidence.failures.push(String(error.stack || error));
   try {
     const options = await prepareRun(evidence);
+    if (prepareProfile) await prepareProfile(evidence);
     const { _electron } = require('playwright');
     app = await _electron.launch(options);
     child = app.process();
