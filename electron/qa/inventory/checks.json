@@ -1050,5 +1050,43 @@
     "limitation": "Windows 실행이 아닌 공개 포터블 추출 코드 대조",
     "previous": "e4ec9698a9a5b8f9a66d9bfe9c98178be3d1aa9fa5e9c3e4a6fa84f2634b5fe1",
     "buildVersion": "0.3.0.1115"
+  },
+  "acceptance": {
+    "inventory": {
+      "status": "documented",
+      "controls": 119,
+      "scenarioCount": 476,
+      "basis": "모든 항목의 소스·목적·입력·활성조건·결과 및 미검증 이유를 기존 합격표에서 추적 가능"
+    },
+    "runtime": {
+      "status": "partial",
+      "observedStates": 35,
+      "dispositions": {
+        "observed-display": 50,
+        "scenario-unobserved": 40,
+        "environment-dependent": 4,
+        "unreachable": 4,
+        "os-surface-unobserved": 21
+      },
+      "remaining": "전체 컨트롤·트레이·네이티브 대화상자·Windows 조건부 상태의 실제 실행은 완료되지 않음. 관련 검사 대역으로 대체하지 않음"
+    },
+    "fixtures": {
+      "status": "verified-limited",
+      "sourceHash": "62b3fef1f5635d8478acbaedf8c553e9c39950e98cdaacb72c89c88628e1f205",
+      "isolatedInputs": 30,
+      "verifiedOutputs": 6,
+      "missing": [
+        "대형 이미지·복잡한 표·수식·OLE 포함 실제 문서",
+        "암호·매크로·숨은 설명 보안창 실제 문서",
+        "HWP 3.x·배포용·구버전별 실제 문서",
+        "Windows 한컴 설치 및 동시 편집 환경",
+        "NTFS/FAT/exFAT·네트워크 분리·실제 재부팅 환경"
+      ]
+    },
+    "cleanupRegression": {
+      "status": "passed",
+      "basis": "checks.json runs의 실패 이력 및 수정 후 동일10시나리오 통과 결과; 오류journal저장중 완료상태 조기공개 수정"
+    },
+    "decision": "합격표 작성 자료는 갖췄으나 요청된 전 컨트롤 직접 실행 대응은 미완료. 감사 명령 성공을 제품 합격으로 취급하지 않음"
   }
 }
