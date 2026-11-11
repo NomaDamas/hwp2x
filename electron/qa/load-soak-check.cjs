@@ -114,10 +114,14 @@ async function inspect(context, config) {
     const issue = () => page.evaluate(async () => (await window.hwp2x.autoIssues()).items.find(item => item.name === '손상 재작업.hwp'));
     await click('자동 변환 시작');
     await until(async () => (await auto()).phase === 'watching' && (await issue())?.status === 'failed', '초기 실제 감시');
+    await page.getByRole('button', { name: '손상 재작업.hwp 다시 작업', exact: true }).waitFor();
     evidence.samples = []; evidence.warmup = [];
     for (let cycle = -3; cycle < config.cycles; cycle++) {
       const previous = await issue();
-      await timed(`재작업 ${cycle}`, () => click('손상 재작업.hwp 다시 작업'), () => until(async () => { const next = await issue(); return next?.attempts > previous.attempts && next.status === 'failed'; }, '재작업 실제 실패 완료'));
+      const retryStarted = performance.now();
+      await timed(`재작업 ${cycle}`, () => click('손상 재작업.hwp 다시 작업'), () => page.getByText('다시 작업 대기', { exact: true }).waitFor());
+      await until(async () => { const next = await issue(); return next?.attempts > previous.attempts && next.status === 'failed'; }, '재작업 실제 실패 완료');
+      evidence.observations.push({ type: 'retry-completion', cycle, ms: performance.now() - retryStarted, note: '파일 안정화 1초를 포함한 완료 시간; GUI 조작 확인과 별도' });
       await until(async () => (await auto()).phase === 'watching', '재작업 후 감시');
       const watching = await resources(app, page);
       await timed(`감시 중지 ${cycle}`, () => click('자동 변환 중지'), () => until(async () => !(await auto()).enabled, '감시 중지'));
