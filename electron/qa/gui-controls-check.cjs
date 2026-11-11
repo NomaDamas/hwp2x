@@ -31,6 +31,11 @@ async function inspect({ app, page, evidence, capture }) {
       await click('상세 닫기');
     }
     await search.fill('');
+    await search.fill('목록');
+    await search.evaluate(el => { el.focus(); el.setSelectionRange(1, 2); });
+    await page.waitForTimeout(1200);
+    assert.deepEqual(await search.evaluate(el => ({ focused: document.activeElement === el, value: el.value, start: el.selectionStart, end: el.selectionEnd })), { focused: true, value: '목록', start: 1, end: 2 }, '주기 갱신 중 입력과 선택 영역 유지');
+    await search.fill('');
     await click('다음 페이지');
     await page.getByRole('button', { name: '이전 페이지' }).waitFor();
     await click('이전 페이지');
