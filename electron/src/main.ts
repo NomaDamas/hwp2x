@@ -62,6 +62,7 @@ function register(channel: string, handler: (...args: unknown[]) => unknown): vo
       throw new Error("허용되지 않은 화면 요청입니다");
     }
     try {
+      if (shutdown && !["state", "auto-state", "auto-issues", "cleanup-state", "system-info", "read-log"].includes(channel)) throw new Error("종료 중입니다. 작업 기록 저장이 끝날 때까지 새 작업을 시작할 수 없습니다");
       if (["scan", "start", "pick-folder", "pick-hancom", "pause", "stop"].includes(channel)) log("info", "ipc.request", { channel, phase: engine.state.phase });
       if ((autoStarting || automatic?.snapshot().enabled) && ["scan", "start", "pick-folder", "pick-hancom", "configure", "retry", "backup", "pause", "stop", "detect-hancom"].includes(channel)) {
         throw new Error("전체 자동 변환을 중지한 뒤 특정 폴더 변환을 사용할 수 있습니다");
@@ -157,6 +158,7 @@ function beginShutdown(): Promise<void> {
       log("info", "종료 완료", {});
       await finishExit();
     } catch (error) {
+      promptCancelled = true;
       log("error", "저장 실패", { message: errorText(error) });
       const answer = await askChoice("작업 기록 저장 실패", `작업 기록을 저장하지 못했습니다.\n${errorText(error)}`, ["기다리기", "강제 종료"]);
       if (answer === 1) {
@@ -207,7 +209,7 @@ process.on("unhandledRejection", error => handleFatal("unhandledRejection", erro
 // a second start just brings the running window forward. (Test runs use their own profile, so they stay separate.)
 const primaryInstance = app.requestSingleInstanceLock();
 if (!primaryInstance) app.quit();
-else app.on("second-instance", () => { if (window && !window.isDestroyed()) { if (window.isMinimized()) window.restore(); window.focus(); } });
+else app.on("second-instance", () => { if (window && !window.isDestroyed()) { window.show(); if (window.isMinimized()) window.restore(); window.focus(); } });
 
 app.whenReady().then(async () => {
   if (!primaryInstance) return;
