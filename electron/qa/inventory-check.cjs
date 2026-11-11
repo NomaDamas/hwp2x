@@ -1,6 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
+const { createHash } = require('node:crypto');
+const digest = file => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const root = path.resolve(__dirname, '../..');
 const load = name => JSON.parse(fs.readFileSync(path.join(__dirname, 'inventory', name), 'utf8'));
 const text = v => typeof v === 'string' && v.trim().length > 0;
@@ -53,6 +55,30 @@ function audit() {
  assert.ok(Object.values(evidence.release.matches).every(v => v === true), '배포본과 목록 소스 불일치');
  assert.equal(fixtures.execution.sourceBefore, fixtures.real.sha256);
  assert.equal(fixtures.execution.sourceAfter, fixtures.real.sha256);
+ const observed = load('observed.json');
+ assert.equal(observed.executionSucceeded, true, '실제 패키지 관측 실패');
+ assert.deepEqual(observed.failures, []);
+ assert.equal(observed.info.packaged, true);
+ assert.equal(digest(observed.executable), observed.package.executableSha256);
+ assert.equal(digest(observed.package.asarPath), observed.package.asarSha256);
+ assert.equal(digest(fixtures.real.path), fixtures.real.sha256, '지정 원본 해시 변경');
+ assert.ok(observed.inputs.length > 0 && observed.outputs.length > 0, '실제 입출력 근거 없음');
+ for (const entry of [...observed.inputs, ...observed.outputs]) {
+   const relative = path.relative(observed.isolatedPaths.temp, entry.path);
+   assert.ok(relative && !relative.startsWith('..') && !path.isAbsolute(relative), '격리 경로 밖 입력');
+   assert.notEqual(entry.path, fixtures.real.path);
+   assert.equal(digest(entry.path), entry.sha256, `실측 파일 변경: ${entry.path}`);
+ }
+ for (const entry of observed.inputs) assert.equal(entry.sha256, fixtures.real.sha256, '지정 실제 자료의 복사본 아님');
+ for (const item of coverage) {
+   assert.ok(item.disposition && text(item.disposition.reason));
+   for (const scenario of Object.values(item.scenarios)) {
+     if (scenario.directExecution?.status === 'passed') {
+       const names = scenario.directExecution.states.map(s => typeof s === 'string' ? s : s.screen);
+       assert.ok(names.length > 0 && names.every(name => observed.observations.some(s => s.screen === name)), `${item.controlId}: 실제 관측 상태 없음`);
+     }
+   }
+ }
  for (const item of coverage) for (const key of ['normal','changed','repeated','emptyOrInvalid']) {
    const scenario = item.scenarios?.[key];
    assert.ok(scenario && Array.isArray(scenario.checkIds), `${item.controlId}: ${key} 연결 없음`);
