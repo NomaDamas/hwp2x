@@ -30,6 +30,7 @@ async function inspect({ app, page, evidence, capture }) {
   const current = path.join(logs, today());
   await app.evaluate(({ dialog, shell }) => {
     globalThis.__support = { dialogs: [], external: [], answer: 'cancel' };
+    globalThis.__support.nativeMessageBox = dialog.showMessageBox;
     dialog.showMessageBox = async (_window, options) => {
       globalThis.__support.dialogs.push(options);
       return { response: globalThis.__support.answer === 'cancel' ? options.cancelId : 0, checkboxChecked: false };
@@ -122,6 +123,20 @@ async function inspect({ app, page, evidence, capture }) {
   observe('report-open', { length: support.external[0].length, url: support.external[0], redactedBody: body, consent: support.dialogs.at(-1).message });
   await capture('신고 후');
   evidence.result = { rotated: true, copiedChars: copied.length, urlLength: support.external[0].length, longErrorPreserved: true, explicitTruncation: true, cancelExternalCalls: 0, actualExternalTransmission: false };
+  await app.evaluate(({ dialog }) => { dialog.showMessageBox = globalThis.__support.nativeMessageBox; });
+  const nativeClick = page.getByRole('button', { name: '작성 초안 열기' }).click();
+  const { execFileSync } = require('node:child_process');
+  let nativeWindow;
+  for (let attempt = 0; attempt < 60 && !nativeWindow; attempt++) {
+    try { nativeWindow = execFileSync('xdotool', ['search', '--onlyvisible', '--name', '버그 리포트'], { encoding: 'utf8', timeout: 2000, stdio: ['ignore','pipe','ignore'] }).trim().split('\n').at(-1); }
+    catch { await new Promise(resolve => setTimeout(resolve, 100)); }
+  }
+  assert.ok(nativeWindow, '대체하지 않은 동의창 표시');
+  execFileSync('xdotool', ['windowfocus', nativeWindow], { timeout: 2000 });
+  execFileSync('xdotool', ['key', 'Escape'], { timeout: 2000 });
+  await nativeClick;
+  assert.equal(await app.evaluate(() => globalThis.__support.external.length), 1, '실제 동의창 Esc 후 추가 외부 호출 없음');
+  observe('native-consent-cancel', { actualDialog: true, externalCallsAdded: 0 });
   evidence.changeOwnership = {
     step7: ['electron/src/logger.test.ts', 'electron/src/report.ts', 'electron/src/report.test.ts', 'electron/qa/support-check.cjs'],
     sharedForStep7: { 'electron/src/main.ts': '신고 기본·취소 응답, 전송 동의 문구, 클립보드 오류 안내', 'electron/src/preload.ts': '긴 렌더러 오류 앞뒤 보존과 중간 생략 표시' },
