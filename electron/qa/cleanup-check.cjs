@@ -3,10 +3,47 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { createHash } = require('node:crypto');
+const { execFileSync } = require('node:child_process');
 const { runEvidence, ensureDisplay } = require('./common/evidence.cjs');
 const digest = async file => createHash('sha256').update(await fs.readFile(file)).digest('hex');
+async function withMedia(evidence, kind, directory, inspect) {
+  const record = { kind, directory, commands: [], mounted: false, unmounted: false };
+  (evidence.cleanup.media ||= []).push(record);
+  const command = (program, args) => {
+    const invocation = { program, args }; record.commands.push(invocation);
+    try { invocation.stdout = execFileSync(program, args, { encoding: 'utf8', timeout: 30000 }); }
+    catch (error) { invocation.error = String(error); invocation.stderr = String(error.stderr || ''); throw error; }
+  };
+  let mounted = false;
+  try {
+    command('sudo', ['-n', 'true']);
+    const ownership = `uid=${process.getuid()},gid=${process.getgid()}`;
+    if (kind === 'tmpfs') command('sudo', ['-n', 'mount', '-t', 'tmpfs', '-o', `size=1m,mode=0700,${ownership}`, 'tmpfs', directory]);
+    else {
+      const image = path.join(evidence.directory, 'cleanup-fat.img');
+      const handle = await fs.open(image, 'wx');
+      try { await handle.truncate(16 * 1024 * 1024); } finally { await handle.close(); }
+      record.image = image;
+      command('mkfs.vfat', [image]);
+      command('sudo', ['-n', 'mount', '-t', 'vfat', '-o', `loop,${ownership},umask=0077`, image, directory]);
+    }
+    mounted = record.mounted = true;
+    const info = await fs.statfs(directory);
+    record.filesystem = { type: info.type, bytes: info.blocks * info.bsize };
+    assert.equal(info.type, kind === 'tmpfs' ? 0x01021994 : 0x4d44);
+    if (kind === 'tmpfs') assert.ok(record.filesystem.bytes <= 1024 * 1024);
+    await inspect(record);
+  } catch (error) { record.failure = String(error.stack || error); throw error; }
+  finally {
+    if (mounted) {
+      command('sudo', ['-n', 'umount', directory]);
+      record.unmounted = true;
+      assert.notEqual((await fs.statfs(directory)).type, record.filesystem.type, '전용 매체 해제');
+    }
+  }
+}
 async function prepare(evidence) {
-  evidence.cleanup = { cases: [], limitations: ['ENOSPC·hardlink 불가: 단위 오류주입, 실제 매체 시험 아님; 쓰기 거부는 패키지에서 실제 POSIX 권한으로 검사', 'Windows reparse point 및 FAT/exFAT 미검증', '실제 SIGKILL 재시작: cleanup.test의 별도 Node 프로세스이며 패키지 GUI 강제종료는 아님', '접근시간은 해시 읽기로 변경될 수 있음; inode·권한·mtime 검증, ctime/birthtime 복사 보장 아님'] };
+  evidence.cleanup = { cases: [], limitations: ['실매체 검사 결과는 cleanup.cases 및 cleanup.media 참조; 실행 실패는 통과 아님', 'Windows reparse point 및 exFAT 미검증', '실제 SIGKILL 재시작: cleanup.test의 별도 Node 프로세스이며 패키지 GUI 강제종료는 아님', '접근시간은 해시 읽기로 변경될 수 있음; inode·권한·mtime 검증, ctime/birthtime 복사 보장 아님'] };
   const original = await fs.readFile(evidence.inputs[0].path);
   // A sufficiently large real batch allows cancellation after observed progress without slowing the engine.
   for (let i = 1; i < 160; i++) {
@@ -124,6 +161,61 @@ async function inspect({ app, page, evidence, capture }) {
     evidence.observations.push({ label: '실제 쓰기 거부 원본 보존', snapshot: rejected });
     await capture('쓰기 거부 시 원본 이동 없음');
   } finally { await fs.chmod(denied, 0o700); }
+  const rejectOnMedia = async (scenario, files, pattern) => {
+    for (const text of ['서식까지 같다는 보증', '확인이 끝난 원본은 같은 폴더의 숨김 안전보관본과', '원래 이름의 파일은 원래 위치에서 사라진다']) await page.getByRole('checkbox', { name: new RegExp(text) }).check();
+    await click('백업 후 삭제 시작');
+    const rejected = await until(async () => { const s = await cleanup(); return ['error', 'rolledBack'].includes(s.phase) && pattern.test(s.message) && s; }, scenario);
+    const journal = JSON.parse(await fs.readFile(journalPath, 'utf8'));
+    assert.equal(journal.entries.length, files.length);
+    for (const entry of journal.entries) {
+      assert.equal(entry.intent, false, '원본 이동 의도 기록 이전 거부');
+      await assert.rejects(fs.stat(entry.quarantine), { code: 'ENOENT' });
+    }
+    const hashes = [];
+    for (const file of files) {
+      const actual = await digest(file.source);
+      assert.equal(actual, file.owned.sourceHash);
+      assert.equal(await digest(file.target), file.owned.targetHash);
+      hashes.push({ path: file.source, before: file.owned.sourceHash, after: actual });
+    }
+    evidence.cleanup.cases.push({ scenario, passed: true, originalMoved: false, hashes, journal });
+    evidence.observations.push({ label: scenario, snapshot: rejected });
+    await capture(scenario);
+  };
+  const full = path.join(evidence.directory, 'full-backup');
+  await fs.mkdir(full);
+  await withMedia(evidence, 'tmpfs', full, async record => {
+    await assert.rejects(fs.writeFile(path.join(full, 'bounded-fill'), Buffer.alloc(1024 * 1024 + 1), { flag: 'wx' }), { code: 'ENOSPC' });
+    record.probeError = 'ENOSPC';
+    await page.evaluate(backupDir => window.hwp2x.configure({ backupDir }), full);
+    await rejectOnMedia('actual-ENOSPC', converted.files, /ENOSPC/);
+    await restored();
+  });
+  const fat = path.join(evidence.directory, 'fat-original');
+  await fs.mkdir(fat);
+  await fs.copyFile(converted.files[0].source, path.join(fat, '공고문.hwp'), 1);
+  // Convert on a supported filesystem, then present identical bytes on FAT:
+  // the converter itself publishes via hardlink and cannot create outputs on FAT.
+  await page.evaluate(async ({ root, backupDir }) => {
+    await window.hwp2x.configure({ backupDir });
+    await window.hwp2x.scan(root);
+    await window.hwp2x.start();
+  }, { root: fat, backupDir: evidence.cleanup.backup });
+  const fatConversion = await until(async () => { const s = await state(); return s.root === fat && s.phase === 'done' && s; }, 'FAT용 실제 사전 변환');
+  assert.equal(fatConversion.files.length, 1);
+  const file = fatConversion.files[0];
+  assert.equal(file.status, 'ok'); assert.equal(file.owned?.status, 'ok');
+  const sourceBytes = await fs.readFile(file.source), targetBytes = await fs.readFile(file.target);
+  await withMedia(evidence, 'vfat', fat, async record => {
+    await fs.writeFile(file.source, sourceBytes, { flag: 'wx' });
+    await fs.writeFile(file.target, targetBytes, { flag: 'wx' });
+    await assert.rejects(fs.link(file.source, path.join(fat, 'link-probe')), error => {
+      record.probeError = error.code;
+      return ['EPERM', 'EOPNOTSUPP', 'ENOTSUP'].includes(error.code);
+    });
+    record.conversion = '실제 변환 후 동일 경로·동일 바이트 FAT 매체로 전환; FAT 직접 변환 검증 아님';
+    await rejectOnMedia('actual-FAT-hardlink', [file], /EPERM|EOPNOTSUPP|ENOTSUP/);
+  });
   evidence.cleanup.unitEvidenceCommand = 'node --test electron/dist/cleanup.test.js';
 }
 if (require.main === module) {
