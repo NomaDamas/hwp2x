@@ -200,6 +200,39 @@ async function inspect({ app, page, evidence, capture }) {
       await assert.rejects(fs.stat(failed.source.replace(/\.hwp$/, '.hwpx')), { code: 'ENOENT' });
       await validate(done, false);
     });
+    await scenario('실제 권한 거부 하위폴더 건너뛰기', async () => {
+      const root = path.join(evidence.directory, '권한 검사');
+      const denied = path.join(root, '접근 금지');
+      await fs.mkdir(denied, { recursive: true });
+      const source = path.join(denied, '보존.hwp');
+      const bytes = await fs.readFile(evidence.source.path);
+      await fs.writeFile(source, bytes);
+      await fs.writeFile(path.join(root, '정상.hwp'), bytes);
+      await fs.chmod(denied, 0);
+      try {
+        await assert.rejects(fs.readdir(denied), { code: 'EACCES' }, '실제 OS 권한 거부가 발생해야 함');
+        const scanned = await select(root, 1);
+        assert.ok(scanned.skippedDirs.includes(denied));
+        await click(/^\d+개 파일 변환$/);
+        const done = await until(s => s.phase === 'done', '권한 거부 후 정상 문서 완료');
+        assert.equal(done.completed, 1);
+        assert.equal(done.counts.fail, 0);
+        await validate(done, false);
+      } finally {
+        await fs.chmod(denied, 0o700);
+        assert.equal(hash(await fs.readFile(source)), hash(bytes));
+        assert.equal(hash(await fs.readFile(path.join(root, '정상.hwp'))), hash(bytes));
+        await assert.rejects(fs.stat(path.join(denied, '보존.hwpx')), { code: 'ENOENT' });
+      }
+      await click(/^파일(?:\s+\d+)?$/);
+      await page.getByRole('button').filter({ hasText: '정상.hwp' }).first().click();
+      const target = path.join(root, '정상.hwpx');
+      const before = hash(await fs.readFile(target));
+      assert.equal(await page.getByRole('button', { name: '다시 시도', exact: true }).isDisabled(), true, '완료 파일은 중복 재시도 금지');
+      assert.equal(hash(await fs.readFile(target)), before);
+      assert.equal((await fs.readdir(root)).filter(name => name.endsWith('.hwpx')).length, 1);
+      await capture('완료 파일 GUI 재시도 금지');
+    });
   } finally {
     for (const file of [...context.sourceSiblings, ...context.protectedOutputs, ...evidence.inputs]) {
       try { assert.equal(hash(await fs.readFile(file.path)), file.sha256, `보존 SHA-256: ${file.path}`); }
