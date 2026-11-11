@@ -42,9 +42,11 @@ async function inspect({ app, page, evidence, capture }) {
     await page.getByRole('button', { name, exact: typeof name === 'string' }).first().click();
   };
   const scenario = async (name, fn) => {
+    console.log(`시나리오 시작: ${name}`);
     try { await fn(); ctx.cases.push({ name, passed: true }); }
     catch (error) { ctx.cases.push({ name, passed: false, error: String(error.stack || error) }); evidence.failures.push(`${name}: ${error.stack || error}`); }
     await capture(name);
+    console.log(`시나리오 결과: ${name} ${ctx.cases.at(-1).passed}`);
   };
   await app.evaluate(({ shell, dialog }) => {
     const original = shell.openPath.bind(shell);
@@ -63,6 +65,7 @@ async function inspect({ app, page, evidence, capture }) {
     };
   });
   const backup = path.join(evidence.directory, '백업 공백');
+  console.log('열기 검사: 설정 및 실제 변환 시작');
   await page.evaluate(backupDir => window.hwp2x.configure({ workers: 1, backupDir }), backup);
   await page.evaluate(root => window.hwp2x.scan(root), evidence.isolatedPaths.docs);
   await until(async () => { const s = await state(); return s.phase === 'idle' && s.total === 1; }, '격리 HWP 검색');
@@ -79,10 +82,9 @@ async function inspect({ app, page, evidence, capture }) {
   assert.ok(parsed.markdown.trim());
   evidence.outputs.push({ path: file.target, sha256: hash(bytes), bytes: bytes.length });
   evidence.observations.push({ label: '실제 변환 완료', snapshot: done });
-
   const open = async (label, target) => scenario(label, async () => {
     const prior = await app.evaluate(() => globalThis.__openSave.opens.length);
-    await click(label);
+    await click(label === '로그 폴더 열기' ? /로그 폴더 열기$/ : label);
     await until(async () => (await app.evaluate(() => globalThis.__openSave.opens.length)) === prior + 1, '실제 shell 호출');
     const request = await app.evaluate(() => globalThis.__openSave.opens.at(-1));
     assert.equal(request.target, target);
