@@ -123,8 +123,7 @@ async function finishExit(): Promise<void> {
   await Promise.race([closeHancomSession(), delay(5000)]).catch(error => log("warn", "한컴 세션 종료 실패", { message: errorText(error) }));
   await Promise.race([flushLog(), delay(2000)]).catch(() => undefined);
   exiting = true;
-  if (window && !window.isDestroyed()) window.destroy();
-  app.exit(0);
+  setImmediate(() => app.exit(0));
 }
 function beginShutdown(): Promise<void> {
   if (shutdown) return shutdown;
