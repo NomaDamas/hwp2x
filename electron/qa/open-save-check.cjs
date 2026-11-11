@@ -154,6 +154,19 @@ async function inspect({ app, page, evidence, capture }) {
       assert.equal(await app.evaluate(() => globalThis.__openSave.opens.length), before);
     } finally { await fs.rename(held, file.source); }
   });
+  await scenario('연결 앱 없음 오류 안내 경계', async () => {
+    await app.evaluate(({ shell }) => {
+      globalThis.__openSave.restoreOpen = shell.openPath;
+      shell.openPath = async () => '연결된 앱이 없습니다';
+    });
+    try {
+      await click('원본 열기');
+      await page.getByText(/열 수 없습니다: 연결된 앱이 없습니다/).first().waitFor();
+      evidence.observations.push({ label: '연결 앱 실패 안내', injectedBoundary: 'shell.openPath 오류 문자열', actualMissingAssociation: false });
+    } finally {
+      await app.evaluate(({ shell }) => { shell.openPath = globalThis.__openSave.restoreOpen; });
+    }
+  });
   for (const input of evidence.inputs) assert.equal(hash(await fs.readFile(input.path)), input.sha256);
   assert.equal(hash(await fs.readFile(file.target)), hash(bytes));
   evidence.observations.push({ label: '열기 저장 최종', value: ctx });
