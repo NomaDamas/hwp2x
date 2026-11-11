@@ -90,7 +90,7 @@ async function inspect(context, config) {
       const state = await page.evaluate(() => window.hwp2x.state({ limit: 100 })); assert.equal(state.total, count);
       const first = state.files.map(f => f.name);
       const second = await page.evaluate(async () => (await window.hwp2x.state({ limit: 100, offset: 100 })).files.map(f => f.name));
-      await timed(`목록 ${count}`, () => click(new RegExp(`^파일\\s*${count}$`)), () => waitRows(first));
+      await timed(`목록 ${count}`, () => click(/^파일(?:\s*\d+)?$/), () => waitRows(first));
       await timed(`다음 페이지 ${count}`, () => click('다음 페이지'), () => waitRows(second));
       await timed(`이전 페이지 ${count}`, () => click('이전 페이지'), () => waitRows(first));
       const search = page.getByRole('textbox', { name: '파일 이름 검색', exact: true });
