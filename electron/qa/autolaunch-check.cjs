@@ -55,6 +55,84 @@ function desktopCommand(text) {
 }
 let desktopLaunchEnv;
 let registered;
+async function otherUidGui() {
+  const uid = process.getuid();
+  assert.equal(uid, Number(process.env.HWP2X_OTHER_UID));
+  assert.notEqual(uid, Number(process.env.HWP2X_PARENT_UID));
+  const denied = process.env.HWP2X_DENIED_FILE;
+  await assert.rejects(fs.readFile(denied), { code: 'EACCES' });
+  const result = await runEvidence('autolaunch-other-uid', async ({ app, page, evidence, capture }) => {
+    const appUid = await app.evaluate(() => process.getuid());
+    assert.equal(appUid, uid);
+    evidence.observations.push({ type: 'real-other-uid', runnerUid: uid, appUid, parentUid: Number(process.env.HWP2X_PARENT_UID), home: process.env.HOME, display: process.env.DISPLAY });
+    await openAutomatic(page, evidence);
+    await toggle(page, evidence, true);
+    assert.equal(desktopCommand(await fs.readFile(evidence.desktop, 'utf8')).executablePath, evidence.executable);
+    assert.equal((await fs.stat(evidence.desktop)).uid, uid);
+    await capture('다른 UID 실제 자동 재개 등록');
+    await toggle(page, evidence, false);
+    assert.equal(await exists(evidence.desktop), false);
+    await preserveOther(evidence);
+    await capture('다른 UID 실제 자동 재개 해제');
+    await click(page, evidence, page.getByRole('button', { name: '자동 변환 시작', exact: true }), '자동 변환 시작');
+    await until(async () => (await page.evaluate(() => window.hwp2x.autoIssues())).items.some(item => item.source === denied), '다른 사용자 파일 권한 실패');
+    const issue = (await page.evaluate(() => window.hwp2x.autoIssues())).items.find(item => item.source === denied);
+    assert.equal(issue.status, 'failed');
+    assert.match(`${issue.reason} ${issue.message}`, /권한|EACCES|permission/i);
+    await page.getByText(/권한을 받은 뒤 다시 작업하세요/).first().waitFor();
+    assert.equal(await exists(denied.replace(/\.hwp$/, '.hwpx')), false);
+    evidence.observations.push({ type: 'other-owner-permission-failure', fileOwner: (await fs.stat(denied)).uid, runnerUid: uid, issue, body: await page.locator('body').innerText() });
+    assert.notEqual((await fs.stat(denied)).uid, uid);
+    await capture('다른 사용자 파일 권한 실패 안내');
+    await click(page, evidence, page.getByRole('button', { name: '자동 변환 중지', exact: true }), '자동 변환 중지');
+  }, async (evidence, options) => {
+    await prepare(evidence, options);
+    options.env.HWP2X_AUTO_ROOTS = JSON.stringify([path.dirname(denied)]);
+    evidence.limitations = evidence.limitations.filter(text => !text.includes('실제 다른 사용자 계정 대신'));
+  });
+  assert.equal(result.passed, true, result.failures.join('\n'));
+}
+async function runOtherUid() {
+  const { resolveExecutable } = require('./common/evidence.cjs');
+  const uid = Number((await execFile('sudo', ['-n', '-u', 'nobody', '--', 'id', '-u'], { timeout: 10000 })).stdout.trim());
+  assert.notEqual(uid, process.getuid(), '호출자와 nobody UID가 달라야 합니다');
+  const root = await fs.mkdtemp(path.join(require('node:os').tmpdir(), 'hwp2x-other-uid-'));
+  await fs.chmod(root, 0o755);
+  const work = path.join(root, 'work');
+  await fs.mkdir(work);
+  const executable = await resolveExecutable();
+  await fs.cp(path.dirname(executable), path.join(work, 'package'), { recursive: true, dereference: true });
+  await fs.mkdir(path.join(work, 'qa/common'), { recursive: true });
+  await fs.copyFile(__filename, path.join(work, 'qa/autolaunch-check.cjs'));
+  await fs.copyFile(path.join(__dirname, 'common/evidence.cjs'), path.join(work, 'qa/common/evidence.cjs'));
+  for (const dependency of ['playwright', 'playwright-core']) {
+    await fs.cp(path.dirname(require.resolve(`${dependency}/package.json`)), path.join(work, 'node_modules', dependency), { recursive: true, dereference: true });
+  }
+  await fs.copyFile(process.execPath, path.join(work, 'node'));
+  await fs.chmod(path.join(work, 'node'), 0o755);
+  const sample = path.resolve(process.env.HWP2X_SAMPLE || '/tmp/hwp2x-real/공고문.hwp');
+  const original = await fs.readFile(sample);
+  await fs.writeFile(path.join(work, 'sample.hwp'), original);
+  const deniedDir = path.join(root, 'other-owner');
+  await fs.mkdir(deniedDir, { mode: 0o755 });
+  const denied = path.join(deniedDir, '다른 사용자 문서.hwp');
+  await fs.writeFile(denied, original, { mode: 0o600, flag: 'wx' });
+  for (const name of ['home', 'config', 'cache', 'data', 'runtime', 'tmp']) await fs.mkdir(path.join(work, name), { mode: 0o700 });
+  await execFile('sudo', ['-n', '--', 'chown', '-R', String(uid), '--', work], { timeout: 30000 });
+  try {
+    const env = { PATH: '/usr/bin:/bin', LANG: 'C.UTF-8', HOME: path.join(work, 'home'), XDG_CONFIG_HOME: path.join(work, 'config'), XDG_CACHE_HOME: path.join(work, 'cache'), XDG_DATA_HOME: path.join(work, 'data'), XDG_RUNTIME_DIR: path.join(work, 'runtime'), TMPDIR: path.join(work, 'tmp'), HWP2X_EXECUTABLE: path.join(work, 'package', path.basename(executable)), HWP2X_SAMPLE: path.join(work, 'sample.hwp'), HWP2X_OTHER_UID: String(uid), HWP2X_PARENT_UID: String(process.getuid()), HWP2X_DENIED_FILE: denied };
+    const args = ['-n', '-u', 'nobody', '--', 'env', '-i', ...Object.entries(env).map(([key, value]) => `${key}=${value}`), 'timeout', '--signal=TERM', '--kill-after=10s', '180s', 'xvfb-run', '-a', path.join(work, 'node'), path.join(work, 'qa/autolaunch-check.cjs'), '--packaged', '--isolated-config', '--other-uid-child'];
+    const output = await execFile('sudo', args, { cwd: work, timeout: 200000, maxBuffer: 4 * 1024 * 1024 });
+    process.stdout.write(output.stdout);
+    process.stderr.write(output.stderr);
+  } finally {
+    await execFile('sudo', ['-n', '--', 'chown', '-R', String(process.getuid()), '--', work], { timeout: 30000 });
+    assert.deepEqual(await fs.readFile(denied), original);
+    assert.equal((await fs.stat(denied)).mode & 0o777, 0o600);
+    assert.deepEqual(await fs.readFile(sample), original);
+    console.log(`OTHER_UID_ARTIFACTS=${root}`);
+  }
+}
 async function main() {
   assert.ok(process.argv.includes('--packaged'), '--packaged 필수');
   assert.ok(process.argv.includes('--isolated-config'), '--isolated-config 필수: 실제 사용자 설정 사용 금지');
@@ -217,5 +295,6 @@ async function main() {
     }, prepare);
   }
   for (const user of isolatedUsers) await fs.unlink(user.desktop);
+  await runOtherUid();
 }
-if (!ensureDisplay(__filename)) main().catch(error => { console.error(error); process.exitCode = 1; });
+if (!ensureDisplay(__filename)) (process.argv.includes('--other-uid-child') ? otherUidGui() : main()).catch(error => { console.error(error); process.exitCode = 1; });
