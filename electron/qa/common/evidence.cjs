@@ -104,11 +104,25 @@ async function runEvidence(name, inspect, prepareProfile) {
       evidence.source.afterHash = hash(await fs.readFile(evidence.source.path));
       if (evidence.source.beforeHash && evidence.source.beforeHash !== evidence.source.afterHash) fail(Error('사용자 원본 SHA-256이 변경되었습니다'));
     } catch (error) { fail(error); }
+    if (evidence.failures.length === 0) {
+      if (!evidence.packaged || !evidence.actions.some(action => action.type === 'click') || !evidence.observations.length || !evidence.screenshots.length) fail(Error('실제 패키지·GUI 클릭·상태 관측·스크린샷이 모두 있어야 합격합니다'));
+      for (const screenshot of evidence.screenshots) {
+        try {
+          const bytes = await fs.readFile(screenshot.path);
+          if (bytes.length < 8 || bytes.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a' || hash(bytes) !== screenshot.sha256) fail(Error('스크린샷 파일 또는 해시가 올바르지 않습니다'));
+        } catch (error) { fail(error); }
+      }
+      for (const input of evidence.inputs) {
+        try { if (hash(await fs.readFile(input.path)) !== input.sha256) fail(Error('격리 원본 복사본이 변경되었습니다')); }
+        catch (error) { fail(error); }
+      }
+    }
     evidence.finishedAt = new Date().toISOString();
     evidence.passed = evidence.failures.length === 0;
     const file = path.join(directory, 'evidence.json');
     await fs.writeFile(file, JSON.stringify(evidence, null, 2), 'utf8');
     console.log(`EVIDENCE_PATH=${file}`);
+    console.log(JSON.stringify({ name, passed: evidence.passed, packaged: evidence.packaged, actions: evidence.actions.length, observations: evidence.observations.length, screenshots: evidence.screenshots.length, sourceUnchanged: evidence.source.beforeHash !== null && evidence.source.beforeHash === evidence.source.afterHash, consoleErrors: evidence.consoleErrors.length, exit: evidence.exit }));
     if (!evidence.passed) { console.error(evidence.failures.join('\n')); process.exitCode = 1; }
   }
   return evidence;
