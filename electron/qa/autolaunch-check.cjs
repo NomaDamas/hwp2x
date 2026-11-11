@@ -179,5 +179,26 @@ async function main() {
     await fs.mkdir(evidence.profile, { recursive: true });
     await fs.writeFile(path.join(evidence.profile, 'automatic.json'), '{broken');
   });
+  await runEvidence('autolaunch-relocated-register', async ({ page, evidence, capture }) => {
+    await openAutomatic(page, evidence);
+    for (let round = 0; round < 2; round++) {
+      await toggle(page, evidence, true);
+      const command = desktopCommand(await fs.readFile(evidence.desktop, 'utf8'));
+      assert.equal(command.executablePath, evidence.relocated);
+      assert.equal(await exists(evidence.oldLocation), false);
+      evidence.observations.push({ type: 'relocated-registration', round, command });
+      await toggle(page, evidence, false);
+      assert.equal(await exists(evidence.desktop), false);
+    }
+    await preserveOther(evidence);
+    await capture('새 위치에서 자동 실행 등록 두 차례');
+  }, async (evidence, options) => {
+    await prepare(evidence, options);
+    evidence.oldLocation = path.join(evidence.directory, '이전 포터블');
+    evidence.relocated = path.join(evidence.directory, '새 위치 한글 포터블');
+    await fs.symlink(evidence.executable, evidence.oldLocation);
+    await fs.rename(evidence.oldLocation, evidence.relocated);
+    options.env.PORTABLE_EXECUTABLE_FILE = evidence.relocated;
+  });
 }
 if (!ensureDisplay(__filename)) main().catch(error => { console.error(error); process.exitCode = 1; });
