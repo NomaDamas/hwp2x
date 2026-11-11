@@ -55,9 +55,11 @@ async function inspect(context, config) {
   const recordFailure = message => evidence.failures.push(message);
   const click = async name => { await page.getByRole('button', { name, exact: true }).click(); evidence.actions.push({ type: 'click', name: String(name) }); };
   const timed = async (name, action, ready) => {
-    const start = performance.now(); await action(); await ready();
-    const ms = performance.now() - start;
-    evidence.observations.push({ type: 'interaction', name, ms });
+    const start = performance.now(); await action();
+    const actionEnded = performance.now(); await ready();
+    const ended = performance.now();
+    const ms = ended - start;
+    evidence.observations.push({ type: 'interaction', name, ms, actionMs: actionEnded - start, resultWaitMs: ended - actionEnded });
     if (ms > limits.interactionMs) recordFailure(`${name}: ${ms.toFixed(2)}ms > 1000ms`);
   };
   await page.evaluate(() => {
