@@ -125,6 +125,28 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
       if (!await button('백업 후 삭제 시작').isDisabled()) throw Error('cleanup 동의 전 실행 버튼 활성');
       evidence.cleanupConsentGate = { observed: true, disabled: true, executed: false };
     });
+    await step('설정 선택 변경과 반복', async () => {
+      await menu('설정');
+      for (const workers of [1, 2, 1, 2]) {
+        await page.getByRole('radio', { name: String(workers), exact: true }).click();
+        await until(s => s.workers === workers, '동시 작업 수 저장');
+        await capture(`설정 동시 작업 ${workers}`);
+      }
+      const before = (await state()).makeMarkdown;
+      for (const value of [!before, before, !before, before]) {
+        await page.getByRole('switch', { name: /AI가 읽기 편한 md 파일도 생성/ }).click();
+        await until(s => s.makeMarkdown === value, 'MD 설정 저장');
+        await capture(`설정 MD ${value}`);
+      }
+      const consent = page.locator('input[type=checkbox]');
+      if (await consent.count() !== 3) throw Error('정리 동의 항목 수 불일치');
+      for (let index = 0; index < 3; index++) { await consent.nth(index).click(); await page.waitForTimeout(100); }
+      if (await button('백업 후 삭제 시작').isDisabled()) throw Error('세 가지 동의 후 시작 버튼 미활성');
+      await capture('정리 동의 완료 실행 전');
+      for (let index = 0; index < 3; index++) { await consent.nth(index).click(); await page.waitForTimeout(100); }
+      if (!await button('백업 후 삭제 시작').isDisabled()) throw Error('동의 해제 후 시작 버튼 활성');
+      await capture('정리 동의 해제');
+    });
     await step('자동 변환', async () => {
       await menu('전체 자동 변환'); await capture('자동 변환 시작 전');
       const auto = () => page.evaluate(() => window.hwp2x.autoState());
@@ -145,7 +167,9 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
   finally {
     if (original) { try { evidence.sourceUnchanged = original.equals(await fs.readFile(sample)); if (!evidence.sourceUnchanged) evidence.failures.push({ step: '원본 불변', error: '원본 바이트 변경' }); } catch (error) { evidence.failures.push({ step: '원본 불변', error: String(error) }); } }
     if (app) { await app.evaluate(({ app }) => app.quit()).catch(() => {}); await app.close().catch(error => evidence.failures.push({ step: '앱 종료', error: String(error) })); }
-    evidence.finishedAt = new Date().toISOString(); evidence.executionSucceeded = evidence.failures.length === 0; evidence.coverageComplete = evidence.executionSucceeded && evidence.unobserved.length === 0;
+    evidence.finishedAt = new Date().toISOString(); evidence.executionSucceeded = evidence.failures.length === 0;
+    evidence.coverageComplete = false;
+    evidence.coverageLimit = '아래 관측한 상태만 실행 확인. 전체 119개 컨트롤의 모든 조건·OS 동작을 실행한 것은 아님';
     await save(); console.log(JSON.stringify({ observations: evidence.observations.length, failures: evidence.failures, unobserved: evidence.unobserved, sourceUnchanged: evidence.sourceUnchanged }));
     if (!evidence.executionSucceeded) process.exitCode = 1;
   }
