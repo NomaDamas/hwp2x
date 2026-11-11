@@ -100,19 +100,19 @@ function notify(kind: "error" | "info", message: string): void {
 function publishHancom(status: "detecting" | "ready" | "failed", message: string): void {
   if (window && !window.isDestroyed()) window.webContents.send("hwp2x:hancom-status", { status, message, snapshot: engine.snapshot({ limit: 100 }) });
 }
-async function askChoice(title: string, message: string, choices: string[]): Promise<number> {
+async function askChoice(title: string, message: string, choices: string[], safeChoice = 0): Promise<number> {
   if (testHooks && testDialogs.length > 0) {
     const answer = Number(testDialogs.shift());
     log("info", "test.dialog", { title, answer });
-    return Number.isInteger(answer) ? answer : 0;
+    return Number.isInteger(answer) ? answer : safeChoice;
   }
   const result = await dialog.showMessageBox(window, {
     type: "warning",
     title,
     message,
     buttons: choices,
-    defaultId: 0,
-    cancelId: 0,
+    defaultId: safeChoice,
+    cancelId: safeChoice,
     noLink: true,
   });
   return result.response;
@@ -205,10 +205,12 @@ process.on("unhandledRejection", error => handleFatal("unhandledRejection", erro
 
 // Two copies of the app would launch Hancom at the same time and could no longer tell their Hwp.exe apart:
 // a second start just brings the running window forward. (Test runs use their own profile, so they stay separate.)
-if (!app.requestSingleInstanceLock()) app.quit();
+const primaryInstance = app.requestSingleInstanceLock();
+if (!primaryInstance) app.quit();
 else app.on("second-instance", () => { if (window && !window.isDestroyed()) { if (window.isMinimized()) window.restore(); window.focus(); } });
 
 app.whenReady().then(async () => {
+  if (!primaryInstance) return;
   const logDirectory = path.join(app.getPath("userData"), "logs");
   await initLogger(logDirectory, systemInfo()).catch(error => { startupNotice = `로그를 시작하지 못했습니다: ${errorText(error)}`; });
   log("info", "app.start", {});
@@ -440,14 +442,16 @@ app.whenReady().then(async () => {
   register("copy-log", async () => {
     log("info", "로그 복사", {});
     const text = await recentLog(200000);
-    clipboard.writeText(text);
+    try { clipboard.writeText(text); }
+    catch { throw new Error("클립보드에 복사하지 못했습니다. 로그 내용을 직접 선택해 복사해 주세요"); }
     return { path: logPath(), text };
   });
   register("report-bug", async () => {
     const consent = await askChoice(
       "버그 리포트",
-      "작성 초안에 최근 오류와 실행 환경이 포함됩니다. 개인정보와 문서 경로를 확인한 뒤 직접 제출해야 하며, 자동으로 게시되지 않습니다.",
+      "최근 오류·실행 환경·로그 끝부분이 GitHub로 전달됩니다. 사용자 홈 경로는 가리지만 문서명 등 개인정보가 남을 수 있습니다. 긴 내용은 생략됩니다. 내용을 확인한 뒤 직접 제출해야 하며 자동 게시하지 않습니다.",
       ["브라우저에서 초안 열기", "취소"],
+      1,
     );
     if (consent !== 0) return false;
     const url = buildIssueUrl({ title: "hwp2x 오류 보고", system: systemInfo(), errors: recentErrors, logTail: await recentLog() });
