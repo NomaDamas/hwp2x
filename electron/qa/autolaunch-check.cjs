@@ -163,5 +163,21 @@ async function main() {
       }
     });
   }
+  await runEvidence('autolaunch-corrupt-settings', async ({ page, evidence, capture }) => {
+    await openAutomatic(page, evidence);
+    const state = await auto(page);
+    assert.equal(state.resumeAtLogin, false);
+    assert.equal(state.enabled, false);
+    assert.equal(await exists(evidence.desktop), false);
+    assert.equal(await fs.readFile(path.join(evidence.profile, 'automatic.json'), 'utf8'), '{broken');
+    await page.getByText(/자동 변환 설정을 읽지 못했습니다/).waitFor();
+    evidence.observations.push({ type: 'corrupt-settings', state, body: await page.locator('body').innerText() });
+    await capture('손상 설정에서 자동 실행하지 않음');
+    await preserveOther(evidence);
+  }, async (evidence, options) => {
+    await prepare(evidence, options);
+    await fs.mkdir(evidence.profile, { recursive: true });
+    await fs.writeFile(path.join(evidence.profile, 'automatic.json'), '{broken');
+  });
 }
 if (!ensureDisplay(__filename)) main().catch(error => { console.error(error); process.exitCode = 1; });
