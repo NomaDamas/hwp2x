@@ -74,7 +74,27 @@ async function inspect({ app, page, evidence, capture }) {
           assert.equal(await digest(entry.backup), entry.hash); assert.equal(await digest(entry.quarantine), entry.hash);
         }
         await capture(`${round} 완료: 영구삭제 아닌 백업과 보관`);
-        await click('원래 위치로 복구');
+        const first = journal.entries[0];
+        if (round === 1) {
+          const collision = Buffer.from('사용자 새 파일: 덮어쓰기 금지');
+          await fs.writeFile(first.source, collision, { flag: 'wx' });
+          await click('원래 위치로 복구');
+          await until(async () => { const s = await cleanup(); return s.phase === 'error' && s.canRollback; }, '동명 충돌 보존');
+          assert.deepEqual(await fs.readFile(first.source), collision);
+          assert.equal(await digest(first.quarantine), first.hash);
+          evidence.observations.push({ label: '동명 파일 충돌 보존', snapshot: await cleanup() });
+          await capture('동명 파일을 덮지 않고 복구 중단');
+          await fs.unlink(first.source);
+        } else {
+          const originalBackup = await fs.readFile(first.backup);
+          await fs.writeFile(first.backup, '격리 시험용 백업 손상');
+          await click('원래 위치로 복구');
+          await until(async () => (await cleanup()).phase === 'rolledBack', '백업 손상시 보관본 복원');
+          assert.equal(await digest(first.source), first.hash);
+          await fs.writeFile(first.backup, originalBackup);
+          evidence.observations.push({ label: '손상 백업 대신 보관본 복원', snapshot: await cleanup() });
+        }
+        if (round === 1) await click('원래 위치로 복구');
       }
       const result = await until(async () => { const s = await cleanup(); assert.notEqual(s.phase, 'error', s.message); return s.phase === 'rolledBack' && s; }, '원본 복구');
       await restored();
