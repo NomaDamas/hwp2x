@@ -6,7 +6,11 @@
       "assertionAnchor": "assert.equal(valid.ok, true);",
       "proves": "미실행·소스 판정 조건: HWPML 변환 결과의 validateHwpx 적합 여부",
       "doesNotProve": "원본 바이트 보존은 별도 assertion이며 서식·레이아웃 무손실이나 실제 뷰어 호환성은 아님",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-original-bytes",
@@ -14,7 +18,11 @@
       "assertionAnchor": "assert.equal((await readFile(source, \"utf8\")), HWPML);",
       "proves": "미실행·소스 판정 조건: 실제 HWPML fixture 원본 문자열 유지",
       "doesNotProve": "모든 HWP 문서·파일 메타데이터·NTFS 대체 스트림 보존은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-content-diff",
@@ -22,7 +30,11 @@
       "assertionAnchor": "assert.equal(result.contentMatch, false);",
       "proves": "미실행·소스 판정 조건: 변경된 글자가 있는 출력의 내용 불일치 판정",
       "doesNotProve": "표·수식·그림 배치와 렌더링 동일성은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-existing-output",
@@ -30,7 +42,11 @@
       "assertionAnchor": "assert.equal(await readFile(target, \"utf8\"), \"existing\");",
       "proves": "미실행·소스 판정 조건: 기존 출력 내용 비덮어쓰기",
       "doesNotProve": "동시 외부 쓰기와 모든 파일시스템 경쟁은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-md",
@@ -38,7 +54,11 @@
       "assertionAnchor": "await assert.rejects(() => stat(second.md));",
       "proves": "미실행·소스 판정 조건: MD 옵션을 끈 fixture에서 MD 미생성",
       "doesNotProve": "기존 MD 보존 전체 경우나 실제 뷰어는 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-workers",
@@ -46,7 +66,11 @@
       "assertionAnchor": "assert.equal(snapshot.counts.diff, 3);",
       "proves": "미실행·소스 판정 조건: workers=2의 세 HWPML 차이 상태 집계",
       "doesNotProve": "전체 조합 부하·처리량·Windows 병렬 COM은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-backup",
@@ -54,7 +78,11 @@
       "assertionAnchor": "assert.equal(await readFile(path.join(backup, \"test.hwpml\"), \"utf8\"), HWPML);",
       "proves": "미실행·소스 판정 조건: 백업 사본의 fixture 내용 동일",
       "doesNotProve": "삭제 순서·물리 디스크 영속성·정전은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-backup-conflict",
@@ -62,7 +90,11 @@
       "assertionAnchor": "assert.equal(await readFile(path.join(backup, \"test.hwpml\"), \"utf8\"), \"다른 내용\");",
       "proves": "미실행·소스 판정 조건: 기존 다른 내용의 백업을 보존",
       "doesNotProve": "다중 프로세스 경쟁과 ACL 보존은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-scan-depth",
@@ -70,7 +102,11 @@
       "assertionAnchor": "assert.deepEqual(engine.state.files.map(file => path.relative(root, file.source)).sort(), files.map(file => path.normalize(file)).sort());",
       "proves": "미실행·소스 판정 조건: 준비한 중첩 파일 목록 정확 일치와 node_modules 제외",
       "doesNotProve": "무한 깊이·모든 드라이브·Windows junction은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-scan-permission",
@@ -78,7 +114,11 @@
       "assertionAnchor": "assert.deepEqual(engine.state.skippedDirs, [path.join(root, \"잠김\")]);",
       "proves": "미실행·소스 판정 조건: 권한 제한 하위 폴더 건너뜀 기록",
       "doesNotProve": "root 실행이면 skip되며 Windows ACL 실측은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-resume-md",
@@ -86,7 +126,11 @@
       "assertionAnchor": "assert.equal((await stat(hwpx)).mtimeMs, made.mtimeMs, \"HWPX는 다시 쓰지 않음\");",
       "proves": "미실행·소스 판정 조건: 재구성한 중단 상태에서 MD 복구 후 HWPX 수정 시간 유지",
       "doesNotProve": "실제 강제 종료 시점·재부팅·전원 차단은 아님",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-enospc",
@@ -94,7 +138,11 @@
       "assertionAnchor": "assert.equal(state.counts.wait, 2, \"멈춘 파일과 남은 파일은 대기\");",
       "proves": "미실행·소스 판정 조건: link에 ENOSPC를 주입하면 두 파일 대기 유지",
       "doesNotProve": "실제 디스크 포화·체크포인트 동시 저장 실패는 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-security-interaction",
@@ -102,7 +150,11 @@
       "assertionAnchor": "assert.deepEqual(calls, [source, second]);",
       "proves": "미실행·소스 판정 조건: 한컴 함수 대역 사용자 확인 오류 후 다음 파일 호출",
       "doesNotProve": "실제 한컴 보안창·매크로·포커스·권한 설정은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-recovery-blocked",
@@ -110,7 +162,11 @@
       "assertionAnchor": "assert.deepEqual(state.files.map(file => file.status), [\"wait\", \"wait\"]);",
       "proves": "미실행·소스 판정 조건: 한컴 안전 회수 실패 대역에서 두 파일 대기",
       "doesNotProve": "실제 프로세스 회수와 사용자 문서 안전은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-hancom-no-comparison",
@@ -118,7 +174,11 @@
       "assertionAnchor": "assert.equal(file.verification, undefined, \"내용 비교를 하지 않음\");",
       "proves": "미실행·소스 판정 조건: 다른 텍스트 HWPX를 반환하는 한컴 대역에도 내용 비교 생략",
       "doesNotProve": "ok 상태가 내용 무손실이라는 증거가 아니며 오히려 비교 공백을 드러냄",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "engine-paging",
@@ -126,7 +186,11 @@
       "assertionAnchor": "assert.equal(compact.files[0].message.length, 512);",
       "proves": "미실행·소스 판정 조건: 목록 메시지 길이 제한",
       "doesNotProve": "실제 화면 메모리 상한이나 모든 상세 필드 제한은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "automatic-batch",
@@ -134,7 +198,11 @@
       "assertionAnchor": "assert.deepEqual(f.engine.calls.map(call => call.length), [32, 1, 1]);",
       "proves": "미실행·소스 판정 조건: FakeEngine에 다중 루트를 32개 이하 배치로 전달",
       "doesNotProve": "실제 HWP 변환·Windows 감시·로그인 자동 시작은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "automatic-retry-race",
@@ -142,7 +210,11 @@
       "assertionAnchor": "assert.equal(active, 1);",
       "proves": "미실행·소스 판정 조건: gate로 지연한 FakeEngine 재시도의 동시 실행 수 1",
       "doesNotProve": "실제 COM 경합은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "automatic-symlink",
@@ -150,7 +222,11 @@
       "assertionAnchor": "await assert.rejects(f.automatic.retryIssue(source), /드라이브 밖/);",
       "proves": "미실행·소스 판정 조건: 외부 symlink로 바뀐 실패 파일 재시도 거부",
       "doesNotProve": "Windows junction 및 교체 경쟁은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "automatic-cap",
@@ -158,7 +234,11 @@
       "assertionAnchor": "assert.equal(f.automatic.snapshot().pendingIssues, 4096);",
       "proves": "미실행·소스 판정 조건: 4096개 복원 기록 상한 도달 상태",
       "doesNotProve": "장시간 메모리 사용이나 실제 변환 부하는 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "cleanup-backup-original",
@@ -166,7 +246,11 @@
       "assertionAnchor": "assert.ok(directory); assert.deepEqual(await readFile(path.join(f.backupDir, directory, \"0.hwp\")), f.sourceData);",
       "proves": "미실행·소스 판정 조건: 일반 바이트 fixture 백업 내용 일치",
       "doesNotProve": "실제 문서 변환 품질과 백업→fsync→journal→rename 순서별 장애는 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "cleanup-conflict",
@@ -174,7 +258,11 @@
       "assertionAnchor": "assert.deepEqual(await readFile(f.source), Buffer.from(\"foreign\"));",
       "proves": "미실행·소스 판정 조건: 복원 위치에 생긴 타 파일 보존",
       "doesNotProve": "모든 경합·Windows 공유 잠금은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "cleanup-crash-state",
@@ -182,7 +270,11 @@
       "assertionAnchor": "assert.equal((await lstat(f.source)).ino, (await lstat(f.entry.quarantine)).ino);",
       "proves": "미실행·소스 판정 조건: 수동 구성한 rename/hardlink 중단 상태의 복원 inode 동일성",
       "doesNotProve": "실제 순서별 kill·fsync 내구성·전원 차단·재부팅은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "cleanup-open-descriptor",
@@ -190,7 +282,11 @@
       "assertionAnchor": "assert.equal(await readFile(quarantine, \"utf8\"), \"edited-data\");",
       "proves": "미실행·소스 판정 조건: 열린 descriptor가 바꾼 격리 파일 데이터를 복구 실패 후 보존",
       "doesNotProve": "Windows NTFS 공유 모드와 실제 편집기 공존은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "cleanup-journal-tamper",
@@ -198,7 +294,11 @@
       "assertionAnchor": "assert.equal(await readFile(f.journal, \"utf8\"), serialized);",
       "proves": "미실행·소스 판정 조건: 변조 journal 오류 시 원래 journal 문자열 유지",
       "doesNotProve": "임의 모든 공격 경로·모든 메타데이터 보존은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-bitness-command",
@@ -206,7 +306,11 @@
       "assertionAnchor": "assert.match(invocation.file, /SysWOW64[\\\\/]WindowsPowerShell/);",
       "proves": "미실행·소스 판정 조건: 32비트 후보의 PowerShell 호출 경로 선택",
       "doesNotProve": "실제 32비트 Windows·COM 활성화는 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-legacy",
@@ -214,7 +318,11 @@
       "assertionAnchor": "for (const version of [\"8.0.0.0\", \"9.1.1.5000\", \"12.0.0.1\", \"13.0.0.0\"]) assert.equal(fromVersion(version).available, true, version);",
       "proves": "미실행·소스 판정 조건: 명시한 지원 버전 문자열 후보 허용",
       "doesNotProve": "Windows 7/8 지원 여부와 무관하며 실제 한컴 버전 변환은 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-user-coexist",
@@ -222,7 +330,11 @@
       "assertionAnchor": "assert.deepEqual(identified.data.ours, [200], \"새로 뜬 한글(200)만 변환용으로 고름\");",
       "proves": "미실행·소스 판정 조건: 프로세스·COM 대역에서 새 PID만 소유 대상으로 식별",
       "doesNotProve": "실제 사용자 한글 문서·포커스·PID 경쟁·user32 watchdog은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-user-no-quit",
@@ -230,7 +342,11 @@
       "assertionAnchor": "assert.equal(result.quit, \"\", \"사용자 한글은 닫지 않음\");",
       "proves": "미실행·소스 판정 조건: 기존 한글 PID에 연결된 대역에서 Quit 미호출",
       "doesNotProve": "실제 한컴 공존 안전성은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-copy-preservation",
@@ -238,7 +354,11 @@
       "assertionAnchor": "assert.deepEqual(await readFile(source), original, \"원본 바이트 그대로\");",
       "proves": "미실행·소스 판정 조건: 변조 시도 COM 대역에도 원본 바이트 유지",
       "doesNotProve": "root에서는 복사본 읽기전용 검사가 조건부 생략되며 실제 Windows ACL은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-approval-order",
@@ -246,7 +366,11 @@
       "assertionAnchor": "assert.deepEqual(result.calls, [\"visible 0 False\", \"visible 1 False\", \"register FilePathCheckDLL FilePathCheckerModule\", \"msgbox\", \"visible 0 False\", \"visible 1 False\", \"open\", \"save\"], \"문서마다 열기 전에 다시 숨김\");",
       "proves": "미실행·소스 판정 조건: 대역의 숨김·모듈 등록·메시지 모드·열기·저장 호출 순서",
       "doesNotProve": "실제 보안 대화상자 억제와 승인 DLL 기능 실행은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-dll-pe",
@@ -254,7 +378,11 @@
       "assertionAnchor": "assert.ok(dll.includes(Buffer.from(\"IsAccessiblePath\\0\", \"latin1\")), `${arch} 모듈이 IsAccessiblePath를 내보냄`);",
       "proves": "미실행·소스 판정 조건: DLL 바이트에 export 이름 문자열 포함",
       "doesNotProve": "검사명과 달리 항상 승인하는 함수 동작은 실행하여 검사하지 않음",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-watchdog",
@@ -262,7 +390,11 @@
       "assertionAnchor": "assert.match(guard, /TerminateProcess\\(handle, 1\\)/);",
       "proves": "미실행·소스 판정 조건: watchdog 소스에 핸들 기반 종료 호출 패턴 존재",
       "doesNotProve": "C# 컴파일 호출도 있으나 실제 Windows 핸들·PID 재사용·종료 동작은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "hancom-session",
@@ -270,7 +402,11 @@
       "assertionAnchor": "assert.deepEqual([state.creates, state.calls.filter(call => call === \"open\").length, state.quits], [1, 2, 0]);",
       "proves": "미실행·소스 판정 조건: 대역 세션 하나에서 두 번 열고 종료 전 Quit하지 않음",
       "doesNotProve": "실제 한컴 장시간 세션 누수와 재부팅은 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "gui-1",
@@ -278,7 +414,12 @@
       "assertionAnchor": "assert.deepEqual(await fs.readFile(input), broken, '실패 원본 보존');",
       "proves": "미실행·소스 판정 조건: 손상 입력 원본 유지",
       "doesNotProve": "Linux 손상 입력이며 실제 한컴 승인창 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/approval-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-2",
@@ -286,7 +427,12 @@
       "assertionAnchor": "assert.equal(await visible(), false, '--automatic 시작 창 hidden');",
       "proves": "미실행·소스 판정 조건: --automatic 재실행 숨김",
       "doesNotProve": "실제 로그인·재부팅 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/auto-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-3",
@@ -294,7 +440,12 @@
       "assertionAnchor": "assert.equal((await exec('xdotool', ['getwindowfocus'])).stdout.trim(), focusId.trim(), 'OS 키보드 포커스 유지');",
       "proves": "미실행·소스 판정 조건: Linux 실제 입력 포커스 유지",
       "doesNotProve": "Windows 한컴 포커스 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/auto-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-4",
@@ -302,7 +453,12 @@
       "assertionAnchor": "assert.match(desktopText, /^Exec=.+ --automatic$/m);",
       "proves": "미실행·소스 판정 조건: 격리 autostart 파일 Exec 기록",
       "doesNotProve": "OS 로그인 실행 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/auto-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-5",
@@ -310,7 +466,12 @@
       "assertionAnchor": "const restoredSources = async () => { for (const file of converted.files) assert.equal(await digest(file.source), originalHash, '원본 SHA-256 복원'); };",
       "proves": "미실행·소스 판정 조건: 완료·취소·충돌·손상 뒤 복구 원본 해시",
       "doesNotProve": "내부 fsync/journal/rename 순서별 장애 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "failed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-6",
@@ -318,7 +479,12 @@
       "assertionAnchor": "assert.equal(await start.isDisabled(), true, '동의 전 실행 차단');",
       "proves": "미실행·소스 판정 조건: 동의 전 버튼 차단",
       "doesNotProve": "모든 IPC 우회 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "failed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-7",
@@ -326,7 +492,12 @@
       "assertionAnchor": "assert.equal(final.files.some(file => file.source.startsWith(initial + path.sep)), false);",
       "proves": "미실행·소스 판정 조건: 새 폴더 변환에서 이전 폴더 제외",
       "doesNotProve": "native 선택기는 대체; 한컴 분기는 환경변수 조건부",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/folder-change-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-8",
@@ -334,7 +505,12 @@
       "assertionAnchor": "assert.equal(state.hancomCandidates[0].path, manualExe, '직접 선택이 목록 맨 앞');",
       "proves": "미실행·소스 판정 조건: 재실행 후 직접 선택 우선",
       "doesNotProve": "가짜 설치 후보·대화상자; 실제 COM·재부팅 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/hancom-pick-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-9",
@@ -342,7 +518,12 @@
       "assertionAnchor": "assert.equal((await state()).hancomPath, '', '쓸 수 없는 경로를 남기지 않음');",
       "proves": "미실행·소스 판정 조건: 제거된 후보 선택 해제",
       "doesNotProve": "감지 목록 대역; 실제 설치 제거 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/hancom-redetect-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-10",
@@ -350,7 +531,12 @@
       "assertionAnchor": "assert.ok(Array.isArray(state.files), label);",
       "proves": "미실행·소스 판정 조건: 메뉴·해시 이동 후 상태 응답",
       "doesNotProve": "악성 renderer IPC 전체 보안 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/ipc-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-11",
@@ -358,7 +544,12 @@
       "assertionAnchor": "assert.ok((await fs.readFile(copied)).equals(original), '백업 폴더에 원본과 같은 HWP');",
       "proves": "미실행·소스 판정 조건: 백업 사본 바이트 동일",
       "doesNotProve": "선택기는 대체; cleanup 삭제 순서 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/ipc-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-12",
@@ -366,7 +557,12 @@
       "assertionAnchor": "assert.equal(first.hancomCandidates.find(c => c.path === exe)?.available, false, '자동 감지된 2004는 사용 불가');",
       "proves": "미실행·소스 판정 조건: 6.5 후보 사용 불가",
       "doesNotProve": "가짜 한컴; Windows 7/8 지원 판정 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/legacy-hancom-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-13",
@@ -374,7 +570,11 @@
       "assertionAnchor": "assert.ok(result.pauseAckMs <= 1000, `일시정지 누른 뒤 안내까지 ${result.pauseAckMs}ms`);",
       "proves": "미실행·소스 판정 조건: 일시정지 안내 1초 한계",
       "doesNotProve": "합성 HWPML; 실제 대형 HWP·COM·저사양 Windows 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "gui-14",
@@ -382,7 +582,11 @@
       "assertionAnchor": "assert.ok(result.convertFreezeMs.max <= LIMIT_MS, `변환 중 화면 멈춤 ${result.convertFreezeMs.max}ms`);",
       "proves": "미실행·소스 판정 조건: 변환 프레임 간격 제한",
       "doesNotProve": "기본 300ms는 환경변수로 변경 가능; 메모리는 측정만 하고 상한 assert 없음",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "gui-15",
@@ -390,7 +594,12 @@
       "assertionAnchor": "assert.equal(first.trim(), (await box.inputValue()).trim(), '복사한 내용 = 화면에 보이는 로그');",
       "proves": "미실행·소스 판정 조건: 실제 클립보드와 로그 창 동일",
       "doesNotProve": "외부 로그 뷰어 실행 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/log-view-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-16",
@@ -398,7 +607,12 @@
       "assertionAnchor": "assert.match(url,/^https:\\/\\/github.com\\/NomaDamas\\/hwp2x\\/issues\\/new\\?/);assert.ok(decodeURIComponent(url).includes('NATIVE_TEST_ERROR'));",
       "proves": "미실행·소스 판정 조건: native 확인 후 이슈 URL 전달",
       "doesNotProve": "shell.openExternal 대체; 실제 브라우저 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/native-dialog-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-17",
@@ -406,7 +620,12 @@
       "assertionAnchor": "assert.equal(child.exitCode,0,'강제 종료 버튼으로 종료');",
       "proves": "미실행·소스 판정 조건: 지연 종료 대화상자 뒤 프로세스 종료",
       "doesNotProve": "테스트 훅 지연; 실제 한컴 hang 회수 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/native-dialog-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-18",
@@ -414,7 +633,12 @@
       "assertionAnchor": "assert.ok((await fs.readFile(complete.target)).equals(before)); assert.equal((await fs.stat(complete.target)).mtimeMs,beforeStat.mtimeMs);",
       "proves": "미실행·소스 판정 조건: SIGKILL 후 재실행 완료 출력 내용·mtime 유지",
       "doesNotProve": "OS 재부팅·정전·로그인 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/resume-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-19",
@@ -422,7 +646,12 @@
       "assertionAnchor": "assert.equal(s.files.filter(f => f.status === 'wait').length, 60 - madeAtStop);",
       "proves": "미실행·소스 판정 조건: 중지 뒤 대기 수와 실제 출력 수 대응",
       "doesNotProve": "native 선택기는 대체; 실제 한컴 중지 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/run-flow-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-20",
@@ -430,7 +659,12 @@
       "assertionAnchor": "assert.match(await fs.readFile(path.join(root,'시험.md'),'utf8'), /실제 변환 시험/);",
       "proves": "미실행·소스 판정 조건: HWPML의 MD 텍스트 생성",
       "doesNotProve": "optional HWP 복사만으로 그 문서 내용 검증 주장 불가",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/smoke.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-21",
@@ -438,7 +672,11 @@
       "assertionAnchor": "assert.match(logs, /검사용 저장 실패/);",
       "proves": "미실행·소스 판정 조건: 주입 저장 실패 로그",
       "doesNotProve": "실제 장치 고장·정전 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "gui-22",
@@ -446,7 +684,12 @@
       "assertionAnchor": "assert.equal(await failFilter.getAttribute('aria-pressed'), 'true', '상태 필터 선택 상태 노출');",
       "proves": "미실행·소스 판정 조건: Enter로 선택한 필터 aria 상태",
       "doesNotProve": "전체 키보드·스크린리더 검증 아님",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/ui-review-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "gui-23",
@@ -454,7 +697,12 @@
       "assertionAnchor": "assert.ok(await page.evaluate(() => !!document.activeElement?.closest('[role=dialog]')), '대화상자 안으로 초점 이동');",
       "proves": "미실행·소스 판정 조건: 모달 내부 초기 포커스",
       "doesNotProve": "모든 Tab 순환·스크린리더 미검증",
-      "kind": "gui"
+      "kind": "gui",
+      "execution": {
+        "status": "passed",
+        "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/ui-review-check.cjs",
+        "scope": "Linux 패키지 전체 스크립트 결과이며 개별 assertion 통과 범위는 proves에 한정"
+      }
     },
     {
       "id": "folder-state",
@@ -462,7 +710,11 @@
       "assertionAnchor": "assert.deepEqual(calls.map(call => call[0]), ['scan', 'start']);",
       "proves": "미실행·소스 판정 조건: scan 다음 start 호출",
       "doesNotProve": "VM/React/API 대역; 실제 GUI 아님",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "layout",
@@ -470,7 +722,11 @@
       "assertionAnchor": "assert.deepEqual(rels, [...installs].sort(), '6개 설치를 모두 찾고 관계없는 Hwp.exe는 제외');",
       "proves": "미실행·소스 판정 조건: 여섯 설치 폴더 결과 일치",
       "doesNotProve": "가짜 파일·드라이브·레지스트리; 실제 COM 아님",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "wine",
@@ -478,7 +734,11 @@
       "assertionAnchor": "assert.equal(info.arch, 'ia32', '32비트 프로세스로 실행');",
       "proves": "미실행·소스 판정 조건: Wine 프로세스 ia32 보고",
       "doesNotProve": "실제 Windows 32비트 호환성·설치·COM 아님",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "winpath",
@@ -486,7 +746,11 @@
       "assertionAnchor": "assert.equal(state.files.length, 2);",
       "proves": "미실행·소스 판정 조건: Windows 경로 fixture 두 파일 검색",
       "doesNotProve": "path.win32·메모리 FS·Electron 대역; NTFS·COM·변환 미검증",
-      "kind": "simulation"
+      "kind": "simulation",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "log-order",
@@ -494,7 +758,11 @@
       "assertionAnchor": "assert.deepEqual(rows.slice(3).map(row => row.i), Array.from({ length: 20 }, (_, i) => i));",
       "proves": "미실행·소스 판정 조건: 로그 순서 보존",
       "doesNotProve": "강제 종료 직전 영속성 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "log-utf8",
@@ -502,7 +770,11 @@
       "assertionAnchor": "assert.equal(await recentLog(10), \"끝부분\");",
       "proves": "미실행·소스 판정 조건: 한글 UTF-8 끝부분 경계",
       "doesNotProve": "모든 인코딩 보증 아님",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "log-permission",
@@ -510,7 +782,11 @@
       "assertionAnchor": "assert.deepEqual(rows.map(row => row.event), [\"실행 환경\", \"기록 유지\"]);",
       "proves": "미실행·소스 판정 조건: 목록 권한 없이 로그 기록",
       "doesNotProve": "Windows/root에서 skip",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "origin-frame",
@@ -518,7 +794,11 @@
       "assertionAnchor": "assert.equal(isAppFrame({ ...main, routingId: 2 }, main), false);",
       "proves": "미실행·소스 판정 조건: 다른 routingId 거부",
       "doesNotProve": "실제 악성 Electron 프레임 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "origin-nav",
@@ -526,7 +806,11 @@
       "assertionAnchor": "assert.equal(isSameDocument(main.url.replace(\"app.html\", \"other.html\"), main.url), false);",
       "proves": "미실행·소스 판정 조건: 다른 문서 이동 거부",
       "doesNotProve": "실제 외부 열기 아님",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "report-home",
@@ -534,7 +818,11 @@
       "assertionAnchor": "assert.ok(!content.includes(\"홍길동\"));",
       "proves": "미실행·소스 판정 조건: 홈 사용자 이름 가림",
       "doesNotProve": "모든 개인정보·문서 본문 제거 아님",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     },
     {
       "id": "report-length",
@@ -542,7 +830,11 @@
       "assertionAnchor": "assert.ok(result.length <= 2000);",
       "proves": "미실행·소스 판정 조건: 긴 한글·이모지 URL 길이 제한",
       "doesNotProve": "실제 브라우저·GitHub 전송 미검증",
-      "kind": "unit"
+      "kind": "unit",
+      "execution": {
+        "status": "not-run",
+        "scope": "이번 재작업에서 실행하지 않음"
+      }
     }
   ],
   "gaps": [
@@ -641,6 +933,110 @@
       "description": "선택적 HWP2X_EXECUTABLE 실행 경로와 Wine 테스트만으로 배포 패키지 설치·제거·업데이트·서명·최소 OS 지원은 입증되지 않는다",
       "planStep": 15,
       "requires": "배포 산출물별 해시·서명·설치/제거·업데이트 및 지원 OS 환경 증거"
+    },
+    {
+      "id": "observed-cleanup-conflict",
+      "description": "실제 Linux 패키지 두 번째 충돌 복구에서 phase error 뒤 canRollback=true 판정 실패. 원인 미확정, 기능 실패와 검사 경합 구분 필요. 테스트 수정이나 기대 완화 없음.",
+      "planStep": 6,
+      "requires": "동일 패키지·복사본으로 충돌 복구 상태 전이 조사"
     }
-  ]
+  ],
+  "runs": [
+    {
+      "path": "electron/smoke.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/smoke.cjs",
+      "exitCode": 0,
+      "output": "{\"phase\":\"done\",\"counts\":{\"ok\":1,\"diff\":1,\"fail\":1,\"deleted\":0,\"wait\":0,\"conv\":0,\"skipped\":0},\"markdown\":true,\"originalsPreserved\":true,\"rendererErrors\":[]}\n"
+    },
+    {
+      "path": "electron/run-flow-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/run-flow-check.cjs",
+      "exitCode": 0,
+      "output": "1. 특정 폴더 변환 화면에서 폴더 선택·검색: 60개 (하위 폴더 포함)\n2. 실행 중: 추가 시작 3회 모두 거부, 시작·폴더 선택 버튼 잠김\n3. 일시정지: 화면 9/60 = 디스크 HWPX 9개, 다른 폴더 검색은 거부\n4. 이어하기 후 중지: 실제 HWPX 21개, 남은 39개는 변환 안 함\n5. 다른 폴더 선택 → 변환 → 완료: 5/5 HWPX, 첫 폴더 결과 그대로\n6. 완료 후 재실행: 다시 검색, 기존 HWPX 5개는 덮어쓰지 않고 건너뜀, 메뉴 정상\n7. 완료 후 앱 다시 열기: 첫 화면에서 바로 폴더 선택·변환 가능\n"
+    },
+    {
+      "path": "electron/ui-review-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/ui-review-check.cjs",
+      "exitCode": 0,
+      "output": "통과: 상태 이름, 엔진별 설명, 키보드 조작, 대화상자 Esc·초점, 안내 줄, 1240/720 가로 넘침 없음\n"
+    },
+    {
+      "path": "electron/approval-flow-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/approval-flow-check.cjs",
+      "exitCode": 0,
+      "output": "{\"ok\":true,\"evidence\":\"/tmp/hwp2x-approval-ui-QaLBfc/evidence.json\",\"cycles\":2}\n검증 증거: /tmp/hwp2x-approval-ui-QaLBfc\n"
+    },
+    {
+      "path": "electron/auto-flow-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/auto-flow-check.cjs",
+      "exitCode": 0,
+      "output": "통과: Electron 실제 실행\n통과: 격리 autostart 실파일\n통과: 실제 HWPX ZIP 문서 생성\n통과: 실제 HWPX ZIP 문서 생성\n통과: 실제 HWPX ZIP 문서 생성\n통과: 상호배타 IPC 거부\n통과: 상호배타 IPC 거부\n통과: 상호배타 IPC 거부\n통과: 상호배타 IPC 거부\n통과: 상호배타 IPC 거부\n통과: 상호배타 IPC 거부\n통과: 특정 폴더 메뉴 disabled\n통과: 실제 HWPX ZIP 문서 생성\n통과: window.close 숨김과 프로세스 생존\n통과: 실제 HWPX ZIP 문서 생성\n통과: 별도 BrowserWindow 실제 OS 타이핑 포커스 유지\n통과: 실제 HWPX ZIP 문서 생성\n통과: 자동 중지 후 실제 수동 변환 허용\n통과: Electron 실제 실행\n통과: 실제 HWPX ZIP 문서 생성\n통과: 동일 프로필 --automatic 숨김 재개와 신규 변환\n검사 증거: /tmp/hwp2x-auto-real-INFOXJ\n"
+    },
+    {
+      "path": "electron/cleanup-flow-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/cleanup-flow-check.cjs",
+      "exitCode": 1,
+      "output": "통과: 1-complete\n통과: 1-conflict\n통과: 1-corrupt\n통과: 1-double-corrupt\n통과: 1-cancel\n통과: 2-complete\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at /home/cheol/projects/hwp2x/electron/cleanup-flow-check.cjs:123:57 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: false,\n  expected: true,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n검사 증거: /tmp/hwp2x-cleanup-real-8JuiAH\n"
+    },
+    {
+      "path": "electron/log-view-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/log-view-check.cjs",
+      "exitCode": 0,
+      "output": "1회차 복사: 17줄, 변환 기록 포함\n2회차 복사: 20줄, 다시 감지 기록 포함\n통과\n스크린샷: /tmp/hwp2x-logview-3kZkmi\n"
+    },
+    {
+      "path": "electron/native-dialog-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/native-dialog-check.cjs",
+      "exitCode": 0,
+      "output": "ISSUE_URL=https://github.com/NomaDamas/hwp2x/issues/new?title=hwp2x+%EC%98%A4%EB%A5%98+%EB%B3%B4%EA%B3%A0&body=%23%23+%EC%9E%AC%ED%98%84+%EB%8B%A8%EA%B3%84%0A1.+%0A2.+%0A%0A%23%23+%EA%B8%B0%EB%8C%80%ED%95%9C+%EB%8F%99%EC%9E%91%0A%0A%23%23+%EC%8B%A4%EC%A0%9C+%EB%8F%99%EC%9E%91%0A%0A%23%23+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EC%A0%95%EB%B3%B4%0A%7C+%ED%95%AD%EB%AA%A9+%7C+%EA%B0%92+%7C%0A%7C+---+%7C+---+%7C%0A%7C+platform+%7C+linux+%7C%0A%7C+arch+%7C+x64+%7C%0A%7C+versions+%7C+%7B%22app%22%3A%220.3.0%22%2C%22electron%22%3A%2241.10.7%22%2C%22chrome%22%3A%22146.0.7680.216%22%2C%22node%22%3A%2224.18.0%22%7D+%7C%0A%7C+locale+%7C+ko+%7C%0A%0A%23%23+%EC%B5%9C%EA%B7%BC+%EC%98%A4%EB%A5%98%0A%60%60%60%0Arenderer%3A+NATIVE_TEST_ERROR%0A%60%60%60%0A%0A%23%23+%EB%A1%9C%EA%B7%B8+%EB%81%9D%EB%B6%80%EB%B6%84%0A%60%60%60%0A%22chrome%22%3A%22146.0.7680.216%22%2C%22node%22%3A%2224.18.0%22%7D%2C%22locale%22%3A%22ko%22%2C%22t%22%3A%222026-11-11T16%3A16%3A18.145Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22%EC%8B%A4%ED%96%89+%ED%99%98%EA%B2%BD%22%7D%0A%7B%22t%22%3A%222026-11-11T16%3A16%3A18.146Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22app.start%22%7D%0A%7B%22count%22%3A0%2C%22usable%22%3A0%2C%22t%22%3A%222026-11-11T16%3A16%3A18.246Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22%ED%95%9C%EC%BB%B4+%EA%B0%90%EC%A7%80%22%7D%0A%7B%22message%22%3A%22NATIVE_TEST_ERROR%22%2C%22stack%22%3A%22%EA%B2%80%EC%82%AC+%EC%A4%91+%EB%B0%9C%EC%83%9D%ED%95%9C+%EC%98%A4%EB%A5%98%22%2C%22t%22%3A%222026-11-11T16%3A16%3A18.421Z%22%2C%22level%22%3A%22error%22%2C%22event%22%3A%22renderer.error%22%7D%0A%7B%22from%22%3A%22%EC%8B%9C%EC%9E%91%22%2C%22to%22%3A%22idle%22%2C%22t%22%3A%222026-11-11T16%3A16%3A18.674Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22%EC%83%81%ED%83%9C+%EC%A0%84%EC%9D%B4%22%7D%0A%0A%60%60%60%0A%0A%EA%B3%B5%EC%9C%A0+%EC%A0%84%EC%97%90+%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%99%80+%EB%AC%B8%EC%84%9C+%EA%B2%BD%EB%A1%9C%EB%A5%BC+%ED%99%95%EC%9D%B8%ED%95%B4+%EC%A3%BC%EC%84%B8%EC%9A%94.&labels=bug\nLOG_PATH=/tmp/hwp2x-native-JczX0x/logs/hwp2x-2026-11-11.log\n{\"message\":\"NATIVE_TEST_ERROR\",\"stack\":\"검사 중 발생한 오류\",\"t\":\"2026-11-11T16:16:18.421Z\",\"level\":\"error\",\"event\":\"renderer.error\"}\n{\"url\":\"https://github.com/NomaDamas/hwp2x/issues/new?title=hwp2x+%EC%98%A4%EB%A5%98+%EB%B3%B4%EA%B3%A0&body=%23%23+%EC%9E%AC%ED%98%84+%EB%8B%A8%EA%B3%84%0A1.+%0A2.+%0A%0A%23%23+%EA%B8%B0%EB%8C%80%ED%95%9C+%EB%8F%99%EC%9E%91%0A%0A%23%23+%EC%8B%A4%EC%A0%9C+%EB%8F%99%EC%9E%91%0A%0A%23%23+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EC%A0%95%EB%B3%B4%0A%7C+%ED%95%AD%EB%AA%A9+%7C+%EA%B0%92+%7C%0A%7C+---+%7C+---+%7C%0A%7C+platform+%7C+linux+%7C%0A%7C+arch+%7C+x64+%7C%0A%7C+versions+%7C+%7B%22app%22%3A%220.3.0%22%2C%22electron%22%3A%2241.10.7%22%2C%22chrome%22%3A%22146.0.7680.216%22%2C%22node%22%3A%2224.18.0%22%7D+%7C%0A%7C+locale+%7C+ko+%7C%0A%0A%23%23+%EC%B5%9C%EA%B7%BC+%EC%98%A4%EB%A5%98%0A%60%60%60%0Arenderer%3A+NATIVE_TEST_ERROR%0A%60%60%60%0A%0A%23%23+%EB%A1%9C%EA%B7%B8+%EB%81%9D%EB%B6%80%EB%B6%84%0A%60%60%60%0A%22chrome%22%3A%22146.0.7680.216%22%2C%22node%22%3A%2224.18.0%22%7D%2C%22locale%22%3A%22ko%22%2C%22t%22%3A%222026-11-11T16%3A16%3A18.145Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22%EC%8B%A4%ED%96%89+%ED%99%98%EA%B2%BD%22%7D%0A%7B%22t%22%3A%222026-11-11T16%3A16%3A18.146Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22app.start%22%7D%0A%7B%22count%22%3A0%2C%22usable%22%3A0%2C%22t%22%3A%222026-11-11T16%3A16%3A18.246Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22%ED%95%9C%EC%BB%B4+%EA%B0%90%EC%A7%80%22%7D%0A%7B%22message%22%3A%22NATIVE_TEST_ERROR%22%2C%22stack%22%3A%22%EA%B2%80%EC%82%AC+%EC%A4%91+%EB%B0%9C%EC%83%9D%ED%95%9C+%EC%98%A4%EB%A5%98%22%2C%22t%22%3A%222026-11-11T16%3A16%3A18.421Z%22%2C%22level%22%3A%22error%22%2C%22event%22%3A%22renderer.error%22%7D%0A%7B%22from%22%3A%22%EC%8B%9C%EC%9E%91%22%2C%22to%22%3A%22idle%22%2C%22t%22%3A%222026-11-11T16%3A16%3A18.674Z%22%2C%22level%22%3A%22info%22%2C%22event%22%3A%22%EC%83%81%ED%83%9C+%EC%A0%84%EC%9D%B4%22%7D%0A%0A%60%60%60%0A%0A%EA%B3%B5%EC%9C%A0+%EC%A0%84%EC%97%90+%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%99%80+%EB%AC%B8%EC%84%9C+%EA%B2%BD%EB%A1%9C%EB%A5%BC+%ED%99%95%EC%9D%B8%ED%95%B4+%EC%A3%BC%EC%84%B8%EC%9A%94.&labels=bug\",\"t\":\"2026-11-11T16:16:19.142Z\",\"level\":\"info\",\"event\":\"test.external\"}\n{\"t\":\"2026-11-11T16:16:19.795Z\",\"level\":\"warn\",\"event\":\"강제 종료\"}\n실제 대화상자: 이슈 초안 확인·종료 지연 강제 종료 클릭 통과\n"
+    },
+    {
+      "path": "electron/folder-change-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/folder-change-check.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"directory\": \"/tmp/hwp2x-change-rGjSd5\",\n  \"errors\": [],\n  \"files\": [\n    \"/tmp/hwp2x-change-rGjSd5/바꾼폴더/공고문.hwpx\",\n    \"/tmp/hwp2x-change-rGjSd5/바꾼폴더/공고문.md\",\n    \"/tmp/hwp2x-change-rGjSd5/바꾼폴더/하위/공고문.hwpx\",\n    \"/tmp/hwp2x-change-rGjSd5/바꾼폴더/하위/공고문.md\"\n  ],\n  \"previous\": {\n    \"root\": \"/tmp/hwp2x-change-rGjSd5/기본위치\",\n    \"total\": 1,\n    \"route\": \"settings\"\n  },\n  \"searched\": {\n    \"root\": \"/tmp/hwp2x-change-rGjSd5/바꾼폴더\",\n    \"sources\": [\n      \"/tmp/hwp2x-change-rGjSd5/바꾼폴더/하위/공고문.hwp\",\n      \"/tmp/hwp2x-change-rGjSd5/바꾼폴더/공고문.hwp\"\n    ]\n  },\n  \"phases\": [\n    \"converting\",\n    \"done\"\n  ],\n  \"final\": {\n    \"root\": \"/tmp/hwp2x-change-rGjSd5/바꾼폴더\",\n    \"phase\": \"done\",\n    \"completed\": 2,\n    \"total\": 2\n  },\n  \"alerts\": [],\n  \"passed\": true\n}\n"
+    },
+    {
+      "path": "electron/resume-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/resume-check.cjs",
+      "exitCode": 0,
+      "output": "강제 종료→동일 프로필 재실행→계속: 60개 HWPX·MD 생성, 기존 완료 파일 수정 없음, 전체 메뉴 IPC 정상\n"
+    },
+    {
+      "path": "electron/ipc-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/ipc-check.cjs",
+      "exitCode": 0,
+      "output": "기본 검색 위치: / 표시 OK\n하위 폴더 재귀 변환: 4개 모두 HWPX 생성 OK (가장 깊은 4단계 포함)\n화면 백업: 버튼 활성·클릭 → 하위/보고서.hwpml 생성(원본과 동일), 원래 파일 유지\n화면 백업 다시 누르기: 오류 없이 \"이미 백업됨\" 안내, 메뉴 이동 가능\n시작: state OK (app.html)\n설정 변경 링크: state OK (app.html#)\n특정 폴더 변환 1회차: state OK (app.html#)\n파일 1회차: state OK (app.html#)\n설정 1회차: state OK (app.html#)\n특정 폴더 변환 2회차: state OK (app.html#)\n파일 2회차: state OK (app.html#)\n설정 2회차: state OK (app.html#)\n주소 해시 변경: state OK (app.html#settings)\n진행 화면 사유: OK\n경과 시간 멈춤: OK (0.01초 고정)\n파일 목록 사유: OK\n변환 후 파일: state OK (app.html#settings)\n"
+    },
+    {
+      "path": "electron/hancom-pick-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/hancom-pick-check.cjs",
+      "exitCode": 0,
+      "output": "직접 선택: /tmp/hwp2x-pick-B5ZpTF/D-drive/MyHancom/HOffice120/Bin/Hwp.exe → 사용 중, settings.json 저장\n재실행: 저장된 직접 선택이 자동 감지보다 우선, 목록 맨 앞\n다른 버전 선택: 직접 선택 해제, 재실행 후 자동 감지 버전 유지\n직접 선택 파일 삭제 후 재실행: \"한컴 실행 파일을 찾을 수 없습니다\" 표시, 자동 감지 버전으로 대체\n"
+    },
+    {
+      "path": "electron/hancom-redetect-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/hancom-redetect-check.cjs",
+      "exitCode": 0,
+      "output": "1. 새 설치 없음: 새로운 한컴 설치본을 찾지 못했습니다. 기존 설정(한컴오피스 한글 13.0.0.3380)을 그대로 사용하거나, [Hwp.exe 선택]으로 실행 파일을 직접 지정해 주세요.\n2. 새 설치 발견: 새 한컴 설치본 1개를 찾았습니다(한컴오피스 한글 12.0.0.2100). 지금은 한컴오피스 한글 13.0.0.3380을(를) 사용 중이며, 위 목록에서 [이 버전 사용]으로 바꿀 수 있습니다.\n3. 목록에서 12.0 선택: 사용 중으로 바뀜\n4. 두 개 중 선택 안내: 새로운 한컴 설치본은 없습니다. 지금은 한컴오피스 한글 12.0.0.2100을(를) 사용 중이며, 사용할 수 있는 2개 중 위 목록에서 [이 버전 사용]으로 바꿀 수 있습니다.\n5. 한컴 없음: 사용하던 한컴오피스 한글 12.0.0.2100을(를) 찾을 수 없습니다. 사용할 수 있는 한컴오피스를 찾지 못해 지금은 내장 kordoc 엔진으로 변환합니다. 한컴이 설치되어 있다면 [Hwp.exe 선택]으로 실행 파일을 직접 지정해 주세요.\n통과\n스크린샷: /tmp/hwp2x-redetect-0MIQr3\n"
+    },
+    {
+      "path": "electron/legacy-hancom-check.cjs",
+      "command": "HWP2X_EXECUTABLE=/home/cheol/projects/hwp2x/dist-electron/linux-unpacked/hwp2x HWP2X_SMOKE_HWP=/tmp/hwp2x-real/공고문.hwp xvfb-run -a node electron/legacy-hancom-check.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"directory\": \"/tmp/hwp2x-legacy-kPCn3U\",\n  \"errors\": [],\n  \"detected\": [\n    {\n      \"path\": \"/tmp/hwp2x-legacy-kPCn3U/HNC/Hwp65/Hwp.exe\",\n      \"name\": \"한컴오피스 한글 6.5.0.1000\",\n      \"version\": \"6.5.0.1000\",\n      \"clsid\": \"{22222222-2222-2222-2222-222222222222}\",\n      \"available\": false,\n      \"registryView\": \"32\",\n      \"hive\": \"HKLM\",\n      \"unavailableReason\": \"한컴오피스 한글 6.5.0.1000은(는) HWPX 저장을 지원하지 않습니다(한글 2010 이상 필요). HWPX 저장 가능한 한글을 선택하거나 kordoc 대체 엔진을 사용하세요.\"\n    }\n  ],\n  \"pick\": {\n    \"hancomPath\": \"\",\n    \"engine\": \"kordoc 4.24.42 (한컴 미감지 시 대체)\",\n    \"reason\": \"한컴오피스 한글 6.5.0.1000은(는) HWPX 저장을 지원하지 않습니다(한글 2010 이상 필요). HWPX 저장 가능한 한글을 선택하거나 kordoc 대체 엔진을 사용하세요.\"\n  },\n  \"phases\": [\n    \"converting\",\n    \"done\"\n  ],\n  \"final\": {\n    \"root\": \"/tmp/hwp2x-legacy-kPCn3U/바꾼폴더\",\n    \"phase\": \"done\",\n    \"completed\": 2,\n    \"counts\": {\n      \"ok\": 2,\n      \"diff\": 0,\n      \"fail\": 0,\n      \"deleted\": 0,\n      \"wait\": 0,\n      \"conv\": 0,\n      \"skipped\": 0\n    }\n  },\n  \"files\": [\n    \"/tmp/hwp2x-legacy-kPCn3U/바꾼폴더/공고문.hwpx\",\n    \"/tmp/hwp2x-legacy-kPCn3U/바꾼폴더/공고문.md\",\n    \"/tmp/hwp2x-legacy-kPCn3U/바꾼폴더/하위/공고문.hwpx\",\n    \"/tmp/hwp2x-legacy-kPCn3U/바꾼폴더/하위/공고문.md\"\n  ],\n  \"passed\": true\n}\n"
+    }
+  ],
+  "release": {
+    "url": "https://github.com/NomaDamas/hwp2x/releases/download/v0.3.0/hwp2x-0.3.0-portable-x64.exe",
+    "sha256": "e4ec9698a9a5b8f9a66d9bfe9c98178be3d1aa9fa5e9c3e4a6fa84f2634b5fe1",
+    "matches": {
+      "electron/design/live.js": true,
+      "electron/design/app.html": true,
+      "electron/design/support.js": true,
+      "electron/dist/main.js": true,
+      "electron/dist/preload.js": true
+    },
+    "limitation": "Windows 실행이 아닌 공개 포터블 추출 코드 대조"
+  }
 }

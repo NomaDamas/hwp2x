@@ -16,5 +16,24 @@
     "HWP 3.x·배포용·구버전별 실제 문서",
     "Windows 한컴 설치 및 동시 편집 환경",
     "NTFS/FAT/exFAT·네트워크 분리·실제 재부팅 환경"
-  ]
+  ],
+  "execution": {
+    "sourceBefore": "62b3fef1f5635d8478acbaedf8c553e9c39950e98cdaacb72c89c88628e1f205",
+    "sourceAfter": "62b3fef1f5635d8478acbaedf8c553e9c39950e98cdaacb72c89c88628e1f205",
+    "uses": {
+      "realCopy": [
+        "smoke(실제 HWP+HWPML 혼합)",
+        "folder-change-check",
+        "run-flow-check",
+        "approval-flow-check",
+        "auto-flow-check",
+        "cleanup-flow-check"
+      ],
+      "synthetic": [
+        "ui-review-check의 HWPML/손상 입력",
+        "한컴 감지 후보 환경변수와 네이티브 선택 대역"
+      ]
+    },
+    "limitation": "실제 sample 1종. 모의 COM·합성 입력을 실제 Windows 증거로 취급하지 않음"
+  }
 }

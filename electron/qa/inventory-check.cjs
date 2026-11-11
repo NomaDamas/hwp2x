@@ -36,6 +36,29 @@ function audit() {
  assert.ok(gaps.length && fixtures.unavailable.length);
  assert.ok(fixtures.real.sha256.match(/^[a-f0-9]{64}$/));
  assert.equal(fixtures.real.policy,'격리 복사본만 변경');
+ const evidence = load('checks.json');
+ assert.ok(evidence.runs.length >= 1, '실제 검사 실행 기록 없음');
+ for (const run of evidence.runs) {
+   source(run.path);
+   assert.ok(text(run.command) && Number.isInteger(run.exitCode) && text(run.output));
+ }
+ for (const check of checks) {
+   assert.ok(['passed','failed','not-run'].includes(check.execution?.status));
+   if (check.execution.status !== 'not-run') {
+     const run = evidence.runs.find(r => r.path === check.path);
+     assert.ok(run && (run.exitCode === 0) === (check.execution.status === 'passed'));
+   }
+ }
+ assert.ok(evidence.release.sha256.match(/^[a-f0-9]{64}$/));
+ assert.ok(Object.values(evidence.release.matches).every(v => v === true), '배포본과 목록 소스 불일치');
+ assert.equal(fixtures.execution.sourceBefore, fixtures.real.sha256);
+ assert.equal(fixtures.execution.sourceAfter, fixtures.real.sha256);
+ for (const item of coverage) for (const key of ['normal','changed','repeated','emptyOrInvalid']) {
+   const scenario = item.scenarios?.[key];
+   assert.ok(scenario && Array.isArray(scenario.checkIds), `${item.controlId}: ${key} 연결 없음`);
+   scenario.checkIds.forEach(id => assert.ok(checkIds.has(id)));
+   assert.ok(text(scenario.limitation));
+ }
  console.log(JSON.stringify({result:'합격표 구조·소스 근거 검사 통과',controls:controls.length,checks:checks.length,gaps:gaps.length,dead:controls.filter(c=>c.reachability==='dead').map(c=>c.id),note:'기능 자체의 합격 판정이 아닙니다. 미검증은 coverage와 gaps에 남습니다.'},null,2));
 }
 assert.equal(process.argv[2],'--audit-only','지원 명령: --audit-only');
