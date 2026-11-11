@@ -200,5 +200,19 @@ async function main() {
     await fs.rename(evidence.oldLocation, evidence.relocated);
     options.env.PORTABLE_EXECUTABLE_FILE = evidence.relocated;
   });
+  const isolatedUsers = [];
+  for (const user of ['사용자 A', '사용자 B']) {
+    await runEvidence(`autolaunch-profile-${user}`, async ({ page, evidence, capture }) => {
+      await openAutomatic(page, evidence);
+      assert.equal((await auto(page)).resumeAtLogin, false);
+      await toggle(page, evidence, true);
+      const text = await fs.readFile(evidence.desktop, 'utf8');
+      isolatedUsers.push({ desktop: evidence.desktop, text });
+      for (const previous of isolatedUsers) assert.equal(await fs.readFile(previous.desktop, 'utf8'), previous.text);
+      evidence.observations.push({ type: 'separate-config-roots', roots: isolatedUsers.map(item => item.desktop), osUidChanged: false });
+      await capture('독립 설정 루트 자동 실행 등록');
+    }, prepare);
+  }
+  for (const user of isolatedUsers) await fs.unlink(user.desktop);
 }
 if (!ensureDisplay(__filename)) main().catch(error => { console.error(error); process.exitCode = 1; });
