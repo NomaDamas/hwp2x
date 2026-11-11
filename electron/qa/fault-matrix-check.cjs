@@ -99,6 +99,19 @@ async function runScenario(mode) {
     e.observations.push({ label: '재시작 기록', log: await page.evaluate(() => window.hwp2x.readLog()), automatic: await page.evaluate(() => window.hwp2x.autoState()) });
     if (mode !== 'kill' && mode !== 'broken-settings') assert.ok((await state()).total > 0, '재시작 작업 기록 보존');
     if (mode === 'kill') assert.ok((await state()).phase !== 'converting', '강제종료 후 유령 실행 상태 금지');
+    if (mode === 'disk-full' || mode === 'kill') {
+      const restored = await state();
+      assert.equal(restored.phase, 'paused');
+      assert.ok(restored.counts.wait > 0, '재시작 후 남은 작업 보존');
+      await page.getByRole('button', { name: '이어하기', exact: true }).click();
+      await until(async () => (await state()).phase === 'done', 'GUI 이어하기 완료');
+      const resumed = await state();
+      assert.equal(resumed.total, restored.total);
+      assert.equal(resumed.completed, resumed.total);
+      assert.equal(resumed.counts.wait, 0);
+      assert.equal(resumed.counts.fail, 0);
+      await snapshot('장애 해소 후 GUI 이어하기 완료');
+    }
     for (const input of e.inputs) {
       if (mode === 'drive-detach' && input.path.startsWith(mount + path.sep)) continue;
       assert.equal(hash(await fs.readFile(input.path)), input.sha256, '격리 복사본 보존');
