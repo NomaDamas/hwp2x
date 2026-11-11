@@ -38,6 +38,15 @@ async function inspect({ app, page, evidence, capture }) {
     await capture(`${screen} 최소 창 고대비`);
   }
   await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].webContents.setZoomFactor(1.5));
+  for (const screen of ['특정 폴더 변환', '전체 자동 변환', '파일', '설정']) {
+    await page.getByRole('button', { name: new RegExp(`^${screen}(\\s+\\d+)?$`) }).first().click();
+    evidence.actions.push({ type: 'click', name: `${screen} 150%` });
+    await page.waitForTimeout(200);
+    const viewport = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth }));
+    assert.ok(viewport.scrollWidth <= viewport.width, `${screen}: 확대시 창 가로 넘침`);
+    evidence.observations.push({ screen, zoom: 1.5, viewport });
+    await capture(`${screen} 150퍼센트 확대`);
+  }
   await capture('최소 창 150퍼센트 확대');
   evidence.observations.push({ label: '키보드 순환과 복귀 두 회, 고대비·확대', unnamed, viewport: await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth })) });
   evidence.limitations = ['스크린리더 실제 낭독·Windows 고대비 테마·원본백업 인증 모달은 미검증', '확대 화면은 스크린샷 증거이며 모든 요소의 잘림을 자동 판정하지 않음'];
