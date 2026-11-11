@@ -6,7 +6,7 @@ const { createHash } = require('node:crypto');
 const { runEvidence, ensureDisplay } = require('./common/evidence.cjs');
 const digest = async file => createHash('sha256').update(await fs.readFile(file)).digest('hex');
 async function prepare(evidence) {
-  evidence.cleanup = { cases: [], limitations: ['ENOSPC·쓰기거부·hardlink 불가: 단위 오류주입, 실제 매체 시험 아님', 'Windows reparse point 및 FAT/exFAT 미검증', '실제 SIGKILL 재시작: cleanup.test의 별도 Node 프로세스이며 패키지 GUI 강제종료는 아님', '접근시간은 해시 읽기로 변경될 수 있음; inode·권한·mtime 검증, ctime/birthtime 복사 보장 아님'] };
+  evidence.cleanup = { cases: [], limitations: ['ENOSPC·hardlink 불가: 단위 오류주입, 실제 매체 시험 아님; 쓰기 거부는 패키지에서 실제 POSIX 권한으로 검사', 'Windows reparse point 및 FAT/exFAT 미검증', '실제 SIGKILL 재시작: cleanup.test의 별도 Node 프로세스이며 패키지 GUI 강제종료는 아님', '접근시간은 해시 읽기로 변경될 수 있음; inode·권한·mtime 검증, ctime/birthtime 복사 보장 아님'] };
   const original = await fs.readFile(evidence.inputs[0].path);
   // A sufficiently large real batch allows cancellation after observed progress without slowing the engine.
   for (let i = 1; i < 160; i++) {
