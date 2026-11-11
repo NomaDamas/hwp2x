@@ -106,5 +106,39 @@ async function main() {
   assert.ok(process.argv.includes('--packaged'), '--packaged 필수');
   const first = await runEvidence('automatic', inspect, prepare);
   if (first.passed) await runEvidence('automatic-restart', restartInspect, restartPrepare);
+  await runEvidence('automatic-empty-permission', async ({ page, evidence, capture }) => {
+    const denied = evidence.denied;
+    try {
+      await assert.rejects(fs.readdir(denied), { code: 'EACCES' });
+      for (const name of ['전체 자동 변환', '자동 변환 시작']) {
+        await page.getByRole('button', { name, exact: true }).click();
+        evidence.actions.push({ type: 'click', name });
+      }
+      await until(async () => (await page.evaluate(() => window.hwp2x.autoState())).phase === 'watching', '빈 검색과 접근 거부 후 감시');
+      const snapshot = await page.evaluate(() => window.hwp2x.autoState());
+      const issues = await page.evaluate(() => window.hwp2x.autoIssues());
+      assert.equal(snapshot.processed, 0);
+      assert.equal(issues.total, 0);
+      const manual = page.getByRole('button', { name: '특정 폴더 변환', exact: true });
+      await until(() => manual.isDisabled(), '자동 실행 중 수동 메뉴 잠금 표시', 5000);
+      assert.equal(await manual.isDisabled(), true, '자동 실행 중 수동 메뉴 잠금');
+      evidence.observations.push({ type: 'empty-permission', snapshot, issues, manualDisabled: true });
+      await capture('빈 위치와 접근 거부 상태에서 감시');
+      await page.getByRole('button', { name: '자동 변환 중지', exact: true }).click();
+    } finally {
+      await fs.chmod(denied, 0o700);
+      assert.deepEqual(await fs.readFile(path.join(denied, '보존.hwp')), await fs.readFile(evidence.source.path));
+      await assert.rejects(fs.stat(path.join(denied, '보존.hwpx')), { code: 'ENOENT' });
+    }
+  }, async (evidence, options) => {
+    const empty = path.join(evidence.directory, '빈 감시 위치');
+    const denied = path.join(empty, '접근 거부');
+    await fs.mkdir(denied, { recursive: true });
+    await fs.copyFile(evidence.source.path, path.join(denied, '보존.hwp'));
+    await fs.chmod(denied, 0);
+    evidence.denied = denied;
+    options.env.HWP2X_TEST_HOOKS = '1';
+    options.env.HWP2X_AUTO_ROOTS = JSON.stringify([empty]);
+  });
 }
 if (!ensureDisplay(__filename)) main().catch(error => { console.error(error); process.exitCode = 1; });
