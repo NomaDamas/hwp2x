@@ -16,7 +16,7 @@ async function dialogKey(title,key){
  try{
  const page=await app.firstWindow();
  await app.evaluate(({shell})=>{shell.openExternal=async url=>{global.opened=url;};});
- for(const menu of ['개요','파일','설정']){await page.getByText(menu,{exact:true}).first().click();assert.ok(Array.isArray((await page.evaluate(()=>window.hwp2x.state())).files));}
+ for(const menu of ['특정 폴더 변환','파일','설정']){await page.getByText(menu,{exact:true}).first().click();assert.ok(Array.isArray((await page.evaluate(()=>window.hwp2x.state())).files));}
  await page.evaluate(()=>window.hwp2x.reportError('NATIVE_TEST_ERROR','검사 중 발생한 오류'));
  await sleep(600);
  const click=page.getByRole('button',{name:'작성 초안 열기',exact:true}).click();

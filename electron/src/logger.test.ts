@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import * as fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { initLogger, log, logPath, logDir, recentLog, flushLog } from "./logger";
+import { initLogger, log, logPath, logDir, recentLog, flushLog, viewLog } from "./logger";
 
 test("로그는 초기화 전 기록과 오류를 순서대로 저장하고 실패 후 복구한다", async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), "hwp2x-logger-"));
@@ -41,6 +41,17 @@ test("로그는 초기화 전 기록과 오류를 순서대로 저장하고 실�
     assert.equal(await recentLog(10), "끝부분");
     assert.equal(await recentLog(0), "");
     assert.equal(await recentLog(-1), "");
+    assert.equal(await recentLog(Number.NaN), "");
+    assert.equal(await recentLog(Number.POSITIVE_INFINITY), "");
+    await fs.writeFile(target, '{"event":"앞줄"}\n{"event":"뒷줄"}\n');
+    assert.equal(await recentLog(25), '{"event":"뒷줄"}\n', "앞이 잘리면 반쪽 줄 없이 다음 줄부터");
+    await fs.writeFile(target, "");
+    assert.equal(await recentLog(), "");
+    log("error", "긴 한글 오류", { error: new Error("실패😀".repeat(100000) + "마지막 오류") });
+    const tail = await recentLog(200000);
+    assert.ok(Buffer.byteLength(tail) <= 200000);
+    assert.ok(tail.includes("마지막 오류"));
+    assert.ok(!tail.includes("�"));
 
     const old = path.join(root, "hwp2x-2000-01-01.log");
     await fs.writeFile(old, "old");
@@ -80,6 +91,25 @@ test("목록 읽기 권한이 없어도 실행 환경과 이후 기록을 저장
     assert.deepEqual(rows.map(row => row.event), ["실행 환경", "기록 유지"]);
   } finally {
     await fs.chmod(root, 0o700);
+    await fs.rm(root, { recursive: true, force: true });
+  }
+});
+
+test("로그 보기는 파일 기록에 밀려난 자동 변환 부하 사건도 보여준다", async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "hwp2x-pinned-"));
+  try {
+    await initLogger(root, {});
+    log("warn", "automatic.pause", { 요약: "일시정지 · 메모리 600MB (한도 512MB) · 2초 쉬어 갑니다" });
+    for (let i = 0; i < 100; i++) log("info", "automatic.metrics", { 요약: `자동 변환 상태 · ${i}` });
+    for (let i = 0; i < 400; i++) log("info", "file.end", { id: i, message: "글자·그림 일치 · 원본 유지".repeat(4) });
+    await flushLog();
+    assert.doesNotMatch(await recentLog(20000), /일시정지/, "최근 범위만 읽으면 밀려남");
+    const shown = await viewLog(20000);
+    assert.match(shown, /일시정지 · 메모리 600MB/);
+    assert.match(shown, /자동 변환 상태 · 99/, "가장 최근 측정도 보임");
+    for (const line of shown.trim().split("\n")) JSON.parse(line);
+  } finally {
+    await flushLog();
     await fs.rm(root, { recursive: true, force: true });
   }
 });

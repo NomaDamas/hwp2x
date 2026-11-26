@@ -64,6 +64,14 @@ async function lifecycle(context) {
   await rejectCalls(page, evidence, [['scan', evidence.isolatedPaths.docs], ['start'], ['configure', { workers: 1 }], ['retry', 1], ['backup', true]], /자동/);
   await rejectCalls(page, evidence, [['cleanupStart', true], ['cleanupRollback']], /중지/);
   await closeWindow(app);
+  await dialogKey('자동 변환 · 창 닫기', ['Escape'], evidence);
+  assert.equal(await visible(app), true);
+  assert.equal((await auto()).enabled, true);
+  await closeWindow(app);
+  await closeWindow(app);
+  const dialogs = (await exec('xdotool', ['search', '--onlyvisible', '--name', '^자동 변환 · 창 닫기$'])).stdout.trim().split('\n');
+  assert.equal(dialogs.length, 1, '반복 닫기 중복 대화상자 금지');
+  await dialogKey('자동 변환 · 창 닫기', ['Tab', 'Return'], evidence);
   await until(async () => !(await visible(app)), '백그라운드 숨김');
   assert.equal(child.exitCode, null);
   assert.equal(page.isClosed(), false);
@@ -95,7 +103,18 @@ async function lifecycle(context) {
   await page.evaluate(root => window.hwp2x.scan(root), evidence.isolatedPaths.docs);
   await page.evaluate(() => window.hwp2x.configure({ workers: 1 }));
   evidence.observations.push({ type: 'manual-unlocked', state: await page.evaluate(() => window.hwp2x.state()) });
+  await page.getByRole('button', { name: '자동 변환 시작', exact: true }).click();
+  await until(async () => (await auto()).phase === 'watching', '완전 종료 전 자동 감시');
+  await background.click();
+  await until(async () => !(await auto()).background, '백그라운드 해제');
   await closeWindow(app);
+  await dialogKey('자동 변환 · 창 닫기', ['Escape'], evidence);
+  assert.equal(await visible(app), true);
+  assert.equal((await auto()).enabled, true);
+  await background.click();
+  await until(async () => (await auto()).background, '백그라운드 복원');
+  await closeWindow(app);
+  await dialogKey('자동 변환 · 창 닫기', ['Tab', 'Tab', 'Return'], evidence);
   await until(() => child.exitCode !== null || child.signalCode !== null, '실제 창 닫기 정상 종료');
   assert.equal(child.exitCode, 0);
 }

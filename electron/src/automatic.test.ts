@@ -48,11 +48,22 @@ test("설정 복원은 자동 시작 없이 옵션만 복원한다", async t => 
   await mkdir(path.dirname(f.settings), { recursive: true });
   await writeFile(f.settings, JSON.stringify({ version: 1, enabled: true, background: true, resumeAtLogin: true }));
   await f.automatic.restore();
-  assert.deepEqual(f.automatic.snapshot(), { enabled: false, background: true, resumeAtLogin: true, phase: "idle", message: "자동 변환 꺼짐", roots: [], processed: 0, failed: 0, pendingIssues: 0, retrying: 0 });
+  const snapshot = f.automatic.snapshot();
+  assert.equal(snapshot.enabled, false);
+  assert.equal(snapshot.background, true);
+  assert.equal(snapshot.resumeAtLogin, true);
+  assert.equal(snapshot.phase, "idle");
+  assert.equal(snapshot.message, "자동 변환 꺼짐");
+  assert.deepEqual(snapshot.roots, []);
+  assert.equal(snapshot.processed, 0);
+  assert.equal(snapshot.failed, 0);
+  assert.equal(snapshot.pendingIssues, 0);
+  assert.equal(snapshot.retrying, 0);
+  assert.ok(snapshot.metrics);
   assert.equal(f.engine.calls.length, 0);
 });
 
-test("다중 roots 신규 파일을 최대 32개 단일 작업으로 처리하고 원본과 workers를 보존한다", async t => {
+test("다중 roots 신규 파일을 작은 단일 작업으로 처리하고 원본과 workers를 보존한다", async t => {
   const f = await fixture(); t.after(async () => { await f.automatic.stop(); await rm(f.home, { recursive: true, force: true }); });
   const files: string[] = [];
   for (let index = 0; index < 33; index++) {
@@ -63,7 +74,7 @@ test("다중 roots 신규 파일을 최대 32개 단일 작업으로 처리하�
   files.push(secondRoot); await writeFile(secondRoot, "second-root-original");
   await f.automatic.start();
   await until(() => f.automatic.snapshot().processed === 34);
-  assert.deepEqual(f.engine.calls.map(call => call.length), [32, 1, 1]);
+  assert.deepEqual(f.engine.calls.map(call => call.length), [16, 16, 1, 1]);
   assert.equal(await readFile(files[0], "utf8"), "original-0");
   await writeFile(path.join(f.roots[0], "new.hwp"), "new-original");
   await until(() => f.automatic.snapshot().processed === 35);
@@ -333,4 +344,36 @@ test("이전 실패 저장 중 들어온 다음 재시도는 실제 변환으로
   assert.equal(injected, true);
   assert.equal(f.engine.calls.length, 3);
   assert.equal(f.automatic.issues().items[0].reason, "처리하지 못함: 변환 실패");
+});
+
+test("감시 이벤트 폭주는 디바운스되고 측정값에 기록된다", async t => {
+  const f = await fixture();
+  t.after(async () => { await f.automatic.stop(); await rm(f.home, { recursive: true, force: true }); });
+  await f.automatic.start();
+  await until(() => f.automatic.snapshot().phase === "watching");
+  const before = f.automatic.snapshot().metrics.scans;
+  for (let index = 0; index < 20; index++) await writeFile(path.join(f.roots[0], `event-${index}.txt`), String(index));
+  await delay(2_000);
+  const metrics = f.automatic.snapshot().metrics;
+  assert.ok(metrics.watchEvents >= 20);
+  assert.ok(metrics.scans <= before + 2, `폭주 중 재검색 횟수: ${metrics.scans - before}`);
+  assert.ok(Number.isFinite(metrics.eventLoopP99Ms));
+  assert.ok(metrics.queue && Number.isSafeInteger(metrics.queue.queueDepth));
+});
+
+test("변환 결과 파일(HWPX·MD·임시 파일) 변경은 감시 이벤트로 세지 않는다", async t => {
+  const f = await fixture();
+  t.after(async () => { await f.automatic.stop(); await rm(f.home, { recursive: true, force: true }); });
+  await f.automatic.start();
+  await until(() => f.automatic.snapshot().phase === "watching");
+  const before = f.automatic.snapshot().metrics;
+  for (let index = 0; index < 20; index++) {
+    await writeFile(path.join(f.roots[0], `결과-${index}.hwpx`), "x");
+    await writeFile(path.join(f.roots[0], `결과-${index}.md`), "x");
+    await writeFile(path.join(f.roots[0], `.hwp2x-${index}.tmp`), "x");
+  }
+  await delay(1_500);
+  const after = f.automatic.snapshot().metrics;
+  assert.equal(after.watchEvents, before.watchEvents, "앱이 만든 결과 파일은 재검색 원인이 아님");
+  assert.equal(after.scans, before.scans);
 });

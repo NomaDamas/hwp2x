@@ -1,7 +1,7 @@
 import { homedir } from "node:os";
 
 export const ISSUE_REPO = "NomaDamas/hwp2x";
-const MAX_URL = 7500;
+const MAX_URL = 2000;
 
 function redact(text: string): string {
   const home = homedir();
@@ -10,7 +10,9 @@ function redact(text: string): string {
     text = text.split(home.replace(/\\/g, "/")).join("~");
     text = text.split(home.replace(/\\/g, "\\\\")).join("~");
   }
-  return text.replace(/[a-z]:[\\/]+Users[\\/]+[^\\/\r\n"'<>|]+/gi, "~");
+  return text
+    .replace(/[a-z]:[\\/]+Users[\\/]+[^\\/\r\n"'<>|]+/gi, "~")
+    .replace(/\/(?:home|Users)\/[^/\s"'<>]+/g, "~");
 }
 
 function printable(value: unknown): string {

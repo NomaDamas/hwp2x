@@ -28,14 +28,16 @@ const os = require('node:os');
   app.process().kill('SIGKILL'); await new Promise(resolve=>app.process().once('exit',resolve)); app=undefined;
   app=await launch(); page=await app.firstWindow();
   for (let i=0;i<50 && (await page.evaluate(()=>window.hwp2x.state())).phase!=='paused';i++) await page.waitForTimeout(100);
-  await page.getByRole('button',{name:'계속',exact:true}).click();
+  await page.getByRole('button',{name:'이어하기',exact:true}).click();
   for (let i=0;i<900 && (await page.evaluate(()=>window.hwp2x.state())).phase!=='done';i++) await page.waitForTimeout(100);
   assert.equal((await page.evaluate(()=>window.hwp2x.state())).phase,'done');
   const final=await page.evaluate(()=>window.hwp2x.state());
+  const skippedFiles=final.files.filter(f=>f.status==='skipped');
+  for (const f of skippedFiles) { const base=f.source.replace(/\.hwpml$/,''); console.log('건너뜀:', f.name, f.reason, 'HWPX 있음', await fs.stat(base+'.hwpx').then(()=>true,()=>false), 'MD 있음', await fs.stat(base+'.md').then(()=>true,()=>false)); }
   assert.equal(final.completed,60); assert.equal(final.counts.fail,0); assert.equal(final.counts.skipped,0);
   for(let i=0;i<60;i++) { assert.ok((await fs.readFile(path.join(root,`문서${i}.hwpx`))).subarray(0,2).equals(Buffer.from('PK'))); assert.match(await fs.readFile(path.join(root,`문서${i}.md`),'utf8'),/재시작 검증/); }
   assert.ok((await fs.readFile(complete.target)).equals(before)); assert.equal((await fs.stat(complete.target)).mtimeMs,beforeStat.mtimeMs);
-  for(const menu of ['설정','파일','개요']) {await page.getByText(menu,{exact:true}).first().click(); assert.ok(Array.isArray((await page.evaluate(()=>window.hwp2x.state())).files));}
+  for(const menu of ['설정','파일','특정 폴더 변환']) {await page.getByText(menu,{exact:true}).first().click(); assert.ok(Array.isArray((await page.evaluate(()=>window.hwp2x.state())).files));}
   assert.equal(await page.locator('[role=alert]').count(),0);
   console.log('강제 종료→동일 프로필 재실행→계속: 60개 HWPX·MD 생성, 기존 완료 파일 수정 없음, 전체 메뉴 IPC 정상');
  } finally { if(app)await app.close(); await fs.rm(temp,{recursive:true,force:true}); }

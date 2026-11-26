@@ -8,6 +8,15 @@ const { runEvidence, ensureDisplay } = require('./common/evidence.cjs');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+function normalizeText(value) { return String(value).replace(/<[^>]*>/g, ' ').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[\*_~`]/g, '').replace(/https?:\/\/\S+/g, ' ').replace(/\s+/g, ' ').trim(); }
+function meaningfulTokens(value) {
+  return normalizeText(value).match(/[\p{L}\p{N}]+/gu)?.filter(token => token.length >= 2) || [];
+}
+function extractSectionText(file) {
+  const xml = execFileSync('unzip', ['-p', file, 'Contents/section0.xml'], { encoding: 'utf8' });
+  const text = [...xml.matchAll(/<hp:t(?:\s[^>]*)?>([\s\S]*?)<\/hp:t>/g)].map(match => match[1]).join(' ');
+  return normalizeText(text);
+}
 async function prepare(evidence, options) {
   assert.equal(process.platform, 'linux', '현재 실제 OS 전달 검사는 Linux용입니다');
   const root = evidence.directory;
@@ -80,8 +89,18 @@ async function inspect({ app, page, evidence, capture }) {
   const parsed = await parse(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
   assert.equal(parsed.success, true);
   assert.ok(parsed.markdown.trim());
+  const originalBytes = await fs.readFile(file.source);
+  const original = await parse(originalBytes);
+  assert.equal(original.success, true);
+  const sectionText = extractSectionText(file.target);
+  const originalTokens = meaningfulTokens(original.markdown);
+  assert.ok(originalTokens.length > 0, '원본 본문 텍스트가 비어 있습니다');
+  assert.ok(sectionText.length > 0, 'HWPX section XML 본문이 비어 있습니다');
+  const sectionCompact = sectionText.replace(/[^\p{L}\p{N}]/gu, '');
+  const missing = originalTokens.filter(token => !sectionCompact.includes(token.replace(/[^\p{L}\p{N}]/gu, ''))).slice(0, 10);
+  assert.deepEqual(missing, [], `HWPX 본문에 원본 텍스트가 없습니다: ${missing.join(', ')}`);
+  evidence.observations.push({ label: 'HWPX section XML 본문 비교', originalChars: originalTokens.join(' ').length, sectionChars: sectionText.length, viewerDisplayVerified: false });
   evidence.outputs.push({ path: file.target, sha256: hash(bytes), bytes: bytes.length });
-  evidence.observations.push({ label: '실제 변환 완료', snapshot: done });
   const open = async (label, target) => scenario(label, async () => {
     const prior = await app.evaluate(() => globalThis.__openSave.opens.length);
     await click(label === '로그 폴더 열기' ? /로그 폴더 열기$/ : label);
@@ -170,9 +189,8 @@ async function inspect({ app, page, evidence, capture }) {
   for (const input of evidence.inputs) assert.equal(hash(await fs.readFile(input.path)), input.sha256);
   assert.equal(hash(await fs.readFile(file.target)), hash(bytes));
   evidence.observations.push({ label: '열기 저장 최종', value: ctx });
-  ctx.viewerLimitation = '검사 환경 LibreOffice 24.2.7.2의 설치 필터에서 HWPX를 찾지 못함. OS 전달 성공은 해당 뷰어의 HWPX 지원 또는 본문 표시를 보증하지 않음';
-  // A successful OS dispatch must never be promoted to proof of rendered document content.
-  evidence.failures.push('실제 뷰어 문서 본문 표시는 자동 입증되지 않았습니다. desktop 스크린샷 검토 필요; OS 전달 성공과 구분합니다.');
+  ctx.viewerLimitation = '검사 환경 LibreOffice가 HWPX 본문을 표시하지 않아 OS 뷰어 화면은 미확인. 대신 실제 변환 산출물의 ZIP section XML과 원본 파싱 텍스트를 직접 비교함';
+  evidence.observations.push({ label: '외부 뷰어 본문 표시', verified: false, reason: ctx.viewerLimitation });
   const child = app.process();
   await app.evaluate(({ BrowserWindow }) => { BrowserWindow.getAllWindows()[0].close(); });
   await until(() => child.exitCode !== null || child.signalCode !== null, '열기 검사 앱 종료', 15000);

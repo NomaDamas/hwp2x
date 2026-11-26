@@ -45,10 +45,10 @@
 
 ## 다운로드
 
-현재 배포 후보는 [GitHub rc.6 릴리스](https://github.com/NomaDamas/hwp2x/releases/tag/v0.4.0-rc.6)에서 받을 수 있습니다.
+현재 배포 후보는 [GitHub rc.7 릴리스](https://github.com/NomaDamas/hwp2x/releases/tag/v0.4.0-rc.7)에서 받을 수 있습니다.
 
-*   **[hwp2x-0.4.0-rc.6-portable-x64.exe](https://github.com/NomaDamas/hwp2x/releases/download/v0.4.0-rc.6/hwp2x-0.4.0-rc.6-portable-x64.exe)**: Windows 10/11 64비트 무설치 포터블
-*   **[hwp2x-0.4.0-rc.6-portable-ia32.exe](https://github.com/NomaDamas/hwp2x/releases/download/v0.4.0-rc.6/hwp2x-0.4.0-rc.6-portable-ia32.exe)**: Windows 10 32비트 무설치 포터블
+*   **[hwp2x-0.4.0-rc.7-portable-x64.exe](https://github.com/NomaDamas/hwp2x/releases/download/v0.4.0-rc.7/hwp2x-0.4.0-rc.7-portable-x64.exe)**: Windows 10/11 64비트 무설치 포터블
+*   **[hwp2x-0.4.0-rc.6-portable-ia32.exe](https://github.com/NomaDamas/hwp2x/releases/download/v0.4.0-rc.6/hwp2x-0.4.0-rc.6-portable-ia32.exe)**: Windows 10 32비트 무설치 포터블 (이전 rc.6 버전, rc.7 자동 변환 수정은 아직 들어 있지 않음)
 
 서명되지 않은 시험판이므로 Windows 보안 경고가 표시될 수 있습니다. 실제 Windows·한컴오피스 한글 COM 변환, 승인창, 트레이 클릭, 재부팅 후 자동 재개는 이 Linux 환경에서 확인하지 않았습니다.
 

@@ -519,13 +519,15 @@ export class Engine {
           converted = { data: await readFile(temporary), warnings: [] };
           byHancom = true;
         } catch (error) {
-          // Only a document Hancom itself refuses to open goes to the built-in engine (which already read it
-          // above); every other Hancom failure stays a failure. The file is marked so the user sees why.
-          if (!(error instanceof Error && error.message === HANCOM_OPEN_FAILED)) throw error;
+          // The interaction-triggering document stays failed. Later requests rejected before
+          // entering a blocked COM session can safely use the already-parsed input instead.
+          if (!(error instanceof Error && [HANCOM_OPEN_FAILED, HANCOM_RECOVERY_BLOCKED].includes(error.message))) throw error;
           log("warn", "file.fallback", { id: file.id, from: "hancom", to: "kordoc", reason: error.message });
           stage = "kordoc";
           const fallback = await convertToHwpx(input, { engine: "kordoc" });
-          converted = { ...fallback, warnings: [...fallback.warnings, "한글이 이 문서를 열지 못해 내장 kordoc 엔진으로 변환했습니다"] };
+          converted = { ...fallback, warnings: [...fallback.warnings, error.message === HANCOM_RECOVERY_BLOCKED
+            ? "한컴이 사용자 확인 대기 중이므로 한컴을 조작하지 않고 내장 kordoc 엔진으로 변환했습니다"
+            : "한글이 이 문서를 열지 못해 내장 kordoc 엔진으로 변환했습니다"] };
         } finally { await rm(dir, { recursive: true, force: true }); }
       } else converted = await convertToHwpx(input, { engine: "kordoc" });
       stage = "validate";

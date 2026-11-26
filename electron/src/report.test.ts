@@ -15,7 +15,7 @@ test("이슈 URL은 저장소·제목·버그 라벨·한국어 본문을 포함
 
 test("인코딩된 URL은 긴 한글·이모지 로그에서도 최신 끝부분을 보존한다", () => {
   const result = buildIssueUrl({ title: "긴 로그", system: {}, errors: [], logTail: "이전😀한글".repeat(10000) + "최신 기록 끝" });
-  assert.ok(result.length <= 7500);
+  assert.ok(result.length <= 2000);
   const body = new URL(result).searchParams.get("body")!;
   assert.ok(body.includes("최신 기록 끝"));
   assert.ok(!body.includes("�"));
@@ -23,7 +23,7 @@ test("인코딩된 URL은 긴 한글·이모지 로그에서도 최신 끝부분
 
 test("시스템 정보·오류·제목도 과대하면 URL 제한을 지킨다", () => {
   const result = buildIssueUrl({ title: "제목😀".repeat(10000), system: { 환경: "환경".repeat(10000) }, errors: ["실패".repeat(10000)], logTail: "로그".repeat(10000) });
-  assert.ok(result.length <= 7500);
+  assert.ok(result.length <= 2000);
   assert.equal(new URL(result).searchParams.get("labels"), "bug");
 });
 
@@ -43,4 +43,13 @@ test("제목·시스템 정보·오류·로그의 사용자 홈 경로를 가린
   assert.ok(!content.includes("Alice"));
   assert.ok(content.includes("~"));
   assert.ok(content.includes("test.hwp"));
+});
+
+test("다른 컴퓨터의 POSIX 사용자 홈도 제목과 로그에서 가린다", () => {
+  const result = buildIssueUrl({ title: "/home/private-user/문서", system: { 경로: "/Users/secret-user/Documents" }, errors: [], logTail: JSON.stringify({ path: "/home/private-user/비밀.hwp" }) });
+  const url = new URL(result);
+  const content = url.searchParams.get("title")! + url.searchParams.get("body")!;
+  assert.ok(!content.includes("private-user"));
+  assert.ok(!content.includes("secret-user"));
+  assert.ok(content.includes("비밀.hwp"));
 });

@@ -2,15 +2,39 @@ import { watch, type FSWatcher } from "node:fs";
 import { lstat, opendir, mkdir, open, readFile, realpath, rename, unlink } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
+import { monitorEventLoopDelay } from "node:perf_hooks";
 import { setImmediate as yieldToUI } from "node:timers/promises";
+import { setTimeout as delay } from "node:timers/promises";
 import type { Engine } from "./engine";
+import { hancomProcessCount } from "./hancom";
+import { log, logMetrics } from "./logger";
 
 const EXCLUDED = new Set(["proc", "sys", "dev", "run", "windows", "system volume information", "$recycle.bin", "program files", "program files (x86)", "node_modules", "hwp2x_백업", "backup", "backups", ".git"]);
 const RESCAN_MS = 30_000;
 const STABLE_MS = 1_000;
+const WATCH_DEBOUNCE_MS = 1_000;
+const METRICS_MS = 10_000;
+const AUTO_BATCH = 16;
+const testHooks = process.env.HWP2X_TEST_HOOKS === "1";
+const testLimit = (name: string, fallback: number) => {
+  const value = testHooks ? Number(process.env[name]) : NaN;
+  return Number.isFinite(value) && value > 0 ? value : fallback;
+};
+const SLOW_RSS_BYTES = testLimit("HWP2X_TEST_SLOW_RSS_MB", 384) * 1024 * 1024;
+const PAUSE_RSS_BYTES = testLimit("HWP2X_TEST_PAUSE_RSS_MB", 512) * 1024 * 1024;
+const STALL_MS = 1_000;
+const STALL_PAUSE_MS = 5_000;
+const mb = (bytes: number) => `${Math.round(bytes / 1024 / 1024)}MB`;
+const MAX_WATCH_EVENTS = 1_000_000;
 const FAILURE_LIMIT = 4096;
 const ignoredError = (error: unknown) => ["ENOENT", "ENOTDIR", "EACCES", "EPERM", "ELOOP"].includes((error as NodeJS.ErrnoException).code ?? "");
 const fingerprint = (info: { size: number; mtimeMs: number }) => `${info.size}:${info.mtimeMs}`;
+interface EventLoopMonitor {
+  enable(): void;
+  disable(): void;
+  reset(): void;
+  percentile(percentile: number): number;
+}
 
 export async function systemRoots(): Promise<string[]> {
   if (process.platform !== "win32") return ["/"];
@@ -33,6 +57,17 @@ export interface AutomaticIssue {
   attempts: number;
   updatedAt: number;
 }
+export interface AutomaticMetrics {
+  scans: number;
+  lastScanMs: number;
+  watchEvents: number;
+  watchers: number;
+  hancomProcesses: number;
+  queue: { queueDepth: number; queueBytes: number; droppedLines: number };
+  eventLoopP99Ms: number;
+  cpuPercent: number;
+  rssBytes: number;
+}
 interface StoredIssue extends AutomaticIssue { fingerprint: string }
 export class AutomaticConverter {
   private settings: Settings = { enabled: false, background: false, resumeAtLogin: false };
@@ -46,19 +81,34 @@ export class AutomaticConverter {
   private records = new Map<string, StoredIssue>();
   private retryQueue = new Set<string>();
   private issueWrites: Promise<void> = Promise.resolve();
+  private lastScanMs = 0;
+  private eventLoop?: EventLoopMonitor;
   private watchers = new Map<string, FSWatcher>();
   private loop?: Promise<void>;
   private stopping = false;
   private wake?: () => void;
+  private wakeTimer?: NodeJS.Timeout;
   private changed = false;
+  private watchEvents = 0;
+  private scans = 0;
+  private metricsTimer?: NodeJS.Timeout;
+  private lastCpuPercent = 0;
+  private cpuUsage = process.cpuUsage();
+  private cpuAt = process.hrtime.bigint();
   private controls: Promise<void> = Promise.resolve();
+  private stallUntil = 0;
   private converting = false;
 
   constructor(private readonly engine: Engine, private readonly settingsPath: string, private readonly roots: () => Promise<string[]>) {}
 
-  snapshot() {
-    return { ...this.settings, phase: this.phase, message: this.message, roots: [...this.directories], processed: this.processed, failed: this.failed, pendingIssues: this.records.size, retrying: [...this.records.values()].filter(item => item.status === "retrying").length };
+  snapshot(): { enabled: boolean; background: boolean; resumeAtLogin: boolean; phase: string; message: string; roots: string[]; processed: number; failed: number; pendingIssues: number; retrying: number; metrics: AutomaticMetrics } {
+    return {
+      ...this.settings, phase: this.phase, message: this.message, roots: [...this.directories], processed: this.processed, failed: this.failed,
+      pendingIssues: this.records.size, retrying: [...this.records.values()].filter(item => item.status === "retrying").length,
+      metrics: { scans: this.scans, lastScanMs: this.lastScanMs, watchEvents: this.watchEvents, watchers: this.watchers.size, hancomProcesses: hancomProcessCount(), queue: logMetrics(), eventLoopP99Ms: this.eventLoop ? this.eventLoop.percentile(99) / 1e6 : 0, cpuPercent: this.lastCpuPercent, rssBytes: process.memoryUsage().rss },
+    };
   }
+
 
   issues(options: { offset?: number; limit?: number } = {}) {
     const offset = options.offset ?? 0;
@@ -66,6 +116,16 @@ export class AutomaticConverter {
     if (!Number.isSafeInteger(offset) || offset < 0 || !Number.isSafeInteger(limit) || limit < 0 || limit > FAILURE_LIMIT) throw new Error("미처리 조회 범위가 올바르지 않습니다");
     const items = [...this.records.values()].slice(offset, offset + limit).map(({ fingerprint: _key, ...item }) => ({ ...item }));
     return { items, total: this.records.size, offset };
+  }
+
+  hasIssue(source: string): boolean {
+    return this.records.has(source);
+  }
+
+  /** A registered unprocessed file that still resolves inside the watched roots (a later swap to a link is refused). */
+  async openableIssue(source: string): Promise<boolean> {
+    if (!this.records.has(source)) return false;
+    try { return await this.withinRoots(source); } catch { return false; }
   }
 
   retryIssue(source: string): Promise<void> {
@@ -95,7 +155,7 @@ export class AutomaticConverter {
         try { await file.writeFile(JSON.stringify({ version: 1, items: [...this.records.values()] })); await file.sync(); }
         finally { await file.close(); }
         await rename(temporary, destination);
-      } finally { await unlink(temporary).catch(error => { if (error.code !== "ENOENT") throw error; }); }
+      } finally { await unlink(temporary).catch(error => { if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error; }); }
     });
     this.issueWrites = write.catch(() => undefined);
     return write.catch(error => {
@@ -197,6 +257,7 @@ export class AutomaticConverter {
     this.changed = false;
     this.phase = "scanning";
     this.message = "전체 드라이브에서 변환할 파일을 찾는 중";
+    this.startMetrics();
     // Non-recursive watches are bounded hints; streaming scans cover unwatched directories.
     this.loop = this.run().catch(async error => {
       this.stopping = true;
@@ -205,20 +266,69 @@ export class AutomaticConverter {
       this.message = `안전 중단: ${error instanceof Error ? error.message : String(error)}`;
       try { await this.save(this.settings); }
       catch (saveError) { this.message += ` / 설정 저장 실패: ${String(saveError)}`; }
-    }).finally(() => { this.closeWatchers(); this.loop = undefined; });
+    }).finally(() => { this.closeWatchers(); this.stopMetrics(); this.loop = undefined; });
+  }
+  private startMetrics(): void {
+    this.eventLoop = monitorEventLoopDelay({ resolution: 20 });
+    this.eventLoop.enable();
+    this.cpuUsage = process.cpuUsage();
+    this.cpuAt = process.hrtime.bigint();
+    this.metricsTimer = setInterval(() => {
+      const now = process.hrtime.bigint();
+      const elapsed = Number(now - this.cpuAt) / 1e9;
+      const used = process.cpuUsage(this.cpuUsage);
+      const cpuPercent = elapsed > 0 ? (used.user + used.system) / 10_000 / elapsed : 0;
+      this.lastCpuPercent = cpuPercent;
+      const eventLoopP99Ms = this.eventLoop ? this.eventLoop.percentile(99) / 1e6 : 0;
+      const rssBytes = process.memoryUsage().rss;
+      const queue = logMetrics();
+      const hancomProcesses = hancomProcessCount();
+      const metrics = { rssBytes, cpuPercent, eventLoopP99Ms, hancomProcesses, watchEvents: this.watchEvents, watchers: this.watchers.size, scans: this.scans, lastScanMs: this.lastScanMs, records: this.records.size, processed: this.processed, queue };
+      log("info", "automatic.metrics", { 요약: `자동 변환 상태 · 메모리 ${mb(rssBytes)} · CPU ${Math.round(cpuPercent)}% · 화면 지연 ${Math.round(eventLoopP99Ms)}ms · 한컴 실행 ${hancomProcesses}개 · 처리 ${this.processed}개 · 미처리 ${this.records.size}개 · 로그 대기 ${queue.queueDepth}줄`, ...metrics });
+      if (eventLoopP99Ms >= STALL_MS) {
+        this.stallUntil = Date.now() + STALL_PAUSE_MS;
+        log("warn", "automatic.event-loop-stall", { 요약: `앱 응답 지연 감지(${Math.round(eventLoopP99Ms)}ms) · 다음 파일 전에 ${STALL_PAUSE_MS / 1000}초 쉬어 갑니다`, ...metrics });
+      }
+      this.cpuUsage = process.cpuUsage();
+      this.cpuAt = now;
+      this.eventLoop?.reset();
+    }, METRICS_MS);
+    this.metricsTimer.unref();
+  }
+
+  private stopMetrics(): void {
+    if (this.metricsTimer) clearInterval(this.metricsTimer);
+    this.metricsTimer = undefined;
+    this.eventLoop?.disable();
+    this.eventLoop = undefined;
+  }
+
+  private async throttle(): Promise<void> {
+    const rssBytes = process.memoryUsage().rss;
+    const stalled = Date.now() < this.stallUntil;
+    if (stalled || rssBytes >= PAUSE_RSS_BYTES) {
+      const waitMs = stalled ? this.stallUntil - Date.now() : 2_000;
+      const reason = stalled ? "앱 응답 지연" : `메모리 ${mb(rssBytes)} (한도 ${mb(PAUSE_RSS_BYTES)})`;
+      this.message = "부하가 높아 자동 변환을 잠시 멈췄습니다";
+      log("warn", "automatic.pause", { 요약: `일시정지 · ${reason} · ${Math.round(waitMs / 100) / 10}초 쉬어 갑니다`, rssBytes, waitMs, threshold: PAUSE_RSS_BYTES });
+      await this.wait(waitMs);
+      this.stallUntil = 0;
+      log("info", "automatic.recovery", { 요약: `복구 · 일시정지 후 변환을 다시 이어갑니다 · 메모리 ${mb(process.memoryUsage().rss)}`, action: "pause", rssBytes: process.memoryUsage().rss });
+    } else if (rssBytes >= SLOW_RSS_BYTES) {
+      log("warn", "automatic.throttle", { 요약: `감속 · 메모리 ${mb(rssBytes)} (기준 ${mb(SLOW_RSS_BYTES)}) · 0.5초 쉬어 갑니다`, rssBytes, threshold: SLOW_RSS_BYTES });
+      await this.wait(500);
+      log("info", "automatic.recovery", { 요약: `복구 · 감속 후 변환을 다시 이어갑니다 · 메모리 ${mb(process.memoryUsage().rss)}`, action: "throttle", rssBytes: process.memoryUsage().rss });
+    }
+    if (!this.stopping) this.message = `${this.processed}개 처리 · 변환 계속`;
+    await yieldToUI();
   }
 
   stop(): Promise<void> {
     this.stopping = true;
+    if (this.wakeTimer) { clearTimeout(this.wakeTimer); this.wakeTimer = undefined; }
+    this.wake?.();
     return this.control(async () => {
-      this.stopping = true;
-      this.phase = "stopping";
-      this.message = "진행 중인 파일을 마치고 자동 변환을 중지하는 중";
-      this.wake?.();
-      this.closeWatchers();
-      if (this.converting) await this.engine.stopRun();
-      await this.loop;
-      this.retryQueue.clear();
+      if (this.loop) await this.loop;
       for (const issue of this.records.values()) if (issue.status !== "failed") issue.status = "failed";
       await this.saveIssues();
       this.settings.enabled = false;
@@ -234,10 +344,28 @@ export class AutomaticConverter {
     this.watchers.clear();
   }
 
+  private signalChange(directory: string, filename: string | Buffer | null): void {
+    const name = filename === null ? "" : filename.toString();
+    if (name.startsWith(".hwp2x-") || /\.(hwpx|md)$/i.test(name)) return;
+    this.watchEvents = Math.min(MAX_WATCH_EVENTS, this.watchEvents + 1);
+    this.changed = true;
+    if (this.watchEvents >= MAX_WATCH_EVENTS) {
+      log("warn", "automatic.watch-limit", { events: this.watchEvents });
+      this.closeWatchers();
+      return;
+    }
+    if (this.wakeTimer || this.converting || this.phase === "scanning") return;
+    this.wakeTimer = setTimeout(() => {
+      this.wakeTimer = undefined;
+      this.wake?.();
+    }, WATCH_DEBOUNCE_MS);
+    this.wakeTimer.unref();
+  }
+
   private observe(directory: string): void {
     if (this.watchers.size >= 128 || this.watchers.has(directory)) return;
     try {
-      const watcher = watch(directory, { recursive: false, persistent: false }, () => { this.changed = true; this.wake?.(); });
+      const watcher = watch(directory, { recursive: false, persistent: false }, (_event, filename) => this.signalChange(directory, filename));
       watcher.on("error", () => { watcher.close(); this.watchers.delete(directory); });
       this.watchers.set(directory, watcher);
     } catch { /* Periodic scans also cover unsupported and inaccessible watches. */ }
@@ -252,6 +380,7 @@ export class AutomaticConverter {
     this.wake = finish;
     return promise;
   }
+
 
   private async *walk(directory: string, depth = 0): AsyncGenerator<string> {
     if (this.stopping || depth > 128 || EXCLUDED.has(path.basename(directory).toLowerCase()) || directory === this.engine.state.backupDir) return;
@@ -290,9 +419,12 @@ export class AutomaticConverter {
 
   private async batch(files: string[], explicit = false): Promise<void> {
     const candidates: Array<{ file: string; key: string }> = [];
-    for (const file of files) { const key = await this.eligible(file, explicit); if (key) candidates.push({ file, key }); }
+    for (const file of files) {
+      await yieldToUI();
+      const key = await this.eligible(file, explicit);
+      if (key) candidates.push({ file, key });
+    }
     if (!candidates.length) return;
-    // Watch events must not shorten the stability interval.
     const until = Date.now() + STABLE_MS;
     while (!this.stopping && Date.now() < until) await this.wait(until - Date.now());
     const stable: Array<{ file: string; key: string }> = [];
@@ -319,6 +451,7 @@ export class AutomaticConverter {
     catch (error) { conversionError = error; }
     finally { this.converting = false; this.engine.configure({ workers }); }
     for (const { file, key } of stable) {
+      await yieldToUI();
       const result = this.engine.state.files.find(item => item.source === file);
       if (result?.status === "ok" || result?.status === "diff") {
         this.processed++;
@@ -328,12 +461,49 @@ export class AutomaticConverter {
       } else if (result?.status === "fail") {
         this.failed++;
         this.recordFailure(file, key, result.reason || "변환 실패", result.message || "파일을 확인하고 다시 시도해 주세요");
-      }
-      else this.recordFailure(file, key, "변환 중단", "완료되지 않았습니다. 파일 상태를 확인하고 다시 시도해 주세요");
+      } else this.recordFailure(file, key, "변환 중단", "완료되지 않았습니다. 파일 상태를 확인하고 다시 시도해 주세요");
     }
+    await yieldToUI();
     await this.saveIssues();
     if (conversionError) throw conversionError;
     if (!this.stopping && (String(this.engine.state.phase) === "paused" || this.engine.state.message.startsWith("안전 중단"))) throw new Error(this.engine.state.message);
+  }
+
+  private async run(): Promise<void> {
+    while (!this.stopping) {
+      const scanStarted = Date.now();
+      this.scans++;
+      this.changed = false;
+      this.phase = "scanning";
+      this.message = this.processed || this.records.size ? "새 파일과 바뀐 파일을 다시 찾는 중" : "전체 드라이브에서 변환할 파일을 찾는 중";
+      log("info", "automatic.scan-begin", { scan: this.scans, roots: this.directories.length, watchEvents: this.watchEvents });
+      const batch: string[] = [];
+      for (const root of this.directories) {
+        try {
+          const actual = await realpath(root);
+          if (!this.realDirectories.includes(actual)) this.realDirectories.push(actual);
+        } catch (error) { if (!ignoredError(error)) throw error; }
+        for await (const file of this.walk(root)) {
+          await this.drainRetries();
+          batch.push(file);
+          if (batch.length === AUTO_BATCH) { await this.throttle(); await this.batch(batch); batch.length = 0; }
+          if (this.stopping) return;
+        }
+        if (this.stopping) return;
+        await this.batch(batch);
+        batch.length = 0;
+      }
+      await this.batch(batch);
+      await this.drainRetries();
+      this.lastScanMs = Date.now() - scanStarted;
+      log("info", "automatic.scan-end", { 요약: `검색 한 바퀴 끝 · ${Math.round(this.lastScanMs / 1000)}초 · 처리 ${this.processed}개 · 미처리 ${this.records.size}개`, scan: this.scans, ms: this.lastScanMs, watchEvents: this.watchEvents, processed: this.processed, pending: this.records.size });
+      if (this.stopping) return;
+      this.phase = "watching";
+      this.message = "완료 · 감시 체제로 전환됨";
+      if (this.retryQueue.size) continue;
+      if (this.changed) await this.wait(WATCH_DEBOUNCE_MS);
+      else await this.wait(RESCAN_MS);
+    }
   }
 
   private recordFailure(source: string, key: string, reason: string, message: string): void {
@@ -365,34 +535,4 @@ export class AutomaticConverter {
     }
   }
 
-  private async run(): Promise<void> {
-    while (!this.stopping) {
-      this.changed = false;
-      this.phase = "scanning";
-      const batch: string[] = [];
-      for (const root of this.directories) {
-        try {
-          const actual = await realpath(root);
-          if (!this.realDirectories.includes(actual)) this.realDirectories.push(actual);
-        } catch (error) { if (!ignoredError(error)) throw error; }
-        for await (const file of this.walk(root)) {
-          await this.drainRetries();
-          batch.push(file);
-          if (batch.length === 32) { await this.batch(batch); batch.length = 0; }
-          if (this.stopping) return;
-        }
-        if (this.stopping) return;
-        await this.batch(batch);
-        batch.length = 0;
-      }
-      await this.batch(batch);
-      await this.drainRetries();
-      if (this.stopping) return;
-      this.phase = "watching";
-      this.message = "완료 · 감시 체제로 전환됨";
-      if (this.retryQueue.size) continue;
-      if (this.changed) await this.wait(1_000);
-      else await this.wait(RESCAN_MS);
-    }
-  }
 }

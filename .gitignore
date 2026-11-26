@@ -12,3 +12,6 @@ packaging/payload-win/
 dist/
 dist-electron/
 node_modules/
+
+# 받은 로고 원본 묶음(이미 electron/design/assets로 풀어 둠)
+images/*.zip

@@ -68,7 +68,7 @@ async function runEvidence(name, inspect, prepareProfile) {
   const fail = error => evidence.failures.push(String(error.stack || error));
   try {
     const options = await prepareRun(evidence);
-    if (prepareProfile) await prepareProfile(evidence);
+    if (prepareProfile) await prepareProfile(evidence, options);
     const { _electron } = require('playwright');
     app = await _electron.launch(options);
     child = app.process();

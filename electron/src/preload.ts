@@ -1,25 +1,44 @@
+const boundedError = (value: unknown): string => {
+  const text = String(value);
+  return text.length <= 2000 ? text : `${text.slice(0, 950)}\n[긴 오류 중간 생략]\n${text.slice(-950)}`;
+};
 import { contextBridge, ipcRenderer } from "electron";
 
 contextBridge.exposeInMainWorld("hwp2x", {
-  state: () => ipcRenderer.invoke("hwp2x:state"),
+  state: (query?: object) => ipcRenderer.invoke("hwp2x:state", query),
+  autoState: () => ipcRenderer.invoke("hwp2x:auto-state"),
+  autoIssues: (options?: object) => ipcRenderer.invoke("hwp2x:auto-issues", options),
+  autoRetryIssue: (source: string) => ipcRenderer.invoke("hwp2x:auto-retry-issue", source),
+  autoOpenIssue: (source: string, folder?: boolean) => ipcRenderer.invoke("hwp2x:auto-open-issue", source, folder === true),
+  autoStart: () => ipcRenderer.invoke("hwp2x:auto-start"),
+  autoStop: () => ipcRenderer.invoke("hwp2x:auto-stop"),
+  autoConfigure: (options: object) => ipcRenderer.invoke("hwp2x:auto-configure", options),
+  cleanupState: () => ipcRenderer.invoke("hwp2x:cleanup-state"),
+  cleanupStart: (consent: boolean) => ipcRenderer.invoke("hwp2x:cleanup-start", consent),
+  cleanupCancel: () => ipcRenderer.invoke("hwp2x:cleanup-cancel"),
+  cleanupRollback: () => ipcRenderer.invoke("hwp2x:cleanup-rollback"),
   pickFolder: () => ipcRenderer.invoke("hwp2x:pick-folder"),
   scan: (root: string) => ipcRenderer.invoke("hwp2x:scan", root),
   start: (options?: object) => ipcRenderer.invoke("hwp2x:start", options),
   configure: (options: object) => ipcRenderer.invoke("hwp2x:configure", options),
   detectHancom: () => ipcRenderer.invoke("hwp2x:detect-hancom"),
   pause: () => ipcRenderer.invoke("hwp2x:pause"),
+  stop: () => ipcRenderer.invoke("hwp2x:stop"),
   backup: (consent: boolean) => ipcRenderer.invoke("hwp2x:backup", consent),
   retry: (id: number) => ipcRenderer.invoke("hwp2x:retry", id),
   openFile: (id: number) => ipcRenderer.invoke("hwp2x:open-file", id),
+  openResult: (id: number) => ipcRenderer.invoke("hwp2x:open-result", id),
   openFolder: (id: number) => ipcRenderer.invoke("hwp2x:open-folder", id),
   openBackup: () => ipcRenderer.invoke("hwp2x:open-backup"),
   saveReport: () => ipcRenderer.invoke("hwp2x:save-report"),
   pickHancom: () => ipcRenderer.invoke("hwp2x:pick-hancom"),
   reportBug: () => ipcRenderer.invoke("hwp2x:report-bug"),
   openLogs: () => ipcRenderer.invoke("hwp2x:open-logs"),
+  readLog: () => ipcRenderer.invoke("hwp2x:read-log"),
+  copyLog: () => ipcRenderer.invoke("hwp2x:copy-log"),
   reportError: (message: unknown, stack?: unknown) => {
     if (typeof message !== "string" || message.length === 0) return;
-    ipcRenderer.send("hwp2x:renderer-error", { message: message.slice(0, 2000), stack: typeof stack === "string" ? stack.slice(0, 4000) : undefined });
+    ipcRenderer.send("hwp2x:renderer-error", { message: boundedError(message), stack: typeof stack === "string" ? boundedError(stack) : undefined });
   },
   systemInfo: () => ipcRenderer.invoke("hwp2x:system-info"),
   onHancomStatus: (callback: (status: unknown) => void) => {
@@ -38,11 +57,11 @@ window.addEventListener("error", event => {
   const now = Date.now();
   if (now - lastError < 500) return;
   lastError = now;
-  ipcRenderer.send("hwp2x:renderer-error", { message: String(event.message).slice(0, 4000), stack: String(event.error?.stack || "").slice(0, 4000) });
+  ipcRenderer.send("hwp2x:renderer-error", { message: boundedError(event.message), stack: boundedError(event.error?.stack || "") });
 });
 window.addEventListener("unhandledrejection", event => {
   const now = Date.now();
   if (now - lastError < 500) return;
   lastError = now;
-  ipcRenderer.send("hwp2x:renderer-error", { message: String(event.reason).slice(0, 4000) });
+  ipcRenderer.send("hwp2x:renderer-error", { message: boundedError(event.reason) });
 });

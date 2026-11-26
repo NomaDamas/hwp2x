@@ -87,5 +87,15 @@ function audit() {
  }
  console.log(JSON.stringify({result:'합격표 구조·소스 근거 검사 통과',controls:controls.length,checks:checks.length,gaps:gaps.length,dead:controls.filter(c=>c.reachability==='dead').map(c=>c.id),note:'기능 자체의 합격 판정이 아닙니다. 미검증은 coverage와 gaps에 남습니다.'},null,2));
 }
-assert.equal(process.argv[2],'--audit-only','지원 명령: --audit-only');
-audit();
+if (['--evidence-only', '--final-evidence'].includes(process.argv[2])) {
+ const result = require('node:child_process').spawnSync(process.execPath, [path.join(__dirname, 'evidence-review', 'check.cjs'), '--evidence-only', ...process.argv.slice(3)], { stdio: 'inherit' });
+ if (result.error) throw result.error;
+ process.exitCode = result.status === null ? 1 : result.status;
+ if (process.argv[2] === '--final-evidence') {
+   const windows = require('node:child_process').spawnSync(process.execPath, [path.join(__dirname, 'windows-acceptance.cjs'), '--verify-evidence'], { stdio: 'inherit' });
+   if (windows.error || windows.status !== 0) process.exitCode = 1;
+ }
+} else {
+ assert.equal(process.argv[2],'--audit-only','지원 명령: --audit-only 또는 --evidence-only');
+ audit();
+}

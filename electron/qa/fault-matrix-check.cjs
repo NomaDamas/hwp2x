@@ -134,6 +134,8 @@ async function main() {
   if (ensureDisplay(__filename)) return;
   const results = [];
   for (const mode of ['kill', 'disk-full', 'permission-revoke', 'drive-detach', 'broken-settings', 'duplicate']) results.push(await runScenario(mode));
+  await fs.mkdir(path.join(__dirname, 'evidence-review'), { recursive: true });
+  await fs.writeFile(path.join(__dirname, 'evidence-review', 'latest-faults.json'), JSON.stringify(results.map(e => path.join(e.directory, 'evidence.json')), null, 2));
   console.log(JSON.stringify({ suite: 'fault-matrix', passed: results.every(e => e.passed), evidence: results.map(e => path.join(e.directory, 'evidence.json')) }));
   if (results.some(e => !e.passed)) process.exitCode = 1;
 }

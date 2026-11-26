@@ -43,9 +43,9 @@ async function logText(profile) {
     });
     const page = await first.app.firstWindow();
     await page.getByText('설정', { exact: true }).first().click();
-    await page.getByRole('button', { name: '작성 초안 열기', exact: true }).waitFor();
-    await page.getByRole('button', { name: '로그 폴더 열기', exact: true }).waitFor();
-    await page.getByRole('button', { name: 'Hwp.exe 선택', exact: true }).waitFor();
+    await page.getByRole('button', { name: '버그 리포트 작성 초안 열기', exact: true }).waitFor();
+    await page.getByRole('button', { name: '로그 폴더 로그 폴더 열기', exact: true }).waitFor();
+    await page.getByRole('button', { name: '한컴 직접 선택 Hwp.exe 선택', exact: true }).waitFor();
     const info = await page.evaluate(() => window.hwp2x.systemInfo());
     assert.equal(info.platform, process.platform);
     await page.evaluate(() => window.hwp2x.scan(12).catch(() => undefined));
@@ -58,7 +58,7 @@ async function logText(profile) {
       await sleep(100);
     }
     assert.equal(errorLogged, true, 'renderer 오류와 IPC 실패 로그 완료');
-    await page.getByRole('button', { name: '작성 초안 열기', exact: true }).click();
+    await page.getByRole('button', { name: '버그 리포트 작성 초안 열기', exact: true }).click();
     for (let i = 0; i < 50 && !opened; i++) {
       opened = await first.app.evaluate(() => global.__hwp2xOpened || '');
       await sleep(100);

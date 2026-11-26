@@ -39,8 +39,8 @@ async function waitPhase(page, phase) {
     await page.getByText('설정', {exact:true}).first().click();
     await page.getByText('AI가 읽기 편한 md 파일도 생성', {exact:true}).waitFor();
     await page.getByRole('button', {name:'폴더 선택', exact:true}).click();
-    await page.getByText('개요', {exact:true}).first().click();
-    await page.getByRole('button', {name:'검색한 파일 변환', exact:true}).click();
+    await page.getByText('특정 폴더 변환', {exact:true}).first().click();
+    await page.getByRole('button', {name: /^\d+개 파일 변환$/ }).click();
     const state = await waitPhase(page, 'done');
     assert.ok(state.files.some(file => file.targetSize > 0));
     assert.ok((await fs.readFile(path.join(root,'시험.hwpx'))).subarray(0,2).equals(Buffer.from('PK')));
@@ -58,9 +58,9 @@ async function waitPhase(page, phase) {
     await page.getByRole('switch', {name:/AI가 읽기 편한 md 파일도 생성/}).click();
     for (let i = 0; i < 50 && (await page.evaluate(() => window.hwp2x.state())).makeMarkdown !== false; i++) await page.waitForTimeout(100);
     assert.equal((await page.evaluate(() => window.hwp2x.state())).makeMarkdown, false, '옵션 끔 반영');
-    await page.getByRole('button', {name:'폴더 선택', exact:true}).click();
-    await page.getByText('개요', {exact:true}).first().click();
-    await page.getByRole('button', {name:'검색한 파일 변환', exact:true}).click();
+    await page.getByRole('button', {name:'검색할 폴더 폴더 선택', exact:true}).click();
+    await page.getByText('특정 폴더 변환', {exact:true}).first().click();
+    await page.getByRole('button', {name: /^\d+개 파일 변환$/ }).click();
     await waitPhase(page, 'done');
     assert.ok((await fs.readFile(path.join(off,'끔.hwpx'))).subarray(0,2).equals(Buffer.from('PK')));
     await assert.rejects(fs.stat(path.join(off,'끔.md')), '옵션 끄면 MD 미생성');
@@ -72,10 +72,10 @@ async function waitPhase(page, phase) {
     const second = await fs.mkdtemp(path.join(os.tmpdir(), 'hwp2x-ui-second-'));
     await fs.writeFile(path.join(second, '두번째.hwpml'), '<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD SecCnt="1"></HEAD><BODY><SECTION Id="0"><P><TEXT><CHAR>폴더 변경</CHAR></TEXT></P></SECTION></BODY></HWPML>');
     await app.evaluate(({ dialog }, dir) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [dir] }); }, second);
-    await page.getByRole('button', { name: '폴더 선택', exact: true }).click();
+    await page.getByRole('button', { name: '검색할 폴더 폴더 선택', exact: true }).click();
     for (let i = 0; i < 50 && !(await page.evaluate(() => window.hwp2x.state())).files.some(file => file.name === '두번째.hwpml'); i++) await page.waitForTimeout(100);
-    await page.getByText('개요', { exact: true }).first().click();
-    await page.getByRole('button', { name: '검색한 파일 변환', exact: true }).click();
+    await page.getByText('특정 폴더 변환', { exact: true }).first().click();
+    await page.getByRole('button', { name: /^\d+개 파일 변환$/ }).click();
     await waitPhase(page, 'done');
     assert.ok((await fs.readFile(path.join(second, '두번째.hwpx'))).subarray(0, 2).equals(Buffer.from('PK')), '바꾼 폴더 변환');
     assert.match(await fs.readFile(path.join(second, '두번째.md'), 'utf8'), /폴더 변경/);
@@ -84,9 +84,9 @@ async function waitPhase(page, phase) {
     await fs.rm(off, {recursive:true, force:true});
     // 좁은 폭: 사이드바가 위로 접히고 본문이 가로로 잘리지 않아야 함
     await page.setViewportSize({width:560, height:820});
-    await page.getByText('개요', {exact:true}).first().click();
+    await page.getByText('특정 폴더 변환', {exact:true}).first().click();
     await page.waitForTimeout(300);
-    const narrow = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth - window.innerWidth, navTop: [...document.querySelectorAll('div')].find(d => d.textContent.trim().startsWith('개요') && d.getAttribute('style')?.includes('height:38px'))?.getBoundingClientRect().top }));
+    const narrow = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth - window.innerWidth, navTop: [...document.querySelectorAll('div')].find(d => d.textContent.trim().startsWith('특정 폴더 변환') && d.getAttribute('style')?.includes('height:38px'))?.getBoundingClientRect().top }));
     assert.ok(narrow.overflow <= 1, `좁은 폭 가로 넘침 ${narrow.overflow}px`);
     await page.screenshot({path:'dist-electron/evidence/narrow.png'});
     await page.getByText('파일', {exact:true}).first().click();

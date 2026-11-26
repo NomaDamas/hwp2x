@@ -5,7 +5,7 @@ import { isAppFrame, isSameDocument } from "./origin";
 import { mkdir, writeFile, stat, readFile, rename } from "node:fs/promises";
 import { Engine, mainDrive } from "./engine";
 import { closeHancomSession, detectHancom, inspectHancomPath, type HancomCandidate } from "./hancom";
-import { flushLog, initLogger, log, logDir, logPath, recentLog } from "./logger";
+import { flushLog, initLogger, log, logDir, logPath, recentLog, viewLog } from "./logger";
 import { buildIssueUrl } from "./report";
 import { AutomaticConverter, systemRoots } from "./automatic";
 import { setAutoLaunch } from "./autolaunch";
@@ -28,6 +28,7 @@ let startupNotice = "";
 let lastPhase = "";
 let shutdown: Promise<void> | undefined;
 let exiting = false;
+let closePromptOpen = false;
 // The Hwp.exe the user picked by hand. It is kept in its own small file (not the run record, which a new
 // scan replaces) so it survives restarts and wins over auto-detection while the file still exists.
 let manualHancomPath = "";
@@ -208,7 +209,7 @@ process.on("unhandledRejection", error => handleFatal("unhandledRejection", erro
 // a second start just brings the running window forward. (Test runs use their own profile, so they stay separate.)
 const primaryInstance = app.requestSingleInstanceLock();
 if (!primaryInstance) app.quit();
-else app.on("second-instance", () => { if (window && !window.isDestroyed()) { window.show(); if (window.isMinimized()) window.restore(); window.focus(); } });
+else app.on("second-instance", (_event, argv) => { if (argv.includes("--automatic")) return; if (window && !window.isDestroyed()) { window.show(); if (window.isMinimized()) window.restore(); window.focus(); } });
 
 app.whenReady().then(async () => {
   if (!primaryInstance) return;
@@ -310,6 +311,12 @@ app.whenReady().then(async () => {
     await automatic.retryIssue(source);
     return automatic.snapshot();
   });
+  // 파일 탭이 자동 변환의 미처리 목록을 보여줄 때 쓰는 열기: 등록된 미처리 원본만 연다.
+  register("auto-open-issue", async (source: unknown, folder: unknown) => {
+    if (typeof source !== "string" || !automatic.hasIssue(source)) throw new Error("등록된 미처리 파일이 아닙니다. 목록이 갱신되었을 수 있습니다");
+    if (!await automatic.openableIssue(source)) throw new Error(`열 수 없습니다. 파일이 옮겨졌거나 감시 위치 밖을 가리킵니다: ${source}`);
+    return openPath(folder === true ? path.dirname(source) : source);
+  });
   register("auto-start", async () => {
     if (detectingHancom) throw new Error("한컴 감지가 끝난 뒤 시작하세요");
     if (autoStarting) throw new Error("전체 자동 변환을 시작하는 중입니다");
@@ -333,8 +340,23 @@ app.whenReady().then(async () => {
   window.on("close", event => {
     if (exiting) return;
     event.preventDefault();
-    if (automatic?.snapshot().enabled && automatic.snapshot().background && tray) { window.hide(); return; }
-    void beginShutdown();
+    if (shutdown || closePromptOpen) return;
+    if (!autoStarting && !automatic?.snapshot().enabled) { void beginShutdown(); return; }
+    closePromptOpen = true;
+    const canHide = automatic.snapshot().background && tray && !tray.isDestroyed();
+    const choices = canHide ? ["취소", "트레이에서 계속", "완전 종료"] : ["취소", "완전 종료"];
+    void askChoice("자동 변환 · 창 닫기", canHide
+      ? "트레이에서 계속하면 창만 숨겨지고 자동 검색·변환은 계속됩니다.\n다시 열려면 알림 영역(트레이)의 hwp2x를 누르세요.\n완전 종료는 자동 변환을 중지하고 작업 기록을 저장합니다."
+      : "자동 변환이 실행 중입니다. 완전 종료하면 자동 변환을 중지하고 작업 기록을 저장합니다.\n트레이에서 계속하려면 창을 유지하고 백그라운드 설정과 트레이를 확인하세요.", choices).then(answer => {
+      if (exiting || shutdown || window.isDestroyed()) return;
+      if (canHide && answer === 1) {
+        if (automatic.snapshot().enabled && automatic.snapshot().background && tray && !tray.isDestroyed()) window.hide();
+        else notify("info", "자동 변환 또는 트레이 상태가 바뀌어 창을 유지합니다.");
+      } else if (answer === (canHide ? 2 : 1)) void beginShutdown();
+    }).catch(error => {
+      log("warn", "창 닫기 확인 실패", { message: errorText(error) });
+      if (!window.isDestroyed()) notify("error", "닫기 선택창을 표시하지 못해 창을 유지합니다. 다시 시도해 주세요.");
+    }).finally(() => { closePromptOpen = false; });
   });
   window.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
   window.webContents.on("will-navigate", (event, url) => { if (!isSameDocument(url, window.webContents.getURL())) event.preventDefault(); });
@@ -438,11 +460,11 @@ app.whenReady().then(async () => {
   register("system-info", () => systemInfo());
   register("open-logs", () => openPath(logDir()));
   // Detailed log for the 로그 보기 window: newest part of today's log plus where the full file lives.
-  register("read-log", async () => ({ path: logPath(), text: await recentLog(200000) }));
+  register("read-log", async () => ({ path: logPath(), text: await viewLog(200000) }));
   // 전체 복사: copies the newest log (same range as the viewer) and returns it, so the window shows exactly what was copied.
   register("copy-log", async () => {
     log("info", "로그 복사", {});
-    const text = await recentLog(200000);
+    const text = await viewLog(200000);
     try { clipboard.writeText(text); }
     catch { throw new Error("클립보드에 복사하지 못했습니다. 로그 내용을 직접 선택해 복사해 주세요"); }
     return { path: logPath(), text };
@@ -516,9 +538,13 @@ app.whenReady().then(async () => {
   log("error", "초기화 실패", { message });
   dialog.showErrorBox("hwp2x 초기화 실패", message);
 });
-app.on("window-all-closed", () => app.quit());
+app.on("window-all-closed", () => { log("info", "종료 요청", { from: "모든 창 닫힘" }); app.quit(); });
 app.on("before-quit", event => {
   if (exiting) return;
   event.preventDefault();
+  log("info", "종료 요청", { from: "앱 종료(before-quit)", stack: new Error().stack?.split("\n").slice(1, 6).join(" | ") });
   void beginShutdown();
 });
+for (const signal of ["SIGTERM", "SIGINT", "SIGHUP"] as const) {
+  process.on(signal, () => { log("warn", "종료 요청", { from: `운영체제 신호 ${signal}` }); void beginShutdown(); });
+}

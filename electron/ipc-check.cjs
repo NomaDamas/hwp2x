@@ -82,7 +82,7 @@ const HWPML = '<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD 
       assert.equal(await blocked.getByRole('button').count(), 0, '2018 행 선택 버튼 없음');
       await row(hancom[1].name).getByRole('button', { name: '이 버전 사용', exact: true }).click();
       for (let i = 0; i < 20 && (await page.evaluate(() => window.hwp2x.state())).hancomPath !== hancom[1].path; i++) await page.waitForTimeout(100);
-      await page.getByText('개요', { exact: true }).first().click();
+      await page.getByText('특정 폴더 변환', { exact: true }).first().click();
       await page.getByText('설정', { exact: true }).first().click();
       state = await page.evaluate(() => window.hwp2x.state());
       assert.equal(state.hancomPath, hancom[1].path, '다시 불러와도 2022 유지');
@@ -109,7 +109,7 @@ const HWPML = '<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD 
       await page.getByRole('button', { name: '위치 변경', exact: true }).click();
       for (let i = 0; i < 20 && (await page.evaluate(() => window.hwp2x.state())).backupDir !== backupDir; i++) await page.waitForTimeout(100);
       assert.equal((await page.evaluate(() => window.hwp2x.state())).backupDir, backupDir, '백업 위치 지정');
-      await page.getByText('개요', { exact: true }).first().click();
+      await page.getByText('특정 폴더 변환', { exact: true }).first().click();
       await page.getByRole('button', { name: '검색 후 변환', exact: true }).click();
       for (let i = 0; i < 150 && (await page.evaluate(() => window.hwp2x.state())).phase !== 'done'; i++) await page.waitForTimeout(100);
       await page.getByText('파일', { exact: true }).first().click();
@@ -152,7 +152,7 @@ const HWPML = '<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD 
     await check('시작');
     await page.getByText('설정 변경', { exact: true }).click();
     await check('설정 변경 링크');
-    for (const round of [1, 2]) for (const menu of ['개요', '파일', '설정']) {
+    for (const round of [1, 2]) for (const menu of ['특정 폴더 변환', '파일', '설정']) {
       await page.getByText(menu, { exact: true }).first().click();
       await page.waitForTimeout(200);
       await check(`${menu} ${round}회차`);
@@ -166,11 +166,11 @@ const HWPML = '<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD 
     await fs.writeFile(path.join(root, '손상.hwp'), 'not hwp');
     await app.evaluate(({ dialog }, dir) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [dir] }); }, root);
     await page.getByText('설정', { exact: true }).first().click();
-    await page.getByRole('button', { name: '폴더 선택', exact: true }).click();
-    await page.getByText('개요', { exact: true }).first().click();
-    await page.getByRole('button', { name: '검색한 파일 변환', exact: true }).click();
+    await page.getByRole('button', { name: '검색할 폴더 폴더 선택', exact: true }).click();
+    await page.getByText('특정 폴더 변환', { exact: true }).first().click();
+    await page.getByRole('button', { name: /^\d+개 파일 변환$/ }).click();
     for (let i = 0; i < 100 && (await page.evaluate(() => window.hwp2x.state())).phase !== 'done'; i++) await page.waitForTimeout(100);
-    const skipText = '같은 이름의 HWPX 파일이 이미 있어 건너뜀';
+    const skipText = '이미 변환됨(건너뜀) · 같은 이름의 HWPX 파일이 있음';
     await page.getByText(skipText).first().waitFor();
     await page.getByText(/원본을 읽을 수 없음/).first().waitFor();
     console.log('진행 화면 사유: OK');

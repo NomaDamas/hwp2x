@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
-import { convertToHwpx, validateHwpx } from "kordoc";
+import { convertToHwpx, parse, validateHwpx } from "kordoc";
 import { Engine, mainDrive, verifyConversion } from "./engine";
 import { flushLog, initLogger, logPath } from "./logger";
 import { HANCOM_OPEN_FAILED, HANCOM_INTERACTION_REQUIRED, HANCOM_RECOVERY_BLOCKED } from "./hancom";
@@ -566,7 +566,7 @@ test("한컴 사용자 확인이 필요하면 대체 변환 없이 원본을 유
   assert.equal(state.phase, "done");
 });
 
-test("한컴 안전 복구가 막히면 두 파일을 대기로 유지하고 다음 파일을 호출하지 않는다", async () => {
+test("승인 필요 파일은 실패하고 차단된 한컴 대신 다음 파일을 내장 엔진으로 변환한다", async () => {
   const { root, source, target, md } = await fixture();
   const second = path.join(root, "second.hwpml");
   await writeFile(second, HWPML);
@@ -574,25 +574,23 @@ test("한컴 안전 복구가 막히면 두 파일을 대기로 유지하고 다
   const calls: string[] = [];
   const engine = new Engine(undefined, async (_hancom, input) => {
     calls.push(input);
-    throw new Error(HANCOM_RECOVERY_BLOCKED);
+    throw new Error(input === source ? HANCOM_INTERACTION_REQUIRED : HANCOM_RECOVERY_BLOCKED);
   });
   engine.configure({ workers: 1, makeMarkdown: true });
   engine.state.hancomCandidates = [v2024];
   engine.state.hancomPath = v2024.path;
   await engine.scan(root);
   engine.state.files.sort((a, b) => Number(b.source === source) - Number(a.source === source));
-  await assert.rejects(engine.convert(), { message: HANCOM_RECOVERY_BLOCKED });
+  await engine.convert();
   const state = engine.snapshot();
-  assert.deepEqual(calls, [source]);
-  assert.equal(state.phase, "paused");
-  assert.deepEqual(state.files.map(file => file.status), ["wait", "wait"]);
-  for (const file of state.files) {
-    assert.equal(file.target, undefined);
-    assert.equal(file.mdPath, undefined);
-  }
-  for (const output of [target, md, path.join(root, "second.hwpx"), path.join(root, "second.md")]) {
-    await assert.rejects(stat(output), { code: "ENOENT" });
-  }
+  assert.deepEqual(calls, [source, second]);
+  assert.equal(state.phase, "done");
+  assert.deepEqual(state.files.map(file => file.status), ["fail", "diff"]);
+  for (const output of [target, md]) await assert.rejects(stat(output), { code: "ENOENT" });
+  const result = await parse(await readFile(path.join(root, "second.hwpx")));
+  assert.equal(result.success, true);
+  await stat(path.join(root, "second.md"));
+  assert.match(state.files[1].message, /한컴을 조작하지 않고/);
   assert.deepEqual(await readFile(source), originals[0]);
   assert.deepEqual(await readFile(second), originals[1]);
 });

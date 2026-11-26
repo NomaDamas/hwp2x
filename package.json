@@ -1,6 +1,6 @@
 {
   "name": "hwp2x",
-  "version": "0.3.0",
+  "version": "0.4.0-rc.7",
   "private": true,
   "author": "hwp2x <chloveyou@gmail.com>",
   "description": "로컬 HWP 파일을 HWPX로 일괄 변환하는 Electron 앱",
@@ -9,13 +9,18 @@
     "build": "tsc -p electron/tsconfig.json",
     "start": "npm run build && electron .",
     "typecheck": "tsc -p electron/tsconfig.json --noEmit",
-    "test": "npm run build && node --test electron/dist/engine.test.js electron/dist/origin.test.js electron/dist/hancom.test.js electron/dist/logger.test.js electron/dist/report.test.js electron/folder-start.test.cjs",
-    "dist": "npm test && electron-builder --win nsis portable --linux deb --publish never"
+    "test": "npm run build && node --test electron/dist/engine.test.js electron/dist/cleanup.test.js electron/dist/automatic.test.js electron/dist/origin.test.js electron/dist/hancom.test.js electron/dist/logger.test.js electron/dist/report.test.js electron/folder-start.test.cjs",
+    "dist": "npm test && electron-builder --win nsis portable --linux deb --publish never && npm run dist:win32",
+    "dist:win32": "electron-builder --win nsis portable --ia32 --publish never -c.nsis.artifactName=\"hwp2x Setup \\${version}-ia32.exe\" -c.directories.output=dist-electron/ia32",
+    "build:native": "cd electron/native && uv run --no-project --with ziglang python -m ziglang cc -target x86-windows-gnu -shared -Os -nostdlib -Wl,--entry,DllMain@12 -o x86/FilePathCheckerModule.dll FilePathCheckerModule.c FilePathCheckerModule.def && uv run --no-project --with ziglang python -m ziglang cc -target x86_64-windows-gnu -shared -Os -nostdlib -Wl,--entry,DllMain -o x64/FilePathCheckerModule.dll FilePathCheckerModule.c && rm -f x86/*.lib x86/*.pdb x64/*.lib x64/*.pdb"
   },
   "build": {
     "appId": "dev.hwp2x.app",
     "productName": "hwp2x",
-    "electronLanguages": ["ko", "en-US"],
+    "electronLanguages": [
+      "ko",
+      "en-US"
+    ],
     "directories": {
       "output": "dist-electron"
     },
@@ -66,7 +71,17 @@
       "oneClick": false,
       "perMachine": true,
       "allowToChangeInstallationDirectory": true
-    }
+    },
+    "extraResources": [
+      {
+        "from": "electron/native/x86/FilePathCheckerModule.dll",
+        "to": "hancom/x86/FilePathCheckerModule.dll"
+      },
+      {
+        "from": "electron/native/x64/FilePathCheckerModule.dll",
+        "to": "hancom/x64/FilePathCheckerModule.dll"
+      }
+    ]
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
