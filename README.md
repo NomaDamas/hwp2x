@@ -20,6 +20,7 @@
   <a href="https://github.com/NomaDamas/hwp2x/releases/latest"><img src="https://img.shields.io/github/v/release/NomaDamas/hwp2x?style=flat-square" alt="latest release"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue?style=flat-square" alt="platform">
   <img src="https://img.shields.io/badge/Electron-41.0.0-blue?style=flat-square" alt="Electron">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="license Apache-2.0"></a>
 </p>
 
 > **공무원 문서 정리용 로컬 변환 도구**
@@ -110,7 +111,11 @@ npm run dist
 
 ## 라이선스
 
-아직 라이선스가 지정되지 않았습니다.
+[Apache License 2.0](LICENSE)으로 배포합니다. Copyright 2026 Cheol-H-Jeong.
+
+개인·기관·상업 목적 모두 자유롭게 쓰고 고치고 다시 배포할 수 있습니다. 다시 배포할 때는 `LICENSE`와 `NOTICE`를 함께 넣어 주세요. 특허 사용 허락이 명시된 Apache-2.0을 골랐습니다(MIT와 같은 자유도에 특허 분쟁 보호가 더해짐).
+
+앱에 포함된 제3자 구성 요소(내장 변환 엔진 kordoc, React, Electron 등)는 모두 MIT·Apache-2.0 같은 허용 라이선스이며, 목록은 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 있습니다.
 
 ## 기여 및 버그 리포트
 
