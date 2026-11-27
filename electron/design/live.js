@@ -40,6 +40,10 @@ window.HwpLive = Base => class extends Base {
       if (!this.alive || seq !== this.seq) return;
       const next = { error: this.state.error.startsWith('상태를') || this.state.error.startsWith('hwp2x 앱') ? '' : this.state.error };
       if (snapshot && Array.isArray(snapshot.files)) next.snapshot = snapshot;
+      // 특정 폴더 변환이 끝까지 끝나면(변환 중 → 완료) 결과를 보는 파일 화면으로 한 번 넘긴다. 자동 변환 중에는 넘기지 않는다.
+      const was = this.state.snapshot?.phase;
+      if (snapshot?.phase === 'done' && (this.runStarted || was === 'converting' || was === 'scanning') && !this.state.auto?.enabled && !this.state.newRun && this.state.page === 'overview') Object.assign(next, { page: 'files', filter: 'all', offset: 0, sel: null });
+      if (snapshot && snapshot.phase !== 'converting' && snapshot.phase !== 'scanning') this.runStarted = false;
       // 자동 변환을 켜면 진행과 미처리를 한 화면(파일 탭)에서 본다.
       // 켜지면 파일 화면으로, 트레이·안전 중단 등 화면 밖에서 꺼지면 사유가 보이는 자동 변환 화면으로 옮긴다.
       if (auto && typeof auto === 'object') {
@@ -65,6 +69,8 @@ window.HwpLive = Base => class extends Base {
     const api = this.bridge();
     if (typeof api[method] !== 'function') throw new Error('지원하지 않는 기능입니다: ' + method);
     const value = await api[method](...args);
+    // 특정 폴더 변환을 시작하거나 이어하기를 누르면(둘 다 start), 아주 빨리 끝나 '변환 중'을 못 보고 바로 완료가 와도 파일 화면으로 넘긴다.
+    if (method === 'start') { this.runStarted = true; if (this.state.newRun) this.setState({ newRun: false }); }
     if (value && typeof value === 'object' && 'enabled' in value && 'processed' in value) this.setState({ auto: value });
     if (/^cleanup/.test(method) && value && typeof value === 'object' && typeof value.phase === 'string') this.setState({ cleanup: value });
     this.poke();
@@ -92,11 +98,11 @@ window.HwpLive = Base => class extends Base {
     const st = this.state, s = st.snapshot, files = s.files || [], cnt = s.counts || {}, phase = s.phase, auto = st.auto, autoOn = !!auto?.enabled;
     const busy = st.busy || phase === 'scanning' || phase === 'converting';
     const colors = { ok: ['#e6f5ee','#13744e','#1f9d6b'], diff: ['#fbf2df','#8a5c05','#d89b1c'], fail: ['#fbe9e7','#a8302a','#d8473b'], conv: ['#eceefc','#2f3bb0','#4353d6'], wait: ['#f0f0ed','#5b5f66','#a2a6ad'], skipped: ['#f0f0ed','#5b5f66','#a2a6ad'], deleted: ['#eef0ec','#3f5a4b','#6f9a83'] };
-    const labels = { ok: '변환됨', diff: '일부 차이', fail: '실패', conv: '변환 중', wait: '대기', skipped: '이미 변환됨(건너뜀)', deleted: '백업됨' };
+    const labels = { ok: '변환됨', diff: '차이 있음', fail: '실패', conv: '변환 중', wait: '대기', skipped: '이미 변환됨(건너뜀)', deleted: '백업됨' };
     // A failure that needs the user to look at the document keeps status 'fail' (so the 실패 filter still finds it) but reads differently.
     const needsUser = file => file.status === 'fail' && /^처리하지 못함/.test(file.reason || file.message || '');
     const labelOf = file => needsUser(file) ? '처리하지 못함' : labels[file.status] || file.status;
-    const t = { navOverview:'특정 폴더 변환',navAuto:'전체 자동 변환',navFiles:'파일',navSettings:'설정',engine:'변환 엔진',verifier:'검증 범위',readyHead:'HWP 문서를 찾아 같은 폴더에 HWPX로 저장합니다.',readyBody:'아래에서 폴더를 고르고 변환을 누르면 하위 폴더까지 모두 변환합니다. 원본은 지우지 않습니다.',start: s.total && phase==='idle' ? `${s.total}개 파일 변환` : s.root ? '검색 후 변환' : '폴더 선택 후 변환',settingsLink:'설정 변경',slots:'동시 작업',attention:'확인이 필요한 파일',viewAll:'모두 보기',noIssues:'확인이 필요한 파일이 없습니다.',storage:'저장공간',openBackup:'백업 폴더 열기',saveReport:'변환 결과 저장',deleteBtn:'원본 백업',autoBanner:'자동 백업은 별도의 보존 인증이 있는 파일에만 적용됩니다.',searchPh:'파일 이름 검색',colName:'파일',colStatus:'상태',checkItems:'확인 항목',openHwp:'원본 열기',openFolder:'폴더 열기',dlgTitle:'원본 백업',dlgBody:'변환이 끝난 원본(변환됨·일부 차이)을 백업 폴더에 복사합니다. 원래 자리의 파일은 지우지 않습니다.',dlgTarget:'대상 파일',dlgSize:'원본 용량',consent:'원본을 백업 폴더에 복사하는 데 동의합니다.',cancel:'취소' };
+    const t = { navOverview:'특정 폴더 변환',navAuto:'전체 자동 변환',navFiles:'파일',navSettings:'설정',engine:'변환 엔진',verifier:'검증 범위',readyHead:'HWP 문서를 찾아 같은 폴더에 HWPX로 저장합니다.',readyBody:'아래에서 폴더를 고르고 변환을 누르면 하위 폴더까지 모두 변환합니다. 원본은 지우지 않습니다.',start: s.total && phase==='idle' ? `${s.total}개 파일 변환` : s.root ? '검색 후 변환' : '폴더 선택 후 변환',settingsLink:'설정 변경',slots:'동시 작업',attention:'확인이 필요한 파일',viewAll:'모두 보기',noIssues:'확인이 필요한 파일이 없습니다.',storage:'저장공간',openBackup:'백업 폴더 열기',saveReport:'변환 결과 저장',deleteBtn:'원본 백업',autoBanner:'자동 백업은 별도의 보존 인증이 있는 파일에만 적용됩니다.',searchPh:'파일 이름 검색',colName:'파일',colStatus:'상태',checkItems:'확인 항목',openHwp:'원본 열기',openFolder:'폴더 열기',dlgTitle:'원본 백업',dlgBody:'변환이 끝난 원본(변환됨·차이 있음)을 백업 폴더에 복사합니다. 원래 자리의 파일은 지우지 않습니다.',dlgTarget:'대상 파일',dlgSize:'원본 용량',consent:'원본을 백업 폴더에 복사하는 데 동의합니다.',cancel:'취소' };
     const color = status => colors[status] || colors.wait;
     const goFiles = filter => () => this.setState({ page:'files', filter, offset:0, sel:null }, this.poke);
     const autoLocked = '전체 자동 변환이 켜져 있는 동안에는 바꿀 수 없습니다. 자동 변환을 중지한 뒤 사용하세요.';
@@ -111,8 +117,12 @@ window.HwpLive = Base => class extends Base {
     const selected = st.sel == null ? undefined : s.selected?.id === st.sel ? s.selected : files.find(file => file.id === st.sel);
     const eligibleCount = s.eligibleCount ?? 0, sizes = s.summarySizes || {};
     const canBackup = done && eligibleCount > 0 && !busy && !autoOn && !cleanBusy && !!s.backupDir;
-    const reasonOf = file => file.reason || (file.status === 'diff' ? '내용 차이 또는 서식 보존 제한 · 원본 유지' : '');
-    const byHancom = file => (file.checks || []).some(check => /내용 비교 생략/.test(check.value || ''));
+    const byHancom = file => (file.checks || []).some(check => /내용 비교 생략/.test(check.value || '')) || /^한컴오피스 한글로 변환/.test(file.message || '');
+    // 글자 기준 일치율: 98% 이상 초록 · 90~98% 주황 · 90% 미만 빨강 · 비교할 글자 없음 회색. 숫자를 늘 함께 적어 색만으로 구분하지 않는다.
+    const bandTone = { high: 'ok', mid: 'diff', low: 'fail', none: 'wait' };
+    const matchOf = file => (file.status === 'ok' || file.status === 'diff') && file.textMatch && bandTone[file.textMatch.band] ? file.textMatch : null;
+    const matchLabel = match => match.percent === null ? '비교할 글자 없음' : `글자 ${match.percent}%`;
+    const reasonOf = file => file.reason || (file.status === 'diff' ? (matchOf(file) ? `원본과 글자 ${matchOf(file).percent ?? '-'}% 같음 · 다른 부분은 상세에서 확인 · 원본 유지` : '내용 차이 또는 서식 보존 제한 · 원본 유지') : '');
     const userHelp = '보안 수준을 낮추지 마세요. 한컴오피스 한글에서 이 문서를 직접 열어 확인(암호·보안 경고 등)한 뒤 다시 시도하세요. 원본은 그대로 둡니다.';
     // 전체 자동 변환이 넘기지 못한 파일: why it stopped and what the user can do, matched on the engine's reason text.
     const guideOf = text => /보안|암호|password|사용자 확인/i.test(text) ? userHelp
@@ -123,15 +133,20 @@ window.HwpLive = Base => class extends Base {
       : /찾을 수 없|없습니다|ENOENT|not found/i.test(text) ? '파일이 옮겨졌거나 지워졌습니다. 위치를 확인하세요. 다음 검색 때 다시 찾습니다.'
       : '원본은 그대로 둡니다. 원인을 해결한 뒤 다시 작업할 수 있습니다. 계속 실패하면 [설정 › 상세 로그]를 확인하세요.';
     const ago = at => { const ms = typeof at === 'number' ? at : Date.parse(at); if (!Number.isFinite(ms)) return ''; const sec = Math.max(0, Math.floor((Date.now() - ms) / 1000)); return sec < 60 ? `${sec}초` : sec < 3600 ? `${Math.floor(sec / 60)}분 ${sec % 60}초` : `${Math.floor(sec / 3600)}시간 ${Math.floor(sec % 3600 / 60)}분`; };
-    const helpOf = file => file.status === 'ok' || file.status === 'diff' ? (byHancom(file) ? '한컴오피스 한글이 직접 변환했습니다. 원본과 내용 비교는 하지 않았습니다. 원본은 그대로 둡니다.' : '글자·그림을 원본과 비교했습니다. 전체 서식이 같은지는 확인하지 않았습니다. 원본은 그대로 둡니다.') : file.status === 'skipped' ? '같은 이름의 결과 파일이 이미 있어 덮어쓰지 않았습니다. 원본은 그대로 둡니다.' : needsUser(file) ? userHelp : file.status === 'fail' ? '원본은 그대로 둡니다. 원인을 해결한 뒤 다시 시도할 수 있습니다.' : '';
+    const helpOf = file => file.status === 'ok' || file.status === 'diff' ? (byHancom(file) ? '한컴오피스 한글이 직접 변환해 통과로 처리했습니다. 원본과 글자 비교는 하지 않았습니다. 원본은 그대로 둡니다.' : '원본과 변환본의 글자(띄어쓰기 제외)가 얼마나 같은지 비율로 보여줍니다. 98% 이상 초록, 90~98% 주황, 90% 미만 빨강입니다. 전체 서식이 같은지는 확인하지 않았습니다. 원본은 그대로 둡니다.') : file.status === 'skipped' ? '같은 이름의 결과 파일이 이미 있어 덮어쓰지 않았습니다. 원본은 그대로 둡니다.' : needsUser(file) ? userHelp : file.status === 'fail' ? '원본은 그대로 둡니다. 원인을 해결한 뒤 다시 시도할 수 있습니다.' : '';
     const press = go => event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); go(); } };
     const statusIcon = {ok:'ok',diff:'diff',fail:'fail',conv:'converting',wait:'waiting',skipped:'waiting',deleted:'backedup'};
-    const mapped = file => { const c = color(file.status); return { icon:`./assets/status/status-${statusIcon[file.status]||'waiting'}.svg`,name:file.name,dir:file.dir,reason:reasonOf(file),hasReason:!!reasonOf(file),size:this.bytes(file.size),xsize:file.targetSize ? this.bytes(file.targetSize) : '—',status:labelOf(file),bg:c[0],fg:c[1],dot:c[2],sel:st.sel === file.id ? '#f0f1fc':'transparent',go:() => this.setState({sel:file.id}),key:press(() => this.setState({sel:file.id})) }; };
+    const mapped = file => {
+      const match = matchOf(file), hancomPass = !match && (file.status === 'ok' || file.status === 'diff') && byHancom(file);
+      const tone = match ? bandTone[match.band] : hancomPass ? 'ok' : file.status, c = color(tone);
+      const status = match ? matchLabel(match) : hancomPass ? '한컴 변환 · 통과' : labelOf(file);
+      return { icon:`./assets/status/status-${statusIcon[tone]||'waiting'}.svg`,name:file.name,dir:file.dir,reason:reasonOf(file),hasReason:!!reasonOf(file),size:this.bytes(file.size),xsize:file.targetSize ? this.bytes(file.targetSize) : '—',status,statusTitle:match ? `원본과 변환본의 글자 ${match.percent === null ? '비교 불가(글자 없음)' : match.percent + '% 같음'}` : status,bg:c[0],fg:c[1],dot:c[2],sel:st.sel === file.id ? '#f0f1fc':'transparent',go:() => this.setState({sel:file.id}),key:press(() => this.setState({sel:file.id})) };
+    };
     // The engine filters, searches and pages; files is already the page to draw, so it is never re-filtered or re-counted here.
     const rows = st.page === 'files' ? files.map(mapped) : [];
     const turn = to => () => this.setState({ offset: to, sel: null }, this.poke);
     const hasPrev = offset > 0, hasNext = offset + files.length < filteredTotal;
-    const detail = selected && !(autoOn && st.page === 'files') ? { ...mapped(selected),reasonLabel:'처리 결과',reason:selected.message || labelOf(selected),help:helpOf(selected),checks:(selected.checks || []).map(check=>({...check,color:(colors[{green:'ok',amber:'diff',red:'fail'}[check.color]]||[])[1]||'#18191b'})),primary:'다시 시도' } : null;
+    const detail = selected && !(autoOn && st.page === 'files') ? { ...mapped(selected),reasonLabel:'처리 결과',reason:selected.message || labelOf(selected),help:helpOf(selected),checks:(selected.checks || []).map(check=>({...check,color:(colors[{green:'ok',amber:'diff',red:'fail',grey:'wait'}[check.color]]||[])[1]||'#18191b'})),primary:'다시 시도' } : null;
     const toggle = (label,desc,on,go) => ({label,desc,isToggle:true,onLabel:on?'켬':'끔',go,rowGo:go,role:'switch',ariaOn:on?'true':'false',tab:0,cur:'pointer',key:event=>{if(event.key===' '||event.key==='Enter'){event.preventDefault();go();}},track:on?'#4353d6':'#fff',trackBd:on?'#4353d6':'#8a8e95',knob:on?'#fff':'#5b5f66',knobL:on?'23px':'3px'});
     const locked = phase === 'scanning' || phase === 'converting' || phase === 'paused';
     const lockedReason = phase === 'paused' ? '일시정지된 작업을 이어하거나 중지한 뒤 바꿀 수 있습니다' : '변환 중에는 바꿀 수 없습니다';
@@ -144,7 +159,9 @@ window.HwpLive = Base => class extends Base {
       {title:'변환 엔진',rows:[...(s.hancomCandidates||[]).map(candidate=>({label:candidate.name,desc:candidate.path+(candidate.available===false?' · 사용 불가: '+(candidate.unavailableReason||'COM 등록 없음'):''),mono:candidate.version?('버전 '+candidate.version):'',isBtn:candidate.available!==false&&s.hancomPath!==candidate.path,btn:'이 버전 사용',go:()=>settings({hancomPath:candidate.path}),isTag:s.hancomPath===candidate.path||candidate.available===false,tag:s.hancomPath===candidate.path?'사용 중':'사용 불가',tagBg:s.hancomPath===candidate.path?colors.ok[0]:colors.fail[0],tagFg:s.hancomPath===candidate.path?colors.ok[1]:colors.fail[1]})),{label:'kordoc 4.24.42',desc:(s.hancomCandidates||[]).length?'한컴 오류 시 자동 전환하지 않음 · 수동 선택 시 사용':'한컴오피스 한글이 감지되지 않아 대체 엔진으로 사용합니다.',isBtn:!!s.hancomPath,btn:'대체 엔진 사용',go:()=>settings({hancomPath:''}),isTag:!s.hancomPath,tag:'사용 중',tagBg:colors.wait[0],tagFg:colors.wait[1]},{label:'한컴 다시 감지',desc:'설치하거나 제거한 뒤 다시 확인합니다. 찾은 설치본은 위 목록에 나오고 [이 버전 사용]으로 고릅니다.',mono:s.hancomDetectNote||'',isBtn:true,btn:'다시 감지',go:guard(()=>this.act(()=>this.call('detectHancom')))},{label:'한컴 직접 선택',desc:'자동으로 찾지 못하면 설치 폴더의 Hwp.exe를 직접 고르세요. 고른 위치는 저장되어 다음 실행에도 가장 먼저 사용됩니다. 다른 버전이나 kordoc을 고르면 해제됩니다.',isBtn:true,btn:'Hwp.exe 선택',go:guard(()=>this.act(()=>this.call('pickHancom')))}]},
       {title:'지원',rows:[{label:'상세 로그',desc:'현재 로그의 최근 200KB를 보고 복사합니다.',isBtn:true,btn:'로그 보기',go:()=>this.openLog()},{label:'버그 리포트',desc:'개인정보 경고를 확인한 뒤 GitHub 작성 초안을 외부 브라우저로 엽니다. 로그 끝부분도 초안에 담기며 긴 내용은 생략됩니다. 자동 게시하지 않습니다.',isBtn:true,btn:'작성 초안 열기',go:()=>this.act(()=>this.call('reportBug'))},{label:'로그 폴더',desc:'문제 진단에 쓰는 최근 로그 파일이 있는 폴더를 엽니다.',isBtn:true,btn:'로그 폴더 열기',go:()=>this.act(()=>this.call('openLogs'))}]}
     ];
-    const nav = [['overview','특정 폴더 변환','','convert'],['auto','전체 자동 변환',autoOn?'켜짐':'','refresh'],['files','파일',String(autoOn?Number(auto?.pendingIssues||0):total),'file'],['settings','설정','','settings']].map(([page,label,count,icon])=>({label,count,dis:page==='overview'&&autoOn?'true':undefined,op:page==='overview'&&autoOn?0.5:1,icon:`./assets/icons/${icon}.svg`,iconColor:st.page===page?'#4353d6':'#5b5f66',bg:st.page===page?'rgba(0,0,0,.06)':'transparent',fw:st.page===page?600:500,pill:st.page===page?'#4353d6':'transparent',cur:st.page===page?'page':undefined,go:page==='overview'&&autoOn?()=>this.setState({error:autoLocked}):()=>this.setState({page,sel:null,offset:0},this.poke),key:press(page==='overview'&&autoOn?()=>this.setState({error:autoLocked}):()=>this.setState({page,sel:null,offset:0},this.poke))}));
+    // 특정 폴더 변환 메뉴: 끝났거나 중지된 작업 뒤에는 결과 대신 폴더를 고르는 첫 화면을 연다. 진행·일시정지 중이면 진행 화면 그대로.
+    const openPage = page => () => this.setState({ page, sel: null, offset: 0, ...(page === 'overview' && (phase === 'done' || phase === 'stopped') ? { newRun: true } : {}) }, this.poke);
+    const nav = [['overview','특정 폴더 변환','','convert'],['auto','전체 자동 변환',autoOn?'켜짐':'','refresh'],['files','파일',String(autoOn?Number(auto?.pendingIssues||0):total),'file'],['settings','설정','','settings']].map(([page,label,count,icon])=>({label,count,dis:page==='overview'&&autoOn?'true':undefined,op:page==='overview'&&autoOn?0.5:1,icon:`./assets/icons/${icon}.svg`,iconColor:st.page===page?'#4353d6':'#5b5f66',bg:st.page===page?'rgba(0,0,0,.06)':'transparent',fw:st.page===page?600:500,pill:st.page===page?'#4353d6':'transparent',cur:st.page===page?'page':undefined,go:page==='overview'&&autoOn?()=>this.setState({error:autoLocked}):openPage(page),key:press(page==='overview'&&autoOn?()=>this.setState({error:autoLocked}):openPage(page))}));
     // 자동 변환이 켜져 있으면 파일 탭이 진행 상태와 미처리 파일(사유·조치·다시 작업)을 함께 보여준다.
     const autoWatching = autoOn && auto?.phase === 'watching';
     const autoPhaseLabel = ({scanning:'검색 중',converting:'변환 중',waiting:'대기 중',idle:'대기 중',done:'한 바퀴 완료',watching:'완료 · 감시 체제로 전환됨',paused:'일시정지됨'})[auto?.phase] || '실행 중';

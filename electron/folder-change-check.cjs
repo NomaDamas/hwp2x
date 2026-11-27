@@ -52,7 +52,8 @@ const path = require('node:path');
       assert.equal((await state()).hancomPath, candidate.path);
       evidence.engine = candidate.path;
     }
-    await page.locator('span').filter({ hasText: /^(개요|특정 폴더 변환)$/ }).first().click();
+    // Settings route leaves the user on 설정; the 특정 폴더 변환 menu opens the convert screen with the chosen folder ready.
+    await page.getByText('특정 폴더 변환', { exact: true }).first().click();
     await page.getByRole('button', { name: /^\d+개 파일 변환$/ }).click();
     const deadline = Date.now() + 30000;
     let final;
@@ -95,7 +96,10 @@ const path = require('node:path');
       evidence.files.push(hwpx, md);
     }
     assert.deepEqual(evidence.errors, []);
-    await page.getByText('2 / 2개 처리', { exact: true }).waitFor({ timeout: 10000 });
+    // 100% reached: the screen moved to 파일 and lists both converted files.
+    await page.getByPlaceholder('파일 이름 검색').waitFor({ timeout: 10000 });
+    await page.getByText('공고문.hwp', { exact: true }).first().waitFor({ timeout: 10000 });
+    assert.equal(await page.locator('span[title="공고문.hwp"]').count(), 2, '두 폴더의 결과가 목록에 보임');
     await page.screenshot({ path: path.join(temp, 'result.png') });
     evidence.passed = true;
   } finally {

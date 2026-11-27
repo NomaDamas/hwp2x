@@ -67,11 +67,24 @@ async function inspect({ app, page, evidence, capture }) {
     evidence.actions.push({ type: 'click', name: String(name), at: new Date().toISOString() });
     await page.getByRole('button', { name, exact: typeof name === 'string' }).first().click();
   };
+  // A finished run moves to 파일; the 특정 폴더 변환 menu is the way back to the folder-picking first screen.
+  const firstScreen = async () => {
+    // A finished run moves to 파일 a moment after 100%; let that happen first so the menu press is not undone by it.
+    const phase = (await state()).phase;
+    if (phase === 'done') await page.getByPlaceholder('파일 이름 검색').waitFor({ timeout: 10000 });
+    // Already on the first screen (a first run, or a folder with nothing to convert): nothing to press.
+    if (await page.getByRole('button', { name: '폴더 선택', exact: true }).count()) return;
+    evidence.actions.push({ type: 'click', name: '특정 폴더 변환 메뉴' });
+    await page.getByRole('button', { name: /^특정 폴더 변환/ }).first().click();
+    await page.getByRole('button', { name: '폴더 선택', exact: true }).first().waitFor();
+  };
   const select = async (root, expected) => {
     assert.ok(root.startsWith(`${evidence.directory}${path.sep}`), '격리 경로만 선택');
     await app.evaluate(({ dialog }, directory) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [directory] }); }, root);
     evidence.actions.push({ type: 'native-dialog-return', path: root });
-    await click(/^(다른 폴더 선택|폴더 선택)$/);
+    // Stopped/paused runs keep the run screen (다른 폴더 선택); after done the view is on 파일, so the menu opens the first screen.
+    if ((await state()).phase === 'stopped') await click('다른 폴더 선택');
+    else { await firstScreen(); await click('폴더 선택'); }
     const snapshot = await until(s => s.root === root && s.phase === 'idle', '폴더 재선택 및 검색');
     assert.equal(snapshot.total, expected, `검색 개수: ${root}`);
     assert.ok(snapshot.files.every(file => file.source.startsWith(`${root}${path.sep}`)), '이전 폴더 파일 없음');
@@ -166,7 +179,8 @@ async function inspect({ app, page, evidence, capture }) {
       await assert.rejects(fs.stat(path.join(context.roots.on, '링크 공고문.hwpx')), { code: 'ENOENT' });
     });
     await scenario('같은 폴더 반복 및 기존 출력 보존', async () => {
-      await click('이 폴더 다시 변환');
+      await firstScreen();
+      await click('검색 후 변환');
       const done = await until(s => s.phase === 'done' && s.counts.skipped === 2, '반복 실행 건너뜀');
       assert.equal(done.total, 2);
       for (const file of context.protectedOutputs) assert.equal(hash(await fs.readFile(file.path)), file.sha256, file.path);

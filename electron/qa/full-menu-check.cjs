@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '../..');
 const sample = path.resolve(process.env.HWP2X_SMOKE_HWP || '/tmp/hwp2x-real/공고문.hwp');
 const executable = path.resolve(process.env.HWP2X_EXECUTABLE || path.join(root, 'dist-electron/linux-unpacked/hwp2x'));
 // Flow checks live outside qa/ and open their own window: give them the packaged app, the real sample and a display.
-const flows = { 'run-flow-check.cjs': [], 'folder-change-check.cjs': [{ HWP2X_FOLDER_ROUTE: 'settings' }, { HWP2X_FOLDER_ROUTE: 'overview' }], 'log-view-check.cjs': [], 'auto-load-log-check.cjs': [] };
+const flows = { 'run-flow-check.cjs': [], 'folder-change-check.cjs': [{ HWP2X_FOLDER_ROUTE: 'settings' }, { HWP2X_FOLDER_ROUTE: 'overview' }], 'log-view-check.cjs': [], 'auto-load-log-check.cjs': [], 'text-match-check.cjs': [] };
 const suites = ['conversion-check.cjs', 'automatic-check.cjs', 'cleanup-check.cjs', 'gui-controls-check.cjs', 'accessibility-check.cjs', 'support-check.cjs', 'autolaunch-check.cjs', 'lifecycle-check.cjs', 'open-save-check.cjs', ...Object.keys(flows)];
 const results = [];
 for (let round = 1; round <= 2; round++) {

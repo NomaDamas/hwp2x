@@ -11,6 +11,15 @@ import { CONTRACT_VERSION, PROFILE_VERSION, type RunPhase, type StateContract } 
 
 export type FileStatus = "wait" | "conv" | "ok" | "diff" | "fail" | "deleted" | "skipped";
 export interface Check { label: string; value: string; color: string }
+/** How much of the plain text (spacing and inline markup ignored) survived conversion, and which colour band that falls in. */
+export interface TextMatch {
+  /** 0–100 with one decimal; null when neither side has any text to compare. Never 100 unless the text is identical. */
+  percent: number | null;
+  /** high: 98% or more (green) · mid: 90–98% (amber) · low: under 90% (red) · none: nothing to compare (grey). */
+  band: "high" | "mid" | "low" | "none";
+}
+export const TEXT_MATCH_HIGH = 98;
+export const TEXT_MATCH_MID = 90;
 export interface Verification {
   /** The document's text (ignoring spacing and inline markup) and its images are the same after conversion. */
   contentMatch: boolean;
@@ -23,6 +32,7 @@ export interface Verification {
   /** Where the text first differs, shown to the user; absent when the text matches. */
   textDiff?: string;
   imagesMatch?: boolean;
+  textMatch: TextMatch;
 }
 export interface HwpItem {
   id: number;
@@ -39,6 +49,8 @@ export interface HwpItem {
   mdPath?: string;
   checks?: Check[];
   verification?: Verification;
+  /** Text similarity of the built-in engine's result; absent for Hancom results (not compared) and unfinished files. */
+  textMatch?: TextMatch;
   owned?: { sourceHash: string; targetHash: string; markdownHash?: string; status: "ok" | "diff" };
 }
 export interface EngineState {
@@ -95,6 +107,41 @@ const imageDigest = (block?: CompareBlock): string | undefined => {
   return data ? digest(data instanceof Uint8Array ? data : Uint8Array.from(Object.values(data))) : undefined;
 };
 
+export function textMatchBand(percent: number | null): TextMatch["band"] {
+  return percent === null ? "none" : percent >= TEXT_MATCH_HIGH ? "high" : percent >= TEXT_MATCH_MID ? "mid" : "low";
+}
+/** The 확인 항목 row for a text match: the number in words and the band colour (green · amber · red · grey). */
+function textMatchCheck(match: TextMatch): Check {
+  return { label: "글자 일치율", value: match.percent === null ? "비교할 글자 없음" : `${match.percent}% 같음`, color: { high: "green", mid: "amber", low: "red", none: "grey" }[match.band] };
+}
+
+/**
+ * Share of the text that is the same, from the two-character pieces both sides have in common (counted with
+ * repetition) over the longer side. Unlike a first-difference check it gives a degree, and unlike a line diff
+ * it is not thrown off when the converter reads a paragraph or table in a different order. Linear in length.
+ */
+export function textSimilarity(before: string, after: string): TextMatch {
+  if (before === after) return before ? { percent: 100, band: "high" } : { percent: null, band: "none" };
+  const a = Array.from(before), b = Array.from(after);
+  if (!a.length || !b.length) return { percent: 0, band: "low" };
+  const size = Math.min(a.length, b.length) < 2 ? 1 : 2;
+  const pieces = (chars: string[]) => {
+    const counts = new Map<string, number>();
+    for (let i = 0; i + size <= chars.length; i++) {
+      const key = size === 1 ? chars[i]! : chars[i]! + chars[i + 1]!;
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+    return counts;
+  };
+  const left = pieces(a), right = pieces(b);
+  let common = 0;
+  for (const [key, count] of left) common += Math.min(count, right.get(key) ?? 0);
+  // Different text never reads as 100%: cap at 99.9 so the number cannot hide a real difference.
+  const total = Math.max(a.length, b.length) - size + 1;
+  const percent = Math.min(99.9, Math.floor(common / total * 1000) / 10);
+  return { percent, band: textMatchBand(percent) };
+}
+
 export async function verifyConversion(source: Uint8Array, target: Uint8Array, warnings: string[] = []): Promise<Verification> {
   const result = await compare(arrayBuffer(source), arrayBuffer(target));
   const diffs = result.diffs as { before?: CompareBlock; after?: CompareBlock }[];
@@ -107,7 +154,7 @@ export async function verifyConversion(source: Uint8Array, target: Uint8Array, w
   return {
     contentMatch: !textDiff && imagesMatch,
     layoutVerified: false, lossless: false, limitation: LIMITATION,
-    stats: result.stats, warnings, textDiff, imagesMatch,
+    stats: result.stats, warnings, textDiff, imagesMatch, textMatch: textSimilarity(before, after),
   };
 }
 
@@ -254,6 +301,14 @@ export class Engine {
       // Presentation data is rebuilt by conversion; malformed optional data must not crash snapshot().
       file.checks = [];
       delete file.verification;
+      const match = file.textMatch;
+      const validMatch = match && typeof match === "object" && ["high", "mid", "low", "none"].includes(match.band) &&
+        (match.percent === null ? match.band === "none" : typeof match.percent === "number" && match.percent >= 0 && match.percent <= 100 && textMatchBand(match.percent) === match.band);
+      if (!validMatch || (file.status !== "ok" && file.status !== "diff")) delete file.textMatch;
+      else {
+        file.textMatch = { percent: match.percent, band: match.band };
+        file.checks = [textMatchCheck(match)];
+      }
     }
     this.state = { ...this.state, root: state.root, files: state.files, skippedDirs: state.skippedDirs,
       workers: state.workers, makeMarkdown: state.makeMarkdown, autoBackup: false, backupDir: state.backupDir,
@@ -467,6 +522,8 @@ export class Engine {
     delete file.target;
     delete file.mdPath;
     delete file.verification;
+    const previousMatch = file.textMatch;
+    delete file.textMatch;
     // A retry starts clean: a reason left from an earlier failure or skip must not show next to a success.
     delete file.reason;
     const previousOutput = file.owned;
@@ -493,6 +550,7 @@ export class Engine {
         file.mdPath = markdownPath;
         file.targetSize = (await stat(target)).size;
         file.status = previousOutput.status;
+        if (previousMatch) file.textMatch = previousMatch;
         file.message = "기존 HWPX를 보존하고 누락된 MD를 복구했습니다. 원본 유지";
         log("info", "file.markdown-recovered", { id: file.id, target, markdownPath });
         return;
@@ -559,7 +617,7 @@ export class Engine {
       await publish(target, converted.data);
       file.target = target;
       file.targetSize = converted.data.byteLength;
-      if (verification) file.verification = verification;
+      if (verification) { file.verification = verification; file.textMatch = verification.textMatch; }
       if (markdown !== undefined) {
         await publish(markdownPath, markdown);
         file.mdPath = markdownPath;
@@ -569,21 +627,26 @@ export class Engine {
       // (changed was decided above, before the outputs were written.)
       file.status = changed ? "diff" : "ok";
       if (byHancom) {
-        file.message = "한컴오피스 한글로 변환 · 원본 유지";
+        // Hancom saved the HWPX itself: no text comparison, the result simply passes.
+        file.message = "한컴오피스 한글로 변환 · 통과 · 원본 유지";
         file.checks = [
           { label: "HWPX 구조", value: "검증 통과", color: "green" },
           { label: "변환 엔진", value: `${hancom!.name} (내용 비교 생략)`, color: "green" },
+          { label: "판정", value: "한컴 변환 · 통과", color: "green" },
           { label: "원본", value: "수정하지 않음 · 복사본으로 변환", color: "green" },
         ];
       } else {
         const checked = verification!;
+        const match = checked.textMatch;
+        const matchText = textMatchCheck(match).value;
         // Say what differs: the first text difference, missing images, or the converter's warnings.
         const why = [checked.textDiff && `글자 차이: ${checked.textDiff}`, checked.imagesMatch === false && "그림 수 또는 내용 차이",
           converted.mode === "content" && "서식 일부 보존 제한", ...warnings].filter(Boolean).join("; ");
-        file.message = changed ? `내용 차이 또는 서식 보존 제한이 있습니다. 원본 유지. ${why}` : "글자·그림 일치 · 전체 서식 무손실 미확인 · 원본 유지";
+        file.message = `글자 ${matchText}${why ? ` · ${why}` : ""} · 전체 서식 무손실 미확인 · 원본 유지`;
         file.checks = [
           { label: "HWPX 구조", value: "검증 통과", color: "green" },
-          { label: "내용 비교", value: checked.contentMatch ? "글자·그림 일치" : checked.textDiff ? "글자 다름 · 위 처리 결과 참고" : "그림 차이", color: checked.contentMatch ? "green" : "amber" },
+          textMatchCheck(match),
+          { label: "그림", value: checked.imagesMatch === false ? "수 또는 내용 차이" : "같음", color: checked.imagesMatch === false ? "amber" : "green" },
           { label: "전체 서식 무손실", value: "미확인 · 원본 유지", color: "amber" },
         ];
       }
@@ -686,6 +749,7 @@ export class Engine {
       id: file.id, name: file.name, dir: file.dir, source: file.source, size: file.size,
       targetSize: file.targetSize, status: file.status, message: file.message.slice(0, 512),
       reason: file.reason?.slice(0, 512), target: file.target, mdPath: file.mdPath,
+      ...(file.textMatch ? { textMatch: { percent: file.textMatch.percent, band: file.textMatch.band } } : {}),
     });
     const offset = Number.isFinite(options?.offset) ? Math.max(0, Math.floor(options!.offset!)) : 0;
     const limit = Number.isFinite(options?.limit) ? Math.min(100, Math.max(1, Math.floor(options!.limit!))) : 100;

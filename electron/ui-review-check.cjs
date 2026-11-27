@@ -67,10 +67,10 @@ const xml = text => `<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8">
     await page.getByText('덮어쓰지 않았습니다', { exact: false }).first().waitFor();
     assert.equal(await page.getByRole('button', { name: '다시 시도', exact: true }).isDisabled(), true, '건너뛴 파일은 다시 시도 없음');
 
-    const converted = (await state()).counts.ok ? /^변환됨 \d+$/ : /^일부 차이 \d+$/;
+    const converted = (await state()).counts.ok ? /^변환됨 \d+$/ : /^차이 있음 \d+$/;
     await page.getByRole('button', { name: converted }).click();
     await page.getByRole('button', { name: /문서\d\.hwpml/ }).first().click();
-    await page.getByText('글자·그림을 원본과 비교했습니다', { exact: false }).waitFor();
+    await page.getByText('원본과 변환본의 글자(띄어쓰기 제외)가 얼마나 같은지', { exact: false }).waitFor();
     await page.getByText('확인 항목', { exact: true }).waitFor();
     await sane('변환됨 상세');
 

@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { convertToHwpx, parse, validateHwpx } from "kordoc";
-import { Engine, mainDrive, verifyConversion } from "./engine";
+import { Engine, mainDrive, textSimilarity, textMatchBand, verifyConversion } from "./engine";
 import { flushLog, initLogger, logPath } from "./logger";
 import { HANCOM_OPEN_FAILED, HANCOM_INTERACTION_REQUIRED, HANCOM_RECOVERY_BLOCKED } from "./hancom";
 import type * as FileSystem from "node:fs/promises";
@@ -48,9 +48,9 @@ test("실제 HWPML 변환 결과는 parse 가능한 HWPX이고 원본을 보존�
   assert.equal(engine.snapshot().files[0].status, "diff");
 });
 
-// The real-world sample (a table cell whose underline tag the HWPX reader does not return) used to be "일부 차이".
+// A real sample whose block comparison and plain text agree after conversion is read as 100% the same (and 변환됨).
 const SAMPLE_HWP = process.env.HWP2X_SMOKE_HWP ?? "/tmp/hwp2x-real/공고문.hwp";
-test("밑줄 표시나 제목/문단 구분만 달라지고 글자·그림이 같으면 '일치'로 판정한다", { skip: !existsSync(SAMPLE_HWP) && "실제 HWP 샘플 없음" }, async () => {
+test("실제 HWP를 변환했을 때 글자·그림이 같으면 100%로 판정한다", { skip: !existsSync(SAMPLE_HWP) && "실제 HWP 샘플 없음" }, async () => {
   const root = await mkdtemp(path.join(tmpdir(), "hwp2x-match-"));
   await writeFile(path.join(root, "공고문.hwp"), await readFile(SAMPLE_HWP));
   const engine = new Engine();
@@ -58,19 +58,68 @@ test("밑줄 표시나 제목/문단 구분만 달라지고 글자·그림이 �
   await engine.scan(root);
   await engine.convert();
   const file = engine.snapshot().files[0];
-  assert.equal(file.verification?.stats.modified, 1, "블록 비교로는 밑줄 표시 하나가 다름");
+  assert.ok(file.verification, "비교 결과가 있음");
   assert.equal(file.status, "ok", file.message);
-  assert.match(file.message, /글자·그림 일치/);
+  assert.match(file.message, /^글자 100% 같음/);
+  assert.deepEqual(file.textMatch, { percent: 100, band: "high" });
 });
 
-test("글자가 실제로 다르면 '일부 차이'로 두고 어디가 다른지 보여준다", async () => {
+test("글자가 실제로 다르면 '차이 있음'으로 두고 어디가 다른지와 같은 비율을 보여준다", async () => {
   const source = new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD SecCnt="1"></HEAD><BODY><SECTION Id="0"><P><TEXT><CHAR>승인일 2. 910.</CHAR></TEXT></P></SECTION></BODY></HWPML>');
   const changed = await convertToHwpx(new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8"?><HWPML Version="2.8"><HEAD SecCnt="1"></HEAD><BODY><SECTION Id="0"><P><TEXT><CHAR>승인일 2. 10.</CHAR></TEXT></P></SECTION></BODY></HWPML>'), { engine: "kordoc" });
   const same = await convertToHwpx(source, { engine: "kordoc" });
-  assert.equal((await verifyConversion(source, same.data)).contentMatch, true);
+  const matched = await verifyConversion(source, same.data);
+  assert.equal(matched.contentMatch, true);
+  assert.deepEqual(matched.textMatch, { percent: 100, band: "high" });
   const result = await verifyConversion(source, changed.data);
   assert.equal(result.contentMatch, false);
   assert.match(result.textDiff ?? "", /원본 "…승인일2\.910\.…" \/ 변환 "…승인일2\.10\.…"/);
+  assert.ok(result.textMatch.percent !== null && result.textMatch.percent < 100 && result.textMatch.percent > 50, String(result.textMatch.percent));
+});
+
+test("글자 일치율은 같은 비율을 세고 구간을 98·90 경계로 나눈다", () => {
+  assert.deepEqual(textSimilarity("", ""), { percent: null, band: "none" }, "양쪽 다 글자 없음은 비교 불가");
+  assert.deepEqual(textSimilarity("가나다", ""), { percent: 0, band: "low" }, "글자가 모두 사라짐");
+  assert.deepEqual(textSimilarity("", "가나다"), { percent: 0, band: "low" });
+  assert.deepEqual(textSimilarity("같은글자", "같은글자"), { percent: 100, band: "high" });
+  const body = "가나다라마바사아자차카타파하".repeat(20);
+  const one = textSimilarity(body, body.slice(0, -1) + "X");
+  assert.ok(one.percent! >= 98 && one.percent! < 100 && one.band === "high", JSON.stringify(one));
+  assert.equal(textSimilarity("가", "나").percent, 0);
+  assert.ok(textSimilarity("ab", "abc").percent! < 100, "다른 글자는 100%가 되지 않음");
+  // Order of paragraphs read back differently does not count as different text.
+  assert.ok(textSimilarity("첫문단내용입니다둘째문단입니다", "둘째문단입니다첫문단내용입니다").percent! >= 90);
+  assert.equal(textMatchBand(98), "high"); assert.equal(textMatchBand(97.9), "mid");
+  assert.equal(textMatchBand(90), "mid"); assert.equal(textMatchBand(89.9), "low");
+  assert.equal(textMatchBand(null), "none");
+  const big = "문서".repeat(500000);
+  const started = Date.now();
+  assert.equal(textSimilarity(big, big + "끝").band, "high");
+  assert.ok(Date.now() - started < 3000, "100만 자도 금방 계산");
+});
+
+test("목록 응답에 일치율이 실리고, 저장된 진행 기록의 잘못된 일치율은 버린다", async () => {
+  const { root, source } = await fixture();
+  const checkpoint = path.join(root, "state.json");
+  const engine = new Engine(checkpoint);
+  engine.configure({ makeMarkdown: false });
+  await engine.scan(root);
+  await engine.convert();
+  const row = engine.snapshot({ limit: 10 }).files[0];
+  assert.ok(row.textMatch && typeof row.textMatch.percent === "number", JSON.stringify(row));
+  assert.equal(await readFile(source, "utf8"), HWPML, "원본 그대로");
+  const saved = JSON.parse(await readFile(checkpoint, "utf8"));
+  saved.state.files[0].textMatch = { percent: 12, band: "high" };
+  await writeFile(checkpoint, JSON.stringify(saved));
+  const restored = new Engine(checkpoint);
+  assert.equal(await restored.restore(), true);
+  assert.equal(restored.state.files[0].textMatch, undefined, "구간이 비율과 맞지 않으면 버림");
+  saved.state.files[0].textMatch = row.textMatch;
+  await writeFile(checkpoint, JSON.stringify(saved));
+  const again = new Engine(checkpoint);
+  await again.restore();
+  assert.deepEqual(again.state.files[0].textMatch, row.textMatch, "올바른 일치율은 유지");
+  assert.equal(again.state.files[0].checks?.[0]?.label, "글자 일치율", "다시 열어도 상세에 일치율이 보임");
 });
 
 test("MD는 기본 생성되고 끌 수 있다", async () => {
@@ -610,6 +659,10 @@ test("한컴으로 저장한 HWPX는 내용이 달라 보여도 손실 체크 �
   assert.equal(file.status, "ok", file.message);
   assert.match(file.message, /한컴오피스 한글로 변환/);
   assert.equal(file.verification, undefined, "내용 비교를 하지 않음");
+  assert.equal(file.textMatch, undefined, "한컴 결과에는 일치율이 없음");
+  assert.match(file.message, /통과/);
+  assert.ok(file.checks?.some(check => check.value === "한컴 변환 · 통과" && check.color === "green"));
+  assert.equal(engine.snapshot({ limit: 10 }).files[0].textMatch, undefined);
   assert.deepEqual(await readFile(target), Buffer.from(other.data));
   assert.deepEqual(await readFile(source), before, "원본 바이트 그대로");
 });

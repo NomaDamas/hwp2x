@@ -85,7 +85,7 @@ async function outputs(root) {
     await page.getByText('중지됨', { exact: true }).first().waitFor();
     console.log(`4. 이어하기 후 중지: 실제 HWPX ${madeAtStop}개, 남은 ${60 - madeAtStop}개는 변환 안 함`);
 
-    // 5. From the stopped screen, pick another folder in one press (no extra screen in between).
+    // 5. The stopped screen stays on the run screen; the 특정 폴더 변환 menu or 다른 폴더 선택 both pick another folder.
     await pick(second);
     await page.getByRole('button', { name: '다른 폴더 선택', exact: true }).click();
     await until(s => s.root === second && s.total === 5 && s.phase === 'idle', '두번째 폴더 검색');
@@ -97,8 +97,14 @@ async function outputs(root) {
     assert.equal((await outputs(first)).length, madeAtStop, '첫 폴더는 더 바뀌지 않음');
     console.log('5. 다른 폴더 선택 → 변환 → 완료: 5/5 HWPX, 첫 폴더 결과 그대로');
 
-    // 6. After done, convert the same folder again in one press: rescans; existing outputs are skipped.
-    await page.getByRole('button', { name: '이 폴더 다시 변환', exact: true }).click();
+    // 6. After done the view moved to 파일; the 특정 폴더 변환 menu shows the folder-picking first screen again, and
+    //    converting the same folder rescans: existing outputs are skipped.
+    for (let i = 0; i < 40 && !(await page.getByPlaceholder('파일 이름 검색').count()); i++) await page.waitForTimeout(100);
+    assert.equal(await page.getByPlaceholder('파일 이름 검색').count() > 0, true, '완료 뒤 파일 화면으로 넘어감');
+    await page.getByText('특정 폴더 변환', { exact: true }).first().click();
+    await page.getByRole('button', { name: '폴더 선택', exact: true }).first().waitFor();
+    assert.equal(await page.getByRole('button', { name: '이 폴더 다시 변환', exact: true }).count(), 0, '완료 뒤 메뉴는 첫 화면');
+    await page.getByRole('button', { name: '검색 후 변환', exact: true }).click();
     s = await until(s => s.phase === 'done' && s.counts.skipped === 5, '완료 후 재실행');
     for (const menu of ['파일', '설정', '특정 폴더 변환']) { await page.getByText(menu, { exact: true }).first().click(); assert.ok(Array.isArray((await state()).files)); }
     assert.equal(await page.locator('[role=alert]').count(), 0);

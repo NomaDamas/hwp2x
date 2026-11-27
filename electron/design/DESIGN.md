@@ -66,7 +66,7 @@
 - Empty: run screen shows the chosen folder with a 폴더 선택 button next to the start button
 - Running (scanning/converting): start and folder controls are hidden or locked; progress bar, counts and the files being converted stay visible; only 일시정지 and 중지 act
 - Paused: 이어하기 continues the same list; 중지 ends it; a new folder or scan is refused until one of those
-- Stopped/done: 다른 폴더 선택 opens the folder dialog at once and shows that folder ready on the run screen; 이 폴더 다시 변환 rescans and converts in one press (existing outputs are skipped, never overwritten). Reopening the app after a finished or stopped run starts on the run screen, not the old result
+- Stopped/done: a 특정 폴더 변환 run that reaches done moves the view to 파일 once so the results are seen; pressing the 특정 폴더 변환 menu after a finished or stopped run opens the folder-picking first screen. A stopped run stays on the run screen (다른 폴더 선택 / 이 폴더 다시 변환 remain there). Existing outputs are skipped, never overwritten. Reopening the app after a finished or stopped run starts on the run screen, not the old result
 - Error: inline actionable error message; caught IPC promises
 - Success: done phase, actual counts, report and backup-folder controls
 - Disabled: unsupported backup/deletion remains disabled without certification
@@ -74,7 +74,7 @@
 
 ## Content voice
 - Tone: concise Korean desktop utility copy
-- Terminology: a successful file is `변환됨`, never `일치`, because Hancom results are not compared. The detail panel says which check ran (한컴: 내용 비교 생략; kordoc: 글자·그림 비교) under `확인 항목`; never call it full lossless preservation
+- Terminology: a built-in (kordoc) result shows `글자 NN.N%` — the share of plain text (spacing ignored) that is the same — coloured by band: 98% and up green, 90–98% amber, under 90% red, no text grey `비교할 글자 없음`. The number is always shown so colour is never the only signal; different text never reads 100%. A Hancom result is not compared and shows `한컴 변환 · 통과` in green. The detail panel lists the checks under `확인 항목`; never call it full lossless preservation
 - Microcopy rules: state when originals remain and why unsupported actions are disabled
 
 ## Implementation constraints

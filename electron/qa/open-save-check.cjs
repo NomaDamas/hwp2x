@@ -121,15 +121,16 @@ async function inspect({ app, page, evidence, capture }) {
     try { process.kill(-receipt.viewerPid, 'SIGTERM'); } catch (error) { if (error.code !== 'ESRCH') throw error; }
     await sleep(500);
   });
-  await open('백업 폴더 열기', backup);
+  // A finished run moves to 파일, where 백업 폴더 열기 and 변환 결과 저장 now sit next to the list.
   await click(/^파일(?:\s+\d+)?$/);
+  await open('백업 폴더 열기', backup);
   await page.getByRole('button').filter({ hasText: file.name }).first().click();
   await open('원본 열기', file.source);
   await open('HWPX 열기', file.target);
   await open('폴더 열기', file.dir);
   await page.getByText('설정', { exact: true }).first().click();
   await open('로그 폴더 열기', path.join(evidence.profile, 'logs'));
-  await page.getByText('특정 폴더 변환', { exact: true }).first().click();
+  await click(/^파일(?:\s+\d+)?$/);
   const report = path.join(evidence.directory, '보고서 공백.json');
   const answer = async (value, delay = 0) => app.evaluate((_, args) => { globalThis.__openSave.answer = args.value; globalThis.__openSave.delay = args.delay; }, { value, delay });
   await scenario('보고서 저장 취소', async () => {
