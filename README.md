@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/hwp2x-flow.gif" alt="HWP 폴더를 자동으로 HWPX와 Markdown으로 바꾸고 AI 검색·읽기로 이어지는 흐름" width="100%">
+  <img src="docs/hwp2x-intro.gif" alt="hwp2x 연출 애니메이션: 컴퓨터 곳곳의 HWP 파일을 찾아 한컴오피스 한글로 변환하고, 원본 HWP는 그대로 둔 채 옆에 HWPX와 Markdown을 만든 뒤, AI 도우미가 Markdown에서 출장비 기준을 찾아 답하는 흐름" width="100%">
 </p>
 
 <p align="center"><sub>위 GIF는 제품 흐름을 설명하는 연출 애니메이션입니다. 실제 Linux 패키지 앱 화면은 아래에서 확인할 수 있습니다.</sub></p>
